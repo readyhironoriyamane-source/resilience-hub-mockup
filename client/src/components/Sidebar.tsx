@@ -19,7 +19,7 @@ export function Sidebar() {
         <div className="w-10 h-10 rounded-full bg-black flex items-center justify-center border border-white/20">
           <span className="font-serif text-white font-bold">RH</span>
         </div>
-        <span className="font-serif font-bold text-lg tracking-tight">The Resilience Hub...</span>
+        <span className="font-serif font-bold text-lg tracking-tight">The Global Resilience Hub</span>
       </div>
 
       <div className="flex-1 overflow-y-auto py-4">

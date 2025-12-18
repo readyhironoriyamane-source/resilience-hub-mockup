@@ -37,7 +37,7 @@ export default function Home() {
               <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center border border-white/20">
                 <span className="font-serif text-white font-bold text-xs">RH</span>
               </div>
-              <span className="font-serif font-bold text-sm">Resilience Hub</span>
+              <span className="font-serif font-bold text-sm">The Global Resilience Hub</span>
             </div>
             <div className="hidden md:block">
               {/* Desktop Header Content if needed */}
@@ -54,15 +54,12 @@ export default function Home() {
                 <img src="/images/bg-stars.png" alt="Logo" className="w-full h-full object-cover" />
               </div>
               <div className="flex-1 text-center md:text-left">
-                <h1 className="font-serif text-2xl md:text-3xl font-bold mb-2">Resilience Hub</h1>
+                <h1 className="font-serif text-2xl md:text-3xl font-bold mb-2">The Global Resilience Hub</h1>
                 <p className="text-sm text-muted-foreground mb-2">
                   レジハブ（The Global Resilience Hub）は、日本と世界の"防災とレジリエンスの知を繋ぐ"<br/>
                   〜みんなで育てるコミュニティ型プラットフォーム〜
                 </p>
-                <div className="flex items-center justify-center md:justify-start gap-2 text-xs text-muted-foreground">
-                  <span>By @Yama</span>
-                  <span>対応言語 🇯🇵 🇺🇸</span>
-                </div>
+
               </div>
             </div>
             
