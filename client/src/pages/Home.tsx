@@ -56,7 +56,8 @@ export default function Home() {
               <div className="flex-1 text-center md:text-left">
                 <h1 className="font-serif text-2xl md:text-3xl font-bold mb-2">Resilience Hub</h1>
                 <p className="text-sm text-muted-foreground mb-2">
-                  レジリエンスハブ (Resilience Hub) は、防災・減災、気候変動対応、社会インフラ強化といった「...
+                  レジハブ（The Global Resilience Hub）は、日本と世界の"防災とレジリエンスの知を繋ぐ"<br/>
+                  〜みんなで育てるコミュニティ型プラットフォーム〜
                 </p>
                 <div className="flex items-center justify-center md:justify-start gap-2 text-xs text-muted-foreground">
                   <span>By @Yama</span>
@@ -68,52 +69,28 @@ export default function Home() {
             {/* Tab Navigation */}
             <div className="container mx-auto px-4 mt-4 overflow-x-auto no-scrollbar">
               <div className="flex items-center gap-6 text-sm font-medium min-w-max pb-3">
-                <button className="text-white border-b-2 border-white pb-1">トップページ</button>
-                <button className="text-muted-foreground hover:text-white transition-colors pb-1">インパクトファンド</button>
-                <button className="text-muted-foreground hover:text-white transition-colors pb-1">ファンド</button>
-                <button className="text-muted-foreground hover:text-white transition-colors pb-1">環境改善</button>
-                <button className="text-muted-foreground hover:text-white transition-colors pb-1">一次産業</button>
+                <button className="text-white border-b-2 border-white pb-1">タイムライン</button>
+                <button className="text-muted-foreground hover:text-white transition-colors pb-1">防災テクノロジー</button>
+                <button className="text-muted-foreground hover:text-white transition-colors pb-1">気候変動レジリエンス</button>
+                <button className="text-muted-foreground hover:text-white transition-colors pb-1">社会インフラ</button>
+                <button className="text-muted-foreground hover:text-white transition-colors pb-1">その他</button>
               </div>
             </div>
           </div>
         </header>
 
         {/* Content */}
-        <div className="container mx-auto px-4 py-8 space-y-12 pb-24">
-          {/* Section: Impact Fund */}
+        <div className="container mx-auto px-4 py-8 pb-24">
+          {/* Timeline View */}
           <section>
-            <div className="flex items-center gap-2 mb-6 group cursor-pointer">
-              <h2 className="font-serif text-xl font-bold">インパクトファンド</h2>
-              <span className="text-muted-foreground group-hover:translate-x-1 transition-transform">›</span>
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="font-serif text-xl font-bold">最新の投稿</h2>
+              <div className="text-xs text-muted-foreground">全 {contentItems.length} 件</div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-              {contentItems.filter(i => i.category === "インパクトファンド").map(item => (
-                <ContentCard key={item.id} item={item} onClick={handleCardClick} />
-              ))}
-            </div>
-          </section>
-
-          {/* Section: Fund */}
-          <section>
-            <div className="flex items-center gap-2 mb-6 group cursor-pointer">
-              <h2 className="font-serif text-xl font-bold">ファンド</h2>
-              <span className="text-muted-foreground group-hover:translate-x-1 transition-transform">›</span>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-              {contentItems.filter(i => i.category === "ファンド").map(item => (
-                <ContentCard key={item.id} item={item} onClick={handleCardClick} />
-              ))}
-            </div>
-          </section>
-          
-           {/* Section: Primary Industry */}
-           <section>
-            <div className="flex items-center gap-2 mb-6 group cursor-pointer">
-              <h2 className="font-serif text-xl font-bold">一次産業</h2>
-              <span className="text-muted-foreground group-hover:translate-x-1 transition-transform">›</span>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-              {contentItems.filter(i => i.category === "一次産業").map(item => (
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* Sort by date descending (mock implementation assumes already sorted or just map) */}
+              {contentItems.map(item => (
                 <ContentCard key={item.id} item={item} onClick={handleCardClick} />
               ))}
             </div>

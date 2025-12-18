@@ -6,10 +6,10 @@ export function Sidebar() {
   const [activeItem, setActiveItem] = useState("フィード");
 
   const navItems = [
-    { name: "フィード", icon: null },
-    { name: "インパクトファンド", icon: null },
-    { name: "ファンド", icon: null },
-    { name: "環境改善", icon: null },
+    { name: "タイムライン", icon: null },
+    { name: "防災テクノロジー", icon: null },
+    { name: "気候変動レジリエンス", icon: null },
+    { name: "社会インフラ", icon: null },
     { name: "その他", icon: null },
   ];
 

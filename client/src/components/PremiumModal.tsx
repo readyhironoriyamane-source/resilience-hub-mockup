@@ -20,7 +20,7 @@ export function PremiumModal({ isOpen, onClose }: PremiumModalProps) {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#1a2a4a]" />
           <div className="absolute bottom-4 left-6 right-6 text-center">
             <h2 className="font-serif text-2xl font-bold mb-1 text-white drop-shadow-md">The Global Resilience Hub</h2>
-            <p className="text-xs text-white/80">日本と世界の"防災とレジリエンスの知を繋ぐ"</p>
+            <p className="text-xs text-white/80">レジハブ（The Global Resilience Hub）は、日本と世界の"防災とレジリエンスの知を繋ぐ"</p>
             <p className="text-xs text-white/80">〜みんなで育てるコミュニティ型プラットフォーム〜</p>
           </div>
         </div>
@@ -31,12 +31,27 @@ export function PremiumModal({ isOpen, onClose }: PremiumModalProps) {
               会員限定情報の閲覧や自治体・企業・研究機関をつなぐ<br/>
               コミュニティへぜひご参加ください
             </p>
+
+            <div className="mb-6 p-4 bg-slate-50 rounded-lg border border-slate-200">
+              <h3 className="font-bold text-slate-800 mb-2">有料会員プラン</h3>
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-sm text-slate-600">個人会員</span>
+                <span className="font-bold text-slate-900">¥30,000 / 月</span>
+              </div>
+              <div className="flex justify-between items-center mb-3">
+                <span className="text-sm text-slate-600">法人会員</span>
+                <span className="font-bold text-slate-900">¥40,000 / 月</span>
+              </div>
+              <a href="#" className="text-xs text-primary hover:underline block text-right">
+                料金プランの詳細はこちら &gt;
+              </a>
+            </div>
             
             <Button 
-              className="w-full bg-transparent border-2 border-[#d4a574] text-[#d4a574] hover:bg-[#d4a574] hover:text-white font-bold py-6 text-lg transition-all duration-300"
-              onClick={() => alert("決済フローへ進みます")}
+              className="w-full bg-[#d4a574] text-white hover:bg-[#c49564] font-bold py-6 text-lg transition-all duration-300 shadow-lg shadow-[#d4a574]/30"
+              onClick={() => alert("決済ページへ移動します")}
             >
-              無料メンバー登録
+              有料会員に登録する
             </Button>
           </div>
 
