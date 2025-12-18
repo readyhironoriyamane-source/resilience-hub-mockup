@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Bell, Home, Settings, ShoppingBag, User } from "lucide-react";
+import { Bell, Home, Settings, ShoppingBag, User, LayoutDashboard, Sparkles } from "lucide-react";
 import { useState } from "react";
 
 export function Sidebar() {
@@ -7,6 +7,8 @@ export function Sidebar() {
 
   const navItems = [
     { name: "タイムライン", icon: null },
+    { name: "パーソナル・ダッシュボード", icon: <LayoutDashboard className="w-4 h-4" /> },
+    { name: "AIサマリー・マッチング", icon: <Sparkles className="w-4 h-4" /> },
     { name: "防災テクノロジー", icon: null },
     { name: "気候変動レジリエンス", icon: null },
     { name: "社会インフラ", icon: null },
@@ -31,9 +33,15 @@ export function Sidebar() {
           {navItems.slice(1).map((item) => (
             <div 
               key={item.name}
-              className="px-4 py-3 text-sm text-muted-foreground hover:text-foreground hover:bg-white/5 rounded-lg cursor-pointer transition-colors"
+              className={`px-4 py-3 text-sm rounded-lg cursor-pointer transition-colors flex items-center gap-3 ${
+                activeItem === item.name 
+                  ? "text-white bg-white/10" 
+                  : "text-muted-foreground hover:text-foreground hover:bg-white/5"
+              }`}
+              onClick={() => setActiveItem(item.name)}
             >
-              {item.name}
+              {item.icon && <span className={activeItem === item.name ? "text-[#d4a574]" : "text-muted-foreground group-hover:text-white"}>{item.icon}</span>}
+              <span>{item.name}</span>
             </div>
           ))}
         </div>

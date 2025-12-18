@@ -1,9 +1,10 @@
+import { useState } from "react";
 import { ContentCard } from "@/components/ContentCard";
 import { PremiumModal } from "@/components/PremiumModal";
 import { Sidebar } from "@/components/Sidebar";
-import { ContentItem, contentItems } from "@/lib/mock-data";
-import { Search } from "lucide-react";
-import { useState } from "react";
+import { contentItems, type ContentItem } from "@/lib/mock-data";
+import { Bell, Menu, Search, ShoppingBag, Sparkles, Settings2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -59,6 +60,33 @@ export default function Home() {
                   レジハブ（The Global Resilience Hub）は、日本と世界の"防災とレジリエンスの知を繋ぐ"<br/>
                   〜みんなで育てるコミュニティ型プラットフォーム〜
                 </p>
+
+                {/* Solution Intelligence Settings Area */}
+                <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md max-w-2xl">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-2 text-[#d4a574]">
+                      <Sparkles className="w-4 h-4" />
+                      <span className="font-bold text-sm">Solution Intelligence</span>
+                    </div>
+                    <Button variant="ghost" size="sm" className="h-6 text-xs text-muted-foreground hover:text-white px-2">
+                      <Settings2 className="w-3 h-3 mr-1" />
+                      設定を変更
+                    </Button>
+                  </div>
+                  <p className="text-xs text-muted-foreground mb-3 text-left">
+                    AIがあなたの関心に合わせてタイムラインを最適化します
+                  </p>
+                  <div className="flex flex-wrap gap-2 justify-center md:justify-start">
+                    {["防災DX", "気候変動適応", "スマートシティ", "サステナブルファイナンス"].map((tag) => (
+                      <span key={tag} className="px-2 py-1 rounded-md bg-white/10 text-xs text-white/90 border border-white/5 hover:bg-white/20 cursor-pointer transition-colors">
+                        {tag}
+                      </span>
+                    ))}
+                    <span className="px-2 py-1 rounded-md border border-dashed border-white/20 text-xs text-muted-foreground hover:text-white cursor-pointer transition-colors">
+                      + 追加
+                    </span>
+                  </div>
+                </div>
 
               </div>
             </div>
