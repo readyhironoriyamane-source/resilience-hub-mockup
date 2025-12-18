@@ -28,8 +28,8 @@ export function PremiumModal({ isOpen, onClose }: PremiumModalProps) {
         <div className="p-6 bg-white text-slate-900">
           <div className="text-center mb-6">
             <p className="text-sm font-medium mb-4 text-slate-600">
-              会員限定情報の閲覧や自治体・企業・研究機関をつなぐ<br/>
-              コミュニティへぜひご参加ください
+              コンテンツの閲覧やコミュニティ参加など<br/>
+              素敵な有料会員体験を手に入れましょう
             </p>
 
             <div className="mb-6 p-4 bg-slate-50 rounded-lg border border-slate-200">
