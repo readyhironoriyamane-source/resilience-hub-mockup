@@ -33,18 +33,37 @@ export function PremiumModal({ isOpen, onClose }: PremiumModalProps) {
             </p>
 
             <div className="mb-6 p-4 bg-slate-50 rounded-lg border border-slate-200">
-              <h3 className="font-bold text-slate-800 mb-2">有料会員プラン</h3>
-              <div className="flex justify-between items-center mb-2">
-                <span className="text-sm text-slate-600">個人会員</span>
-                <span className="font-bold text-slate-900">¥30,000 / 月</span>
+              <h3 className="font-bold text-slate-800 mb-3">有料会員プラン</h3>
+              
+              <div className="space-y-3">
+                <div className="flex justify-between items-center pb-2 border-b border-slate-200">
+                  <div>
+                    <span className="block text-sm font-bold text-slate-700">Standard</span>
+                    <span className="text-xs text-slate-500">SaaS単体</span>
+                  </div>
+                  <span className="font-bold text-slate-900">¥40,000<span className="text-xs font-normal text-slate-500">/月</span></span>
+                </div>
+                
+                <div className="flex justify-between items-center pb-2 border-b border-slate-200 bg-emerald-50 -mx-4 px-4 py-2 border-l-4 border-l-emerald-500">
+                  <div>
+                    <span className="block text-sm font-bold text-emerald-800">Bundle <span className="text-[10px] bg-emerald-100 text-emerald-600 px-1.5 py-0.5 rounded-full ml-1">人気</span></span>
+                    <span className="text-xs text-emerald-600">OSINTech付帯</span>
+                  </div>
+                  <span className="font-bold text-emerald-700">¥60,000<span className="text-xs font-normal text-emerald-600">/月</span></span>
+                </div>
+
+                <div className="flex justify-between items-center">
+                  <div>
+                    <span className="block text-sm font-bold text-slate-700">Premium</span>
+                    <span className="text-xs text-slate-500">協会特別会員</span>
+                  </div>
+                  <span className="font-bold text-slate-900">¥100,000<span className="text-xs font-normal text-slate-500">/月</span></span>
+                </div>
               </div>
-              <div className="flex justify-between items-center mb-3">
-                <span className="text-sm text-slate-600">法人会員</span>
-                <span className="font-bold text-slate-900">¥40,000 / 月</span>
+
+              <div className="mt-4 text-right">
+                <a href="/about" className="text-xs text-blue-600 hover:underline font-medium">料金プランの詳細・比較はこちら &rarr;</a>
               </div>
-              <a href="#" className="text-xs text-primary hover:underline block text-right">
-                料金プランの詳細はこちら &gt;
-              </a>
             </div>
             
             <Button 

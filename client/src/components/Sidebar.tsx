@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Bell, Home, Settings, ShoppingBag, User, LayoutDashboard, Sparkles } from "lucide-react";
+import { Bell, Home, Settings, ShoppingBag, User, LayoutDashboard, Sparkles, Globe } from "lucide-react";
 import { useState } from "react";
 
 export function Sidebar() {
@@ -51,6 +51,10 @@ export function Sidebar() {
             <span className="font-bold text-sm">メンバー</span>
             <Settings className="w-4 h-4 opacity-70" />
           </div>
+          <a href="/about" className="flex items-center justify-between px-4 py-2 text-muted-foreground hover:text-foreground cursor-pointer mt-2">
+            <span className="font-bold text-sm">サービス紹介</span>
+            <Globe className="w-4 h-4 opacity-70" />
+          </a>
         </div>
 
         <div className="mt-4 px-4">
