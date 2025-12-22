@@ -121,74 +121,140 @@ export default function About() {
             <p className="text-muted-foreground">レジハブが提供する、持続可能な成長のための3つのエンジン</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Value 1: Solution Intelligence */}
-            <div className="p-8 rounded-2xl bg-[#1e293b]/30 border border-blue-500/20 hover:border-blue-500/40 transition-all group">
-              <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <Globe className="w-6 h-6 text-blue-400" />
+            <div className="bg-card/30 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden hover:bg-card/40 transition-all duration-300 group flex flex-col h-full">
+              <div className="aspect-square w-full relative overflow-hidden bg-blue-900/20">
+                <img 
+                  src="/images/solution-intelligence.png" 
+                  alt="Solution Intelligence Isometric Illustration" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-6 right-6">
+                  <div className="w-12 h-12 rounded-xl bg-blue-500/20 backdrop-blur-sm flex items-center justify-center mb-3 border border-blue-500/30">
+                    <Globe className="w-6 h-6 text-blue-400" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white">ソリューションインテリジェンス</h3>
+                </div>
               </div>
-              <h3 className="text-xl font-bold mb-2 text-blue-100">ソリューション<br/>インテリジェンス</h3>
-              <p className="text-xs font-bold text-blue-400 mb-4 tracking-wider">ACQUISITION (集客)</p>
-              <ul className="space-y-3 text-sm text-slate-300">
-                <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-blue-500 mt-0.5 shrink-0" />
-                  <span>世界中の防災テック情報DB</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-blue-500 mt-0.5 shrink-0" />
-                  <span>公式バッジによる信頼性担保</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-blue-500 mt-0.5 shrink-0" />
-                  <span>カテゴリ別ニュースフィード</span>
-                </li>
-              </ul>
+              <div className="p-6 flex-1 flex flex-col">
+                <p className="text-xs font-bold text-blue-400 mb-4 tracking-wider">ACQUISITION (集客)</p>
+                <p className="text-blue-200/80 mb-6 text-sm leading-relaxed">
+                  世界中の防災テック情報DBとOSINT連携によるリスク予兆検知。
+                  「防災ならまずここを見る」という第一想起を獲得します。
+                </p>
+                <ul className="space-y-3 mt-auto">
+                  <li className="flex items-center text-sm text-gray-300">
+                    <div className="w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center mr-3 shrink-0">
+                      <Check className="w-3 h-3 text-blue-400" />
+                    </div>
+                    世界中の防災テック情報DB
+                  </li>
+                  <li className="flex items-center text-sm text-gray-300">
+                    <div className="w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center mr-3 shrink-0">
+                      <Check className="w-3 h-3 text-blue-400" />
+                    </div>
+                    公式バッジによる信頼性担保
+                  </li>
+                  <li className="flex items-center text-sm text-gray-300">
+                    <div className="w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center mr-3 shrink-0">
+                      <Check className="w-3 h-3 text-blue-400" />
+                    </div>
+                    カテゴリ別ニュースフィード
+                  </li>
+                </ul>
+              </div>
             </div>
 
             {/* Value 2: Personal Dashboard */}
-            <div className="p-8 rounded-2xl bg-[#1e293b]/30 border border-emerald-500/20 hover:border-emerald-500/40 transition-all group">
-              <div className="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <LayoutDashboard className="w-6 h-6 text-emerald-400" />
+            <div className="bg-card/30 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden hover:bg-card/40 transition-all duration-300 group flex flex-col h-full">
+              <div className="aspect-square w-full relative overflow-hidden bg-emerald-900/20">
+                <img 
+                  src="/images/personal-dashboard.png" 
+                  alt="Personal Dashboard Isometric Illustration" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-6 right-6">
+                  <div className="w-12 h-12 rounded-xl bg-emerald-500/20 backdrop-blur-sm flex items-center justify-center mb-3 border border-emerald-500/30">
+                    <LayoutDashboard className="w-6 h-6 text-emerald-400" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white">パーソナル・ダッシュボード</h3>
+                </div>
               </div>
-              <h3 className="text-xl font-bold mb-2 text-emerald-100">パーソナル<br/>ダッシュボード</h3>
-              <p className="text-xs font-bold text-emerald-400 mb-4 tracking-wider">RETENTION (定着)</p>
-              <ul className="space-y-3 text-sm text-slate-300">
-                <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
-                  <span>自社課題・リスクの可視化</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
-                  <span>導入ソリューション管理</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
-                  <span>気になる情報のクリッピング</span>
-                </li>
-              </ul>
+              <div className="p-6 flex-1 flex flex-col">
+                <p className="text-xs font-bold text-emerald-400 mb-4 tracking-wider">RETENTION (定着)</p>
+                <p className="text-emerald-200/80 mb-6 text-sm leading-relaxed">
+                  自社課題・リスクの可視化と導入ソリューション管理。
+                  業務ツール化することでスイッチングコストを高め、定着を促進します。
+                </p>
+                <ul className="space-y-3 mt-auto">
+                  <li className="flex items-center text-sm text-gray-300">
+                    <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mr-3 shrink-0">
+                      <Check className="w-3 h-3 text-emerald-400" />
+                    </div>
+                    自社課題・リスクの可視化
+                  </li>
+                  <li className="flex items-center text-sm text-gray-300">
+                    <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mr-3 shrink-0">
+                      <Check className="w-3 h-3 text-emerald-400" />
+                    </div>
+                    導入ソリューション管理
+                  </li>
+                  <li className="flex items-center text-sm text-gray-300">
+                    <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mr-3 shrink-0">
+                      <Check className="w-3 h-3 text-emerald-400" />
+                    </div>
+                    関心分野のクリッピング
+                  </li>
+                </ul>
+              </div>
             </div>
 
             {/* Value 3: AI Matching & Community */}
-            <div className="p-8 rounded-2xl bg-[#1e293b]/30 border border-orange-500/20 hover:border-orange-500/40 transition-all group">
-              <div className="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <Users className="w-6 h-6 text-orange-400" />
+            <div className="bg-card/30 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden hover:bg-card/40 transition-all duration-300 group flex flex-col h-full">
+              <div className="aspect-square w-full relative overflow-hidden bg-orange-900/20">
+                <img 
+                  src="/images/ai-matching.png" 
+                  alt="AI Matching & Community Isometric Illustration" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-6 right-6">
+                  <div className="w-12 h-12 rounded-xl bg-orange-500/20 backdrop-blur-sm flex items-center justify-center mb-3 border border-orange-500/30">
+                    <Users className="w-6 h-6 text-orange-400" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white">AIマッチング & コミュニティ</h3>
+                </div>
               </div>
-              <h3 className="text-xl font-bold mb-2 text-orange-100">AIマッチング &<br/>コミュニティ</h3>
-              <p className="text-xs font-bold text-orange-400 mb-4 tracking-wider">MONETIZATION (収益化)</p>
-              <ul className="space-y-3 text-sm text-slate-300">
-                <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-orange-500 mt-0.5 shrink-0" />
-                  <span>AI要約 & 最適解レコメンド</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-orange-500 mt-0.5 shrink-0" />
-                  <span>課題解決型スレッド (Q&A)</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-orange-500 mt-0.5 shrink-0" />
-                  <span>ベンダーへの自動送客</span>
-                </li>
-              </ul>
+              <div className="p-6 flex-1 flex flex-col">
+                <p className="text-xs font-bold text-orange-400 mb-4 tracking-wider">MONETIZATION (収益化)</p>
+                <p className="text-orange-200/80 mb-6 text-sm leading-relaxed">
+                  AI要約＆最適解レコメンドと課題解決型スレッド。
+                  質の高いQ&Aがコンテンツ資産となり、高単価なマッチングを生みます。
+                </p>
+                <ul className="space-y-3 mt-auto">
+                  <li className="flex items-center text-sm text-gray-300">
+                    <div className="w-5 h-5 rounded-full bg-orange-500/20 flex items-center justify-center mr-3 shrink-0">
+                      <Check className="w-3 h-3 text-orange-400" />
+                    </div>
+                    AI要約＆最適解レコメンド
+                  </li>
+                  <li className="flex items-center text-sm text-gray-300">
+                    <div className="w-5 h-5 rounded-full bg-orange-500/20 flex items-center justify-center mr-3 shrink-0">
+                      <Check className="w-3 h-3 text-orange-400" />
+                    </div>
+                    課題解決型スレッド (Q&A)
+                  </li>
+                  <li className="flex items-center text-sm text-gray-300">
+                    <div className="w-5 h-5 rounded-full bg-orange-500/20 flex items-center justify-center mr-3 shrink-0">
+                      <Check className="w-3 h-3 text-orange-400" />
+                    </div>
+                    ベンダーへの自動送客
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
