@@ -460,45 +460,124 @@ export default function About() {
 
       {/* FAQ & Trust Section */}
       <section className="py-20 bg-[#0f172a]">
-        <div className="container mx-auto px-4 max-w-3xl">
+        <div className="container mx-auto px-4 max-w-4xl">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-serif font-bold mb-4">よくある質問</h2>
-            <p className="text-muted-foreground">レジハブのご利用に関する疑問にお答えします</p>
+            <p className="text-muted-foreground">導入検討時によくいただくご質問をまとめました</p>
           </div>
 
-          <div className="space-y-4">
-            {[
-              { q: "無料プランでどこまで利用できますか？", a: "無料プランでは、1日3件までのタイムライン閲覧が可能です。基本的なニュースフィードの確認や、コミュニティの雰囲気を知るために最適です。" },
-              { q: "AIマッチング機能とは何ですか？", a: "あなたの関心分野や抱えている課題（ダッシュボード登録情報）に基づき、AIが世界中の膨大なデータベースから最適なソリューションやニュースを自動で選定・要約して提案する機能です。" },
-              { q: "セキュリティ対策は万全ですか？", a: "はい。通信の暗号化（SSL/TLS）はもちろん、企業情報の取り扱いには細心の注意を払っています。ISO27001（ISMS）に準拠した運用体制を構築しています。" },
-              { q: "プランの変更や解約はいつでも可能ですか？", a: "はい、マイページからいつでもプラン変更・解約が可能です。契約期間の縛りはございません（法人契約を除く）。" }
-            ].map((item, i) => (
-              <div key={i} className="border border-white/10 rounded-lg bg-[#1e293b]/30 overflow-hidden">
-                <button 
-                  className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-white/5 transition-colors"
-                  onClick={() => toggleFaq(i)}
-                >
-                  <span className="font-bold text-slate-200 flex items-center gap-3">
-                    <HelpCircle className="w-5 h-5 text-[#d4a574]" />
-                    {item.q}
-                  </span>
-                  <span className={`transform transition-transform ${openFaq === i ? 'rotate-180' : ''}`}>▼</span>
-                </button>
-                {openFaq === i && (
-                  <div className="px-6 py-4 text-slate-400 border-t border-white/5 bg-[#1e293b]/50">
-                    {item.a}
+          <div className="space-y-12">
+            {/* Category 1: Service & Features */}
+            <div>
+              <h3 className="text-xl font-bold text-[#d4a574] mb-6 flex items-center gap-2">
+                <Sparkles className="w-5 h-5" /> サービス・機能について
+              </h3>
+              <div className="space-y-4">
+                {[
+                  { q: "海外情報の翻訳精度はどの程度ですか？", a: "最新のLLM（大規模言語モデル）を活用し、防災・レジリエンス分野の専門用語に特化したチューニングを行っています。単なる直訳ではなく、文脈を理解した要約・解説を提供するため、専門家でなくても内容を正確に把握できます。" },
+                  { q: "情報の更新頻度はどのくらいですか？", a: "OSINTech連携により、世界中のソースを24時間365日モニタリングしています。重大なリスク予兆やニュースはリアルタイムで検知し、ダッシュボードおよびアラート通知にて即座にお知らせします。" },
+                  { q: "特定の国や地域の情報だけを収集できますか？", a: "はい、可能です。パーソナル・ダッシュボードの設定で、関心のある国・地域、または特定の災害種別（洪水、地震、サイバー攻撃など）をフィルタリング登録することで、必要な情報だけを効率的に収集できます。" }
+                ].map((item, i) => (
+                  <div key={i} className="border border-white/10 rounded-lg bg-[#1e293b]/30 overflow-hidden">
+                    <button 
+                      className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-white/5 transition-colors"
+                      onClick={() => toggleFaq(i)}
+                    >
+                      <span className="font-bold text-slate-200 flex items-center gap-3">
+                        <HelpCircle className="w-5 h-5 text-[#d4a574]" />
+                        {item.q}
+                      </span>
+                      <span className={`transform transition-transform ${openFaq === i ? 'rotate-180' : ''}`}>▼</span>
+                    </button>
+                    {openFaq === i && (
+                      <div className="px-6 py-4 text-slate-400 border-t border-white/5 bg-[#1e293b]/50 leading-relaxed">
+                        {item.a}
+                      </div>
+                    )}
                   </div>
-                )}
+                ))}
               </div>
-            ))}
+            </div>
+
+            {/* Category 2: Contract & Pricing */}
+            <div>
+              <h3 className="text-xl font-bold text-[#d4a574] mb-6 flex items-center gap-2">
+                <Briefcase className="w-5 h-5" /> 契約・料金について
+              </h3>
+              <div className="space-y-4">
+                {[
+                  { q: "自治体向けの請求書払いは対応していますか？", a: "はい、対応しております。StandardプランおよびPremiumプランでは、請求書払い（月末締め翌月末払い）が可能です。見積書・納品書・請求書の発行など、自治体様の会計処理に合わせた柔軟な対応を行っております。" },
+                  { q: "最低契約期間はありますか？", a: "Standardプランは1ヶ月単位での契約・解約が可能です。Premiumプラン（パートナー契約）につきましては、専任サポート体制構築のため、原則として6ヶ月または12ヶ月契約をお願いしております。" },
+                  { q: "トライアル期間はありますか？", a: "Freeプラン（お試し体験）にて、基本機能を無期限でご確認いただけます。また、法人・自治体様向けに、Standardプランの全機能を2週間無料でお試しいただけるトライアル制度もご用意しております。詳細はお問い合わせください。" }
+                ].map((item, i) => (
+                  <div key={i + 10} className="border border-white/10 rounded-lg bg-[#1e293b]/30 overflow-hidden">
+                    <button 
+                      className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-white/5 transition-colors"
+                      onClick={() => toggleFaq(i + 10)}
+                    >
+                      <span className="font-bold text-slate-200 flex items-center gap-3">
+                        <HelpCircle className="w-5 h-5 text-[#d4a574]" />
+                        {item.q}
+                      </span>
+                      <span className={`transform transition-transform ${openFaq === i + 10 ? 'rotate-180' : ''}`}>▼</span>
+                    </button>
+                    {openFaq === i + 10 && (
+                      <div className="px-6 py-4 text-slate-400 border-t border-white/5 bg-[#1e293b]/50 leading-relaxed">
+                        {item.a}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Category 3: Security & Support */}
+            <div>
+              <h3 className="text-xl font-bold text-[#d4a574] mb-6 flex items-center gap-2">
+                <ShieldCheck className="w-5 h-5" /> セキュリティ・サポート
+              </h3>
+              <div className="space-y-4">
+                {[
+                  { q: "セキュリティ対策について教えてください", a: "通信の常時SSL化、WAF（Web Application Firewall）による攻撃遮断、データの国内サーバー保管など、金融機関レベルのセキュリティ対策を実施しています。また、第三者機関による脆弱性診断を定期的に実施し、安全性の確保に努めています。" },
+                  { q: "導入時のサポート体制はどのようになっていますか？", a: "導入時には、オンラインでの操作説明会や初期設定サポート（キーワード登録支援など）を実施いたします。運用開始後も、チャットおよびメールでのサポート窓口をご利用いただけます（Standardプラン以上）。" },
+                  { q: "LGWAN（総合行政ネットワーク）環境で利用できますか？", a: "現在はインターネット経由でのクラウドサービスとして提供しておりますが、LGWAN-ASP対応についても順次検討を進めております。LGWAN接続端末からのご利用については、自治体様のセキュリティポリシーに合わせて個別にご相談可能です。" }
+                ].map((item, i) => (
+                  <div key={i + 20} className="border border-white/10 rounded-lg bg-[#1e293b]/30 overflow-hidden">
+                    <button 
+                      className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-white/5 transition-colors"
+                      onClick={() => toggleFaq(i + 20)}
+                    >
+                      <span className="font-bold text-slate-200 flex items-center gap-3">
+                        <HelpCircle className="w-5 h-5 text-[#d4a574]" />
+                        {item.q}
+                      </span>
+                      <span className={`transform transition-transform ${openFaq === i + 20 ? 'rotate-180' : ''}`}>▼</span>
+                    </button>
+                    {openFaq === i + 20 && (
+                      <div className="px-6 py-4 text-slate-400 border-t border-white/5 bg-[#1e293b]/50 leading-relaxed">
+                        {item.a}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
-          <div className="mt-12 p-6 rounded-xl bg-[#1e293b]/50 border border-emerald-500/20 flex items-center gap-4 justify-center">
-            <Lock className="w-8 h-8 text-emerald-500" />
-            <div className="text-left">
-              <h4 className="font-bold text-white">安心のセキュリティ体制</h4>
-              <p className="text-sm text-slate-400">エンタープライズレベルのデータ保護とプライバシー管理を徹底しています。</p>
+          <div className="mt-16 p-8 rounded-2xl bg-gradient-to-br from-[#1e293b] to-[#0f172a] border border-emerald-500/20 flex flex-col md:flex-row items-center gap-8 shadow-2xl">
+            <div className="w-16 h-16 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0">
+              <Lock className="w-8 h-8 text-emerald-500" />
             </div>
+            <div className="text-center md:text-left flex-1">
+              <h4 className="text-xl font-bold text-white mb-2">エンタープライズレベルの安全性</h4>
+              <p className="text-slate-400 leading-relaxed">
+                ISO27001（ISMS）認証取得に向けた運用体制を構築。
+                お客様の大切なデータとプライバシーを守るため、最高水準のセキュリティ対策を講じています。
+              </p>
+            </div>
+            <Button variant="outline" className="border-emerald-500/50 text-emerald-400 hover:bg-emerald-500/10 whitespace-nowrap">
+              セキュリティ詳細を見る
+            </Button>
           </div>
         </div>
       </section>
