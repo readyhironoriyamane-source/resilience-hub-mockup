@@ -10,12 +10,12 @@ export function Sidebar() {
     { 
       name: "パーソナル・ダッシュボード", 
       icon: <LayoutDashboard className="w-4 h-4" />,
-      description: "課題・導入管理"
+      description: "自社課題を見える化"
     },
     { 
       name: "AIサマリー & コミュニティ", 
       icon: <Sparkles className="w-4 h-4" />,
-      description: "解決・権威"
+      description: "世界中の有識者とつながる"
     },
     { name: "防災テクノロジー", icon: null },
     { name: "気候変動レジリエンス", icon: null },
