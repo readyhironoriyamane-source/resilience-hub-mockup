@@ -20,12 +20,14 @@ export default function About() {
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-[#0a0f1c]/90 backdrop-blur-md border-b border-white/10">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#1e293b] to-[#0f172a] border border-white/10 flex items-center justify-center">
-              <span className="font-serif font-bold text-white">RH</span>
+          <Link href="/">
+            <div className="flex items-center gap-3 cursor-pointer">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#1e293b] to-[#0f172a] border border-white/10 flex items-center justify-center">
+                <span className="font-serif font-bold text-white">RH</span>
+              </div>
+              <span className="font-serif font-bold text-lg tracking-tight truncate max-w-[200px] md:max-w-none">The Global Resilience Hub</span>
             </div>
-            <span className="font-serif font-bold text-lg tracking-tight truncate max-w-[200px] md:max-w-none">The Global Resilience Hub</span>
-          </div>
+          </Link>
           
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-4">
@@ -169,14 +171,14 @@ export default function About() {
                 <p className="text-xs font-bold text-blue-400 mb-4 tracking-wider">OSINTech連携</p>
                 <p className="text-blue-200/80 mb-6 text-sm leading-relaxed">
                   世界中の防災テック情報を会員限定で閲覧可能。
-                  1500を超える国際機関からの情報を一元化し、リスク予兆検知の知らせを受け取ることができます。
+                  AIが関心に合わせてタイムラインを最適化し、1500を超える国際機関からの情報を一元化します。
                 </p>
                 <ul className="space-y-3 mt-auto">
                   <li className="flex items-center text-sm text-gray-300">
                     <div className="w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center mr-3 shrink-0">
                       <Check className="w-3 h-3 text-blue-400" />
                     </div>
-                    世界中の防災テック情報DB
+                    AIによるタイムライン最適化
                   </li>
                   <li className="flex items-center text-sm text-gray-300">
                     <div className="w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center mr-3 shrink-0">
@@ -213,21 +215,21 @@ export default function About() {
               <div className="p-6 flex-1 flex flex-col">
                 <p className="text-xs font-bold text-emerald-400 mb-4 tracking-wider">AI最適化 & 可視化</p>
                 <p className="text-emerald-200/80 mb-6 text-sm leading-relaxed">
-                  AIが関心に合わせてタイムラインを最適化。
-                  自社課題からのリスク可視化と導入ソリューション管理、関心分野のクリッピングで精度を高めます。
+                  自社課題からのリスク可視化と導入ソリューション管理を実現。
+                  関心分野のクリッピングによって、ダッシュボードの精度を高めていくことができます。
                 </p>
                 <ul className="space-y-3 mt-auto">
                   <li className="flex items-center text-sm text-gray-300">
                     <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mr-3 shrink-0">
                       <Check className="w-3 h-3 text-emerald-400" />
                     </div>
-                    AIによるタイムライン最適化
+                    自社課題・リスクの可視化
                   </li>
                   <li className="flex items-center text-sm text-gray-300">
                     <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mr-3 shrink-0">
                       <Check className="w-3 h-3 text-emerald-400" />
                     </div>
-                    自社課題・リスクの可視化
+                    導入ソリューション管理
                   </li>
                   <li className="flex items-center text-sm text-gray-300">
                     <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mr-3 shrink-0">
