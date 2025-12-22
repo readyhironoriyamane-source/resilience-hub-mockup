@@ -1,8 +1,18 @@
 import { Button } from "@/components/ui/button";
-import { Check, Globe, LayoutDashboard, Sparkles, ArrowRight, ShieldCheck, Users } from "lucide-react";
+import { 
+  Check, Globe, LayoutDashboard, Sparkles, ArrowRight, ShieldCheck, Users, 
+  AlertTriangle, Network, Clock, Building2, Briefcase, LineChart, HelpCircle, Lock 
+} from "lucide-react";
 import { Link } from "wouter";
+import { useState } from "react";
 
 export default function About() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  const toggleFaq = (index: number) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
   return (
     <div className="min-h-screen bg-[#0a0f1c] text-white font-sans selection:bg-[#d4a574] selection:text-white">
       {/* Navigation */}
@@ -39,9 +49,8 @@ export default function About() {
           </div>
           
           <h1 className="text-4xl md:text-6xl font-serif font-bold mb-6 leading-tight">
-            日本と世界の<br className="md:hidden" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-slate-400">"防災とレジリエンスの知"</span>
-            を繋ぐ
+            地球規模の課題を、<br className="md:hidden" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-slate-400">集合知で解決する</span>
           </h1>
           
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
@@ -50,7 +59,7 @@ export default function About() {
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/">
-              <Button size="lg" className="w-full sm:w-auto bg-[#d4a574] hover:bg-[#c49564] text-white border-none h-12 px-8 text-base">
+              <Button size="lg" className="w-full sm:w-auto bg-[#d4a574] hover:bg-[#c49564] text-white border-none h-12 px-8 text-base font-bold shadow-[0_0_20px_rgba(212,165,116,0.3)]">
                 無料でメンバー登録
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
@@ -58,6 +67,48 @@ export default function About() {
             <Button variant="outline" size="lg" className="w-full sm:w-auto border-white/20 text-white hover:bg-white/10 h-12 px-8 text-base bg-transparent">
               資料をダウンロード
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Problem Section */}
+      <section className="py-20 bg-[#0f172a] relative">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-serif font-bold mb-4">なぜ、今レジハブなのか？</h2>
+            <p className="text-muted-foreground">私たちが直面している、待ったなしの課題</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="p-8 rounded-2xl bg-[#1e293b]/50 border border-red-500/20 hover:border-red-500/40 transition-all">
+              <div className="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center mb-6">
+                <AlertTriangle className="w-6 h-6 text-red-400" />
+              </div>
+              <h3 className="text-xl font-bold mb-3 text-red-100">気候変動の激甚化</h3>
+              <p className="text-slate-400 leading-relaxed">
+                自然災害の頻度と規模は年々増大しており、従来の対策だけでは対応しきれない事態が世界中で発生しています。
+              </p>
+            </div>
+
+            <div className="p-8 rounded-2xl bg-[#1e293b]/50 border border-yellow-500/20 hover:border-yellow-500/40 transition-all">
+              <div className="w-12 h-12 rounded-xl bg-yellow-500/10 flex items-center justify-center mb-6">
+                <Network className="w-6 h-6 text-yellow-400" />
+              </div>
+              <h3 className="text-xl font-bold mb-3 text-yellow-100">情報の分断</h3>
+              <p className="text-slate-400 leading-relaxed">
+                優れた防災技術や知見が世界中に点在しているにもかかわらず、言語や業界の壁により共有されず、孤立しています。
+              </p>
+            </div>
+
+            <div className="p-8 rounded-2xl bg-[#1e293b]/50 border border-slate-500/20 hover:border-slate-500/40 transition-all">
+              <div className="w-12 h-12 rounded-xl bg-slate-500/10 flex items-center justify-center mb-6">
+                <Clock className="w-6 h-6 text-slate-400" />
+              </div>
+              <h3 className="text-xl font-bold mb-3 text-slate-100">対策の遅れ</h3>
+              <p className="text-slate-400 leading-relaxed">
+                リスクの予兆を検知してから対策を講じるまでのリードタイムが長く、被害を最小限に抑える機会を逃しています。
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -143,8 +194,71 @@ export default function About() {
         </div>
       </section>
 
-      {/* Pricing Section */}
+      {/* Target & Use Case Section */}
       <section className="py-20 bg-[#0f172a]">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-serif font-bold mb-4">誰のためのプラットフォームか？</h2>
+            <p className="text-muted-foreground">それぞれの立場から、レジリエンス社会の実現に貢献します</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-[#1e293b] rounded-xl overflow-hidden border border-white/5">
+              <div className="h-48 bg-slate-800 relative">
+                <img src="/images/primary-industry.jpg" alt="自治体" className="w-full h-full object-cover opacity-60" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <Building2 className="w-16 h-16 text-white/80" />
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-2">自治体・公共機関</h3>
+                <p className="text-sm text-muted-foreground mb-4">地域防災計画の策定と実行</p>
+                <ul className="space-y-2 text-sm text-slate-300">
+                  <li className="flex items-start gap-2"><Check className="w-4 h-4 text-[#d4a574] mt-0.5" /> 先進的な防災事例の参照</li>
+                  <li className="flex items-start gap-2"><Check className="w-4 h-4 text-[#d4a574] mt-0.5" /> 最適なソリューションの選定</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="bg-[#1e293b] rounded-xl overflow-hidden border border-white/5">
+              <div className="h-48 bg-slate-800 relative">
+                <img src="/images/impact-fund.jpg" alt="企業" className="w-full h-full object-cover opacity-60" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <Briefcase className="w-16 h-16 text-white/80" />
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-2">企業・ビジネス</h3>
+                <p className="text-sm text-muted-foreground mb-4">BCP策定と新規事業創出</p>
+                <ul className="space-y-2 text-sm text-slate-300">
+                  <li className="flex items-start gap-2"><Check className="w-4 h-4 text-[#d4a574] mt-0.5" /> サプライチェーンリスク管理</li>
+                  <li className="flex items-start gap-2"><Check className="w-4 h-4 text-[#d4a574] mt-0.5" /> 防災ビジネスのパートナー探索</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="bg-[#1e293b] rounded-xl overflow-hidden border border-white/5">
+              <div className="h-48 bg-slate-800 relative">
+                <img src="/images/environment.jpg" alt="投資家" className="w-full h-full object-cover opacity-60" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <LineChart className="w-16 h-16 text-white/80" />
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-2">投資家・金融機関</h3>
+                <p className="text-sm text-muted-foreground mb-4">ESG投資とリスク評価</p>
+                <ul className="space-y-2 text-sm text-slate-300">
+                  <li className="flex items-start gap-2"><Check className="w-4 h-4 text-[#d4a574] mt-0.5" /> 気候変動リスクの定量評価</li>
+                  <li className="flex items-start gap-2"><Check className="w-4 h-4 text-[#d4a574] mt-0.5" /> 有望な防災テックへの投資</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section className="py-20 bg-[#0a0f1c]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-serif font-bold mb-4">料金プラン</h2>
@@ -254,9 +368,82 @@ export default function About() {
         </div>
       </section>
 
+      {/* FAQ & Trust Section */}
+      <section className="py-20 bg-[#0f172a]">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-serif font-bold mb-4">よくある質問</h2>
+            <p className="text-muted-foreground">レジハブのご利用に関する疑問にお答えします</p>
+          </div>
+
+          <div className="space-y-4">
+            {[
+              { q: "無料プランでどこまで利用できますか？", a: "無料プランでは、1日3件までのタイムライン閲覧が可能です。基本的なニュースフィードの確認や、コミュニティの雰囲気を知るために最適です。" },
+              { q: "AIマッチング機能とは何ですか？", a: "あなたの関心分野や抱えている課題（ダッシュボード登録情報）に基づき、AIが世界中の膨大なデータベースから最適なソリューションやニュースを自動で選定・要約して提案する機能です。" },
+              { q: "セキュリティ対策は万全ですか？", a: "はい。通信の暗号化（SSL/TLS）はもちろん、企業情報の取り扱いには細心の注意を払っています。ISO27001（ISMS）に準拠した運用体制を構築しています。" },
+              { q: "プランの変更や解約はいつでも可能ですか？", a: "はい、マイページからいつでもプラン変更・解約が可能です。契約期間の縛りはございません（法人契約を除く）。" }
+            ].map((item, i) => (
+              <div key={i} className="border border-white/10 rounded-lg bg-[#1e293b]/30 overflow-hidden">
+                <button 
+                  className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-white/5 transition-colors"
+                  onClick={() => toggleFaq(i)}
+                >
+                  <span className="font-bold text-slate-200 flex items-center gap-3">
+                    <HelpCircle className="w-5 h-5 text-[#d4a574]" />
+                    {item.q}
+                  </span>
+                  <span className={`transform transition-transform ${openFaq === i ? 'rotate-180' : ''}`}>▼</span>
+                </button>
+                {openFaq === i && (
+                  <div className="px-6 py-4 text-slate-400 border-t border-white/5 bg-[#1e293b]/50">
+                    {item.a}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 p-6 rounded-xl bg-[#1e293b]/50 border border-emerald-500/20 flex items-center gap-4 justify-center">
+            <Lock className="w-8 h-8 text-emerald-500" />
+            <div className="text-left">
+              <h4 className="font-bold text-white">安心のセキュリティ体制</h4>
+              <p className="text-sm text-slate-400">エンタープライズレベルのデータ保護とプライバシー管理を徹底しています。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Closing CTA Section */}
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#d4a574] to-[#b08050]"></div>
+        <div className="absolute inset-0 bg-[url('/images/bg-stars.png')] opacity-20 mix-blend-overlay"></div>
+        
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6 text-white">
+            まずは無料で、<br/>世界の知見に触れる
+          </h2>
+          <p className="text-white/90 text-lg mb-10 max-w-2xl mx-auto">
+            リスクをチャンスに変える、最初の一歩をここから踏み出しましょう。<br/>
+            クレジットカード登録なしで、すぐに始められます。
+          </p>
+          <Link href="/">
+            <Button size="lg" className="bg-white text-[#b08050] hover:bg-slate-100 border-none h-14 px-10 text-lg font-bold shadow-xl">
+              今すぐ無料で登録する
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Button>
+          </Link>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="py-12 bg-[#0a0f1c] border-t border-white/10 text-sm text-muted-foreground">
         <div className="container mx-auto px-4 text-center">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center">
+              <span className="font-serif font-bold text-white text-xs">RH</span>
+            </div>
+            <span className="font-serif font-bold text-white">The Global Resilience Hub</span>
+          </div>
           <p>&copy; 2025 The Global Resilience Hub. All rights reserved.</p>
         </div>
       </footer>
