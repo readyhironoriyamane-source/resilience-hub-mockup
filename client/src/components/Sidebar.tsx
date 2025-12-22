@@ -13,7 +13,7 @@ export function Sidebar() {
       description: "自社課題を見える化"
     },
     { 
-      name: "AIサマリー & コミュニティ", 
+      name: "AIマッチング & コミュニティ", 
       icon: <Sparkles className="w-4 h-4" />,
       description: "世界中の有識者とつながる"
     },
