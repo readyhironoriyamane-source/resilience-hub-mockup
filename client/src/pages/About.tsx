@@ -72,10 +72,7 @@ export default function About() {
         </div>
         
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/10 text-xs font-medium text-[#d4a574] mb-6 backdrop-blur-sm">
-            <Sparkles className="w-3 h-3" />
-            <span>New: AIサマリー・マッチング機能リリース</span>
-          </div>
+
           
           <h1 className="text-4xl md:text-6xl font-serif font-bold mb-6 leading-tight">
             地球規模の課題を、<br className="md:hidden" />
