@@ -6,10 +6,30 @@ import { contentItems, type ContentItem } from "@/lib/mock-data";
 import { Bell, Menu, Search, ShoppingBag, Sparkles, Settings2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+import { useEffect, useRef } from "react";
+import { Link } from "wouter";
+
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState<ContentItem | null>(null);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+        setIsHeaderVisible(false);
+      } else {
+        setIsHeaderVisible(true);
+      }
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleCardClick = (item: ContentItem) => {
     setSelectedItem(item);
@@ -44,18 +64,24 @@ export default function Home() {
 
       <main className="md:pl-64 relative z-10 min-h-screen flex flex-col">
         {/* Header */}
-        <header className="sticky top-0 z-30 bg-[#0B1026]/95 backdrop-blur-md border-b border-white/10">
+        <header 
+          className={`sticky top-0 z-30 bg-[#0B1026]/95 backdrop-blur-md border-b border-white/10 transition-transform duration-300 ${
+            isHeaderVisible ? "translate-y-0" : "-translate-y-full"
+          }`}
+        >
           <div className="container mx-auto px-4 h-16 flex items-center justify-between">
             <div className="md:hidden flex items-center gap-3">
               <Button variant="ghost" size="icon" className="text-white -ml-2" onClick={() => setIsSidebarOpen(true)}>
                 <Menu className="w-6 h-6" />
               </Button>
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center border border-white/20">
-                  <span className="font-serif text-white font-bold text-xs">RH</span>
+              <Link href="/">
+                <div className="flex items-center gap-2 cursor-pointer">
+                  <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center border border-white/20">
+                    <span className="font-serif text-white font-bold text-xs">RH</span>
+                  </div>
+                  <span className="font-serif font-bold text-sm truncate max-w-[180px]">The Global Resilience Hub</span>
                 </div>
-                <span className="font-serif font-bold text-sm truncate max-w-[180px]">The Global Resilience Hub</span>
-              </div>
+              </Link>
             </div>
             <div className="hidden md:block">
               {/* Desktop Header Content if needed */}

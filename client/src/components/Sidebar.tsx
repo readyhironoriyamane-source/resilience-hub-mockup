@@ -16,7 +16,7 @@ export function Sidebar() {
   ];
 
   return (
-    <div className="w-64 h-screen fixed left-0 top-0 border-r border-white/10 bg-background/80 backdrop-blur-xl flex flex-col z-40 hidden md:flex">
+    <div className="w-64 h-screen bg-[#0B1026] border-r border-white/10 flex flex-col h-full overflow-hidden">
       <div className="p-6 flex items-center gap-3">
         <div className="w-10 h-10 rounded-full bg-black flex items-center justify-center border border-white/20">
           <span className="font-serif text-white font-bold">RH</span>
