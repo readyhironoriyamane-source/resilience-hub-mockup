@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { 
   Check, Globe, LayoutDashboard, Sparkles, ArrowRight, ShieldCheck, Users, 
   AlertTriangle, Network, Clock, Building2, Briefcase, LineChart, HelpCircle, Lock,
-  Menu, X
+  Menu, X, Crown
 } from "lucide-react";
 import { Link } from "wouter";
 import { useState } from "react";
@@ -357,100 +357,207 @@ export default function About() {
             <p className="text-muted-foreground">あなたのニーズに合わせた最適なプランをお選びください</p>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-4 max-w-6xl mx-auto">
-            {/* Free Plan */}
-            <div className="p-6 rounded-xl bg-[#1e293b]/50 border border-white/5 flex flex-col">
-              <div className="mb-4">
-                <h3 className="text-lg font-bold text-white">Free</h3>
-                <div className="text-2xl font-bold mt-2">¥0</div>
-                <p className="text-xs text-muted-foreground mt-1">お試し体験</p>
-              </div>
-              <div className="flex-1 space-y-4 mb-6">
-                <div className="text-sm border-t border-white/10 pt-4">
-                  <p className="font-medium text-slate-300 mb-2">ソリューションインテリジェンス</p>
-                  <p className="text-xs text-muted-foreground">タイムライン閲覧: 3件/日</p>
+          <div className="max-w-6xl mx-auto overflow-x-auto">
+            <div className="min-w-[800px] bg-[#1e293b]/50 rounded-xl border border-white/5 overflow-hidden">
+              {/* Header Row */}
+              <div className="grid grid-cols-5 border-b border-white/10">
+                <div className="p-6 flex flex-col justify-center border-r border-white/5 bg-[#0f172a]/50">
+                  <span className="text-xs font-bold text-muted-foreground tracking-wider uppercase">Plan Comparison</span>
+                  <h3 className="text-lg font-bold text-white mt-1">機能・特典一覧</h3>
                 </div>
-              </div>
-              <Button variant="outline" className="w-full border-white/20 text-white hover:bg-white/10 bg-transparent">
-                無料で開始
-              </Button>
-            </div>
+                
+                {/* Free */}
+                <div className="p-6 text-center border-r border-white/5 bg-[#1e293b]/30">
+                  <h4 className="font-bold text-slate-300 mb-2">Free</h4>
+                  <div className="text-2xl font-bold text-white mb-1">¥0</div>
+                  <p className="text-xs text-muted-foreground">リード獲得用</p>
+                </div>
 
-            {/* Standard Plan */}
-            <div className="p-6 rounded-xl bg-[#1e293b]/50 border border-blue-500/30 flex flex-col relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1 bg-blue-500"></div>
-              <div className="mb-4">
-                <h3 className="text-lg font-bold text-blue-100">Standard</h3>
-                <div className="text-2xl font-bold mt-2 text-blue-400">¥40,000<span className="text-sm text-muted-foreground font-normal">/月</span></div>
-                <p className="text-xs text-muted-foreground mt-1">標準プラン</p>
-              </div>
-              <div className="flex-1 space-y-4 mb-6">
-                <div className="text-sm border-t border-white/10 pt-4">
-                  <p className="font-medium text-slate-300 mb-2">ソリューションインテリジェンス</p>
-                  <p className="text-xs text-muted-foreground flex items-center gap-1"><Check className="w-3 h-3 text-blue-500" /> 無制限閲覧</p>
+                {/* Standard */}
+                <div className="p-6 text-center border-r border-white/5 bg-[#1e293b]/30">
+                  <h4 className="font-bold text-blue-400 mb-2">Standard</h4>
+                  <div className="text-2xl font-bold text-white mb-1">¥30,000<span className="text-sm font-normal text-muted-foreground">/月</span></div>
+                  <p className="text-xs text-muted-foreground">SaaS単体利用</p>
                 </div>
-                <div className="text-sm border-t border-white/10 pt-4">
-                  <p className="font-medium text-slate-300 mb-2">パーソナル・ダッシュボード</p>
-                  <p className="text-xs text-muted-foreground flex items-center gap-1"><Check className="w-3 h-3 text-blue-500" /> 基本機能</p>
-                </div>
-              </div>
-              <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white border-none">
-                選択する
-              </Button>
-            </div>
 
-            {/* Bundle Plan (Recommended) */}
-            <div className="p-6 rounded-xl bg-[#1e293b] border-2 border-emerald-500 flex flex-col relative shadow-[0_0_30px_rgba(16,185,129,0.1)] transform md:-translate-y-4 z-10">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-emerald-500 text-white text-[10px] font-bold px-3 py-1 rounded-b-lg uppercase tracking-wider">
-                Recommended
-              </div>
-              <div className="mb-4 mt-4">
-                <h3 className="text-lg font-bold text-emerald-100">Bundle</h3>
-                <div className="text-2xl font-bold mt-2 text-emerald-400">¥60,000<span className="text-sm text-muted-foreground font-normal">/月</span></div>
-                <p className="text-xs text-emerald-500/80 mt-1 font-medium">標準プラン + コミュニティ</p>
-              </div>
-              <div className="flex-1 space-y-4 mb-6">
-                <div className="text-sm border-t border-white/10 pt-4">
-                  <p className="font-medium text-slate-300 mb-2">ソリューションインテリジェンス</p>
-                  <p className="text-xs text-muted-foreground flex items-center gap-1"><Check className="w-3 h-3 text-emerald-500" /> 無制限閲覧</p>
-                  <p className="text-xs text-emerald-400 flex items-center gap-1 mt-1 font-medium"><ShieldCheck className="w-3 h-3" /> OSINTech リスク予兆</p>
+                {/* Bundle (Recommended) */}
+                <div className="p-6 text-center border-r border-white/5 bg-emerald-950/20 relative overflow-hidden">
+                  <div className="absolute top-0 left-0 w-full h-1 bg-emerald-500"></div>
+                  <div className="absolute top-2 left-1/2 -translate-x-1/2 bg-emerald-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider whitespace-nowrap">
+                    Recommended
+                  </div>
+                  <h4 className="font-bold text-emerald-400 mb-2 mt-4">Bundle</h4>
+                  <div className="text-2xl font-bold text-white mb-1">¥60,000<span className="text-sm font-normal text-muted-foreground">/月</span></div>
+                  <p className="text-xs text-emerald-500/80 font-medium">OSINTech + 協会付帯</p>
                 </div>
-                <div className="text-sm border-t border-white/10 pt-4">
-                  <p className="font-medium text-slate-300 mb-2">パーソナル・ダッシュボード</p>
-                  <p className="text-xs text-muted-foreground flex items-center gap-1"><Check className="w-3 h-3 text-emerald-500" /> 課題・導入管理</p>
-                </div>
-                <div className="text-sm border-t border-white/10 pt-4">
-                  <p className="font-medium text-slate-300 mb-2">AIマッチング & コミュニティ</p>
-                  <p className="text-xs text-muted-foreground flex items-center gap-1"><Check className="w-3 h-3 text-emerald-500" /> 参加権限</p>
-                </div>
-              </div>
-              <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white border-none font-bold">
-                今すぐ始める
-              </Button>
-            </div>
 
-            {/* Premium Plan */}
-            <div className="p-6 rounded-xl bg-[#1e293b]/50 border border-orange-500/30 flex flex-col relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1 bg-orange-500"></div>
-              <div className="mb-4">
-                <h3 className="text-lg font-bold text-orange-100">Premium</h3>
-                <div className="text-2xl font-bold mt-2 text-orange-400">¥100,000<span className="text-sm text-muted-foreground font-normal">/月</span></div>
-                <p className="text-xs text-muted-foreground mt-1">パートナー</p>
-              </div>
-              <div className="flex-1 space-y-4 mb-6">
-                <div className="text-sm border-t border-white/10 pt-4">
-                  <p className="font-medium text-slate-300 mb-2">全機能アクセス</p>
-                  <p className="text-xs text-muted-foreground flex items-center gap-1"><Check className="w-3 h-3 text-orange-500" /> 無制限</p>
-                </div>
-                <div className="text-sm border-t border-white/10 pt-4">
-                  <p className="font-medium text-slate-300 mb-2">AIマッチング & コミュニティ</p>
-                  <p className="text-xs text-muted-foreground flex items-center gap-1"><Check className="w-3 h-3 text-orange-500" /> 優先レコメンド</p>
+                {/* Premium */}
+                <div className="p-6 text-center bg-orange-950/20 relative overflow-hidden">
+                  <div className="absolute top-0 left-0 w-full h-1 bg-orange-500"></div>
+                  <h4 className="font-bold text-orange-400 mb-2">Premium</h4>
+                  <div className="text-2xl font-bold text-white mb-1">¥100,000<span className="text-sm font-normal text-muted-foreground">/月</span></div>
+                  <p className="text-xs text-orange-500/80 font-medium">戦略パートナー枠</p>
                 </div>
               </div>
-              <Button className="w-full bg-orange-600 hover:bg-orange-700 text-white border-none">
-                お問い合わせ
-              </Button>
+
+              {/* Section 1: Solution Intelligence */}
+              <div className="bg-[#0f172a]/30 px-6 py-3 border-b border-white/10">
+                <h4 className="text-sm font-bold text-slate-300">① ソリューション・インテリジェンス（情報収集）</h4>
+              </div>
+              
+              {/* Row: Timeline */}
+              <div className="grid grid-cols-5 border-b border-white/5 hover:bg-white/[0.02] transition-colors">
+                <div className="p-4 border-r border-white/5 flex flex-col justify-center">
+                  <span className="font-bold text-sm text-slate-200">タイムライン閲覧</span>
+                  <span className="text-xs text-muted-foreground mt-0.5">最新の防災ソリューション・ニュース</span>
+                </div>
+                <div className="p-4 border-r border-white/5 flex items-center justify-center text-sm font-medium text-slate-300">
+                  3件/日
+                </div>
+                <div className="p-4 border-r border-white/5 flex items-center justify-center">
+                  <div className="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center">
+                    <Check className="w-4 h-4 text-blue-500" />
+                  </div>
+                </div>
+                <div className="p-4 border-r border-white/5 flex items-center justify-center bg-emerald-950/10">
+                  <div className="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center">
+                    <Check className="w-4 h-4 text-emerald-500" />
+                  </div>
+                </div>
+                <div className="p-4 flex items-center justify-center bg-orange-950/10">
+                  <div className="w-6 h-6 rounded-full bg-orange-500/20 flex items-center justify-center">
+                    <Check className="w-4 h-4 text-orange-500" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Row: OSINTech Risk Prediction */}
+              <div className="grid grid-cols-5 border-b border-white/10 hover:bg-white/[0.02] transition-colors">
+                <div className="p-4 border-r border-white/5 flex flex-col justify-center">
+                  <span className="font-bold text-sm text-emerald-400">OSINTech リスク予兆</span>
+                  <span className="text-xs text-muted-foreground mt-0.5">国際ルール形成・予兆検知 (RuleWatcher)</span>
+                </div>
+                <div className="p-4 border-r border-white/5 flex items-center justify-center text-muted-foreground">-</div>
+                <div className="p-4 border-r border-white/5 flex items-center justify-center text-muted-foreground">-</div>
+                <div className="p-4 border-r border-white/5 flex flex-col items-center justify-center bg-emerald-950/10">
+                  <div className="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center mb-1">
+                    <Check className="w-4 h-4 text-emerald-500" />
+                  </div>
+                  <span className="text-[10px] font-bold text-emerald-500">閲覧権限解放</span>
+                </div>
+                <div className="p-4 flex items-center justify-center bg-orange-950/10">
+                  <div className="w-6 h-6 rounded-full bg-orange-500/20 flex items-center justify-center">
+                    <Check className="w-4 h-4 text-orange-500" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Section 2: Personal Dashboard */}
+              <div className="bg-[#0f172a]/30 px-6 py-3 border-b border-white/10">
+                <h4 className="text-sm font-bold text-slate-300">② パーソナル・ダッシュボード（業務管理）</h4>
+              </div>
+
+              {/* Row: Issue Management */}
+              <div className="grid grid-cols-5 border-b border-white/10 hover:bg-white/[0.02] transition-colors">
+                <div className="p-4 border-r border-white/5 flex flex-col justify-center">
+                  <span className="font-bold text-sm text-slate-200">課題・導入管理</span>
+                  <span className="text-xs text-muted-foreground mt-0.5">自社のリスク・対策状況の可視化と台帳管理</span>
+                </div>
+                <div className="p-4 border-r border-white/5 flex items-center justify-center text-muted-foreground">-</div>
+                <div className="p-4 border-r border-white/5 flex items-center justify-center">
+                  <div className="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center">
+                    <Check className="w-4 h-4 text-blue-500" />
+                  </div>
+                </div>
+                <div className="p-4 border-r border-white/5 flex items-center justify-center bg-emerald-950/10">
+                  <div className="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center">
+                    <Check className="w-4 h-4 text-emerald-500" />
+                  </div>
+                </div>
+                <div className="p-4 flex items-center justify-center bg-orange-950/10">
+                  <div className="w-6 h-6 rounded-full bg-orange-500/20 flex items-center justify-center">
+                    <Check className="w-4 h-4 text-orange-500" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Section 3: AI Matching & Community */}
+              <div className="bg-[#0f172a]/30 px-6 py-3 border-b border-white/10">
+                <h4 className="text-sm font-bold text-slate-300">③ AIマッチング & コミュニティ（解決・権威）</h4>
+              </div>
+
+              {/* Row: AI Summary/Matching */}
+              <div className="grid grid-cols-5 border-b border-white/5 hover:bg-white/[0.02] transition-colors">
+                <div className="p-4 border-r border-white/5 flex flex-col justify-center">
+                  <span className="font-bold text-sm text-slate-200">AIサマリー/マッチング</span>
+                  <span className="text-xs text-muted-foreground mt-0.5">課題に対する最適解レコメンド・AIスレッド</span>
+                </div>
+                <div className="p-4 border-r border-white/5 flex items-center justify-center text-muted-foreground">-</div>
+                <div className="p-4 border-r border-white/5 flex items-center justify-center">
+                  <div className="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center">
+                    <Check className="w-4 h-4 text-blue-500" />
+                  </div>
+                </div>
+                <div className="p-4 border-r border-white/5 flex items-center justify-center bg-emerald-950/10">
+                  <div className="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center">
+                    <Check className="w-4 h-4 text-emerald-500" />
+                  </div>
+                </div>
+                <div className="p-4 flex items-center justify-center bg-orange-950/10">
+                  <div className="w-6 h-6 rounded-full bg-orange-500/20 flex items-center justify-center">
+                    <Check className="w-4 h-4 text-orange-500" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Row: Association Membership */}
+              <div className="grid grid-cols-5 border-b border-white/10 hover:bg-white/[0.02] transition-colors">
+                <div className="p-4 border-r border-white/5 flex flex-col justify-center">
+                  <span className="font-bold text-sm text-[#d4a574]">協会 会員資格</span>
+                  <span className="text-xs text-muted-foreground mt-0.5">認証バッジ付与・イベント優先出展権</span>
+                </div>
+                <div className="p-4 border-r border-white/5 flex items-center justify-center text-muted-foreground">-</div>
+                <div className="p-4 border-r border-white/5 flex items-center justify-center text-muted-foreground">-</div>
+                <div className="p-4 border-r border-white/5 flex flex-col items-center justify-center bg-emerald-950/10">
+                  <span className="text-xs font-bold text-emerald-500 bg-emerald-500/10 px-2 py-1 rounded">自動付帯</span>
+                </div>
+                <div className="p-4 flex flex-col items-center justify-center bg-orange-950/10">
+                  <Crown className="w-4 h-4 text-orange-500 mb-1" />
+                  <span className="text-[10px] font-bold text-orange-500">特別会員 (VIP)</span>
+                </div>
+              </div>
+
+              {/* Footer Row (CTA) */}
+              <div className="grid grid-cols-5 bg-[#0f172a]/50">
+                <div className="p-6 border-r border-white/5"></div>
+                <div className="p-6 border-r border-white/5">
+                  <Button variant="outline" className="w-full border-white/20 text-white hover:bg-white/10 bg-transparent text-xs h-9">
+                    無料で開始
+                  </Button>
+                </div>
+                <div className="p-6 border-r border-white/5 text-center">
+                  <span className="text-xs font-bold text-blue-400 block mb-2">SaaS標準</span>
+                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white border-none text-xs h-9">
+                    選択する
+                  </Button>
+                </div>
+                <div className="p-6 border-r border-white/5 bg-emerald-950/10 text-center">
+                  <span className="text-xs font-bold text-emerald-500 block mb-2">一番人気 (お得)</span>
+                  <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white border-none font-bold text-xs h-9 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+                    今すぐ始める
+                  </Button>
+                </div>
+                <div className="p-6 bg-orange-950/10 text-center">
+                  <span className="text-xs font-bold text-orange-500 block mb-2">戦略パートナー</span>
+                  <Button className="w-full bg-orange-600 hover:bg-orange-700 text-white border-none text-xs h-9">
+                    お問い合わせ
+                  </Button>
+                </div>
+              </div>
             </div>
+            <p className="text-right text-xs text-muted-foreground mt-4">
+              ※ プレミアムプラン（年額120万円相当）には、年1回のイベント出展権（30万円相当）を含みます。
+            </p>
           </div>
         </div>
       </section>
