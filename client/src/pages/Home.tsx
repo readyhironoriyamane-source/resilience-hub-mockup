@@ -123,7 +123,7 @@ export default function Home() {
                     AIがあなたの関心に合わせてタイムラインを最適化します
                   </p>
                   <div className="flex flex-wrap gap-2 justify-center md:justify-start">
-                    {["防災DX", "気候変動適応", "スマートシティ", "サステナブルファイナンス"].map((tag) => (
+                    {["予測・予兆検知", "AI・ビッグデータ", "避難所・物資管理", "ドローン・ロボティクス"].map((tag) => (
                       <span key={tag} className="px-2 py-1 rounded-md bg-white/10 text-xs text-white/90 border border-white/5 hover:bg-white/20 cursor-pointer transition-colors">
                         {tag}
                       </span>
@@ -140,10 +140,9 @@ export default function Home() {
             {/* Tab Navigation */}
             <div className="container mx-auto px-4 mt-4 overflow-x-auto no-scrollbar">
               <div className="flex items-center gap-6 text-sm font-medium min-w-max pb-3">
-                <button className="text-white border-b-2 border-white pb-1">タイムライン</button>
-                <button className="text-muted-foreground hover:text-white transition-colors pb-1">防災テクノロジー</button>
-                <button className="text-muted-foreground hover:text-white transition-colors pb-1">気候変動レジリエンス</button>
-                <button className="text-muted-foreground hover:text-white transition-colors pb-1">社会インフラ</button>
+                <button className="text-white border-b-2 border-white pb-1">すべて</button>
+                <button className="text-muted-foreground hover:text-white transition-colors pb-1">課題・目的（Needs）</button>
+                <button className="text-muted-foreground hover:text-white transition-colors pb-1">技術・分野（Seeds）</button>
                 <button className="text-muted-foreground hover:text-white transition-colors pb-1">その他</button>
               </div>
             </div>
