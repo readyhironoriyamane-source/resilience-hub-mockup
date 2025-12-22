@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState<ContentItem | null>(null);
 
   const handleCardClick = (item: ContentItem) => {
@@ -28,17 +29,33 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B1026]/80 via-transparent to-[#0B1026]" />
       </div>
 
-      <Sidebar />
+      {/* Mobile Sidebar Overlay */}
+      {isSidebarOpen && (
+        <div 
+          className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm md:hidden"
+          onClick={() => setIsSidebarOpen(false)}
+        />
+      )}
+
+      {/* Sidebar with mobile visibility control */}
+      <div className={`fixed inset-y-0 left-0 z-50 w-64 transform transition-transform duration-300 ease-in-out md:translate-x-0 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+        <Sidebar />
+      </div>
 
       <main className="md:pl-64 relative z-10 min-h-screen flex flex-col">
         {/* Header */}
-        <header className="sticky top-0 z-30 bg-[#0B1026]/80 backdrop-blur-md border-b border-white/10">
+        <header className="sticky top-0 z-30 bg-[#0B1026]/95 backdrop-blur-md border-b border-white/10">
           <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-            <div className="md:hidden flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center border border-white/20">
-                <span className="font-serif text-white font-bold text-xs">RH</span>
+            <div className="md:hidden flex items-center gap-3">
+              <Button variant="ghost" size="icon" className="text-white -ml-2" onClick={() => setIsSidebarOpen(true)}>
+                <Menu className="w-6 h-6" />
+              </Button>
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center border border-white/20">
+                  <span className="font-serif text-white font-bold text-xs">RH</span>
+                </div>
+                <span className="font-serif font-bold text-sm truncate max-w-[180px]">The Global Resilience Hub</span>
               </div>
-              <span className="font-serif font-bold text-sm">The Global Resilience Hub</span>
             </div>
             <div className="hidden md:block">
               {/* Desktop Header Content if needed */}
@@ -49,20 +66,23 @@ export default function Home() {
           </div>
           
           {/* Hero Section (Compact) */}
-          <div className="bg-[#151e32] border-b border-white/5">
+          <div className="bg-[#151e32] border-b border-white/5 relative z-20">
             <div className="container mx-auto px-4 py-8 flex flex-col md:flex-row gap-6 items-center">
-              <div className="w-24 h-24 rounded-xl overflow-hidden shrink-0 border border-white/10 shadow-2xl">
+              <div className="w-24 h-24 rounded-xl overflow-hidden shrink-0 border border-white/10 shadow-2xl hidden md:block">
                 <img src="/images/bg-stars.png" alt="Logo" className="w-full h-full object-cover" />
               </div>
-              <div className="flex-1 text-center md:text-left">
+              <div className="flex-1 text-center md:text-left w-full">
+                <div className="md:hidden w-20 h-20 rounded-xl overflow-hidden border border-white/10 shadow-2xl mx-auto mb-4">
+                  <img src="/images/bg-stars.png" alt="Logo" className="w-full h-full object-cover" />
+                </div>
                 <h1 className="font-serif text-2xl md:text-3xl font-bold mb-2">The Global Resilience Hub</h1>
-                <p className="text-sm text-muted-foreground mb-2">
-                  レジハブ（The Global Resilience Hub）は、日本と世界の"防災とレジリエンスの知を繋ぐ"<br/>
+                <p className="text-sm text-muted-foreground mb-2 px-2 md:px-0">
+                  レジハブ（The Global Resilience Hub）は、日本と世界の"防災とレジリエンスの知を繋ぐ"<br className="hidden md:block"/>
                   〜みんなで育てるコミュニティ型プラットフォーム〜
                 </p>
 
                 {/* Solution Intelligence Settings Area */}
-                <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md max-w-2xl">
+                <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md max-w-2xl mx-auto md:mx-0">
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2 text-[#d4a574]">
                       <Sparkles className="w-4 h-4" />

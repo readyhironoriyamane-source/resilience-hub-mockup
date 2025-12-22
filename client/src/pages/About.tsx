@@ -1,13 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { 
   Check, Globe, LayoutDashboard, Sparkles, ArrowRight, ShieldCheck, Users, 
-  AlertTriangle, Network, Clock, Building2, Briefcase, LineChart, HelpCircle, Lock 
+  AlertTriangle, Network, Clock, Building2, Briefcase, LineChart, HelpCircle, Lock,
+  Menu, X
 } from "lucide-react";
 import { Link } from "wouter";
 import { useState } from "react";
 
 export default function About() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -16,15 +18,17 @@ export default function About() {
   return (
     <div className="min-h-screen bg-[#0a0f1c] text-white font-sans selection:bg-[#d4a574] selection:text-white">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-[#0a0f1c]/80 backdrop-blur-md border-b border-white/10">
+      <nav className="fixed top-0 w-full z-50 bg-[#0a0f1c]/90 backdrop-blur-md border-b border-white/10">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#1e293b] to-[#0f172a] border border-white/10 flex items-center justify-center">
               <span className="font-serif font-bold text-white">RH</span>
             </div>
-            <span className="font-serif font-bold text-lg tracking-tight">The Global Resilience Hub</span>
+            <span className="font-serif font-bold text-lg tracking-tight truncate max-w-[200px] md:max-w-none">The Global Resilience Hub</span>
           </div>
-          <div className="flex items-center gap-4">
+          
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center gap-4">
             <Link href="/">
               <Button variant="ghost" className="text-muted-foreground hover:text-white">ログイン</Button>
             </Link>
@@ -32,7 +36,30 @@ export default function About() {
               <Button className="bg-[#d4a574] hover:bg-[#c49564] text-white border-none">無料で始める</Button>
             </Link>
           </div>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </Button>
+          </div>
         </div>
+
+        {/* Mobile Menu Overlay */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden absolute top-16 left-0 w-full bg-[#0a0f1c] border-b border-white/10 p-4 flex flex-col gap-4 shadow-2xl animate-in slide-in-from-top-5">
+            <Link href="/">
+              <Button variant="ghost" className="w-full justify-start text-muted-foreground hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
+                ログイン
+              </Button>
+            </Link>
+            <Link href="/">
+              <Button className="w-full bg-[#d4a574] hover:bg-[#c49564] text-white border-none" onClick={() => setIsMobileMenuOpen(false)}>
+                無料で始める
+              </Button>
+            </Link>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
