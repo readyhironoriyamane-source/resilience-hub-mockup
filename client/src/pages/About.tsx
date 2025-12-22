@@ -166,10 +166,10 @@ export default function About() {
                 </div>
               </div>
               <div className="p-6 flex-1 flex flex-col">
-                <p className="text-xs font-bold text-blue-400 mb-4 tracking-wider">ACQUISITION (集客)</p>
+                <p className="text-xs font-bold text-blue-400 mb-4 tracking-wider">OSINTech連携</p>
                 <p className="text-blue-200/80 mb-6 text-sm leading-relaxed">
-                  世界中の防災テック情報DBとOSINT連携によるリスク予兆検知。
-                  「防災ならまずここを見る」という第一想起を獲得します。
+                  世界中の防災テック情報を会員限定で閲覧可能。
+                  1500を超える国際機関からの情報を一元化し、リスク予兆検知の知らせを受け取ることができます。
                 </p>
                 <ul className="space-y-3 mt-auto">
                   <li className="flex items-center text-sm text-gray-300">
@@ -182,13 +182,13 @@ export default function About() {
                     <div className="w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center mr-3 shrink-0">
                       <Check className="w-3 h-3 text-blue-400" />
                     </div>
-                    公式バッジによる信頼性担保
+                    1500超の国際機関情報連携
                   </li>
                   <li className="flex items-center text-sm text-gray-300">
                     <div className="w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center mr-3 shrink-0">
                       <Check className="w-3 h-3 text-blue-400" />
                     </div>
-                    カテゴリ別ニュースフィード
+                    リスク予兆検知アラート
                   </li>
                 </ul>
               </div>
@@ -211,23 +211,23 @@ export default function About() {
                 </div>
               </div>
               <div className="p-6 flex-1 flex flex-col">
-                <p className="text-xs font-bold text-emerald-400 mb-4 tracking-wider">RETENTION (定着)</p>
+                <p className="text-xs font-bold text-emerald-400 mb-4 tracking-wider">AI最適化 & 可視化</p>
                 <p className="text-emerald-200/80 mb-6 text-sm leading-relaxed">
-                  自社課題・リスクの可視化と導入ソリューション管理。
-                  業務ツール化することでスイッチングコストを高め、定着を促進します。
+                  AIが関心に合わせてタイムラインを最適化。
+                  自社課題からのリスク可視化と導入ソリューション管理、関心分野のクリッピングで精度を高めます。
                 </p>
                 <ul className="space-y-3 mt-auto">
                   <li className="flex items-center text-sm text-gray-300">
                     <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mr-3 shrink-0">
                       <Check className="w-3 h-3 text-emerald-400" />
                     </div>
-                    自社課題・リスクの可視化
+                    AIによるタイムライン最適化
                   </li>
                   <li className="flex items-center text-sm text-gray-300">
                     <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mr-3 shrink-0">
                       <Check className="w-3 h-3 text-emerald-400" />
                     </div>
-                    導入ソリューション管理
+                    自社課題・リスクの可視化
                   </li>
                   <li className="flex items-center text-sm text-gray-300">
                     <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mr-3 shrink-0">
@@ -256,29 +256,29 @@ export default function About() {
                 </div>
               </div>
               <div className="p-6 flex-1 flex flex-col">
-                <p className="text-xs font-bold text-orange-400 mb-4 tracking-wider">MONETIZATION (収益化)</p>
+                <p className="text-xs font-bold text-orange-400 mb-4 tracking-wider">ユーザー共創</p>
                 <p className="text-orange-200/80 mb-6 text-sm leading-relaxed">
-                  AI要約＆最適解レコメンドと課題解決型スレッド。
-                  質の高いQ&Aがコンテンツ資産となり、高単価なマッチングを生みます。
+                  ダッシュボードに対しAIが要約や最適解をレコメンド。
+                  ユーザー同士のコミュニティ形成により、世界中の人と質の高いQ&Aを繰り広げられます。
                 </p>
                 <ul className="space-y-3 mt-auto">
                   <li className="flex items-center text-sm text-gray-300">
                     <div className="w-5 h-5 rounded-full bg-orange-500/20 flex items-center justify-center mr-3 shrink-0">
                       <Check className="w-3 h-3 text-orange-400" />
                     </div>
-                    AI要約＆最適解レコメンド
+                    AI要約 & 最適解レコメンド
                   </li>
                   <li className="flex items-center text-sm text-gray-300">
                     <div className="w-5 h-5 rounded-full bg-orange-500/20 flex items-center justify-center mr-3 shrink-0">
                       <Check className="w-3 h-3 text-orange-400" />
                     </div>
-                    課題解決型スレッド (Q&A)
+                    質の高いQ&Aコミュニティ
                   </li>
                   <li className="flex items-center text-sm text-gray-300">
                     <div className="w-5 h-5 rounded-full bg-orange-500/20 flex items-center justify-center mr-3 shrink-0">
                       <Check className="w-3 h-3 text-orange-400" />
                     </div>
-                    ベンダーへの自動送客
+                    ユーザー同士のマッチング
                   </li>
                 </ul>
               </div>
@@ -364,11 +364,11 @@ export default function About() {
               <div className="mb-4">
                 <h3 className="text-lg font-bold text-white">Free</h3>
                 <div className="text-2xl font-bold mt-2">¥0</div>
-                <p className="text-xs text-muted-foreground mt-1">リード獲得用</p>
+                <p className="text-xs text-muted-foreground mt-1">お試し体験</p>
               </div>
               <div className="flex-1 space-y-4 mb-6">
                 <div className="text-sm border-t border-white/10 pt-4">
-                  <p className="font-medium text-slate-300 mb-2">ソリューション情報</p>
+                  <p className="font-medium text-slate-300 mb-2">ソリューションインテリジェンス</p>
                   <p className="text-xs text-muted-foreground">タイムライン閲覧: 3件/日</p>
                 </div>
               </div>
@@ -383,20 +383,16 @@ export default function About() {
               <div className="mb-4">
                 <h3 className="text-lg font-bold text-blue-100">Standard</h3>
                 <div className="text-2xl font-bold mt-2 text-blue-400">¥40,000<span className="text-sm text-muted-foreground font-normal">/月</span></div>
-                <p className="text-xs text-muted-foreground mt-1">SaaS単体</p>
+                <p className="text-xs text-muted-foreground mt-1">標準プラン</p>
               </div>
               <div className="flex-1 space-y-4 mb-6">
                 <div className="text-sm border-t border-white/10 pt-4">
-                  <p className="font-medium text-slate-300 mb-2">ソリューション情報</p>
+                  <p className="font-medium text-slate-300 mb-2">ソリューションインテリジェンス</p>
                   <p className="text-xs text-muted-foreground flex items-center gap-1"><Check className="w-3 h-3 text-blue-500" /> 無制限閲覧</p>
                 </div>
                 <div className="text-sm border-t border-white/10 pt-4">
-                  <p className="font-medium text-slate-300 mb-2">ダッシュボード</p>
-                  <p className="text-xs text-muted-foreground flex items-center gap-1"><Check className="w-3 h-3 text-blue-500" /> 課題・導入管理</p>
-                </div>
-                <div className="text-sm border-t border-white/10 pt-4">
-                  <p className="font-medium text-slate-300 mb-2">AIマッチング</p>
-                  <p className="text-xs text-muted-foreground flex items-center gap-1"><Check className="w-3 h-3 text-blue-500" /> AIサマリー/マッチング</p>
+                  <p className="font-medium text-slate-300 mb-2">パーソナル・ダッシュボード</p>
+                  <p className="text-xs text-muted-foreground flex items-center gap-1"><Check className="w-3 h-3 text-blue-500" /> 基本機能</p>
                 </div>
               </div>
               <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white border-none">
@@ -412,21 +408,21 @@ export default function About() {
               <div className="mb-4 mt-4">
                 <h3 className="text-lg font-bold text-emerald-100">Bundle</h3>
                 <div className="text-2xl font-bold mt-2 text-emerald-400">¥60,000<span className="text-sm text-muted-foreground font-normal">/月</span></div>
-                <p className="text-xs text-emerald-500/80 mt-1 font-medium">OSINTech付帯 (一番人気)</p>
+                <p className="text-xs text-emerald-500/80 mt-1 font-medium">標準プラン + コミュニティ</p>
               </div>
               <div className="flex-1 space-y-4 mb-6">
                 <div className="text-sm border-t border-white/10 pt-4">
-                  <p className="font-medium text-slate-300 mb-2">ソリューション情報</p>
+                  <p className="font-medium text-slate-300 mb-2">ソリューションインテリジェンス</p>
                   <p className="text-xs text-muted-foreground flex items-center gap-1"><Check className="w-3 h-3 text-emerald-500" /> 無制限閲覧</p>
                   <p className="text-xs text-emerald-400 flex items-center gap-1 mt-1 font-medium"><ShieldCheck className="w-3 h-3" /> OSINTech リスク予兆</p>
                 </div>
                 <div className="text-sm border-t border-white/10 pt-4">
-                  <p className="font-medium text-slate-300 mb-2">ダッシュボード</p>
+                  <p className="font-medium text-slate-300 mb-2">パーソナル・ダッシュボード</p>
                   <p className="text-xs text-muted-foreground flex items-center gap-1"><Check className="w-3 h-3 text-emerald-500" /> 課題・導入管理</p>
                 </div>
                 <div className="text-sm border-t border-white/10 pt-4">
-                  <p className="font-medium text-slate-300 mb-2">AIマッチング</p>
-                  <p className="text-xs text-muted-foreground flex items-center gap-1"><Check className="w-3 h-3 text-emerald-500" /> AIサマリー/マッチング</p>
+                  <p className="font-medium text-slate-300 mb-2">AIマッチング & コミュニティ</p>
+                  <p className="text-xs text-muted-foreground flex items-center gap-1"><Check className="w-3 h-3 text-emerald-500" /> 参加権限</p>
                 </div>
               </div>
               <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white border-none font-bold">
@@ -440,17 +436,16 @@ export default function About() {
               <div className="mb-4">
                 <h3 className="text-lg font-bold text-orange-100">Premium</h3>
                 <div className="text-2xl font-bold mt-2 text-orange-400">¥100,000<span className="text-sm text-muted-foreground font-normal">/月</span></div>
-                <p className="text-xs text-muted-foreground mt-1">協会特別会員</p>
+                <p className="text-xs text-muted-foreground mt-1">パートナー</p>
               </div>
               <div className="flex-1 space-y-4 mb-6">
                 <div className="text-sm border-t border-white/10 pt-4">
-                  <p className="font-medium text-slate-300 mb-2">全てのアセット</p>
-                  <p className="text-xs text-muted-foreground flex items-center gap-1"><Check className="w-3 h-3 text-orange-500" /> フルアクセス</p>
+                  <p className="font-medium text-slate-300 mb-2">全機能アクセス</p>
+                  <p className="text-xs text-muted-foreground flex items-center gap-1"><Check className="w-3 h-3 text-orange-500" /> 無制限</p>
                 </div>
                 <div className="text-sm border-t border-white/10 pt-4">
-                  <p className="font-medium text-slate-300 mb-2">特別会員資格</p>
-                  <p className="text-xs text-orange-400 flex items-center gap-1 font-medium"><Sparkles className="w-3 h-3" /> 認証バッジ付与</p>
-                  <p className="text-xs text-muted-foreground flex items-center gap-1 mt-1">イベント優先出展・API</p>
+                  <p className="font-medium text-slate-300 mb-2">AIマッチング & コミュニティ</p>
+                  <p className="text-xs text-muted-foreground flex items-center gap-1"><Check className="w-3 h-3 text-orange-500" /> 優先レコメンド</p>
                 </div>
               </div>
               <Button className="w-full bg-orange-600 hover:bg-orange-700 text-white border-none">
