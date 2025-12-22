@@ -1,12 +1,11 @@
 import { cn } from "@/lib/utils";
-import { Bell, Home, Settings, ShoppingBag, User, LayoutDashboard, Sparkles, Globe } from "lucide-react";
+import { Bell, Home, Settings, ShoppingBag, User, LayoutDashboard, Sparkles, Globe, Activity, ShieldAlert, Building2, Briefcase, Database, Bot, Satellite, Map } from "lucide-react";
 import { useState } from "react";
 
 export function Sidebar() {
-  const [activeItem, setActiveItem] = useState("フィード");
+  const [activeItem, setActiveItem] = useState("タイムライン");
 
-  const navItems = [
-    { name: "タイムライン", icon: null },
+  const mainNavItems = [
     { 
       name: "パーソナル・ダッシュボード", 
       icon: <LayoutDashboard className="w-4 h-4" />,
@@ -17,10 +16,20 @@ export function Sidebar() {
       icon: <Sparkles className="w-4 h-4" />,
       description: "世界中の有識者とつながる"
     },
-    { name: "防災テクノロジー", icon: null },
-    { name: "気候変動レジリエンス", icon: null },
-    { name: "社会インフラ", icon: null },
-    { name: "その他", icon: null },
+  ];
+
+  const needsNavItems = [
+    { name: "予測・予兆検知", icon: <Activity className="w-4 h-4" /> },
+    { name: "避難所・物資管理", icon: <ShieldAlert className="w-4 h-4" /> },
+    { name: "インフラ点検・監視", icon: <Building2 className="w-4 h-4" /> },
+    { name: "BCP・事業継続", icon: <Briefcase className="w-4 h-4" /> },
+  ];
+
+  const techNavItems = [
+    { name: "AI・ビッグデータ", icon: <Database className="w-4 h-4" /> },
+    { name: "ドローン・ロボティクス", icon: <Bot className="w-4 h-4" /> },
+    { name: "衛星・地理情報", icon: <Satellite className="w-4 h-4" /> },
+    { name: "ハザードマップ・可視化", icon: <Map className="w-4 h-4" /> },
   ];
 
   return (
@@ -33,15 +42,16 @@ export function Sidebar() {
       </div>
 
       <div className="flex-1 overflow-y-auto py-4">
-        <div className="px-4 mb-2">
-          <div className="flex items-center justify-between px-4 py-2 rounded-lg bg-primary/10 text-primary mb-1">
+        <div className="px-4 mb-6">
+          <div className="flex items-center justify-between px-4 py-2 rounded-lg bg-primary/10 text-primary mb-2 cursor-pointer hover:bg-primary/20 transition-colors" onClick={() => setActiveItem("タイムライン")}>
             <span className="font-bold text-sm">タイムライン</span>
             <Settings className="w-4 h-4 opacity-70" />
           </div>
-          {navItems.slice(1).map((item) => (
+          
+          {mainNavItems.map((item) => (
             <div 
               key={item.name}
-              className={`px-4 py-3 text-sm rounded-lg cursor-pointer transition-colors flex items-start gap-3 ${
+              className={`px-4 py-3 text-sm rounded-lg cursor-pointer transition-colors flex items-start gap-3 mb-1 ${
                 activeItem === item.name 
                   ? "text-white bg-white/10" 
                   : "text-muted-foreground hover:text-foreground hover:bg-white/5"
@@ -59,21 +69,51 @@ export function Sidebar() {
           ))}
         </div>
 
-        <div className="mt-8 px-4">
+        <div className="px-4 mb-6">
+          <h3 className="px-4 text-xs font-bold text-muted-foreground/50 uppercase tracking-wider mb-2">課題・目的から探す</h3>
+          {needsNavItems.map((item) => (
+            <div 
+              key={item.name}
+              className={`px-4 py-2 text-sm rounded-lg cursor-pointer transition-colors flex items-center gap-3 mb-1 ${
+                activeItem === item.name 
+                  ? "text-white bg-white/10" 
+                  : "text-muted-foreground hover:text-foreground hover:bg-white/5"
+              }`}
+              onClick={() => setActiveItem(item.name)}
+            >
+              <span className={`${activeItem === item.name ? "text-[#d4a574]" : "text-muted-foreground"}`}>{item.icon}</span>
+              <span>{item.name}</span>
+            </div>
+          ))}
+        </div>
+
+        <div className="px-4 mb-6">
+          <h3 className="px-4 text-xs font-bold text-muted-foreground/50 uppercase tracking-wider mb-2">技術・分野から探す</h3>
+          {techNavItems.map((item) => (
+            <div 
+              key={item.name}
+              className={`px-4 py-2 text-sm rounded-lg cursor-pointer transition-colors flex items-center gap-3 mb-1 ${
+                activeItem === item.name 
+                  ? "text-white bg-white/10" 
+                  : "text-muted-foreground hover:text-foreground hover:bg-white/5"
+              }`}
+              onClick={() => setActiveItem(item.name)}
+            >
+              <span className={`${activeItem === item.name ? "text-[#d4a574]" : "text-muted-foreground"}`}>{item.icon}</span>
+              <span>{item.name}</span>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-4 px-4 border-t border-white/5 pt-4">
           <div className="flex items-center justify-between px-4 py-2 text-muted-foreground hover:text-foreground cursor-pointer">
             <span className="font-bold text-sm">メンバー</span>
             <Settings className="w-4 h-4 opacity-70" />
           </div>
-          <a href="/about" className="flex items-center justify-between px-4 py-2 text-muted-foreground hover:text-foreground cursor-pointer mt-2">
+          <a href="/about" className="flex items-center justify-between px-4 py-2 text-muted-foreground hover:text-foreground cursor-pointer mt-1">
             <span className="font-bold text-sm">サービス紹介</span>
             <Globe className="w-4 h-4 opacity-70" />
           </a>
-        </div>
-
-        <div className="mt-4 px-4">
-          <div className="px-4 py-2 text-muted-foreground hover:text-foreground cursor-pointer">
-            <span className="font-bold text-sm">キャンペーン</span>
-          </div>
         </div>
       </div>
 
