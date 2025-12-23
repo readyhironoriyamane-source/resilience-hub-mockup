@@ -9,13 +9,16 @@ import { useArticleLimit } from "@/hooks/useArticleLimit";
 export default function ArticleDetail() {
   const [, params] = useRoute("/article/:id");
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { remainingCount, maxCount, consumeFreeArticle, hasReadCurrentArticle } = useArticleLimit();
+  const { remainingCount, maxCount, consumeFreeArticle, isInitialized } = useArticleLimit();
   const [isUnlocked, setIsUnlocked] = useState(false);
+  const [hasCheckedLimit, setHasCheckedLimit] = useState(false);
   
   const item = contentItems.find(i => i.id === params?.id);
 
   useEffect(() => {
-    if (item && item.isPremium) {
+    if (!isInitialized || !item) return;
+
+    if (item.isPremium) {
       // Try to consume a free article slot
       const unlocked = consumeFreeArticle(item.id);
       setIsUnlocked(unlocked);
@@ -23,7 +26,8 @@ export default function ArticleDetail() {
       // Non-premium items are always unlocked
       setIsUnlocked(true);
     }
-  }, [item?.id]); // Only run when item ID changes
+    setHasCheckedLimit(true);
+  }, [item?.id, isInitialized, consumeFreeArticle]);
 
   if (!item) {
     return (
@@ -38,6 +42,11 @@ export default function ArticleDetail() {
         </div>
       </div>
     );
+  }
+
+  // Wait for limit check to complete before rendering content to prevent flash of unlocked content
+  if (!hasCheckedLimit && item.isPremium) {
+    return <div className="min-h-screen bg-[#0B1026]" />;
   }
 
   return (
