@@ -125,7 +125,7 @@ export default function ArticleDetail() {
 
         {/* Resilience Hub Insights (Key Takeaways) */}
         {item.keyTakeaways && (
-          <section className="mb-12 bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 rounded-xl p-6 md:p-8 relative overflow-hidden">
+          <section className="mb-12 bg-[#0F172A]/80 border border-primary/20 rounded-xl p-6 md:p-8 relative overflow-hidden backdrop-blur-md shadow-lg">
             <div className="absolute top-0 right-0 p-4 opacity-10">
               <SparklesIcon className="w-24 h-24 text-primary" />
             </div>
@@ -148,7 +148,7 @@ export default function ArticleDetail() {
 
         {/* Source Link */}
         {item.sourceUrl && (
-          <div className="mb-8 flex items-center gap-2 text-sm text-muted-foreground bg-white/5 p-3 rounded-lg border border-white/5">
+          <div className="mb-8 flex items-center gap-2 text-sm text-muted-foreground bg-[#0F172A]/80 p-4 rounded-lg border border-white/10 backdrop-blur-sm">
             <ExternalLink className="w-4 h-4" />
             <span>元記事:</span>
             <a 
@@ -163,7 +163,7 @@ export default function ArticleDetail() {
         )}
 
         {/* Article Content */}
-        <article className="prose prose-invert prose-lg max-w-none">
+        <article className="prose prose-invert prose-lg max-w-none bg-[#0B1026]/60 p-6 md:p-8 rounded-xl backdrop-blur-sm border border-white/5">
           <div className="text-lg leading-relaxed text-white/80 mb-8">
             {item.description}
           </div>
