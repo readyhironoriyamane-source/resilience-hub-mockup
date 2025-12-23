@@ -55,9 +55,8 @@ export default function NeedsPage() {
   const category = params?.category as keyof typeof needsData;
   const data = needsData[category] || needsData.prediction; // Fallback
 
-  // Filter content items based on category (Mock filtering)
-  // In a real app, this would filter by tags or category ID
-  const relatedArticles = contentItems.slice(0, 6); 
+  // Filter content items to show only 'needs' type
+  const relatedArticles = contentItems.filter(item => item.type === 'needs');
 
   const handleCardClick = (id: number) => {
     setLocation(`/article/${id}`);

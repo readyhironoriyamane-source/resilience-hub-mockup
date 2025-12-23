@@ -10,9 +10,11 @@ export interface ContentItem {
   keyTakeaways?: string[]; // 編集部による要点解説
   sourceUrl?: string;      // 元記事のURL
   fullContent?: string;    // 記事本文（モック用）
+  type?: 'needs' | 'seeds' | 'general'; // 記事タイプ
 }
 
 export const contentItems: ContentItem[] = [
+  // General / Timeline Items
   {
     id: "1",
     title: "Aavishkaar Groupが支援するArohan Financial Services、気候変動リスク対応型マイクロファイナンスを開始",
@@ -22,6 +24,7 @@ export const contentItems: ContentItem[] = [
     category: "防災テクノロジー",
     description: "インドのマイクロファイナンス機関Arohan Financial Servicesへの投資に関する詳細レポート。",
     isPremium: true,
+    type: 'general',
     keyTakeaways: [
       "気候変動リスクが高い地域の小規模事業者向けに特化した新しい融資モデルを構築",
       "AIを活用した信用スコアリングにより、従来金融サービスを受けられなかった層へのリーチが可能に",
@@ -50,6 +53,7 @@ export const contentItems: ContentItem[] = [
     category: "防災テクノロジー",
     description: "Lenskartの創業者Peyush Bansal氏が語る、スタートアップの成長戦略と失敗からの学び。",
     isPremium: true,
+    type: 'general',
     keyTakeaways: [
       "急成長だけが正解ではない：持続可能な収益モデルの構築が最優先",
       "危機管理としてのピボット：市場の変化に柔軟に対応する組織文化の重要性",
@@ -71,6 +75,7 @@ export const contentItems: ContentItem[] = [
     category: "気候変動レジリエンス",
     description: "エジプトの文化芸術支援を行うサウィリス財団による、若手作家の発掘プロジェクト。",
     isPremium: true,
+    type: 'general',
     keyTakeaways: [
       "芸術を通じた気候変動啓発：文学作品が持つ社会的インパクトに注目",
       "若手作家への支援拡大：受賞者には創作活動のための助成金とメンタリングを提供",
@@ -90,6 +95,7 @@ export const contentItems: ContentItem[] = [
     category: "防災テクノロジー",
     description: "生成AIを活用した創薬プラットフォームTuriyam AIへの投資決定の背景と将来性。",
     isPremium: true,
+    type: 'general',
     keyTakeaways: [
       "創薬期間の短縮：従来数年かかっていた候補物質の探索を数週間に短縮",
       "パンデミック対応：未知のウイルスに対するワクチン開発への応用が期待される",
@@ -109,6 +115,7 @@ export const contentItems: ContentItem[] = [
     category: "気候変動レジリエンス",
     description: "気候変動対策としての環境運動が、いかにして技術革新を加速させているか。",
     isPremium: true,
+    type: 'general',
     keyTakeaways: [
       "規制とイノベーションの関係：適切な環境規制が技術開発の触媒となる",
       "市民社会の役割：消費者行動の変化が企業の脱炭素化を後押ししている",
@@ -128,6 +135,7 @@ export const contentItems: ContentItem[] = [
     category: "気候変動レジリエンス",
     description: "メンタルヘルスケアへのアクセスを改善するためのデジタルソリューションの最前線。",
     isPremium: true,
+    type: 'general',
     keyTakeaways: [
       "災害時のメンタルケア：被災者のPTSD予防におけるデジタルツールの有効性",
       "遠隔カウンセリングの普及：地理的な制約を超えたケアの提供",
@@ -147,6 +155,7 @@ export const contentItems: ContentItem[] = [
     category: "社会インフラ",
     description: "ドローンとAIを活用した精密農業がもたらす収穫量増加と環境負荷低減。",
     isPremium: true,
+    type: 'general',
     keyTakeaways: [
       "精密農業による効率化：肥料・農薬の最適化によるコスト削減と環境保護",
       "気象リスクの軽減：AI予測に基づく栽培管理で異常気象の被害を最小化",
@@ -157,4 +166,104 @@ export const contentItems: ContentItem[] = [
       <p>AgriTech Labは、最新のスマート農業技術に関する実証実験の結果を公表しました。ドローンによる空撮画像解析と土壌センサーデータを組み合わせることで、作物の生育状況をリアルタイムで把握し、必要な箇所にピンポイントで水や肥料を供給することが可能になりました。</p>
     `
   },
+
+  // Needs (課題・目的) Items
+  {
+    id: "101",
+    title: "避難所運営の失敗事例から学ぶ：情報共有のボトルネック解消法",
+    author: "Disaster Management Review",
+    date: "2025年12月20日 09:30",
+    image: "/images/tech-drone.jpg",
+    category: "避難所運営",
+    description: "過去の大規模災害における避難所運営の課題を分析し、デジタルツールによる解決策を提示。",
+    isPremium: true,
+    type: 'needs',
+    keyTakeaways: [
+      "アナログな名簿管理の限界：安否確認の遅れと物資配給のミスマッチ",
+      "情報の一元化：自治体と現場ボランティアの連携強化",
+      "プライバシー保護と効率性の両立：QRコードを活用した入退室管理の実践例"
+    ]
+  },
+  {
+    id: "102",
+    title: "中小製造業のためのBCP策定ガイド：サプライチェーン寸断リスクへの備え",
+    author: "SME Resilience Forum",
+    date: "2025年12月18日 14:15",
+    image: "/images/tech-social.jpg",
+    category: "BCP・事業継続",
+    description: "リソースが限られる中小企業でも実践可能な、実効性の高いBCP策定のステップバイステップガイド。",
+    isPremium: false,
+    type: 'needs',
+    keyTakeaways: [
+      "代替調達先の確保：シングルソース依存からの脱却",
+      "在庫管理の最適化：ジャストインタイムと戦略的備蓄のバランス",
+      "従業員の多能工化：緊急時の業務代替体制の構築"
+    ]
+  },
+  {
+    id: "103",
+    title: "老朽化インフラの点検コスト削減：自治体が直面する「2025年問題」への処方箋",
+    author: "Infrastructure Today",
+    date: "2025年12月15日 11:00",
+    image: "/images/tech-satellite.jpg",
+    category: "インフラ保全",
+    description: "高度経済成長期に建設されたインフラの一斉老朽化に対し、限られた予算でどう対応すべきか。",
+    isPremium: true,
+    type: 'needs',
+    keyTakeaways: [
+      "予防保全への転換：事後対応型からデータに基づく予測型メンテナンスへ",
+      "包括的民間委託（PFI）の活用：官民連携による効率化事例",
+      "市民協働型モニタリング：スマートフォンアプリを活用した市民による通報システム"
+    ]
+  },
+
+  // Seeds (技術・分野) Items
+  {
+    id: "201",
+    title: "次世代ドローン技術：自律飛行とAI解析が変えるインフラ点検の未来",
+    author: "TechCrunch Japan",
+    date: "2025年12月21日 13:45",
+    image: "/images/tech-drone.jpg",
+    category: "ドローン・ロボティクス",
+    description: "GPSが届かない橋梁下やトンネル内でも安定飛行可能な最新ドローンの技術解説。",
+    isPremium: true,
+    type: 'seeds',
+    keyTakeaways: [
+      "SLAM技術の進化：自己位置推定と環境地図作成の同時実行",
+      "エッジAIの実装：通信遅延なくリアルタイムで異常箇所を検知",
+      "バッテリー性能の向上：長時間飛行を可能にする次世代電池技術"
+    ]
+  },
+  {
+    id: "202",
+    title: "気象予測AIアルゴリズムの進化：局地的大雨を30分前に予測する新技術",
+    author: "AI Research Weekly",
+    date: "2025年12月19日 16:20",
+    image: "/images/tech-ai-weather.jpg",
+    category: "AI・ビッグデータ",
+    description: "ディープラーニングを用いたナウキャスト技術の最新動向と、防災システムへの実装事例。",
+    isPremium: true,
+    type: 'seeds',
+    keyTakeaways: [
+      "マルチモーダル学習：レーダー画像だけでなくSNS投稿データも統合解析",
+      "計算コストの削減：エッジデバイスでも動作可能な軽量モデルの開発",
+      "API連携の容易さ：既存の防災アプリに組み込み可能なSDKの提供"
+    ]
+  },
+  {
+    id: "203",
+    title: "衛星データ解析プラットフォーム「EarthEye」：全世界の地表面変動をミリ単位で監視",
+    author: "Space Business Journal",
+    date: "2025年12月16日 10:30",
+    image: "/images/tech-satellite.jpg",
+    category: "衛星・地理情報",
+    description: "SAR衛星データを活用し、地滑りや地盤沈下の予兆を検知するSaaSプラットフォームの紹介。",
+    isPremium: false,
+    type: 'seeds',
+    keyTakeaways: [
+      "干渉SAR解析の自動化：専門知識不要で地盤変動をモニタリング",
+      "高頻度観測：小型衛星コンステレーションによる毎日更新",
+      "インフラ事業者向けダッシュボード：リスク箇所をヒートマップで可視化"
+    ]
+  }
 ];
