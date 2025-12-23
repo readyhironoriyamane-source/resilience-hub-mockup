@@ -1,7 +1,9 @@
 import { Sidebar } from "@/components/Sidebar";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle2, ShieldAlert, Activity, Building2, Briefcase, FileText, Users, TrendingUp, Play, MessageSquarePlus } from "lucide-react";
+import { ArrowRight, CheckCircle2, ShieldAlert, Activity, Building2, Briefcase, TrendingUp, MessageSquarePlus } from "lucide-react";
 import { useLocation, useRoute } from "wouter";
+import { ContentCard } from "@/components/ContentCard";
+import { contentItems } from "@/lib/mock-data";
 
 // Mock data for needs categories
 const needsData = {
@@ -13,24 +15,6 @@ const needsData = {
       "突発的な自然災害への対応遅れ",
       "サプライチェーン上のリスクが見えない",
       "過去のデータに基づいた予測の限界"
-    ],
-    solutions: [
-      {
-        title: "AI気象予測プラットフォーム",
-        provider: "WeatherTech AI",
-        image: "/images/tech-ai-weather.jpg", // Placeholder
-        description: "局地的な豪雨や台風の進路を最大72時間前から高精度に予測。工場の稼働調整や従業員の安全確保に活用できます。",
-        tags: ["AI", "気象データ", "SaaS"],
-        status: "導入実績多数"
-      },
-      {
-        title: "サプライチェーンリスク検知",
-        provider: "Global Chain Monitor",
-        image: "/images/tech-social.jpg", // Placeholder
-        description: "世界中のニュースやSNSを解析し、サプライヤーの被災状況や政情不安をリアルタイムに検知・通知します。",
-        tags: ["ビッグデータ", "リスク管理"],
-        status: "注目"
-      }
     ]
   },
   shelter: {
@@ -41,16 +25,6 @@ const needsData = {
       "避難所の混雑状況が把握できない",
       "必要な物資がどこにあるか分からない",
       "要配慮者への対応が遅れる"
-    ],
-    solutions: [
-      {
-        title: "スマート避難所管理システム",
-        provider: "SafeHaven Tech",
-        image: "/images/tech-drone.jpg", // Placeholder
-        description: "QRコードを活用した入退室管理と、カメラによる混雑状況の自動検知。避難者の属性に合わせた物資配給もサポート。",
-        tags: ["IoT", "QRコード", "自治体向け"],
-        status: "実証実験中"
-      }
     ]
   },
   infrastructure: {
@@ -61,16 +35,6 @@ const needsData = {
       "点検員不足と高齢化",
       "目視点検による精度のバラつき",
       "高所や危険箇所での作業リスク"
-    ],
-    solutions: [
-      {
-        title: "ドローン自動点検サービス",
-        provider: "SkyInspect",
-        image: "/images/tech-satellite.jpg", // Placeholder
-        description: "自律飛行ドローンがインフラ設備を撮影し、AIがひび割れや錆を自動検出。点検時間を従来の1/5に短縮します。",
-        tags: ["ドローン", "画像解析", "インフラ"],
-        status: "新着"
-      }
     ]
   },
   bcp: {
@@ -81,24 +45,23 @@ const needsData = {
       "BCPが形骸化している",
       "緊急時の連絡網が機能しない",
       "代替拠点の確保が難しい"
-    ],
-    solutions: [
-      {
-        title: "クラウドBCP策定ツール",
-        provider: "Resilience Cloud",
-        image: "/images/tech-3dmap.jpg", // Placeholder
-        description: "ガイドに従って入力するだけで、ガイドラインに準拠したBCPを策定。スマホアプリで緊急時の安否確認も可能です。",
-        tags: ["SaaS", "コンサルティング", "安否確認"],
-        status: "定番"
-      }
     ]
   }
 };
 
 export default function NeedsPage() {
   const [match, params] = useRoute("/needs/:category");
+  const [, setLocation] = useLocation();
   const category = params?.category as keyof typeof needsData;
   const data = needsData[category] || needsData.prediction; // Fallback
+
+  // Filter content items based on category (Mock filtering)
+  // In a real app, this would filter by tags or category ID
+  const relatedArticles = contentItems.slice(0, 6); 
+
+  const handleCardClick = (id: number) => {
+    setLocation(`/article/${id}`);
+  };
 
   return (
     <div className="min-h-screen bg-[#0B1026] text-white font-sans selection:bg-primary/30 flex">
@@ -161,7 +124,7 @@ export default function NeedsPage() {
                 </Button>
               </div>
 
-              {/* New: Solution Listing Inquiry */}
+              {/* Solution Listing Inquiry */}
               <div className="bg-white/5 rounded-xl p-6 border border-white/10 hover:bg-white/10 transition-colors cursor-pointer group">
                 <h3 className="text-lg font-bold mb-2 flex items-center gap-2 text-white group-hover:text-primary transition-colors">
                   <MessageSquarePlus className="w-5 h-5" />
@@ -176,71 +139,27 @@ export default function NeedsPage() {
               </div>
             </div>
 
-            {/* Right Column: Solutions (Actionable) */}
+            {/* Right Column: Articles (Crawled Content) */}
             <div className="lg:col-span-2">
               <h2 className="text-2xl font-serif font-bold mb-8 flex items-center gap-3">
                 <CheckCircle2 className="w-6 h-6 text-green-400" />
-                解決アプローチ & ソリューション
+                関連トピック・記事
               </h2>
 
-              <div className="grid grid-cols-1 gap-6">
-                {data.solutions.map((solution, i) => (
-                  <div key={i} className="bg-[#1e293b] rounded-xl overflow-hidden border border-white/10 hover:border-primary/50 transition-all group flex flex-col md:flex-row">
-                    {/* Visual Area */}
-                    <div className="md:w-48 h-48 md:h-auto bg-black/50 relative flex-shrink-0">
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#1e293b] to-transparent opacity-60" />
-                      {/* Placeholder for image */}
-                      <div className="absolute inset-0 flex items-center justify-center text-white/20">
-                        <Activity className="w-12 h-12" />
-                      </div>
-                      <div className="absolute top-3 left-3">
-                        <span className="px-2 py-1 rounded bg-primary/90 text-white text-[10px] font-bold shadow-lg">
-                          {solution.status}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="p-6 flex flex-col justify-between flex-1">
-                      <div>
-                        <div className="flex justify-between items-start mb-2">
-                          <div>
-                            <div className="text-xs text-primary font-bold mb-1">{solution.provider}</div>
-                            <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
-                              {solution.title}
-                            </h3>
-                          </div>
-                        </div>
-                        
-                        <p className="text-sm text-muted-foreground mb-4 leading-relaxed line-clamp-2">
-                          {solution.description}
-                        </p>
-
-                        <div className="flex flex-wrap gap-2 mb-4">
-                          {solution.tags.map((tag, j) => (
-                            <span key={j} className="px-2 py-1 rounded text-xs font-medium bg-white/5 text-white/60 border border-white/5">
-                              #{tag}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div className="flex justify-end">
-                        <Button size="sm" variant="ghost" className="text-muted-foreground hover:text-white group-hover:translate-x-1 transition-transform">
-                          詳細を見る <ArrowRight className="w-4 h-4 ml-1" />
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {relatedArticles.map((item) => (
+                  <ContentCard 
+                    key={item.id} 
+                    item={item} 
+                    onClick={() => handleCardClick(Number(item.id))} 
+                  />
                 ))}
+              </div>
 
-                <div className="p-8 rounded-xl border border-dashed border-white/10 text-center hover:bg-white/5 transition-colors cursor-pointer">
-                  <p className="text-muted-foreground font-medium">
-                    他にも {category === 'prediction' ? '12' : '8'} 件のソリューションがあります
-                  </p>
-                  <Button variant="link" className="text-primary mt-2">
-                    すべて見る <ArrowRight className="w-4 h-4 ml-1" />
-                  </Button>
-                </div>
+              <div className="mt-8 text-center">
+                <Button variant="outline" className="border-white/10 text-muted-foreground hover:text-white hover:bg-white/5">
+                  もっと見る <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
               </div>
             </div>
           </div>
