@@ -49,6 +49,8 @@ export default function ArticleDetail() {
     return <div className="min-h-screen bg-[#0B1026]" />;
   }
 
+  const isLocked = item.isPremium && !isUnlocked;
+
   return (
     <div className="min-h-screen bg-[#0B1026] text-white font-sans selection:bg-primary/30 pb-20">
       {/* Background Elements */}
@@ -134,7 +136,7 @@ export default function ArticleDetail() {
 
         {/* Resilience Hub Insights (Key Takeaways) */}
         {item.keyTakeaways && (
-          <section className="mb-12 bg-[#0F172A]/80 border border-primary/20 rounded-xl p-6 md:p-8 relative overflow-hidden backdrop-blur-md shadow-lg">
+          <section className={`mb-12 bg-[#0F172A]/80 border border-primary/20 rounded-xl p-6 md:p-8 relative overflow-hidden backdrop-blur-md shadow-lg ${isLocked ? 'select-none' : ''}`}>
             <div className="absolute top-0 right-0 p-4 opacity-10">
               <SparklesIcon className="w-24 h-24 text-primary" />
             </div>
@@ -142,7 +144,7 @@ export default function ArticleDetail() {
               <SparklesIcon className="w-5 h-5" />
               Resilience Hub Insights
             </h2>
-            <ul className="space-y-3">
+            <ul className={`space-y-3 ${isLocked ? 'blur-sm' : ''}`}>
               {item.keyTakeaways.map((point, index) => (
                 <li key={index} className="flex items-start gap-3 text-sm md:text-base text-white/90">
                   <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center text-xs font-bold mt-0.5">
@@ -152,27 +154,19 @@ export default function ArticleDetail() {
                 </li>
               ))}
             </ul>
+            {isLocked && (
+              <div className="absolute inset-0 flex items-center justify-center bg-[#0F172A]/40 backdrop-blur-[2px]">
+                <div className="text-center p-4">
+                  <Lock className="w-8 h-8 text-[#d4a574] mx-auto mb-2" />
+                  <p className="text-sm font-bold text-white">Insightsは有料会員限定です</p>
+                </div>
+              </div>
+            )}
           </section>
         )}
 
-        {/* Source Link */}
-        {item.sourceUrl && (
-          <div className="mb-8 flex items-center gap-2 text-sm text-muted-foreground bg-[#0F172A]/80 p-4 rounded-lg border border-white/10 backdrop-blur-sm">
-            <ExternalLink className="w-4 h-4" />
-            <span>元記事:</span>
-            <a 
-              href={item.sourceUrl} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-primary hover:underline truncate max-w-[200px] md:max-w-md"
-            >
-              {item.sourceUrl}
-            </a>
-          </div>
-        )}
-
         {/* Article Content */}
-        <article className="prose prose-invert prose-lg max-w-none bg-[#0B1026]/60 p-6 md:p-8 rounded-xl backdrop-blur-sm border border-white/5">
+        <article className="prose prose-invert prose-lg max-w-none bg-[#0B1026]/60 p-6 md:p-8 rounded-xl backdrop-blur-sm border border-white/5 mb-8">
           <div className="text-lg leading-relaxed text-white/80 mb-8">
             {item.description}
           </div>
@@ -180,7 +174,7 @@ export default function ArticleDetail() {
           {/* Full Content or Locked Content */}
           <div className="relative">
             {/* Show full content if not premium OR if premium but unlocked via free limit */}
-            {!item.isPremium || isUnlocked ? (
+            {!isLocked ? (
               <div dangerouslySetInnerHTML={{ __html: item.fullContent || "" }} />
             ) : (
               <>
@@ -208,6 +202,22 @@ export default function ArticleDetail() {
             )}
           </div>
         </article>
+
+        {/* Source Link - Only show if unlocked */}
+        {item.sourceUrl && !isLocked && (
+          <div className="mb-8 flex items-center gap-2 text-sm text-muted-foreground bg-[#0F172A]/80 p-4 rounded-lg border border-white/10 backdrop-blur-sm">
+            <ExternalLink className="w-4 h-4" />
+            <span>元記事:</span>
+            <a 
+              href={item.sourceUrl} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-primary hover:underline truncate max-w-[200px] md:max-w-md"
+            >
+              {item.sourceUrl}
+            </a>
+          </div>
+        )}
       </div>
 
       <PremiumModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
