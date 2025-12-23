@@ -7,7 +7,7 @@ import { Bell, Menu, Search, ShoppingBag, Sparkles, Settings2 } from "lucide-rea
 import { Button } from "@/components/ui/button";
 
 import { useEffect, useRef } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -15,6 +15,7 @@ export default function Home() {
   const [selectedItem, setSelectedItem] = useState<ContentItem | null>(null);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const lastScrollY = useRef(0);
+  const [, setLocation] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,13 +33,8 @@ export default function Home() {
   }, []);
 
   const handleCardClick = (item: ContentItem) => {
-    setSelectedItem(item);
-    if (item.isPremium) {
-      setIsModalOpen(true);
-    } else {
-      // Navigate to detail page (mock)
-      console.log("Navigate to detail:", item.id);
-    }
+    // Navigate to detail page for all items (Premium check is handled in detail page)
+    setLocation(`/article/${item.id}`);
   };
 
   return (
