@@ -5,12 +5,14 @@ import { ArrowLeft, ExternalLink, Lock, Share2, Bookmark, Clock, User, Zap } fro
 import { useState, useEffect } from "react";
 import { PremiumModal } from "@/components/PremiumModal";
 import { useArticleLimit } from "@/hooks/useArticleLimit";
+import { useBookmark } from "@/hooks/useBookmark";
 import { DiscussionSection } from "@/components/DiscussionSection";
 
 export default function ArticleDetail() {
   const [, params] = useRoute("/article/:id");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { remainingCount, maxCount, consumeFreeArticle, isInitialized } = useArticleLimit();
+  const { isBookmarked, toggleBookmark } = useBookmark();
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [hasCheckedLimit, setHasCheckedLimit] = useState(false);
   
@@ -70,8 +72,13 @@ export default function ArticleDetail() {
             </Button>
           </Link>
           <div className="flex gap-2">
-            <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-white">
-              <Bookmark className="w-5 h-5" />
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className={`hover:text-white ${isBookmarked(item.id) ? "text-[#d4a574]" : "text-muted-foreground"}`}
+              onClick={() => toggleBookmark(item.id)}
+            >
+              <Bookmark className={`w-5 h-5 ${isBookmarked(item.id) ? "fill-current" : ""}`} />
             </Button>
             <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-white">
               <Share2 className="w-5 h-5" />

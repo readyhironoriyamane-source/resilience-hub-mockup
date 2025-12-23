@@ -56,7 +56,12 @@ export function Sidebar() {
                   ? "text-white bg-white/10" 
                   : "text-muted-foreground hover:text-foreground hover:bg-white/5"
               }`}
-              onClick={() => setActiveItem(item.name)}
+              onClick={() => {
+                setActiveItem(item.name);
+                if (item.name === "パーソナル・ダッシュボード") {
+                  window.location.href = "/dashboard";
+                }
+              }}
             >
               {item.icon && <span className={`mt-0.5 ${activeItem === item.name ? "text-[#d4a574]" : "text-muted-foreground group-hover:text-white"}`}>{item.icon}</span>}
               <div className="flex flex-col">
