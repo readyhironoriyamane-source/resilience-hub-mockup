@@ -175,13 +175,13 @@ export default function ArticleDetail() {
               <div dangerouslySetInnerHTML={{ __html: item.fullContent || "" }} />
             ) : (
               <>
-                <div className="h-48 overflow-hidden relative">
-                  <div dangerouslySetInnerHTML={{ __html: item.fullContent || "" }} />
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0B1026]" />
+                <div className="h-32 overflow-hidden relative select-none">
+                  <div className="blur-sm" dangerouslySetInnerHTML={{ __html: item.fullContent || "" }} />
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0B1026]/80 to-[#0B1026]" />
                 </div>
                 
                 {/* Premium Lock Overlay */}
-                <div className="mt-8 p-8 rounded-xl bg-white/5 border border-white/10 text-center backdrop-blur-sm">
+                <div className="relative -mt-12 z-10 p-8 rounded-xl bg-[#0F172A] border border-[#d4a574]/30 text-center shadow-2xl shadow-black/50">
                   <Lock className="w-12 h-12 text-[#d4a574] mx-auto mb-4" />
                   <h3 className="text-xl font-bold mb-2">本日の無料閲覧枠が終了しました</h3>
                   <p className="text-muted-foreground mb-6 max-w-md mx-auto">
