@@ -1,112 +1,117 @@
 import { cn } from "@/lib/utils";
 import { Bell, Home, Settings, ShoppingBag, User, LayoutDashboard, Sparkles, Globe, Activity, ShieldAlert, Building2, Briefcase, Database, Bot, Satellite, Map } from "lucide-react";
 import { useState } from "react";
+import { Link, useLocation } from "wouter";
 
 export function Sidebar() {
+  const [location] = useLocation();
   const [activeItem, setActiveItem] = useState("タイムライン");
 
   const mainNavItems = [
     { 
       name: "パーソナル・ダッシュボード", 
       icon: <LayoutDashboard className="w-4 h-4" />,
-      description: "自社課題を見える化"
+      description: "自社課題を見える化",
+      href: "/dashboard"
     },
     { 
       name: "AIマッチング & コミュニティ", 
       icon: <Sparkles className="w-4 h-4" />,
-      description: "世界中の有識者とつながる"
+      description: "世界中の有識者とつながる",
+      href: "/community"
     },
   ];
 
   const needsNavItems = [
-    { name: "予測・予兆検知", icon: <Activity className="w-4 h-4" /> },
-    { name: "避難所・物資管理", icon: <ShieldAlert className="w-4 h-4" /> },
-    { name: "インフラ点検・監視", icon: <Building2 className="w-4 h-4" /> },
-    { name: "BCP・事業継続", icon: <Briefcase className="w-4 h-4" /> },
+    { name: "予測・予兆検知", icon: <Activity className="w-4 h-4" />, href: "/needs/prediction" },
+    { name: "避難所・物資管理", icon: <ShieldAlert className="w-4 h-4" />, href: "/needs/shelter" },
+    { name: "インフラ点検・監視", icon: <Building2 className="w-4 h-4" />, href: "/needs/infrastructure" },
+    { name: "BCP・事業継続", icon: <Briefcase className="w-4 h-4" />, href: "/needs/bcp" },
   ];
 
   const techNavItems = [
-    { name: "AI・ビッグデータ", icon: <Database className="w-4 h-4" /> },
-    { name: "ドローン・ロボティクス", icon: <Bot className="w-4 h-4" /> },
-    { name: "衛星・地理情報", icon: <Satellite className="w-4 h-4" /> },
-    { name: "ハザードマップ・可視化", icon: <Map className="w-4 h-4" /> },
+    { name: "AI・ビッグデータ", icon: <Database className="w-4 h-4" />, href: "/seeds/ai-bigdata" },
+    { name: "ドローン・ロボティクス", icon: <Bot className="w-4 h-4" />, href: "/seeds/drone" },
+    { name: "衛星・地理情報", icon: <Satellite className="w-4 h-4" />, href: "/seeds/satellite" },
+    { name: "ハザードマップ・可視化", icon: <Map className="w-4 h-4" />, href: "/seeds/hazard-map" },
   ];
 
   return (
     <div className="w-64 h-screen bg-[#0B1026] border-r border-white/10 flex flex-col h-full overflow-hidden">
-      <div className="p-6 flex items-center gap-3">
-        <div className="w-10 h-10 rounded-full bg-black flex items-center justify-center border border-white/20">
-          <span className="font-serif text-white font-bold">RH</span>
+      <Link href="/">
+        <div className="p-6 flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity">
+          <div className="w-10 h-10 rounded-full bg-black flex items-center justify-center border border-white/20">
+            <span className="font-serif text-white font-bold">RH</span>
+          </div>
+          <span className="font-serif font-bold text-lg tracking-tight">The Global Resilience Hub</span>
         </div>
-        <span className="font-serif font-bold text-lg tracking-tight">The Global Resilience Hub</span>
-      </div>
+      </Link>
 
       <div className="flex-1 overflow-y-auto py-4">
         <div className="px-4 mb-6">
-          <div className="flex items-center justify-between px-4 py-2 rounded-lg bg-primary/10 text-primary mb-2 cursor-pointer hover:bg-primary/20 transition-colors" onClick={() => setActiveItem("タイムライン")}>
-            <span className="font-bold text-sm">タイムライン</span>
-            <Settings className="w-4 h-4 opacity-70" />
-          </div>
+          <Link href="/">
+            <div className={`flex items-center justify-between px-4 py-2 rounded-lg mb-2 cursor-pointer transition-colors ${
+              location === "/" ? "bg-primary/10 text-primary" : "text-muted-foreground hover:bg-primary/20 hover:text-primary"
+            }`}>
+              <span className="font-bold text-sm">タイムライン</span>
+              <Settings className="w-4 h-4 opacity-70" />
+            </div>
+          </Link>
           
           {mainNavItems.map((item) => (
-            <div 
-              key={item.name}
-              className={`px-4 py-3 text-sm rounded-lg cursor-pointer transition-colors flex items-start gap-3 mb-1 ${
-                activeItem === item.name 
-                  ? "text-white bg-white/10" 
-                  : "text-muted-foreground hover:text-foreground hover:bg-white/5"
-              }`}
-              onClick={() => {
-                setActiveItem(item.name);
-                if (item.name === "パーソナル・ダッシュボード") {
-                  window.location.href = "/dashboard";
-                }
-              }}
-            >
-              {item.icon && <span className={`mt-0.5 ${activeItem === item.name ? "text-[#d4a574]" : "text-muted-foreground group-hover:text-white"}`}>{item.icon}</span>}
-              <div className="flex flex-col">
-                <span className="leading-tight">{item.name}</span>
-                {item.description && (
-                  <span className="text-[10px] text-muted-foreground/70 mt-0.5 font-normal">{item.description}</span>
-                )}
+            <Link key={item.name} href={item.href}>
+              <div 
+                className={`px-4 py-3 text-sm rounded-lg cursor-pointer transition-colors flex items-start gap-3 mb-1 ${
+                  location === item.href 
+                    ? "text-white bg-white/10" 
+                    : "text-muted-foreground hover:text-foreground hover:bg-white/5"
+                }`}
+              >
+                {item.icon && <span className={`mt-0.5 ${location === item.href ? "text-[#d4a574]" : "text-muted-foreground group-hover:text-white"}`}>{item.icon}</span>}
+                <div className="flex flex-col">
+                  <span className="leading-tight">{item.name}</span>
+                  {item.description && (
+                    <span className="text-[10px] text-muted-foreground/70 mt-0.5 font-normal">{item.description}</span>
+                  )}
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
         <div className="px-4 mb-6">
           <h3 className="px-4 text-xs font-bold text-muted-foreground/50 uppercase tracking-wider mb-2">課題・目的から探す</h3>
           {needsNavItems.map((item) => (
-            <div 
-              key={item.name}
-              className={`px-4 py-2 text-sm rounded-lg cursor-pointer transition-colors flex items-center gap-3 mb-1 ${
-                activeItem === item.name 
-                  ? "text-white bg-white/10" 
-                  : "text-muted-foreground hover:text-foreground hover:bg-white/5"
-              }`}
-              onClick={() => setActiveItem(item.name)}
-            >
-              <span className={`${activeItem === item.name ? "text-[#d4a574]" : "text-muted-foreground"}`}>{item.icon}</span>
-              <span>{item.name}</span>
-            </div>
+            <Link key={item.name} href={item.href}>
+              <div 
+                className={`px-4 py-2 text-sm rounded-lg cursor-pointer transition-colors flex items-center gap-3 mb-1 ${
+                  location === item.href 
+                    ? "text-white bg-white/10" 
+                    : "text-muted-foreground hover:text-foreground hover:bg-white/5"
+                }`}
+              >
+                <span className={`${location === item.href ? "text-[#d4a574]" : "text-muted-foreground"}`}>{item.icon}</span>
+                <span>{item.name}</span>
+              </div>
+            </Link>
           ))}
         </div>
 
         <div className="px-4 mb-6">
           <h3 className="px-4 text-xs font-bold text-muted-foreground/50 uppercase tracking-wider mb-2">技術・分野から探す</h3>
           {techNavItems.map((item) => (
-            <div 
-              key={item.name}
-              className={`px-4 py-2 text-sm rounded-lg cursor-pointer transition-colors flex items-center gap-3 mb-1 ${
-                activeItem === item.name 
-                  ? "text-white bg-white/10" 
-                  : "text-muted-foreground hover:text-foreground hover:bg-white/5"
-              }`}
-              onClick={() => setActiveItem(item.name)}
-            >
-              <span className={`${activeItem === item.name ? "text-[#d4a574]" : "text-muted-foreground"}`}>{item.icon}</span>
-              <span>{item.name}</span>
-            </div>
+            <Link key={item.name} href={item.href}>
+              <div 
+                className={`px-4 py-2 text-sm rounded-lg cursor-pointer transition-colors flex items-center gap-3 mb-1 ${
+                  location === item.href 
+                    ? "text-white bg-white/10" 
+                    : "text-muted-foreground hover:text-foreground hover:bg-white/5"
+                }`}
+              >
+                <span className={`${location === item.href ? "text-[#d4a574]" : "text-muted-foreground"}`}>{item.icon}</span>
+                <span>{item.name}</span>
+              </div>
+            </Link>
           ))}
         </div>
 
@@ -115,10 +120,12 @@ export function Sidebar() {
             <span className="font-bold text-sm">メンバー</span>
             <Settings className="w-4 h-4 opacity-70" />
           </div>
-          <a href="/about" className="flex items-center justify-between px-4 py-2 text-muted-foreground hover:text-foreground cursor-pointer mt-1">
-            <span className="font-bold text-sm">サービス紹介</span>
-            <Globe className="w-4 h-4 opacity-70" />
-          </a>
+          <Link href="/about">
+            <div className="flex items-center justify-between px-4 py-2 text-muted-foreground hover:text-foreground cursor-pointer mt-1">
+              <span className="font-bold text-sm">サービス紹介</span>
+              <Globe className="w-4 h-4 opacity-70" />
+            </div>
+          </Link>
         </div>
       </div>
 

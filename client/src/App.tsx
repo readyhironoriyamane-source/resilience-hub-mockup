@@ -8,6 +8,8 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import ArticleDetail from "@/pages/ArticleDetail";
 import Dashboard from "@/pages/Dashboard";
+import NeedsPage from "@/pages/NeedsPage";
+import SeedsPage from "@/pages/SeedsPage";
 
 
 function Router() {
@@ -17,6 +19,8 @@ function Router() {
       <Route path={"/about"} component={About} />
       <Route path="/article/:id" component={ArticleDetail} />
       <Route path="/dashboard" component={Dashboard} />
+      <Route path="/needs/:category" component={NeedsPage} />
+      <Route path="/seeds/:category" component={SeedsPage} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
