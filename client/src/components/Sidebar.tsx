@@ -138,9 +138,12 @@ export function Sidebar() {
             </span>
           </div>
         </div>
-        <div className="mt-4 flex items-center gap-2 px-2 opacity-70">
-          <div className="w-4 h-4 rounded-full bg-primary"></div>
-          <span className="font-serif font-bold text-lg">Scalably</span>
+        <div className="mt-4 px-2 opacity-90">
+          <img 
+            src="/images/meta-earth-heroes-logo.png" 
+            alt="META EARTH HEROES" 
+            className="h-12 w-auto object-contain"
+          />
         </div>
       </div>
     </div>
