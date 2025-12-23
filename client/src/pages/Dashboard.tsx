@@ -20,9 +20,17 @@ import {
   ChevronUp,
   FileText,
   BarChart3,
-  Lightbulb
+  Lightbulb,
+  Info,
+  Plus
 } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState<'overview' | 'library' | 'activity'>('overview');
@@ -119,127 +127,182 @@ export default function Dashboard() {
             {activeTab === 'overview' && (
               <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
                 
-                {/* Resilience Process Flow */}
-                <section className="bg-white/5 border border-white/10 rounded-xl p-6">
-                  <h2 className="text-lg font-bold mb-6 flex items-center gap-2">
-                    <TrendingUp className="w-5 h-5 text-primary" />
-                    レジリエンス向上プロセス
-                  </h2>
-                  <div className="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
+                {/* Resilience Score Section (Top Priority) */}
+                <section className="bg-gradient-to-br from-[#1e293b] to-[#0f172a] border border-white/10 rounded-xl p-6 md:p-8 relative overflow-hidden shadow-2xl">
+                  <div className="absolute top-0 right-0 p-8 opacity-5 pointer-events-none">
+                    <ShieldCheck className="w-64 h-64 text-white" />
+                  </div>
+                  
+                  <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <h2 className="text-lg font-bold text-white flex items-center gap-2">
+                          <ShieldCheck className="w-5 h-5 text-primary" />
+                          現在のレジリエンススコア
+                        </h2>
+                        <TooltipProvider>
+                          <Tooltip>
+                            <TooltipTrigger>
+                              <Info className="w-4 h-4 text-muted-foreground hover:text-white transition-colors" />
+                            </TooltipTrigger>
+                            <TooltipContent className="max-w-xs bg-[#1e293b] border-white/10 text-white">
+                              <p>BCP策定状況、備蓄品管理、従業員教育、サプライチェーン管理などの項目を総合的に評価したスコアです。</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </div>
+                      
+                      <div className="flex items-baseline gap-4 mb-4">
+                        <span className="text-7xl font-bold text-white tracking-tighter">72</span>
+                        <div className="flex flex-col">
+                          <span className="text-xl text-muted-foreground font-medium">/ 100</span>
+                          <span className="text-sm text-green-400 font-bold flex items-center gap-1">
+                            <TrendingUp className="w-3 h-3" />
+                            +5 pts (先月比)
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="space-y-3">
+                        <div className="w-full bg-white/10 h-3 rounded-full overflow-hidden">
+                          <div className="bg-gradient-to-r from-blue-500 to-primary h-full rounded-full relative" style={{ width: '72%' }}>
+                            <div className="absolute right-0 top-0 bottom-0 w-1 bg-white/50 animate-pulse" />
+                          </div>
+                        </div>
+                        <div className="flex justify-between text-xs text-muted-foreground font-medium">
+                          <span>Poor (0-40)</span>
+                          <span>Average (41-70)</span>
+                          <span className="text-primary">Good (71-100)</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-white/5 rounded-lg p-6 border border-white/10">
+                      <h3 className="font-bold text-sm mb-4 text-white/90">スコア分析・比較</h3>
+                      <div className="space-y-4">
+                        <div className="flex justify-between items-center">
+                          <span className="text-sm text-muted-foreground">業界平均 (製造業)</span>
+                          <span className="text-sm font-bold text-white">65 pts</span>
+                        </div>
+                        <div className="w-full bg-white/5 h-1.5 rounded-full overflow-hidden">
+                          <div className="bg-white/30 h-full rounded-full" style={{ width: '65%' }} />
+                        </div>
+                        
+                        <div className="pt-2 border-t border-white/10 mt-2">
+                          <p className="text-sm text-white/80 leading-relaxed">
+                            <span className="text-primary font-bold">Good判定</span>です。業界平均を7ポイント上回っています。<br/>
+                            「サプライチェーン管理」の課題を解決すると、<span className="font-bold text-white">80点台</span>への到達が見込まれます。
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                {/* Process Flow (Compact) */}
+                <section className="bg-white/5 border border-white/10 rounded-xl p-4 md:p-6">
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+                    <h2 className="text-sm font-bold text-muted-foreground uppercase tracking-wider flex items-center gap-2">
+                      <TrendingUp className="w-4 h-4" />
+                      現在地確認
+                    </h2>
+                    <Button size="sm" className="bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/20">
+                      <Plus className="w-4 h-4 mr-1" />
+                      自社課題を登録・更新する
+                    </Button>
+                  </div>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-4 gap-2 relative">
                     {/* Connecting Line (Desktop) */}
                     <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-white/10 -translate-y-1/2 z-0" />
                     
                     {[
-                      { step: 1, title: "課題登録", icon: <FileText className="w-5 h-5" />, status: "completed" },
-                      { step: 2, title: "リスク可視化", icon: <BarChart3 className="w-5 h-5" />, status: "completed" },
-                      { step: 3, title: "ソリューション導入", icon: <Lightbulb className="w-5 h-5" />, status: "current" },
-                      { step: 4, title: "スコア算出", icon: <ShieldCheck className="w-5 h-5" />, status: "pending" },
+                      { step: 1, title: "課題登録", icon: <FileText className="w-4 h-4" />, status: "completed" },
+                      { step: 2, title: "リスク可視化", icon: <BarChart3 className="w-4 h-4" />, status: "completed" },
+                      { step: 3, title: "ソリューション導入", icon: <Lightbulb className="w-4 h-4" />, status: "current" },
+                      { step: 4, title: "スコア算出", icon: <ShieldCheck className="w-4 h-4" />, status: "pending" },
                     ].map((item, i) => (
-                      <div key={i} className="relative z-10 flex flex-col items-center text-center">
-                        <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-3 border-2 transition-colors ${
+                      <div key={i} className="relative z-10 flex flex-col items-center text-center group cursor-default">
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center mb-2 border-2 transition-all ${
                           item.status === 'completed' ? 'bg-primary border-primary text-white' :
-                          item.status === 'current' ? 'bg-[#0B1026] border-primary text-primary shadow-[0_0_15px_rgba(56,189,248,0.5)]' :
+                          item.status === 'current' ? 'bg-[#0B1026] border-primary text-primary shadow-[0_0_10px_rgba(56,189,248,0.4)] scale-110' :
                           'bg-[#0B1026] border-white/20 text-muted-foreground'
                         }`}>
-                          {item.status === 'completed' ? <CheckCircle2 className="w-6 h-6" /> : item.icon}
+                          {item.status === 'completed' ? <CheckCircle2 className="w-4 h-4" /> : item.icon}
                         </div>
-                        <h3 className={`font-bold text-sm ${item.status === 'pending' ? 'text-muted-foreground' : 'text-white'}`}>
+                        <h3 className={`font-bold text-xs ${item.status === 'pending' ? 'text-muted-foreground' : 'text-white'}`}>
                           {item.title}
                         </h3>
-                        {item.status === 'current' && (
-                          <span className="text-xs text-primary mt-1 font-bold animate-pulse">進行中</span>
-                        )}
                       </div>
                     ))}
                   </div>
                 </section>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                  {/* Critical Issues List */}
-                  <section className="lg:col-span-2 bg-[#1e293b]/50 border border-white/10 rounded-xl overflow-hidden">
-                    <div className="p-6 border-b border-white/10 flex justify-between items-center">
-                      <h2 className="text-lg font-bold flex items-center gap-2">
-                        <AlertTriangle className="w-5 h-5 text-yellow-500" />
-                        対応が必要な課題
-                      </h2>
-                      <span className="bg-yellow-500/20 text-yellow-500 text-xs font-bold px-2 py-1 rounded">
-                        要対応 {criticalIssues.length + otherIssues.length}件
-                      </span>
-                    </div>
-                    
-                    <div className="divide-y divide-white/5">
-                      {/* Critical Issues (Always Visible) */}
-                      {criticalIssues.map((issue) => (
-                        <div key={issue.id} className="p-4 hover:bg-white/5 transition-colors flex items-center justify-between group cursor-pointer">
-                          <div className="flex items-center gap-3">
-                            <div className="w-2 h-2 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.6)]" />
-                            <div>
-                              <h3 className="font-bold text-sm group-hover:text-primary transition-colors">{issue.title}</h3>
-                              <p className="text-xs text-red-400 font-medium mt-0.5">{issue.deadline}</p>
-                            </div>
+                {/* Critical Issues List */}
+                <section className="bg-[#1e293b]/50 border border-white/10 rounded-xl overflow-hidden">
+                  <div className="p-6 border-b border-white/10 flex justify-between items-center">
+                    <h2 className="text-lg font-bold flex items-center gap-2">
+                      <AlertTriangle className="w-5 h-5 text-yellow-500" />
+                      可視化されたリスク・課題
+                    </h2>
+                    <span className="bg-yellow-500/20 text-yellow-500 text-xs font-bold px-2 py-1 rounded">
+                      要対応 {criticalIssues.length + otherIssues.length}件
+                    </span>
+                  </div>
+                  
+                  <div className="divide-y divide-white/5">
+                    {/* Critical Issues (Always Visible) */}
+                    {criticalIssues.map((issue) => (
+                      <div key={issue.id} className="p-4 hover:bg-white/5 transition-colors flex items-center justify-between group cursor-pointer">
+                        <div className="flex items-center gap-3">
+                          <div className="w-2 h-2 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.6)]" />
+                          <div>
+                            <h3 className="font-bold text-sm group-hover:text-primary transition-colors">{issue.title}</h3>
+                            <p className="text-xs text-red-400 font-medium mt-0.5">{issue.deadline}</p>
                           </div>
-                          <Button size="sm" variant="ghost" className="text-muted-foreground group-hover:text-white">
-                            詳細 <ArrowRight className="w-3 h-3 ml-1" />
-                          </Button>
                         </div>
-                      ))}
+                        <Button size="sm" variant="ghost" className="text-muted-foreground group-hover:text-white">
+                          詳細 <ArrowRight className="w-3 h-3 ml-1" />
+                        </Button>
+                      </div>
+                    ))}
 
-                      {/* Expandable Other Issues */}
-                      {isIssuesExpanded && otherIssues.map((issue) => (
-                        <div key={issue.id} className="p-4 hover:bg-white/5 transition-colors flex items-center justify-between group cursor-pointer bg-black/20">
-                          <div className="flex items-center gap-3">
-                            <div className="w-2 h-2 rounded-full bg-yellow-500/50" />
-                            <div>
-                              <h3 className="font-bold text-sm text-white/80 group-hover:text-primary transition-colors">{issue.title}</h3>
-                              <p className="text-xs text-muted-foreground mt-0.5">{issue.deadline}</p>
-                            </div>
+                    {/* Expandable Other Issues */}
+                    {isIssuesExpanded && otherIssues.map((issue) => (
+                      <div key={issue.id} className="p-4 hover:bg-white/5 transition-colors flex items-center justify-between group cursor-pointer bg-black/20">
+                        <div className="flex items-center gap-3">
+                          <div className="w-2 h-2 rounded-full bg-yellow-500/50" />
+                          <div>
+                            <h3 className="font-bold text-sm text-white/80 group-hover:text-primary transition-colors">{issue.title}</h3>
+                            <p className="text-xs text-muted-foreground mt-0.5">{issue.deadline}</p>
                           </div>
-                          <Button size="sm" variant="ghost" className="text-muted-foreground group-hover:text-white">
-                            詳細 <ArrowRight className="w-3 h-3 ml-1" />
-                          </Button>
                         </div>
-                      ))}
-                    </div>
+                        <Button size="sm" variant="ghost" className="text-muted-foreground group-hover:text-white">
+                          詳細 <ArrowRight className="w-3 h-3 ml-1" />
+                        </Button>
+                      </div>
+                    ))}
+                  </div>
 
-                    {otherIssues.length > 0 && (
-                      <button 
-                        onClick={() => setIsIssuesExpanded(!isIssuesExpanded)}
-                        className="w-full py-3 text-xs font-bold text-muted-foreground hover:text-white hover:bg-white/5 transition-colors flex items-center justify-center gap-1 border-t border-white/5"
-                      >
-                        {isIssuesExpanded ? (
-                          <>
-                            <ChevronUp className="w-3 h-3" />
-                            閉じる
-                          </>
-                        ) : (
-                          <>
-                            <ChevronDown className="w-3 h-3" />
-                            その他の課題を表示 ({otherIssues.length}件)
-                          </>
-                        )}
-                      </button>
-                    )}
-                  </section>
-
-                  {/* Current Score Summary */}
-                  <section className="bg-gradient-to-br from-[#1e293b] to-[#0f172a] border border-white/10 rounded-xl p-6 relative overflow-hidden flex flex-col justify-center">
-                    <div className="absolute top-0 right-0 p-4 opacity-5">
-                      <ShieldCheck className="w-40 h-40 text-white" />
-                    </div>
-                    <h3 className="text-sm font-bold text-muted-foreground mb-2">現在のレジリエンススコア</h3>
-                    <div className="flex items-baseline gap-2 mb-4">
-                      <span className="text-6xl font-bold text-white tracking-tighter">72</span>
-                      <span className="text-xl text-muted-foreground">/ 100</span>
-                    </div>
-                    <div className="w-full bg-white/10 h-2 rounded-full mb-4 overflow-hidden">
-                      <div className="bg-primary h-full rounded-full" style={{ width: '72%' }} />
-                    </div>
-                    <p className="text-sm text-white/80 leading-relaxed">
-                      ソリューション導入が進んでいます。<br/>
-                      <span className="text-primary font-bold">「サプライチェーン管理」</span>の対策完了で、スコア80点台到達が見込まれます。
-                    </p>
-                  </section>
-                </div>
+                  {otherIssues.length > 0 && (
+                    <button 
+                      onClick={() => setIsIssuesExpanded(!isIssuesExpanded)}
+                      className="w-full py-3 text-xs font-bold text-muted-foreground hover:text-white hover:bg-white/5 transition-colors flex items-center justify-center gap-1 border-t border-white/5"
+                    >
+                      {isIssuesExpanded ? (
+                        <>
+                          <ChevronUp className="w-3 h-3" />
+                          閉じる
+                        </>
+                      ) : (
+                        <>
+                          <ChevronDown className="w-3 h-3" />
+                          その他の課題を表示 ({otherIssues.length}件)
+                        </>
+                      )}
+                    </button>
+                  )}
+                </section>
 
                 {/* Recommended Actions */}
                 <section>
