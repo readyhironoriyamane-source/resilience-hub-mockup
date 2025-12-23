@@ -139,11 +139,18 @@ export function Sidebar() {
           </div>
         </div>
         <div className="mt-4 px-2 opacity-90">
-          <img 
-            src="/images/meta-earth-heroes-logo.png" 
-            alt="META EARTH HEROES" 
-            className="h-12 w-auto object-contain"
-          />
+          <a 
+            href="https://www.metaearth.co.jp/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="block hover:opacity-80 transition-opacity"
+          >
+            <img 
+              src="/images/meta-earth-heroes-logo.png" 
+              alt="META EARTH HEROES" 
+              className="h-12 w-auto object-contain"
+            />
+          </a>
         </div>
       </div>
     </div>
