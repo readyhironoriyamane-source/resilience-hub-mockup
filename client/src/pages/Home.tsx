@@ -5,6 +5,7 @@ import { Sidebar } from "@/components/Sidebar";
 import { contentItems, type ContentItem } from "@/lib/mock-data";
 import { Bell, Menu, Search, ShoppingBag, Sparkles, Settings2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useArticleLimit } from "@/hooks/useArticleLimit";
 
 import { useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
@@ -16,6 +17,7 @@ export default function Home() {
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const lastScrollY = useRef(0);
   const [, setLocation] = useLocation();
+  const { allReadArticles } = useArticleLimit();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -157,7 +159,12 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {/* Sort by date descending (mock implementation assumes already sorted or just map) */}
               {contentItems.map(item => (
-                <ContentCard key={item.id} item={item} onClick={handleCardClick} />
+                <ContentCard 
+                  key={item.id} 
+                  item={item} 
+                  onClick={handleCardClick} 
+                  isRead={allReadArticles.includes(item.id)}
+                />
               ))}
             </div>
           </section>

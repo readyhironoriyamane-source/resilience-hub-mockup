@@ -5,6 +5,7 @@ import { ArrowLeft, ExternalLink, Lock, Share2, Bookmark, Clock, User, Zap } fro
 import { useState, useEffect } from "react";
 import { PremiumModal } from "@/components/PremiumModal";
 import { useArticleLimit } from "@/hooks/useArticleLimit";
+import { DiscussionSection } from "@/components/DiscussionSection";
 
 export default function ArticleDetail() {
   const [, params] = useRoute("/article/:id");
@@ -218,6 +219,12 @@ export default function ArticleDetail() {
             </a>
           </div>
         )}
+
+        {/* Discussion Section */}
+        <DiscussionSection 
+          isLocked={isLocked} 
+          onUpgrade={() => setIsModalOpen(true)} 
+        />
       </div>
 
       <PremiumModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
