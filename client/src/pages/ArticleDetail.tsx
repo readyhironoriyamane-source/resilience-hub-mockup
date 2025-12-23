@@ -1,15 +1,29 @@
 import { useRoute, Link } from "wouter";
 import { contentItems } from "@/lib/mock-data";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, ExternalLink, Lock, Share2, Bookmark, Clock, User } from "lucide-react";
-import { useState } from "react";
+import { ArrowLeft, ExternalLink, Lock, Share2, Bookmark, Clock, User, Zap } from "lucide-react";
+import { useState, useEffect } from "react";
 import { PremiumModal } from "@/components/PremiumModal";
+import { useArticleLimit } from "@/hooks/useArticleLimit";
 
 export default function ArticleDetail() {
   const [, params] = useRoute("/article/:id");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { remainingCount, maxCount, consumeFreeArticle, hasReadCurrentArticle } = useArticleLimit();
+  const [isUnlocked, setIsUnlocked] = useState(false);
   
   const item = contentItems.find(i => i.id === params?.id);
+
+  useEffect(() => {
+    if (item && item.isPremium) {
+      // Try to consume a free article slot
+      const unlocked = consumeFreeArticle(item.id);
+      setIsUnlocked(unlocked);
+    } else {
+      // Non-premium items are always unlocked
+      setIsUnlocked(true);
+    }
+  }, [item?.id]); // Only run when item ID changes
 
   if (!item) {
     return (
@@ -52,6 +66,31 @@ export default function ArticleDetail() {
             </Button>
           </div>
         </div>
+
+        {/* Free Article Meter (Only show if premium item and unlocked) */}
+        {item.isPremium && isUnlocked && (
+          <div className="mb-6 bg-gradient-to-r from-blue-900/40 to-purple-900/40 border border-white/10 rounded-lg p-4 flex items-center justify-between backdrop-blur-sm">
+            <div className="flex items-center gap-3">
+              <div className="p-2 rounded-full bg-primary/20 text-primary">
+                <Zap className="w-4 h-4" />
+              </div>
+              <div>
+                <div className="text-sm font-bold text-white">本日の無料閲覧枠</div>
+                <div className="text-xs text-muted-foreground">
+                  残り <span className="text-primary font-bold">{remainingCount}</span> / {maxCount} 本の記事を無料で読めます
+                </div>
+              </div>
+            </div>
+            <Button 
+              variant="outline" 
+              size="sm" 
+              onClick={() => setIsModalOpen(true)}
+              className="text-xs border-primary/30 text-primary hover:bg-primary/10 hover:text-primary"
+            >
+              無制限プランへ
+            </Button>
+          </div>
+        )}
 
         {/* Article Header */}
         <header className="mb-10">
@@ -131,7 +170,10 @@ export default function ArticleDetail() {
           
           {/* Full Content or Locked Content */}
           <div className="relative">
-            {item.isPremium ? (
+            {/* Show full content if not premium OR if premium but unlocked via free limit */}
+            {!item.isPremium || isUnlocked ? (
+              <div dangerouslySetInnerHTML={{ __html: item.fullContent || "" }} />
+            ) : (
               <>
                 <div className="h-48 overflow-hidden relative">
                   <div dangerouslySetInnerHTML={{ __html: item.fullContent || "" }} />
@@ -141,7 +183,7 @@ export default function ArticleDetail() {
                 {/* Premium Lock Overlay */}
                 <div className="mt-8 p-8 rounded-xl bg-white/5 border border-white/10 text-center backdrop-blur-sm">
                   <Lock className="w-12 h-12 text-[#d4a574] mx-auto mb-4" />
-                  <h3 className="text-xl font-bold mb-2">この記事は有料会員限定です</h3>
+                  <h3 className="text-xl font-bold mb-2">本日の無料閲覧枠が終了しました</h3>
                   <p className="text-muted-foreground mb-6 max-w-md mx-auto">
                     Resilience Hub Insightsの全文、専門家による詳細な分析、
                     そしてコミュニティでの議論に参加するには、プレミアムプランへの登録が必要です。
@@ -154,8 +196,6 @@ export default function ArticleDetail() {
                   </Button>
                 </div>
               </>
-            ) : (
-              <div dangerouslySetInnerHTML={{ __html: item.fullContent || "" }} />
             )}
           </div>
         </article>
