@@ -1,22 +1,30 @@
-import { useRoute, Link } from "wouter";
+import { useRoute, Link, useLocation } from "wouter";
 import { contentItems } from "@/lib/mock-data";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, ExternalLink, Lock, Share2, Bookmark, Clock, User, Zap } from "lucide-react";
+import { ArrowLeft, ExternalLink, Lock, Share2, Bookmark, Clock, User, Zap, ThumbsUp, MessageSquare } from "lucide-react";
 import { useState, useEffect } from "react";
 import { PremiumModal } from "@/components/PremiumModal";
 import { useArticleLimit } from "@/hooks/useArticleLimit";
 import { useBookmark } from "@/hooks/useBookmark";
 import { DiscussionSection } from "@/components/DiscussionSection";
+import { ContentCard } from "@/components/ContentCard";
 
 export default function ArticleDetail() {
   const [, params] = useRoute("/article/:id");
+  const [, setLocation] = useLocation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { remainingCount, maxCount, consumeFreeArticle, isInitialized } = useArticleLimit();
   const { isBookmarked, toggleBookmark } = useBookmark();
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [hasCheckedLimit, setHasCheckedLimit] = useState(false);
+  const [isLiked, setIsLiked] = useState(false);
   
   const item = contentItems.find(i => i.id === params?.id);
+
+  // Get related articles (same category, excluding current item)
+  const relatedArticles = contentItems
+    .filter(i => i.category === item?.category && i.id !== item?.id)
+    .slice(0, 3);
 
   useEffect(() => {
     if (!isInitialized || !item) return;
@@ -31,6 +39,11 @@ export default function ArticleDetail() {
     }
     setHasCheckedLimit(true);
   }, [item?.id, isInitialized, consumeFreeArticle]);
+
+  // Scroll to top when article changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [params?.id]);
 
   if (!item) {
     return (
@@ -54,8 +67,12 @@ export default function ArticleDetail() {
 
   const isLocked = item.isPremium && !isUnlocked;
 
+  const handleCardClick = (id: number) => {
+    setLocation(`/article/${id}`);
+  };
+
   return (
-    <div className="min-h-screen bg-[#0B1026] text-white font-sans selection:bg-primary/30 pb-20">
+    <div className="min-h-screen bg-[#0B1026] text-white font-sans selection:bg-primary/30 pb-32">
       {/* Background Elements */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 bg-[url('/images/bg-stars.png')] bg-cover bg-center opacity-60" />
@@ -71,19 +88,6 @@ export default function ArticleDetail() {
               一覧に戻る
             </Button>
           </Link>
-          <div className="flex gap-2">
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              className={`hover:text-white ${isBookmarked(item.id) ? "text-[#d4a574]" : "text-muted-foreground"}`}
-              onClick={() => toggleBookmark(item.id)}
-            >
-              <Bookmark className={`w-5 h-5 ${isBookmarked(item.id) ? "fill-current" : ""}`} />
-            </Button>
-            <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-white">
-              <Share2 className="w-5 h-5" />
-            </Button>
-          </div>
         </div>
 
         {/* Free Article Meter (Only show if premium item and unlocked) */}
@@ -232,6 +236,59 @@ export default function ArticleDetail() {
           isLocked={isLocked} 
           onUpgrade={() => setIsModalOpen(true)} 
         />
+
+        {/* Related Articles Recommendation */}
+        {relatedArticles.length > 0 && (
+          <div className="mt-16 pt-8 border-t border-white/10">
+            <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
+              <Zap className="w-5 h-5 text-primary" />
+              おすすめの関連記事
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {relatedArticles.map((relatedItem) => (
+                <ContentCard 
+                  key={relatedItem.id} 
+                  item={relatedItem} 
+                  onClick={() => handleCardClick(Number(relatedItem.id))} 
+                />
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Floating Action Bar */}
+      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-[#0F172A]/90 backdrop-blur-md border border-white/10 rounded-full px-6 py-3 shadow-2xl flex items-center gap-4">
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          className={`rounded-full hover:bg-white/10 ${isLiked ? "text-pink-500" : "text-muted-foreground"}`}
+          onClick={() => setIsLiked(!isLiked)}
+        >
+          <ThumbsUp className={`w-5 h-5 ${isLiked ? "fill-current" : ""}`} />
+        </Button>
+        <div className="w-px h-6 bg-white/10" />
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          className="rounded-full hover:bg-white/10 text-muted-foreground"
+          onClick={() => document.getElementById('discussion-section')?.scrollIntoView({ behavior: 'smooth' })}
+        >
+          <MessageSquare className="w-5 h-5" />
+        </Button>
+        <div className="w-px h-6 bg-white/10" />
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          className={`rounded-full hover:bg-white/10 ${isBookmarked(item.id) ? "text-[#d4a574]" : "text-muted-foreground"}`}
+          onClick={() => toggleBookmark(item.id)}
+        >
+          <Bookmark className={`w-5 h-5 ${isBookmarked(item.id) ? "fill-current" : ""}`} />
+        </Button>
+        <div className="w-px h-6 bg-white/10" />
+        <Button variant="ghost" size="icon" className="rounded-full hover:bg-white/10 text-muted-foreground">
+          <Share2 className="w-5 h-5" />
+        </Button>
       </div>
 
       <PremiumModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
