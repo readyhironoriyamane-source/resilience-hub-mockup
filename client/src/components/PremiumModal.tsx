@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Check } from "lucide-react";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 interface PremiumModalProps {
   isOpen: boolean;
@@ -11,6 +12,9 @@ export function PremiumModal({ isOpen, onClose }: PremiumModalProps) {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-md bg-[#1a2a4a] border-white/10 text-white p-0 overflow-hidden gap-0">
+        <VisuallyHidden>
+          <DialogTitle>有料会員登録のご案内</DialogTitle>
+        </VisuallyHidden>
         <div className="relative h-48 w-full">
           <img 
             src="/images/bg-stars.png" 
