@@ -85,7 +85,20 @@ export default function Home() {
               {/* Desktop Header Content if needed */}
             </div>
             <div className="flex items-center gap-4">
-              <Search className="w-5 h-5 text-muted-foreground hover:text-white cursor-pointer transition-colors" />
+              <div className="relative hidden md:block">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                <input 
+                  type="text" 
+                  placeholder="キーワード検索..." 
+                  className="bg-white/5 border border-white/10 rounded-full pl-9 pr-4 py-1.5 text-sm text-white placeholder:text-muted-foreground focus:outline-none focus:bg-white/10 focus:border-white/20 w-64 transition-all"
+                />
+              </div>
+              <Search className="md:hidden w-5 h-5 text-muted-foreground hover:text-white cursor-pointer transition-colors" />
+              
+              <div className="relative cursor-pointer group">
+                <Bell className="w-5 h-5 text-muted-foreground group-hover:text-white transition-colors" />
+                <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-[#0B1026]" />
+              </div>
             </div>
           </div>
           

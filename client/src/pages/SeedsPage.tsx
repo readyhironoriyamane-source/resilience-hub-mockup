@@ -82,15 +82,46 @@ export default function SeedsPage() {
         </div>
 
         <div className="container mx-auto max-w-6xl px-8 py-12">
-          {/* Tech Articles Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {relatedArticles.map((item) => (
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            {/* Left Sidebar: Filters & CTA */}
+            <div className="lg:col-span-1 space-y-6">
+              <div className="bg-white/5 rounded-xl p-6 border border-white/10">
+                <h3 className="text-sm font-bold mb-4 text-slate-300 uppercase tracking-wider">Filter</h3>
+                <div className="space-y-2">
+                  {["すべて", "実証実験済み", "導入事例あり", "特許取得済み"].map((filter) => (
+                    <div key={filter} className="flex items-center gap-2">
+                      <div className="w-4 h-4 rounded border border-white/30" />
+                      <span className="text-sm text-slate-400">{filter}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Solution Listing Inquiry */}
+              <div className="bg-gradient-to-br from-blue-900/40 to-slate-900/40 rounded-xl p-6 border border-blue-500/20 hover:border-blue-500/40 transition-colors cursor-pointer group">
+                <h3 className="text-lg font-bold mb-2 flex items-center gap-2 text-white group-hover:text-blue-400 transition-colors">
+                  <Database className="w-5 h-5" />
+                  技術シーズを掲載
+                </h3>
+                <p className="text-sm text-muted-foreground mb-4">
+                  貴社の保有する防災・レジリエンス技術を、世界中の課題保有者に届けませんか？
+                </p>
+                <Button variant="outline" className="w-full border-blue-500/30 text-blue-400 hover:bg-blue-500/10 hover:text-blue-300">
+                  掲載の相談をする
+                </Button>
+              </div>
+            </div>
+
+            {/* Tech Articles Grid */}
+            <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-6">
+              {relatedArticles.map((item) => (
               <ContentCard 
                 key={item.id} 
                 item={item} 
                 onClick={() => handleCardClick(Number(item.id))} 
               />
-            ))}
+              ))}
+            </div>
           </div>
 
           <div className="mt-12 text-center">

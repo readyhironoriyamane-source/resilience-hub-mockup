@@ -10,7 +10,8 @@ import {
   ArrowRight,
   RefreshCw,
   FileText,
-  Lightbulb
+  Lightbulb,
+  TrendingUp
 } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Progress } from "@/components/ui/progress";
@@ -128,6 +129,37 @@ export default function Dashboard() {
             </p>
           </header>
 
+          {/* Process Visualization */}
+          <div className="mb-8 bg-white/5 border border-white/10 rounded-xl p-6">
+            <h2 className="text-sm font-bold text-muted-foreground uppercase tracking-wider mb-4 flex items-center gap-2">
+              <TrendingUp className="w-4 h-4" />
+              Resilience Roadmap
+            </h2>
+            <div className="relative flex justify-between items-center">
+              {/* Connecting Line */}
+              <div className="absolute top-1/2 left-0 w-full h-0.5 bg-white/10 -translate-y-1/2 z-0" />
+              
+              {[
+                { step: 1, title: "現状把握", status: "current" },
+                { step: 2, title: "課題特定", status: "pending" },
+                { step: 3, title: "対策実行", status: "pending" },
+                { step: 4, title: "効果測定", status: "pending" },
+              ].map((item, i) => (
+                <div key={i} className="relative z-10 flex flex-col items-center bg-[#0B1026] px-4">
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center mb-2 border-2 transition-all ${
+                    item.status === 'current' ? 'bg-primary border-primary text-white shadow-[0_0_15px_rgba(212,165,116,0.5)]' :
+                    'bg-[#0B1026] border-white/20 text-muted-foreground'
+                  }`}>
+                    {i + 1}
+                  </div>
+                  <span className={`text-xs font-bold ${item.status === 'current' ? 'text-white' : 'text-muted-foreground'}`}>
+                    {item.title}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Left Column: Diagnostic Checklist */}
             <div className="lg:col-span-2 space-y-6">
@@ -163,9 +195,32 @@ export default function Dashboard() {
                 </CardContent>
               </Card>
 
-              {/* Recommended Actions */}
-              <div className="space-y-4">
-                <h2 className="text-xl font-bold flex items-center gap-2">
+              {/* Critical Issues & Actions */}
+              <div className="space-y-6">
+                {/* Critical Issues List */}
+                <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-6">
+                  <h3 className="text-lg font-bold text-red-400 mb-4 flex items-center gap-2">
+                    <AlertTriangle className="w-5 h-5" />
+                    優先対応が必要な重要課題 (Top 3)
+                  </h3>
+                  <div className="space-y-3">
+                    {[
+                      { title: "サプライチェーン寸断リスクの可視化", deadline: "残り3日" },
+                      { title: "BCPマニュアルの最終更新から1年以上経過", deadline: "要確認" },
+                      { title: "従業員安否確認システムのテスト未実施", deadline: "残り1週間" }
+                    ].map((issue, i) => (
+                      <div key={i} className="flex items-center justify-between bg-[#0B1026]/50 p-3 rounded-lg border border-red-500/10">
+                        <span className="text-sm font-medium text-white">{issue.title}</span>
+                        <div className="flex items-center gap-3">
+                          <span className="text-xs text-red-300 bg-red-500/10 px-2 py-1 rounded">{issue.deadline}</span>
+                          <Button size="sm" variant="ghost" className="h-6 text-xs text-muted-foreground hover:text-white">詳細</Button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <h2 className="text-xl font-bold flex items-center gap-2 mt-8">
                   <Lightbulb className="w-5 h-5 text-[#d4a574]" />
                   あなたへの推奨アクション
                 </h2>
