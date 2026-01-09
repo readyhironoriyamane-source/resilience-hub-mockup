@@ -17,7 +17,7 @@ export function Sidebar() {
     { 
       name: "AIマッチング & コミュニティ", 
       icon: <Sparkles className="w-4 h-4" />,
-      description: "世界中の有識者とつながる",
+      description: "世界中の有識者とつながる (Coming Soon)",
       href: "/community"
     },
   ];

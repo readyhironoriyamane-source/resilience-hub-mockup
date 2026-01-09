@@ -2,6 +2,7 @@ import { useRoute, Link, useLocation } from "wouter";
 import { contentItems } from "@/lib/mock-data";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ExternalLink, Lock, Share2, Bookmark, Clock, User, Zap, ThumbsUp, MessageSquare } from "lucide-react";
+import { toast } from "sonner";
 import { useState, useEffect } from "react";
 import { PremiumModal } from "@/components/PremiumModal";
 import { useArticleLimit } from "@/hooks/useArticleLimit";
@@ -271,8 +272,11 @@ export default function ArticleDetail() {
         <Button 
           variant="ghost" 
           size="icon" 
-          className="rounded-full hover:bg-white/10 text-muted-foreground"
-          onClick={() => document.getElementById('discussion-section')?.scrollIntoView({ behavior: 'smooth' })}
+          className="rounded-full hover:bg-white/10 text-muted-foreground opacity-50"
+          onClick={() => {
+            document.getElementById('discussion-section')?.scrollIntoView({ behavior: 'smooth' });
+            toast.info("コミュニティ機能は2026年4月リリース予定です");
+          }}
         >
           <MessageSquare className="w-5 h-5" />
         </Button>
