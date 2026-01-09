@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import { Bell, Home, Settings, ShoppingBag, User, LayoutDashboard, Sparkles, Globe, Activity, ShieldAlert, Building2, Briefcase, Database, Bot, Satellite, Map } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
+import { toast } from "sonner";
 
 export function Sidebar() {
   const [location] = useLocation();
@@ -58,25 +59,46 @@ export function Sidebar() {
             </div>
           </Link>
           
-          {mainNavItems.map((item) => (
-            <Link key={item.name} href={item.href}>
-              <div 
-                className={`px-4 py-3 text-sm rounded-lg cursor-pointer transition-colors flex items-start gap-3 mb-1 ${
-                  location === item.href 
-                    ? "text-white bg-white/10" 
-                    : "text-muted-foreground hover:text-foreground hover:bg-white/5"
-                }`}
-              >
-                {item.icon && <span className={`mt-0.5 ${location === item.href ? "text-[#d4a574]" : "text-muted-foreground group-hover:text-white"}`}>{item.icon}</span>}
-                <div className="flex flex-col">
-                  <span className="leading-tight">{item.name}</span>
-                  {item.description && (
-                    <span className="text-[10px] text-muted-foreground/70 mt-0.5 font-normal">{item.description}</span>
-                  )}
+          {mainNavItems.map((item) => {
+            // コミュニティ機能はPhase 2のため、リンクを無効化してトーストを表示
+            if (item.href === "/community") {
+              return (
+                <div 
+                  key={item.name}
+                  onClick={() => toast.info("コミュニティ機能は2026年4月リリース予定です")}
+                  className={`px-4 py-3 text-sm rounded-lg cursor-pointer transition-colors flex items-start gap-3 mb-1 text-muted-foreground hover:text-foreground hover:bg-white/5 opacity-70`}
+                >
+                  {item.icon && <span className="mt-0.5 text-muted-foreground group-hover:text-white">{item.icon}</span>}
+                  <div className="flex flex-col">
+                    <span className="leading-tight">{item.name}</span>
+                    {item.description && (
+                      <span className="text-[10px] text-muted-foreground/70 mt-0.5 font-normal">{item.description}</span>
+                    )}
+                  </div>
                 </div>
-              </div>
-            </Link>
-          ))}
+              );
+            }
+
+            return (
+              <Link key={item.name} href={item.href}>
+                <div 
+                  className={`px-4 py-3 text-sm rounded-lg cursor-pointer transition-colors flex items-start gap-3 mb-1 ${
+                    location === item.href 
+                      ? "text-white bg-white/10" 
+                      : "text-muted-foreground hover:text-foreground hover:bg-white/5"
+                  }`}
+                >
+                  {item.icon && <span className={`mt-0.5 ${location === item.href ? "text-[#d4a574]" : "text-muted-foreground group-hover:text-white"}`}>{item.icon}</span>}
+                  <div className="flex flex-col">
+                    <span className="leading-tight">{item.name}</span>
+                    {item.description && (
+                      <span className="text-[10px] text-muted-foreground/70 mt-0.5 font-normal">{item.description}</span>
+                    )}
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
         </div>
 
         <div className="px-4 mb-6">
