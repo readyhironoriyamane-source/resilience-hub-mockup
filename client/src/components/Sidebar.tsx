@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Bell, Home, Settings, ShoppingBag, User, LayoutDashboard, Sparkles, Globe, Activity, ShieldAlert, Building2, Briefcase, Database, Bot, Satellite, Map } from "lucide-react";
+import { Bell, Home, Settings, ShoppingBag, User, LayoutDashboard, Sparkles, Globe, Activity, ShieldAlert, Building2, Briefcase, Database, Bot, Satellite, Map, HelpCircle, FileText, Lock } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { toast } from "sonner";
@@ -16,10 +16,26 @@ export function Sidebar() {
       href: "/dashboard"
     },
     { 
-      name: "AIマッチング & コミュニティ", 
+      name: "GRS Desk (相談窓口)", 
+      icon: <HelpCircle className="w-4 h-4" />,
+      description: "協業・取材・補助金のご相談",
+      href: "/desk"
+    },
+    { 
+      name: "Community", 
       icon: <Sparkles className="w-4 h-4" />,
-      description: "世界中の有識者とつながる (Coming Soon)",
-      href: "/community"
+      description: "世界中の有識者とつながる",
+      href: "/community",
+      locked: true,
+      release: "2026.04"
+    },
+    { 
+      name: "Reports", 
+      icon: <FileText className="w-4 h-4" />,
+      description: "企業別レポート自動生成",
+      href: "/reports",
+      locked: true,
+      release: "2026.04"
     },
   ];
 
@@ -60,17 +76,25 @@ export function Sidebar() {
           </Link>
           
           {mainNavItems.map((item) => {
-            // コミュニティ機能はPhase 2のため、リンクを無効化してトーストを表示
-            if (item.href === "/community") {
+            // ロックされた機能（Roadmap）
+            if (item.locked) {
               return (
                 <div 
                   key={item.name}
-                  onClick={() => toast.info("コミュニティ機能は2026年4月リリース予定です")}
-                  className={`px-4 py-3 text-sm rounded-lg cursor-pointer transition-colors flex items-start gap-3 mb-1 text-muted-foreground hover:text-foreground hover:bg-white/5 opacity-70`}
+                  onClick={() => toast.info(`${item.name}機能は${item.release}リリース予定です`)}
+                  className="px-4 py-3 text-sm rounded-lg cursor-pointer transition-colors flex items-start gap-3 mb-1 text-muted-foreground hover:text-foreground hover:bg-white/5 opacity-50 group relative"
                 >
-                  {item.icon && <span className="mt-0.5 text-muted-foreground group-hover:text-white">{item.icon}</span>}
+                  <div className="relative">
+                    {item.icon && <span className="mt-0.5 text-muted-foreground group-hover:text-white">{item.icon}</span>}
+                    <div className="absolute -top-1 -right-1 bg-[#0B1026] rounded-full p-0.5">
+                      <Lock className="w-2 h-2 text-slate-500" />
+                    </div>
+                  </div>
                   <div className="flex flex-col">
-                    <span className="leading-tight">{item.name}</span>
+                    <div className="flex items-center gap-2">
+                      <span className="leading-tight">{item.name}</span>
+                      <span className="text-[9px] border border-slate-700 rounded px-1 py-0.5 text-slate-500">{item.release}</span>
+                    </div>
                     {item.description && (
                       <span className="text-[10px] text-muted-foreground/70 mt-0.5 font-normal">{item.description}</span>
                     )}

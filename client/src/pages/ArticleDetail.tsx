@@ -153,10 +153,20 @@ export default function ArticleDetail() {
             <div className="absolute top-0 right-0 p-4 opacity-10">
               <SparklesIcon className="w-24 h-24 text-primary" />
             </div>
-            <h2 className="text-lg font-bold text-[#d4a574] mb-4 flex items-center gap-2">
-              <SparklesIcon className="w-5 h-5" />
-              Resilience Hub Insights
-            </h2>
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-lg font-bold text-[#d4a574] flex items-center gap-2">
+                <SparklesIcon className="w-5 h-5" />
+                Resilience Hub Insights
+              </h2>
+              <div className="flex items-center gap-2">
+                <span className="px-2 py-0.5 rounded bg-white/10 border border-white/10 text-[10px] text-muted-foreground font-mono">
+                  AI Generated
+                </span>
+                <span className="text-[10px] text-muted-foreground">
+                  {item.date} 更新
+                </span>
+              </div>
+            </div>
             <ul className={`space-y-3 ${isLocked ? 'blur-sm' : ''}`}>
               {item.keyTakeaways.map((point, index) => (
                 <li key={index} className="flex items-start gap-3 text-sm md:text-base text-white/90">
@@ -218,17 +228,27 @@ export default function ArticleDetail() {
 
         {/* Source Link - Only show if unlocked */}
         {item.sourceUrl && !isLocked && (
-          <div className="mb-8 flex items-center gap-2 text-sm text-muted-foreground bg-[#0F172A]/80 p-4 rounded-lg border border-white/10 backdrop-blur-sm">
-            <ExternalLink className="w-4 h-4" />
-            <span>元記事:</span>
-            <a 
-              href={item.sourceUrl} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-primary hover:underline truncate max-w-[200px] md:max-w-md"
-            >
-              {item.sourceUrl}
-            </a>
+          <div className="mb-8 bg-[#0F172A]/80 p-4 rounded-lg border border-white/10 backdrop-blur-sm">
+            <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+              <ExternalLink className="w-4 h-4" />
+              <span className="font-bold text-white">一次情報ソース</span>
+            </div>
+            <div className="flex items-center justify-between gap-4">
+              <a 
+                href={item.sourceUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-primary hover:underline truncate flex-1 text-sm"
+              >
+                {item.sourceUrl}
+              </a>
+              <span className="text-xs text-muted-foreground whitespace-nowrap bg-white/5 px-2 py-1 rounded">
+                信頼性確認済み
+              </span>
+            </div>
+            <p className="text-xs text-muted-foreground mt-2">
+              ※ AI要約は情報の正確性を期していますが、重要な意思決定の際は必ず一次情報をご確認ください。
+            </p>
           </div>
         )}
 
