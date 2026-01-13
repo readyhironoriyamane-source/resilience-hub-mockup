@@ -40,10 +40,11 @@ export function Sidebar() {
   ];
 
   const needsNavItems = [
-    { name: "予測・予兆検知", icon: <Activity className="w-4 h-4" />, href: "/needs/prediction" },
-    { name: "避難所・物資管理", icon: <ShieldAlert className="w-4 h-4" />, href: "/needs/shelter" },
-    { name: "インフラ点検・監視", icon: <Building2 className="w-4 h-4" />, href: "/needs/infrastructure" },
-    { name: "BCP・事業継続", icon: <Briefcase className="w-4 h-4" />, href: "/needs/bcp" },
+    { name: "リスク可視化・被害想定", icon: <Activity className="w-4 h-4" />, href: "/needs/risk-visualization" },
+    { name: "安否確認・備蓄・訓練", icon: <ShieldAlert className="w-4 h-4" />, href: "/needs/safety-stockpile" },
+    { name: "拠点保全・建物管理", icon: <Building2 className="w-4 h-4" />, href: "/needs/facility-management" },
+    { name: "サプライチェーン・調達", icon: <Briefcase className="w-4 h-4" />, href: "/needs/supply-chain" },
+    { name: "制度・補助金・法対応", icon: <FileText className="w-4 h-4" />, href: "/needs/regulations" },
   ];
 
   const techNavItems = [
