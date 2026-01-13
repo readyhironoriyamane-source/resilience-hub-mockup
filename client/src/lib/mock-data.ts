@@ -14,256 +14,243 @@ export interface ContentItem {
 }
 
 export const contentItems: ContentItem[] = [
-  // General / Timeline Items
   {
     id: "1",
-    title: "Aavishkaar Groupが支援するArohan Financial Services、気候変動リスク対応型マイクロファイナンスを開始",
-    author: "Venture capital Journal",
-    date: "2025年12月17日 15:13",
+    title: "【経産省】BCPガイドライン改定｜中小企業の補助金要件が厳格化、3月末までの対応必須",
+    author: "Resilience Hub Editorial",
+    date: "2026年1月12日 10:00",
     image: "/images/impact-fund.jpg",
-    category: "防災テクノロジー",
-    description: "インドのマイクロファイナンス機関Arohan Financial Servicesへの投資に関する詳細レポート。",
+    category: "制度・補助金",
+    description: "経済産業省が事業継続力強化計画の認定基準を改定。ものづくり補助金などの加点要件に関わる重要変更。",
     isPremium: true,
     type: 'general',
     keyTakeaways: [
-      "気候変動リスクが高い地域の小規模事業者向けに特化した新しい融資モデルを構築",
-      "AIを活用した信用スコアリングにより、従来金融サービスを受けられなかった層へのリーチが可能に",
-      "Aavishkaar Groupのインパクト投資戦略における重要なマイルストーンとなる案件"
+      "【Fact】認定基準に「サイバーセキュリティ対策」が必須項目として追加",
+      "【Impact】未対応の場合、来年度の補助金採択率が大幅に低下するリスク",
+      "【Target】ものづくり補助金・IT導入補助金の申請を予定している全中小企業"
     ],
-    sourceUrl: "https://example.com/news/arohan-finance",
+    sourceUrl: "https://www.meti.go.jp/policy/mono_info_service/mono/toushin/index.html",
     fullContent: `
-      <p>Aavishkaar Groupは本日、傘下のArohan Financial Servicesを通じて、気候変動リスクに脆弱な地域の中小規模事業者（MSME）を対象とした新しいマイクロファイナンスプログラムの開始を発表しました。</p>
-      <h3>背景と目的</h3>
-      <p>インド農村部では、洪水や干ばつなどの気候変動による災害リスクが高まっており、従来の金融機関からの融資を受けることが困難な状況が続いています。Arohanは、衛星データとAIを活用した独自のリスク評価モデルを導入することで、これらの地域における信用供与のハードルを下げることに成功しました。</p>
-      <h3>主な特徴</h3>
-      <ul>
-        <li><strong>AI信用スコアリング:</strong> 過去の気象データと収穫予測を組み合わせた返済能力評価</li>
-        <li><strong>パラメトリック保険の組み込み:</strong> 災害発生時に即座に保険金が支払われる仕組みを融資に付帯</li>
-        <li><strong>デジタルオンボーディング:</strong> スマートフォンのみで完結する申し込みプロセス</li>
-      </ul>
-      <p>この取り組みは、金融包摂（Financial Inclusion）と気候変動適応（Climate Adaptation）を同時に推進するモデルケースとして注目されています。</p>
+      <div class="space-y-8">
+        <section>
+          <h3 class="text-xl font-bold mb-4 text-white border-l-4 border-blue-500 pl-3">Context (背景)</h3>
+          <p class="text-gray-300 leading-relaxed">
+            近年、中小企業を標的としたランサムウェア被害が急増しており、サプライチェーン全体への影響が深刻化しています。これを受け、経済産業省は「事業継続力強化計画」の認定基準を見直し、従来の自然災害対策に加え、サイバー攻撃への対策を必須要件とする改定を行いました。この変更は2026年4月1日申請分より適用されます。
+          </p>
+        </section>
+
+        <section>
+          <h3 class="text-xl font-bold mb-4 text-white border-l-4 border-blue-500 pl-3">Key Details (変更のポイント)</h3>
+          <div class="bg-white/5 rounded-lg p-4 border border-white/10">
+            <table class="w-full text-sm text-left text-gray-300">
+              <thead class="text-xs text-gray-400 uppercase bg-white/5">
+                <tr>
+                  <th class="px-4 py-3 rounded-tl-lg">項目</th>
+                  <th class="px-4 py-3 rounded-tr-lg">内容</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-white/5">
+                  <td class="px-4 py-3 font-medium text-white">適用開始日</td>
+                  <td class="px-4 py-3">2026年4月1日（3月31日までの申請は旧基準）</td>
+                </tr>
+                <tr class="border-b border-white/5">
+                  <td class="px-4 py-3 font-medium text-white">追加要件</td>
+                  <td class="px-4 py-3">データのバックアップ体制、OSの更新管理、パスワード管理規定の策定</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 font-medium text-white">影響範囲</td>
+                  <td class="px-4 py-3">事業継続力強化計画の新規認定および更新申請</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h3 class="text-xl font-bold mb-4 text-white border-l-4 border-blue-500 pl-3">Business Impact (自社への影響)</h3>
+          <ul class="list-disc list-inside space-y-2 text-gray-300">
+            <li><strong class="text-white">補助金採択への影響：</strong> ものづくり補助金などで実施されている「認定企業への加点」を得るためには、新基準での認定が必須となります。</li>
+            <li><strong class="text-white">システム投資の必要性：</strong> バックアップサーバーの導入やセキュリティソフトの更新など、追加のIT投資が必要になる可能性があります。</li>
+          </ul>
+        </section>
+
+        <section>
+          <div class="bg-blue-900/30 border border-blue-500/30 rounded-xl p-6">
+            <h3 class="text-xl font-bold mb-4 text-blue-400 flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle-2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+              Recommended Action (推奨アクション)
+            </h3>
+            <ul class="space-y-3 text-gray-200">
+              <li class="flex items-start gap-3">
+                <span class="bg-blue-500/20 text-blue-300 text-xs font-bold px-2 py-1 rounded mt-0.5">即時</span>
+                <span>現在の認定有効期限を確認し、3月末までの「駆け込み更新」が可能か検討する。</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="bg-blue-500/20 text-blue-300 text-xs font-bold px-2 py-1 rounded mt-0.5">今週中</span>
+                <span>情報システム担当者に対し、現状のバックアップ体制が新基準（3-2-1ルール等）を満たしているかヒアリングを行う。</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="bg-blue-500/20 text-blue-300 text-xs font-bold px-2 py-1 rounded mt-0.5">来月中</span>
+                <span>IPA（情報処理推進機構）が提供する「セキュリティアクション」の自己宣言を行い、基礎点を確保する。</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
     `
   },
   {
     id: "2",
-    title: "「すべてのスタートアップがLenskartではありません」：Peyush Bansal氏が語るレジリエンス経営",
-    author: "Startup India News",
-    date: "2025年12月17日 15:08",
-    image: "/images/avatar-1.jpg",
-    category: "防災テクノロジー",
-    description: "Lenskartの創業者Peyush Bansal氏が語る、スタートアップの成長戦略と失敗からの学び。",
+    title: "【規制緩和】ドローン「レベル4」飛行の承認要件が緩和｜過疎地での無人配送が実用段階へ",
+    author: "Resilience Hub Editorial",
+    date: "2026年1月11日 14:30",
+    image: "/images/tech-drone.jpg",
+    category: "ドローン・ロボティクス",
+    description: "国土交通省が有人地帯での目視外飛行（レベル4）に関する審査基準を一部簡素化。物流クライシスへの切り札となるか。",
     isPremium: true,
-    type: 'general',
+    type: 'seeds',
     keyTakeaways: [
-      "急成長だけが正解ではない：持続可能な収益モデルの構築が最優先",
-      "危機管理としてのピボット：市場の変化に柔軟に対応する組織文化の重要性",
-      "従業員のメンタルヘルスケアが企業のレジリエンスを高める"
+      "【Fact】機体認証の手続き期間が従来の3ヶ月から最短1ヶ月に短縮",
+      "【Impact】物流コストの高騰に悩む地方自治体や小売業にとって、ドローン配送の導入ハードルが劇的に下がる",
+      "【Target】物流事業者、地方自治体の防災担当、小売チェーンの物流部門"
     ],
-    sourceUrl: "https://example.com/interview/peyush-bansal",
+    sourceUrl: "https://www.mlit.go.jp/koku/koku_tk10_000003.html",
     fullContent: `
-      <p>インドのアイウェアユニコーン企業Lenskartの創業者Peyush Bansal氏は、ニューデリーで開催されたスタートアップサミットにて登壇し、不確実な経済環境下での経営戦略について語りました。</p>
-      <h3>ユニコーン神話への警鐘</h3>
-      <p>Bansal氏は「メディアは華々しい資金調達や評価額ばかりを取り上げるが、真の成功は顧客に価値を提供し続けられるかどうかにかかっている」と強調しました。特に、災害やパンデミックといった予期せぬ事態においても事業を継続できる「レジリエンス（回復力）」こそが、これからのスタートアップに求められる資質であると述べました。</p>
+      <div class="space-y-8">
+        <section>
+          <h3 class="text-xl font-bold mb-4 text-white border-l-4 border-blue-500 pl-3">Context (背景)</h3>
+          <p class="text-gray-300 leading-relaxed">
+            2024年問題以降、トラックドライバー不足による「物流クライシス」が深刻化しています。特に過疎地や離島では、配送網の維持が困難になりつつあります。政府はこの課題解決のため、ドローンによる「レベル4飛行（有人地帯での目視外飛行）」の普及を急いでおり、今回の規制緩和はその一環として実施されました。
+          </p>
+        </section>
+
+        <section>
+          <h3 class="text-xl font-bold mb-4 text-white border-l-4 border-blue-500 pl-3">Key Details (緩和の内容)</h3>
+          <ul class="list-disc list-inside space-y-2 text-gray-300">
+            <li><strong class="text-white">機体認証の迅速化：</strong> 量産型機体については、型式認証を活用することで個別の機体検査を大幅に省略。</li>
+            <li><strong class="text-white">運航管理要件の柔軟化：</strong> 遠隔監視センターの設置要件が緩和され、1人のオペレーターが複数機を同時監視することが条件付きで可能に。</li>
+            <li><strong class="text-white">飛行経路の事前審査：</strong> 人口密度が低いエリアについては、包括申請の適用範囲が拡大。</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3 class="text-xl font-bold mb-4 text-white border-l-4 border-blue-500 pl-3">Business Impact (自社への影響)</h3>
+          <p class="text-gray-300 mb-4">
+            これまで「実証実験」止まりだったドローン物流が、いよいよ「社会実装」フェーズに入ります。
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-white/5 p-4 rounded-lg">
+              <h4 class="font-bold text-white mb-2">物流・小売業</h4>
+              <p class="text-sm text-gray-400">ラストワンマイル配送のコスト削減。特に山間部への配送効率が劇的に改善します。</p>
+            </div>
+            <div class="bg-white/5 p-4 rounded-lg">
+              <h4 class="font-bold text-white mb-2">自治体・インフラ</h4>
+              <p class="text-sm text-gray-400">災害時の孤立集落への物資輸送手段として、平時から民間事業者と協定を結ぶ動きが加速します。</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="bg-blue-900/30 border border-blue-500/30 rounded-xl p-6">
+            <h3 class="text-xl font-bold mb-4 text-blue-400 flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle-2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+              Recommended Action (推奨アクション)
+            </h3>
+            <ul class="space-y-3 text-gray-200">
+              <li class="flex items-start gap-3">
+                <span class="bg-blue-500/20 text-blue-300 text-xs font-bold px-2 py-1 rounded mt-0.5">調査</span>
+                <span>自社の配送エリア内に、ドローン配送に適した「過疎地・離島」が含まれているかマップ化する。</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="bg-blue-500/20 text-blue-300 text-xs font-bold px-2 py-1 rounded mt-0.5">協業</span>
+                <span>レベル4対応機体を持つドローン物流ベンダー（SkyDrive、ACSL等）との提携可能性を探る。</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
     `
   },
   {
     id: "3",
-    title: "サウィリス文化賞、気候変動をテーマにした第21回新進作家候補者を発表",
-    author: "Sawiris Foundation",
-    date: "2025年12月16日 16:11",
-    image: "/images/environment.jpg",
-    category: "気候変動レジリエンス",
-    description: "エジプトの文化芸術支援を行うサウィリス財団による、若手作家の発掘プロジェクト。",
-    isPremium: true,
-    type: 'general',
-    keyTakeaways: [
-      "芸術を通じた気候変動啓発：文学作品が持つ社会的インパクトに注目",
-      "若手作家への支援拡大：受賞者には創作活動のための助成金とメンタリングを提供",
-      "中東・北アフリカ地域における環境意識の向上を目指す"
-    ],
-    sourceUrl: "https://example.com/culture/sawiris-award-21",
-    fullContent: `
-      <p>サウィリス財団は、第21回サウィリス文化賞の最終候補者を発表しました。本年度は特別テーマとして「変動する世界と私たちの暮らし」を掲げ、気候変動が人々の生活や文化に与える影響を描いた作品が多く選出されました。</p>
-    `
-  },
-  {
-    id: "4",
-    title: "Turiyam AIに投資した理由：創薬プロセスを加速する生成AIの可能性",
-    author: "Ankur Capital",
-    date: "2025年12月13日 16:10",
-    image: "/images/impact-fund.jpg",
-    category: "防災テクノロジー",
-    description: "生成AIを活用した創薬プラットフォームTuriyam AIへの投資決定の背景と将来性。",
-    isPremium: true,
-    type: 'general',
-    keyTakeaways: [
-      "創薬期間の短縮：従来数年かかっていた候補物質の探索を数週間に短縮",
-      "パンデミック対応：未知のウイルスに対するワクチン開発への応用が期待される",
-      "ディープテック投資の潮流：インド発のAIスタートアップへの注目度が高まっている"
-    ],
-    sourceUrl: "https://example.com/investment/turiyam-ai",
-    fullContent: `
-      <p>Ankur Capitalは、生成AIを活用した創薬プラットフォームを開発するTuriyam AIへのシード投資を実施しました。この投資は、単なる技術への投資ではなく、将来のパンデミックリスクに対する社会的な備え（プリペアードネス）への投資でもあります。</p>
-    `
-  },
-  {
-    id: "5",
-    title: "環境運動がイノベーションを解き放つ方法 - Breakthrough Energyレポート",
-    author: "Breakthrough Energy",
-    date: "2025年12月18日 00:11",
-    image: "/images/environment.jpg",
-    category: "気候変動レジリエンス",
-    description: "気候変動対策としての環境運動が、いかにして技術革新を加速させているか。",
-    isPremium: true,
-    type: 'general',
-    keyTakeaways: [
-      "規制とイノベーションの関係：適切な環境規制が技術開発の触媒となる",
-      "市民社会の役割：消費者行動の変化が企業の脱炭素化を後押ししている",
-      "クリーンテック市場の拡大：2030年までに予想される市場規模と投資機会"
-    ],
-    sourceUrl: "https://example.com/report/breakthrough-energy",
-    fullContent: `
-      <p>ビル・ゲイツ氏が率いるBreakthrough Energyは最新のレポートを公開し、環境運動が技術イノベーションに与える影響について分析しました。レポートでは、若者を中心とした気候変動対策への要求が、政府の政策決定や企業のR&D投資に直接的な影響を与えていることがデータで示されています。</p>
-    `
-  },
-  {
-    id: "6",
-    title: "ソファからコードへ：メンタルヘルスイノベーションの最前線",
-    author: "Grove Ventures",
-    date: "2025年12月17日 19:17",
-    image: "/images/avatar-2.jpg",
-    category: "気候変動レジリエンス",
-    description: "メンタルヘルスケアへのアクセスを改善するためのデジタルソリューションの最前線。",
-    isPremium: true,
-    type: 'general',
-    keyTakeaways: [
-      "災害時のメンタルケア：被災者のPTSD予防におけるデジタルツールの有効性",
-      "遠隔カウンセリングの普及：地理的な制約を超えたケアの提供",
-      "AIチャットボットの活用：24時間365日のサポート体制構築"
-    ],
-    sourceUrl: "https://example.com/health/mental-health-tech",
-    fullContent: `
-      <p>Grove VenturesのパートナーであるLior Handelsman氏は、メンタルヘルステック分野への投資戦略についてブログで解説しました。特に、自然災害や紛争などの危機的状況下におけるメンタルヘルスケアの重要性が高まっており、スケーラブルなデジタルソリューションへの需要が急増しています。</p>
-    `
-  },
-  {
-    id: "7",
-    title: "スマート農業の未来：一次産業のDXと気候変動適応",
-    author: "AgriTech Lab",
-    date: "2025年12月19日 10:00",
-    image: "/images/primary-industry.jpg",
-    category: "社会インフラ",
-    description: "ドローンとAIを活用した精密農業がもたらす収穫量増加と環境負荷低減。",
-    isPremium: true,
-    type: 'general',
-    keyTakeaways: [
-      "精密農業による効率化：肥料・農薬の最適化によるコスト削減と環境保護",
-      "気象リスクの軽減：AI予測に基づく栽培管理で異常気象の被害を最小化",
-      "食料安全保障への貢献：持続可能な食料生産システムの構築"
-    ],
-    sourceUrl: "https://example.com/agri/smart-farming-future",
-    fullContent: `
-      <p>AgriTech Labは、最新のスマート農業技術に関する実証実験の結果を公表しました。ドローンによる空撮画像解析と土壌センサーデータを組み合わせることで、作物の生育状況をリアルタイムで把握し、必要な箇所にピンポイントで水や肥料を供給することが可能になりました。</p>
-    `
-  },
-
-  // Needs (課題・目的) Items
-  {
-    id: "101",
-    title: "避難所運営の失敗事例から学ぶ：情報共有のボトルネック解消法",
-    author: "Disaster Management Review",
-    date: "2025年12月20日 09:30",
-    image: "/images/tech-drone.jpg",
-    category: "避難所運営",
-    description: "過去の大規模災害における避難所運営の課題を分析し、デジタルツールによる解決策を提示。",
-    isPremium: true,
-    type: 'needs',
-    keyTakeaways: [
-      "アナログな名簿管理の限界：安否確認の遅れと物資配給のミスマッチ",
-      "情報の一元化：自治体と現場ボランティアの連携強化",
-      "プライバシー保護と効率性の両立：QRコードを活用した入退室管理の実践例"
-    ]
-  },
-  {
-    id: "102",
-    title: "中小製造業のためのBCP策定ガイド：サプライチェーン寸断リスクへの備え",
-    author: "SME Resilience Forum",
-    date: "2025年12月18日 14:15",
-    image: "/images/tech-social.jpg",
-    category: "BCP・事業継続",
-    description: "リソースが限られる中小企業でも実践可能な、実効性の高いBCP策定のステップバイステップガイド。",
-    isPremium: false,
-    type: 'needs',
-    keyTakeaways: [
-      "代替調達先の確保：シングルソース依存からの脱却",
-      "在庫管理の最適化：ジャストインタイムと戦略的備蓄のバランス",
-      "従業員の多能工化：緊急時の業務代替体制の構築"
-    ]
-  },
-  {
-    id: "103",
-    title: "老朽化インフラの点検コスト削減：自治体が直面する「2025年問題」への処方箋",
-    author: "Infrastructure Today",
-    date: "2025年12月15日 11:00",
+    title: "【経営リスク】台湾有事シミュレーション｜半導体供給停止がもたらす国内製造業への衝撃",
+    author: "Resilience Hub Editorial",
+    date: "2026年1月10日 09:00",
     image: "/images/tech-satellite.jpg",
-    category: "インフラ保全",
-    description: "高度経済成長期に建設されたインフラの一斉老朽化に対し、限られた予算でどう対応すべきか。",
+    category: "サプライチェーン",
+    description: "民間シンクタンクが最新の地政学リスクレポートを公開。台湾海峡封鎖時の国内GDP損失額は推計50兆円超。",
     isPremium: true,
     type: 'needs',
     keyTakeaways: [
-      "予防保全への転換：事後対応型からデータに基づく予測型メンテナンスへ",
-      "包括的民間委託（PFI）の活用：官民連携による効率化事例",
-      "市民協働型モニタリング：スマートフォンアプリを活用した市民による通報システム"
-    ]
-  },
+      "【Fact】台湾からの輸入が停止した場合、国内製造業の生産活動の約3割が1ヶ月以内に停止する試算",
+      "【Impact】半導体だけでなく、化学品やプラスチック部品の調達も困難に",
+      "【Target】経営企画部、調達部門、リスク管理担当者"
+    ],
+    sourceUrl: "https://example.com/report/taiwan-risk-2026",
+    fullContent: `
+      <div class="space-y-8">
+        <section>
+          <h3 class="text-xl font-bold mb-4 text-white border-l-4 border-blue-500 pl-3">Context (背景)</h3>
+          <p class="text-gray-300 leading-relaxed">
+            米中対立の激化に伴い、台湾海峡における地政学リスクが高止まりしています。多くの日本企業にとって台湾は重要な調達拠点ですが、万が一の事態における具体的な被害想定や代替策の準備は十分とは言えません。今回のレポートは、最悪のシナリオ（海上封鎖）を想定した定量的なインパクト分析を提供しています。
+          </p>
+        </section>
 
-  // Seeds (技術・分野) Items
-  {
-    id: "201",
-    title: "次世代ドローン技術：自律飛行とAI解析が変えるインフラ点検の未来",
-    author: "TechCrunch Japan",
-    date: "2025年12月21日 13:45",
-    image: "/images/tech-drone.jpg",
-    category: "ドローン・ロボティクス",
-    description: "GPSが届かない橋梁下やトンネル内でも安定飛行可能な最新ドローンの技術解説。",
-    isPremium: true,
-    type: 'seeds',
-    keyTakeaways: [
-      "SLAM技術の進化：自己位置推定と環境地図作成の同時実行",
-      "エッジAIの実装：通信遅延なくリアルタイムで異常箇所を検知",
-      "バッテリー性能の向上：長時間飛行を可能にする次世代電池技術"
-    ]
-  },
-  {
-    id: "202",
-    title: "気象予測AIアルゴリズムの進化：局地的大雨を30分前に予測する新技術",
-    author: "AI Research Weekly",
-    date: "2025年12月19日 16:20",
-    image: "/images/tech-ai-weather.jpg",
-    category: "AI・ビッグデータ",
-    description: "ディープラーニングを用いたナウキャスト技術の最新動向と、防災システムへの実装事例。",
-    isPremium: true,
-    type: 'seeds',
-    keyTakeaways: [
-      "マルチモーダル学習：レーダー画像だけでなくSNS投稿データも統合解析",
-      "計算コストの削減：エッジデバイスでも動作可能な軽量モデルの開発",
-      "API連携の容易さ：既存の防災アプリに組み込み可能なSDKの提供"
-    ]
-  },
-  {
-    id: "203",
-    title: "衛星データ解析プラットフォーム「EarthEye」：全世界の地表面変動をミリ単位で監視",
-    author: "Space Business Journal",
-    date: "2025年12月16日 10:30",
-    image: "/images/tech-satellite.jpg",
-    category: "衛星・地理情報",
-    description: "SAR衛星データを活用し、地滑りや地盤沈下の予兆を検知するSaaSプラットフォームの紹介。",
-    isPremium: false,
-    type: 'seeds',
-    keyTakeaways: [
-      "干渉SAR解析の自動化：専門知識不要で地盤変動をモニタリング",
-      "高頻度観測：小型衛星コンステレーションによる毎日更新",
-      "インフラ事業者向けダッシュボード：リスク箇所をヒートマップで可視化"
-    ]
+        <section>
+          <h3 class="text-xl font-bold mb-4 text-white border-l-4 border-blue-500 pl-3">Key Details (被害想定)</h3>
+          <div class="bg-white/5 rounded-lg p-4 border border-white/10">
+            <table class="w-full text-sm text-left text-gray-300">
+              <thead class="text-xs text-gray-400 uppercase bg-white/5">
+                <tr>
+                  <th class="px-4 py-3 rounded-tl-lg">産業分野</th>
+                  <th class="px-4 py-3 rounded-tr-lg">想定される影響</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-white/5">
+                  <td class="px-4 py-3 font-medium text-white">自動車</td>
+                  <td class="px-4 py-3">車載半導体の不足により、国内工場の稼働率が40%以下に低下</td>
+                </tr>
+                <tr class="border-b border-white/5">
+                  <td class="px-4 py-3 font-medium text-white">電子機器</td>
+                  <td class="px-4 py-3">スマートフォンやPCの新規出荷が数ヶ月単位で停止</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 font-medium text-white">化学・素材</td>
+                  <td class="px-4 py-3">台湾経由の原材料輸入がストップし、川下製品への連鎖的な供給不足が発生</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h3 class="text-xl font-bold mb-4 text-white border-l-4 border-blue-500 pl-3">Business Impact (自社への影響)</h3>
+          <p class="text-gray-300 mb-4">
+            「うちは台湾と直接取引していない」という企業も安全ではありません。2次、3次サプライヤーが台湾部材を使用している可能性が高く、見えないリスクが内在しています。
+          </p>
+        </section>
+
+        <section>
+          <div class="bg-blue-900/30 border border-blue-500/30 rounded-xl p-6">
+            <h3 class="text-xl font-bold mb-4 text-blue-400 flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle-2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+              Recommended Action (推奨アクション)
+            </h3>
+            <ul class="space-y-3 text-gray-200">
+              <li class="flex items-start gap-3">
+                <span class="bg-blue-500/20 text-blue-300 text-xs font-bold px-2 py-1 rounded mt-0.5">可視化</span>
+                <span>主要製品のBOM（部品表）を精査し、サプライチェーンの深層に台湾リスクが含まれていないか洗い出す。</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="bg-blue-500/20 text-blue-300 text-xs font-bold px-2 py-1 rounded mt-0.5">備蓄</span>
+                <span>代替が効かない重要部材については、在庫積み増し（戦略的在庫）の基準を引き上げる。</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    `
   }
 ];
