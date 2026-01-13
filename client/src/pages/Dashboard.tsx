@@ -129,37 +129,6 @@ export default function Dashboard() {
             </p>
           </header>
 
-          {/* Process Visualization */}
-          <div className="mb-8 bg-white/5 border border-white/10 rounded-xl p-6">
-            <h2 className="text-sm font-bold text-muted-foreground uppercase tracking-wider mb-4 flex items-center gap-2">
-              <TrendingUp className="w-4 h-4" />
-              Resilience Roadmap
-            </h2>
-            <div className="relative flex justify-between items-center">
-              {/* Connecting Line */}
-              <div className="absolute top-1/2 left-0 w-full h-0.5 bg-white/10 -translate-y-1/2 z-0" />
-              
-              {[
-                { step: 1, title: "現状把握", status: "current" },
-                { step: 2, title: "課題特定", status: "pending" },
-                { step: 3, title: "対策実行", status: "pending" },
-                { step: 4, title: "効果測定", status: "pending" },
-              ].map((item, i) => (
-                <div key={i} className="relative z-10 flex flex-col items-center bg-[#0B1026] px-4">
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center mb-2 border-2 transition-all ${
-                    item.status === 'current' ? 'bg-primary border-primary text-white shadow-[0_0_15px_rgba(212,165,116,0.5)]' :
-                    'bg-[#0B1026] border-white/20 text-muted-foreground'
-                  }`}>
-                    {i + 1}
-                  </div>
-                  <span className={`text-xs font-bold ${item.status === 'current' ? 'text-white' : 'text-muted-foreground'}`}>
-                    {item.title}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Left Column: Diagnostic Checklist */}
             <div className="lg:col-span-2 space-y-6">
@@ -257,92 +226,71 @@ export default function Dashboard() {
               </div>
             </div>
 
-            {/* Right Column: Score Result */}
-            <div className="lg:col-span-1">
-              <div className="sticky top-24 space-y-6">
-                <Card className="bg-gradient-to-br from-[#1e293b] to-[#0f172a] border-white/10 overflow-hidden relative shadow-xl">
-                  <div className="absolute top-0 right-0 p-8 opacity-5 pointer-events-none">
-                    <ShieldCheck className="w-40 h-40 text-white" />
-                  </div>
-                  
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-sm font-medium text-slate-400 uppercase tracking-wider">
-                      Resilience Score
-                    </CardTitle>
-                  </CardHeader>
-                  
-                  <CardContent className="text-center py-6">
-                    <div className="relative inline-flex items-center justify-center">
-                      <svg className="w-40 h-40 transform -rotate-90">
+            {/* Right Column: Score & Summary */}
+            <div className="space-y-6">
+              <Card className="bg-white/5 border-white/10 backdrop-blur-sm sticky top-24">
+                <CardHeader>
+                  <CardTitle className="text-white flex items-center gap-2">
+                    <ShieldCheck className="w-5 h-5 text-primary" />
+                    Resilience Score
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  <div className="flex flex-col items-center justify-center py-4">
+                    <div className="relative w-40 h-40 flex items-center justify-center">
+                      <svg className="w-full h-full -rotate-90" viewBox="0 0 100 100">
                         <circle
-                          className="text-slate-700"
-                          strokeWidth="12"
+                          className="text-white/10"
+                          strokeWidth="8"
                           stroke="currentColor"
                           fill="transparent"
-                          r="70"
-                          cx="80"
-                          cy="80"
+                          r="40"
+                          cx="50"
+                          cy="50"
                         />
                         <circle
-                          className={`transition-all duration-1000 ease-out ${
-                            score >= 80 ? "text-emerald-500" : 
-                            score >= 50 ? "text-blue-500" : "text-red-500"
-                          }`}
-                          strokeWidth="12"
-                          strokeDasharray={440}
-                          strokeDashoffset={440 - (440 * score) / 100}
+                          className={`${evaluation.color} transition-all duration-1000 ease-out`}
+                          strokeWidth="8"
+                          strokeDasharray={251.2}
+                          strokeDashoffset={251.2 - (251.2 * score) / 100}
                           strokeLinecap="round"
                           stroke="currentColor"
                           fill="transparent"
-                          r="70"
-                          cx="80"
-                          cy="80"
+                          r="40"
+                          cx="50"
+                          cy="50"
                         />
                       </svg>
                       <div className="absolute flex flex-col items-center">
-                        <span className="text-5xl font-bold text-white tracking-tighter">{score}</span>
-                        <span className="text-xs text-slate-400">/ 100</span>
+                        <span className="text-4xl font-bold text-white">{score}</span>
+                        <span className="text-xs text-muted-foreground">/ 100</span>
                       </div>
                     </div>
-                    
-                    <div className="mt-4 space-y-2">
-                      <div className={`text-xl font-bold ${evaluation.color}`}>
-                        {evaluation.label}
-                      </div>
-                      <p className="text-sm text-slate-300 leading-relaxed px-2">
-                        {evaluation.message}
-                      </p>
+                    <div className={`mt-4 text-lg font-bold ${evaluation.color}`}>
+                      {evaluation.label}
                     </div>
-                  </CardContent>
-                  
-                  <CardFooter className="bg-white/5 border-t border-white/5 p-4">
-                    <Button 
-                      variant="outline" 
-                      className="w-full border-white/10 hover:bg-white/5 text-white"
-                      onClick={() => {
-                        setCheckedItems([]);
-                        toast.success("診断をリセットしました");
-                      }}
-                    >
-                      <RefreshCw className="w-4 h-4 mr-2" />
-                      診断をリセット
-                    </Button>
-                  </CardFooter>
-                </Card>
-
-                <div className="bg-blue-900/20 border border-blue-500/20 rounded-xl p-4 flex gap-3 items-start">
-                  <AlertTriangle className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="text-sm font-bold text-blue-400 mb-1">プロのアドバイスが必要ですか？</h4>
-                    <p className="text-xs text-blue-200/80 mb-3">
-                      より詳細なリスク分析やBCP策定支援については、専門家とのマッチングが可能です。
+                    <p className="text-xs text-center text-muted-foreground mt-2 px-4">
+                      {evaluation.message}
                     </p>
-                    <Button size="sm" variant="link" className="text-blue-400 p-0 h-auto font-bold hover:text-blue-300">
-                      専門家に相談する &rarr;
-                    </Button>
                   </div>
-                </div>
-              </div>
+
+                  <div className="space-y-4 pt-4 border-t border-white/10">
+                    <div className="flex justify-between text-sm">
+                      <span className="text-muted-foreground">業界平均スコア</span>
+                      <span className="font-bold text-white">62</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-muted-foreground">前回診断日</span>
+                      <span className="font-bold text-white">2025.12.01</span>
+                    </div>
+                  </div>
+
+                  <Button className="w-full bg-primary hover:bg-primary/90 text-black font-bold">
+                    <FileText className="w-4 h-4 mr-2" />
+                    詳細レポートを出力
+                  </Button>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
