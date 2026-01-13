@@ -51,7 +51,7 @@ export function Sidebar() {
     { name: "AI・ビッグデータ", icon: <Database className="w-4 h-4" />, href: "/seeds/ai-bigdata" },
     { name: "ドローン・ロボティクス", icon: <Bot className="w-4 h-4" />, href: "/seeds/drone" },
     { name: "衛星・地理情報", icon: <Satellite className="w-4 h-4" />, href: "/seeds/satellite" },
-    { name: "ハザードマップ・可視化", icon: <Map className="w-4 h-4" />, href: "/seeds/hazard-map" },
+    { name: "IoT・センサー・観測", icon: <Activity className="w-4 h-4" />, href: "/seeds/iot-sensor" },
   ];
 
   return (
