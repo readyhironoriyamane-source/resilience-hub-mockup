@@ -10,6 +10,7 @@ import ArticleDetail from "@/pages/ArticleDetail";
 import Dashboard from "@/pages/Dashboard";
 import NeedsPage from "@/pages/NeedsPage";
 import SeedsPage from "@/pages/SeedsPage";
+import DeskPage from "@/pages/DeskPage";
 
 
 function Router() {
@@ -19,6 +20,7 @@ function Router() {
       <Route path={"/about"} component={About} />
       <Route path="/article/:id" component={ArticleDetail} />
       <Route path="/dashboard" component={Dashboard} />
+      <Route path="/desk" component={DeskPage} />
       <Route path="/needs/:category" component={NeedsPage} />
       <Route path="/seeds/:category" component={SeedsPage} />
       <Route path={"/404"} component={NotFound} />
