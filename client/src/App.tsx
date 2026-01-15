@@ -10,7 +10,11 @@ import ArticleDetail from "@/pages/ArticleDetail";
 import Dashboard from "@/pages/Dashboard";
 import NeedsPage from "@/pages/NeedsPage";
 import SeedsPage from "@/pages/SeedsPage";
-import DeskPage from "@/pages/DeskPage";
+import DeskPage from "./pages/DeskPage";
+import CommunityPage from "./pages/CommunityPage";
+import ArticlesPage from "./pages/ArticlesPage";
+import IntelPage from "./pages/IntelPage";
+import DirectoryPage from "./pages/DirectoryPage";
 
 
 function Router() {
@@ -21,6 +25,10 @@ function Router() {
       <Route path="/article/:id" component={ArticleDetail} />
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/desk" component={DeskPage} />
+          <Route path="/community" component={CommunityPage} />
+          <Route path="/articles" component={ArticlesPage} />
+          <Route path="/intel" component={IntelPage} />
+          <Route path="/directory" component={DirectoryPage} />
       <Route path="/needs/:category" component={NeedsPage} />
       <Route path="/seeds/:category" component={SeedsPage} />
       <Route path={"/404"} component={NotFound} />

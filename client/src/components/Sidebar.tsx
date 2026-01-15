@@ -25,9 +25,19 @@ export function Sidebar() {
       name: "Community", 
       icon: <Sparkles className="w-4 h-4" />,
       description: "世界中の有識者とつながる",
-      href: "/community",
-      locked: true,
-      release: "2026.04"
+      href: "/community"
+    },
+    { 
+      name: "Global Intel", 
+      icon: <Globe className="w-4 h-4" />,
+      description: "世界のリスク情報をAI収集",
+      href: "/intel"
+    },
+    { 
+      name: "Directory", 
+      icon: <Building2 className="w-4 h-4" />,
+      description: "会員企業・パートナー一覧",
+      href: "/directory"
     },
     { 
       name: "Reports", 

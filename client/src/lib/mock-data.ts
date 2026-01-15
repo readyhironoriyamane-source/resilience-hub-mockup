@@ -254,3 +254,56 @@ export const contentItems: ContentItem[] = [
     `
   }
 ];
+
+export const mockArticles = [
+  {
+    id: "1",
+    title: "【経産省】BCPガイドライン改定｜中小企業の補助金要件が厳格化、3月末までの対応必須",
+    author: "Resilience Hub Editorial",
+    date: "2026年1月12日",
+    thumbnail: "/images/impact-fund.jpg",
+    category: "制度・補助金・法対応",
+    summary: "経済産業省が事業継続力強化計画の認定基準を改定。ものづくり補助金などの加点要件に関わる重要変更。",
+    isPremium: true
+  },
+  {
+    id: "2",
+    title: "【規制緩和】ドローン「レベル4」飛行の承認要件が緩和｜過疎地での無人配送が実用段階へ",
+    author: "Resilience Hub Editorial",
+    date: "2026年1月11日",
+    thumbnail: "/images/tech-drone.jpg",
+    category: "ドローン・ロボティクス",
+    summary: "国土交通省が有人地帯での目視外飛行（レベル4）に関する審査基準を一部簡素化。物流クライシスへの切り札となるか。",
+    isPremium: true
+  },
+  {
+    id: "3",
+    title: "【経営リスク】台湾有事シミュレーション｜半導体供給停止がもたらす国内製造業への衝撃",
+    author: "Resilience Hub Editorial",
+    date: "2026年1月10日",
+    thumbnail: "/images/tech-satellite.jpg",
+    category: "サプライチェーン・調達",
+    summary: "民間シンクタンクが最新の地政学リスクレポートを公開。台湾海峡封鎖時の国内GDP損失額は推計50兆円超。",
+    isPremium: true
+  },
+  {
+    id: "4",
+    title: "AIを活用したリアルタイムハザードマップの可能性",
+    author: "Tech Watcher",
+    date: "2026年1月09日",
+    thumbnail: "/images/tech-ai.jpg",
+    category: "AI・ビッグデータ",
+    summary: "SNSの投稿データと気象衛星データを組み合わせ、浸水被害をリアルタイムに可視化する新技術が登場。",
+    isPremium: false
+  },
+  {
+    id: "5",
+    title: "中小企業のためのサイバーセキュリティ入門",
+    author: "Security Expert",
+    date: "2026年1月08日",
+    thumbnail: "/images/tech-cyber.jpg",
+    category: "リスク可視化・被害想定",
+    summary: "予算や人材が限られる中小企業でも実践できる、効果的なサイバー攻撃対策の基本ステップを解説。",
+    isPremium: false
+  }
+];
