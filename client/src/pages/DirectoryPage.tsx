@@ -116,13 +116,13 @@ export default function DirectoryPage() {
               <Card key={company.id} className="bg-white/90 backdrop-blur-md border-white/20 hover:bg-white/95 hover:border-primary/30 transition-all duration-300 group shadow-lg">
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
-                    <div className="h-16 w-16 rounded-lg bg-primary/10 flex items-center justify-center text-xl font-bold text-primary shrink-0 border border-primary/20 shadow-inner">
+                    <div className="h-16 w-16 rounded-lg bg-slate-100 flex items-center justify-center text-xl font-bold text-slate-700 shrink-0 border border-slate-200 shadow-inner">
                       {company.logo}
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex justify-between items-start">
                         <div>
-                          <h3 className="text-lg font-bold truncate group-hover:text-primary transition-colors text-[#0B1026]">
+                          <h3 className="text-lg font-bold truncate group-hover:text-blue-700 transition-colors text-[#0B1026]">
                             {company.name}
                           </h3>
                           <div className="flex items-center gap-3 text-sm text-slate-500 mt-1">
@@ -142,7 +142,7 @@ export default function DirectoryPage() {
 
                       <div className="flex flex-wrap gap-2 mt-4">
                         {company.tags.map(tag => (
-                          <Badge key={tag} variant="secondary" className="text-xs bg-slate-100 text-slate-600 border border-slate-200 hover:bg-slate-200 transition-colors">
+                          <Badge key={tag} variant="secondary" className="text-xs bg-slate-100 text-slate-700 border border-slate-300 hover:bg-slate-200 transition-colors font-medium">
                             {tag}
                           </Badge>
                         ))}

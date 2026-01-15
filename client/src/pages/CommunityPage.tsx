@@ -114,12 +114,12 @@ export default function CommunityPage() {
             {forums.map((forum) => (
               <Card key={forum.id} className="bg-white/90 backdrop-blur-md border-white/20 hover:bg-white/95 transition-all overflow-hidden relative group shadow-lg">
                 {/* Category Color Strip */}
-                <div className={`absolute top-0 left-0 w-1.5 h-full ${forum.color}`} />
+                {/* Color strip removed */}
                 
                 <CardHeader className="pb-2 pl-6">
                   <div className="flex justify-between items-start">
                     <div className="flex items-center gap-3">
-                      <div className={`p-2 rounded-lg ${forum.color} text-white shadow-lg`}>
+                      <div className={`p-2 rounded-lg ${forum.color.replace('bg-', 'bg-opacity-90 bg-')} text-white shadow-md`}>
                         <forum.icon className="h-6 w-6" />
                       </div>
                       <div>
@@ -156,12 +156,12 @@ export default function CommunityPage() {
                       {forum.topics.map((topic, index) => (
                         <div 
                           key={index} 
-                          className="flex items-center justify-between p-3 rounded-md bg-slate-100 hover:bg-slate-200 cursor-pointer transition-colors group-inner border border-transparent"
+                          className="flex items-center justify-between p-3 rounded-md bg-slate-100 hover:bg-slate-200 cursor-pointer transition-colors group border border-transparent"
                           onClick={handleJoinClick}
                         >
                           <div className="flex items-center gap-3">
                             <div className={`h-2 w-2 rounded-full ${forum.color}`} />
-                            <span className="font-medium text-[#0B1026] group-hover:text-primary transition-colors">
+                            <span className="font-medium text-[#0B1026] group-hover:text-blue-700 transition-colors">
                               {topic.title}
                             </span>
                           </div>

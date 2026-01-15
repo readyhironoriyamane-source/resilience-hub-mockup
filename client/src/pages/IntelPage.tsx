@@ -159,7 +159,7 @@ export default function IntelPage() {
 
                   {/* Source */}
                   <div className="col-span-3 md:col-span-2 pt-0.5">
-                    <Badge variant="outline" className="text-[10px] font-normal border-primary/30 text-primary bg-primary/5 truncate max-w-full">
+                    <Badge variant="outline" className="text-[10px] font-normal border-orange-600/30 text-orange-700 bg-orange-50 truncate max-w-full">
                       {item.source}
                     </Badge>
                     <div className="flex flex-wrap gap-1 mt-2">
@@ -171,8 +171,8 @@ export default function IntelPage() {
 
                   {/* Content */}
                   <div className="col-span-7 md:col-span-6 space-y-2">
-                    <h3 className="text-sm font-bold leading-snug text-[#0B1026] group-hover:text-primary transition-colors">
-                      <a href={item.url} className="hover:underline decoration-primary/50 underline-offset-4">
+                    <h3 className="text-sm font-bold leading-snug text-[#0B1026] group-hover:text-blue-700 transition-colors">
+                      <a href={item.url} className="hover:underline decoration-blue-600/50 underline-offset-4 text-blue-900">
                         {item.title}
                       </a>
                     </h3>
