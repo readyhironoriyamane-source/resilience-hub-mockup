@@ -19,6 +19,7 @@ export default function CommunityPage() {
       title: "General Discussion",
       description: "防災・BCPに関する全般的な話題、ニュースの共有など",
       icon: MessageSquare,
+      color: "bg-blue-500",
       members: 1240,
       active: 45,
       topics: [
@@ -31,6 +32,7 @@ export default function CommunityPage() {
       title: "Risk Management",
       description: "リスク評価手法、BCP策定の実務的な悩み相談",
       icon: AlertTriangle,
+      color: "bg-amber-500",
       members: 850,
       active: 32,
       topics: [
@@ -43,6 +45,7 @@ export default function CommunityPage() {
       title: "Technology & Tools",
       description: "防災テック、安否確認システム、備蓄品などの情報交換",
       icon: Activity,
+      color: "bg-emerald-500",
       members: 920,
       active: 28,
       topics: [
@@ -55,6 +58,7 @@ export default function CommunityPage() {
       title: "Executive Lounge",
       description: "経営層・CISO限定のクローズドコミュニティ",
       icon: Lock,
+      color: "bg-purple-500",
       members: 120,
       active: 5,
       isLocked: true,
@@ -107,11 +111,14 @@ export default function CommunityPage() {
           {/* Forum Categories */}
           <div className="grid grid-cols-1 gap-6">
             {forums.map((forum) => (
-              <Card key={forum.id} className="bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-colors">
-                <CardHeader className="pb-2">
+              <Card key={forum.id} className="bg-[#1A1F36] border-border/50 hover:bg-[#232946] transition-all overflow-hidden relative group">
+                {/* Category Color Strip */}
+                <div className={`absolute top-0 left-0 w-1.5 h-full ${forum.color}`} />
+                
+                <CardHeader className="pb-2 pl-6">
                   <div className="flex justify-between items-start">
                     <div className="flex items-center gap-3">
-                      <div className="p-2 rounded-lg bg-primary/10 text-primary">
+                      <div className={`p-2 rounded-lg ${forum.color} bg-opacity-20 text-white`}>
                         <forum.icon className="h-6 w-6" />
                       </div>
                       <div>
@@ -119,7 +126,7 @@ export default function CommunityPage() {
                           {forum.title}
                           {forum.isLocked && <Lock className="h-4 w-4 text-muted-foreground" />}
                         </CardTitle>
-                        <CardDescription className="mt-1">{forum.description}</CardDescription>
+                        <CardDescription className="mt-1 text-gray-400">{forum.description}</CardDescription>
                       </div>
                     </div>
                     <div className="flex items-center gap-4 text-sm text-muted-foreground">
@@ -135,12 +142,12 @@ export default function CommunityPage() {
                   </div>
                 </CardHeader>
                 
-                <CardContent>
+                <CardContent className="pl-6">
                   {forum.isLocked ? (
-                    <div className="flex items-center justify-center h-24 bg-muted/20 rounded-md border border-dashed border-muted-foreground/20">
+                    <div className="flex items-center justify-center h-24 bg-black/20 rounded-md border border-dashed border-gray-700">
                       <div className="text-center">
-                        <Lock className="h-5 w-5 mx-auto text-muted-foreground mb-2" />
-                        <p className="text-sm text-muted-foreground">このフォーラムは招待制です</p>
+                        <Lock className="h-5 w-5 mx-auto text-gray-500 mb-2" />
+                        <p className="text-sm text-gray-500">このフォーラムは招待制です</p>
                       </div>
                     </div>
                   ) : (
@@ -148,16 +155,16 @@ export default function CommunityPage() {
                       {forum.topics.map((topic, index) => (
                         <div 
                           key={index} 
-                          className="flex items-center justify-between p-3 rounded-md hover:bg-muted/50 cursor-pointer transition-colors group"
+                          className="flex items-center justify-between p-3 rounded-md bg-black/20 hover:bg-black/40 cursor-pointer transition-colors group-inner"
                           onClick={handleJoinClick}
                         >
                           <div className="flex items-center gap-3">
-                            <div className="h-2 w-2 rounded-full bg-primary/50 group-hover:bg-primary transition-colors" />
-                            <span className="font-medium text-white group-hover:text-primary transition-colors">
+                            <div className={`h-2 w-2 rounded-full ${forum.color}`} />
+                            <span className="font-medium text-gray-200 group-hover:text-white transition-colors">
                               {topic.title}
                             </span>
                           </div>
-                          <div className="flex items-center gap-4 text-xs text-muted-foreground">
+                          <div className="flex items-center gap-4 text-xs text-gray-500">
                             <span>by {topic.author}</span>
                             <span className="flex items-center gap-1">
                               <MessageSquare className="h-3 w-3" /> {topic.replies}
@@ -166,7 +173,7 @@ export default function CommunityPage() {
                           </div>
                         </div>
                       ))}
-                      <Button variant="ghost" size="sm" className="w-full mt-2 text-muted-foreground hover:text-primary" onClick={handleJoinClick}>
+                      <Button variant="ghost" size="sm" className="w-full mt-2 text-gray-400 hover:text-white hover:bg-white/5" onClick={handleJoinClick}>
                         すべてのトピックを見る
                       </Button>
                     </div>

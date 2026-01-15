@@ -137,57 +137,62 @@ export default function IntelPage() {
             </div>
           </div>
 
-          {/* Feed List */}
-          <div className="space-y-4">
-            {intelFeeds.map((item) => (
-              <Card key={item.id} className="bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/30 transition-colors">
-                <CardContent className="p-6">
-                  <div className="flex flex-col md:flex-row gap-6">
-                    <div className="flex-1 space-y-3">
-                      <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                        <span className="font-medium text-primary bg-primary/10 px-2 py-0.5 rounded">
-                          {item.source}
-                        </span>
-                        <span>{item.date}</span>
-                      </div>
-                      
-                      <h3 className="text-xl font-bold leading-tight">
-                        <a href={item.url} className="hover:text-primary hover:underline decoration-primary/50 underline-offset-4 transition-colors text-white">
-                          {item.title}
-                        </a>
-                      </h3>
-                      
-                      <p className="text-muted-foreground text-sm leading-relaxed">
-                        {item.summary}
-                      </p>
+          {/* Feed List - Newswire Style */}
+          <div className="bg-[#1A1F36] border border-border/50 rounded-lg overflow-hidden">
+            {/* List Header */}
+            <div className="grid grid-cols-12 gap-4 p-4 border-b border-border/50 bg-black/20 text-xs font-medium text-muted-foreground uppercase tracking-wider">
+              <div className="col-span-2 md:col-span-1">Time</div>
+              <div className="col-span-3 md:col-span-2">Source</div>
+              <div className="col-span-7 md:col-span-6">Headline & Summary</div>
+              <div className="hidden md:block md:col-span-3">AI Analysis</div>
+            </div>
 
-                      <div className="flex flex-wrap gap-2 pt-2">
-                        {item.tags.map(tag => (
-                          <Badge key={tag} variant="outline" className="text-xs font-normal text-muted-foreground">
-                            #{tag}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
+            {/* List Items */}
+            <div className="divide-y divide-border/30">
+              {intelFeeds.map((item) => (
+                <div key={item.id} className="grid grid-cols-12 gap-4 p-4 hover:bg-white/5 transition-colors group items-start">
+                  {/* Time */}
+                  <div className="col-span-2 md:col-span-1 text-xs text-gray-400 font-mono pt-1">
+                    {item.date}
+                  </div>
 
-                    {/* AI Analysis Box */}
-                    <div className="md:w-1/3 bg-muted/30 rounded-lg p-4 border border-border/50 flex flex-col gap-2">
-                      <div className="flex items-center gap-2 text-xs font-medium text-purple-400">
-                        <Bot className="h-3 w-3" />
-                        <span>AI Analysis for BizOps</span>
-                      </div>
-                      <p className="text-xs text-muted-foreground leading-relaxed">
-                        {item.aiAnalysis}
-                      </p>
-                      <Button variant="ghost" size="sm" className="mt-auto w-full text-xs h-8 gap-1 hover:text-primary hover:bg-primary/10">
-                        <ExternalLink className="h-3 w-3" />
-                        一次情報を確認
-                      </Button>
+                  {/* Source */}
+                  <div className="col-span-3 md:col-span-2 pt-0.5">
+                    <Badge variant="outline" className="text-[10px] font-normal border-primary/30 text-primary bg-primary/5 truncate max-w-full">
+                      {item.source}
+                    </Badge>
+                    <div className="flex flex-wrap gap-1 mt-2">
+                      {item.tags.map(tag => (
+                        <span key={tag} className="text-[10px] text-gray-500">#{tag}</span>
+                      ))}
                     </div>
                   </div>
-                </CardContent>
-              </Card>
-            ))}
+
+                  {/* Content */}
+                  <div className="col-span-7 md:col-span-6 space-y-2">
+                    <h3 className="text-sm font-bold leading-snug text-gray-200 group-hover:text-white transition-colors">
+                      <a href={item.url} className="hover:underline decoration-primary/50 underline-offset-4">
+                        {item.title}
+                      </a>
+                    </h3>
+                    <p className="text-xs text-gray-400 leading-relaxed line-clamp-2 group-hover:line-clamp-none transition-all">
+                      {item.summary}
+                    </p>
+                  </div>
+
+                  {/* AI Analysis (Desktop only) */}
+                  <div className="hidden md:block md:col-span-3 bg-purple-500/5 rounded p-3 border border-purple-500/10">
+                    <div className="flex items-center gap-1.5 text-[10px] font-medium text-purple-400 mb-1">
+                      <Bot className="h-3 w-3" />
+                      <span>BizOps Impact</span>
+                    </div>
+                    <p className="text-[11px] text-gray-400 leading-relaxed">
+                      {item.aiAnalysis}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </main>
