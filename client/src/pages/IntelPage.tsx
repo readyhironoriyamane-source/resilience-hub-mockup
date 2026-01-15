@@ -139,9 +139,9 @@ export default function IntelPage() {
           </div>
 
           {/* Feed List - Newswire Style */}
-          <div className="bg-[#1A1F36] border border-border/50 rounded-lg overflow-hidden">
+          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-lg overflow-hidden shadow-xl">
             {/* List Header */}
-            <div className="grid grid-cols-12 gap-4 p-4 border-b border-border/50 bg-black/20 text-xs font-medium text-muted-foreground uppercase tracking-wider">
+            <div className="grid grid-cols-12 gap-4 p-4 border-b border-white/10 bg-black/20 text-xs font-medium text-muted-foreground uppercase tracking-wider">
               <div className="col-span-2 md:col-span-1">Time</div>
               <div className="col-span-3 md:col-span-2">Source</div>
               <div className="col-span-7 md:col-span-6">Headline & Summary</div>
@@ -149,7 +149,7 @@ export default function IntelPage() {
             </div>
 
             {/* List Items */}
-            <div className="divide-y divide-border/30">
+            <div className="divide-y divide-white/5">
               {intelFeeds.map((item) => (
                 <div key={item.id} className="grid grid-cols-12 gap-4 p-4 hover:bg-white/5 transition-colors group items-start">
                   {/* Time */}
@@ -182,7 +182,7 @@ export default function IntelPage() {
                   </div>
 
                   {/* AI Analysis (Desktop only) */}
-                  <div className="hidden md:block md:col-span-3 bg-purple-500/5 rounded p-3 border border-purple-500/10">
+                  <div className="hidden md:block md:col-span-3 bg-purple-500/10 rounded p-3 border border-purple-500/20 backdrop-blur-sm">
                     <div className="flex items-center gap-1.5 text-[10px] font-medium text-purple-400 mb-1">
                       <Bot className="h-3 w-3" />
                       <span>BizOps Impact</span>

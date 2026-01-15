@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { User, CreditCard, Users, Bell, Shield, Download, Check, Plus } from "lucide-react";
+import { User, CreditCard, Users, Bell, Shield, Download, Check, Plus, Activity, Bookmark, MessageSquare } from "lucide-react";
 import { toast } from "sonner";
 
 export default function SettingsPage() {
@@ -57,6 +57,9 @@ export default function SettingsPage() {
               </TabsTrigger>
               <TabsTrigger value="focus" className="data-[state=active]:bg-primary/20 data-[state=active]:text-primary">
                 <Shield className="w-4 h-4 mr-2" /> My Focus
+              </TabsTrigger>
+              <TabsTrigger value="activity" className="data-[state=active]:bg-primary/20 data-[state=active]:text-primary">
+                <Activity className="w-4 h-4 mr-2" /> Activity
               </TabsTrigger>
               <TabsTrigger value="team" className="data-[state=active]:bg-primary/20 data-[state=active]:text-primary">
                 <Users className="w-4 h-4 mr-2" /> Team
@@ -138,6 +141,77 @@ export default function SettingsPage() {
                   <CardFooter>
                     <Button onClick={handleSave} className="ml-auto">変更を保存</Button>
                   </CardFooter>
+                </Card>
+              </div>
+            </TabsContent>
+
+            {/* Activity Tab */}
+            <TabsContent value="activity">
+              <div className="grid gap-6">
+                <Card className="bg-[#1A1F36] border-border/50">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <Bookmark className="w-5 h-5 text-primary" />
+                      Saved Articles
+                    </CardTitle>
+                    <CardDescription>保存した記事一覧</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      {[
+                        { title: "【経産省】BCPガイドライン改定｜中小企業の補助金要件が厳格化", date: "2026.01.12", category: "制度・補助金" },
+                        { title: "サプライチェーン途絶時の代替調達ルート確保について", date: "2026.01.10", category: "サプライチェーン" },
+                        { title: "最新の安否確認システム比較レポート2026", date: "2025.12.28", category: "安否確認" },
+                      ].map((item, i) => (
+                        <div key={i} className="flex items-center justify-between p-3 rounded-lg bg-black/20 hover:bg-white/5 transition-colors cursor-pointer group">
+                          <div className="space-y-1">
+                            <div className="font-medium text-sm text-white group-hover:text-primary transition-colors">{item.title}</div>
+                            <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                              <Badge variant="outline" className="text-[10px] py-0 h-5 border-white/10">{item.category}</Badge>
+                              <span>Saved on {item.date}</span>
+                            </div>
+                          </div>
+                          <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-white">
+                            <Bookmark className="w-4 h-4 fill-current" />
+                          </Button>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                  <CardFooter>
+                    <Button variant="outline" className="w-full text-xs">すべての保存記事を見る</Button>
+                  </CardFooter>
+                </Card>
+
+                <Card className="bg-[#1A1F36] border-border/50">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <MessageSquare className="w-5 h-5 text-primary" />
+                      Community Participation
+                    </CardTitle>
+                    <CardDescription>参加中のコミュニティトピック</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      {[
+                        { title: "2026年の防災トレンドについて語るスレ", forum: "General Discussion", replies: 12, lastActive: "2h ago" },
+                        { title: "ISO22301認証取得のメリット・デメリット", forum: "Risk Management", replies: 15, lastActive: "3d ago" },
+                      ].map((item, i) => (
+                        <div key={i} className="flex items-center justify-between p-3 rounded-lg bg-black/20 hover:bg-white/5 transition-colors cursor-pointer group">
+                          <div className="space-y-1">
+                            <div className="font-medium text-sm text-white group-hover:text-primary transition-colors">{item.title}</div>
+                            <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                              <span className="text-primary/80">{item.forum}</span>
+                              <span>•</span>
+                              <span>{item.replies} replies</span>
+                              <span>•</span>
+                              <span>Last active {item.lastActive}</span>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
                 </Card>
               </div>
             </TabsContent>

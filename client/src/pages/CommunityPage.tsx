@@ -112,14 +112,14 @@ export default function CommunityPage() {
           {/* Forum Categories */}
           <div className="grid grid-cols-1 gap-6">
             {forums.map((forum) => (
-              <Card key={forum.id} className="bg-[#1A1F36] border-border/50 hover:bg-[#232946] transition-all overflow-hidden relative group">
+              <Card key={forum.id} className="bg-white/5 backdrop-blur-md border-white/10 hover:bg-white/10 transition-all overflow-hidden relative group">
                 {/* Category Color Strip */}
                 <div className={`absolute top-0 left-0 w-1.5 h-full ${forum.color}`} />
                 
                 <CardHeader className="pb-2 pl-6">
                   <div className="flex justify-between items-start">
                     <div className="flex items-center gap-3">
-                      <div className={`p-2 rounded-lg ${forum.color} bg-opacity-20 text-white`}>
+                      <div className={`p-2 rounded-lg ${forum.color} bg-opacity-80 text-white shadow-lg`}>
                         <forum.icon className="h-6 w-6" />
                       </div>
                       <div>
@@ -145,7 +145,7 @@ export default function CommunityPage() {
                 
                 <CardContent className="pl-6">
                   {forum.isLocked ? (
-                    <div className="flex items-center justify-center h-24 bg-black/20 rounded-md border border-dashed border-gray-700">
+                    <div className="flex items-center justify-center h-24 bg-black/10 rounded-md border border-dashed border-white/10">
                       <div className="text-center">
                         <Lock className="h-5 w-5 mx-auto text-gray-500 mb-2" />
                         <p className="text-sm text-gray-500">このフォーラムは招待制です</p>
@@ -156,7 +156,7 @@ export default function CommunityPage() {
                       {forum.topics.map((topic, index) => (
                         <div 
                           key={index} 
-                          className="flex items-center justify-between p-3 rounded-md bg-black/20 hover:bg-black/40 cursor-pointer transition-colors group-inner"
+                          className="flex items-center justify-between p-3 rounded-md bg-white/5 hover:bg-white/10 cursor-pointer transition-colors group-inner border border-transparent hover:border-white/5"
                           onClick={handleJoinClick}
                         >
                           <div className="flex items-center gap-3">
