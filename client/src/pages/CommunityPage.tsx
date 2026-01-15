@@ -112,22 +112,22 @@ export default function CommunityPage() {
           {/* Forum Categories */}
           <div className="grid grid-cols-1 gap-6">
             {forums.map((forum) => (
-              <Card key={forum.id} className="bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/20 transition-all overflow-hidden relative group shadow-lg">
+              <Card key={forum.id} className="bg-white/90 backdrop-blur-md border-white/20 hover:bg-white/95 transition-all overflow-hidden relative group shadow-lg">
                 {/* Category Color Strip */}
                 <div className={`absolute top-0 left-0 w-1.5 h-full ${forum.color}`} />
                 
                 <CardHeader className="pb-2 pl-6">
                   <div className="flex justify-between items-start">
                     <div className="flex items-center gap-3">
-                      <div className={`p-2 rounded-lg ${forum.color} bg-opacity-80 text-white shadow-lg`}>
+                      <div className={`p-2 rounded-lg ${forum.color} text-white shadow-lg`}>
                         <forum.icon className="h-6 w-6" />
                       </div>
                       <div>
-                        <CardTitle className="text-xl flex items-center gap-2 text-white">
+                        <CardTitle className="text-xl flex items-center gap-2 text-[#0B1026]">
                           {forum.title}
                           {forum.isLocked && <Lock className="h-4 w-4 text-muted-foreground" />}
                         </CardTitle>
-                        <CardDescription className="mt-1 text-gray-400">{forum.description}</CardDescription>
+                        <CardDescription className="mt-1 text-slate-600">{forum.description}</CardDescription>
                       </div>
                     </div>
                     <div className="flex items-center gap-4 text-sm text-muted-foreground">
@@ -145,10 +145,10 @@ export default function CommunityPage() {
                 
                 <CardContent className="pl-6">
                   {forum.isLocked ? (
-                    <div className="flex items-center justify-center h-24 bg-black/10 rounded-md border border-dashed border-white/10">
+                    <div className="flex items-center justify-center h-24 bg-slate-100 rounded-md border border-dashed border-slate-300">
                       <div className="text-center">
                         <Lock className="h-5 w-5 mx-auto text-gray-500 mb-2" />
-                        <p className="text-sm text-gray-500">このフォーラムは招待制です</p>
+                        <p className="text-sm text-slate-500">このフォーラムは招待制です</p>
                       </div>
                     </div>
                   ) : (
@@ -156,16 +156,16 @@ export default function CommunityPage() {
                       {forum.topics.map((topic, index) => (
                         <div 
                           key={index} 
-                          className="flex items-center justify-between p-3 rounded-md bg-white/10 hover:bg-white/20 cursor-pointer transition-colors group-inner border border-transparent hover:border-white/10"
+                          className="flex items-center justify-between p-3 rounded-md bg-slate-100 hover:bg-slate-200 cursor-pointer transition-colors group-inner border border-transparent"
                           onClick={handleJoinClick}
                         >
                           <div className="flex items-center gap-3">
                             <div className={`h-2 w-2 rounded-full ${forum.color}`} />
-                            <span className="font-medium text-gray-200 group-hover:text-white transition-colors">
+                            <span className="font-medium text-[#0B1026] group-hover:text-primary transition-colors">
                               {topic.title}
                             </span>
                           </div>
-                          <div className="flex items-center gap-4 text-xs text-gray-500">
+                          <div className="flex items-center gap-4 text-xs text-slate-500">
                             <span>by {topic.author}</span>
                             <span className="flex items-center gap-1">
                               <MessageSquare className="h-3 w-3" /> {topic.replies}
@@ -174,7 +174,7 @@ export default function CommunityPage() {
                           </div>
                         </div>
                       ))}
-                      <Button variant="ghost" size="sm" className="w-full mt-2 text-gray-400 hover:text-white hover:bg-white/5" onClick={handleJoinClick}>
+                      <Button variant="ghost" size="sm" className="w-full mt-2 text-slate-500 hover:text-[#0B1026] hover:bg-slate-100" onClick={handleJoinClick}>
                         すべてのトピックを見る
                       </Button>
                     </div>

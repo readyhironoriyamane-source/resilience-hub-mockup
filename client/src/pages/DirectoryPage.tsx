@@ -113,19 +113,19 @@ export default function DirectoryPage() {
           {/* Company Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {companies.map((company) => (
-              <Card key={company.id} className="bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/20 hover:border-primary/30 transition-all duration-300 group shadow-lg">
+              <Card key={company.id} className="bg-white/90 backdrop-blur-md border-white/20 hover:bg-white/95 hover:border-primary/30 transition-all duration-300 group shadow-lg">
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
-                    <div className="h-16 w-16 rounded-lg bg-primary/20 flex items-center justify-center text-xl font-bold text-primary shrink-0 border border-primary/20 shadow-inner">
+                    <div className="h-16 w-16 rounded-lg bg-primary/10 flex items-center justify-center text-xl font-bold text-primary shrink-0 border border-primary/20 shadow-inner">
                       {company.logo}
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex justify-between items-start">
                         <div>
-                          <h3 className="text-lg font-bold truncate group-hover:text-primary transition-colors text-white">
+                          <h3 className="text-lg font-bold truncate group-hover:text-primary transition-colors text-[#0B1026]">
                             {company.name}
                           </h3>
-                          <div className="flex items-center gap-3 text-sm text-muted-foreground mt-1">
+                          <div className="flex items-center gap-3 text-sm text-slate-500 mt-1">
                             <span className="flex items-center gap-1">
                               <Building2 className="h-3 w-3" /> {company.industry}
                             </span>
@@ -136,13 +136,13 @@ export default function DirectoryPage() {
                         </div>
                       </div>
                       
-                      <p className="text-sm text-muted-foreground mt-3 line-clamp-2">
+                      <p className="text-sm text-slate-600 mt-3 line-clamp-2">
                         {company.description}
                       </p>
 
                       <div className="flex flex-wrap gap-2 mt-4">
                         {company.tags.map(tag => (
-                          <Badge key={tag} variant="secondary" className="text-xs bg-white/20 text-gray-200 border border-white/10 hover:bg-white/30 transition-colors">
+                          <Badge key={tag} variant="secondary" className="text-xs bg-slate-100 text-slate-600 border border-slate-200 hover:bg-slate-200 transition-colors">
                             {tag}
                           </Badge>
                         ))}
@@ -150,12 +150,12 @@ export default function DirectoryPage() {
                     </div>
                   </div>
                   
-                  <div className="mt-6 pt-4 border-t border-border/30 flex justify-between items-center">
-                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                  <div className="mt-6 pt-4 border-t border-slate-200 flex justify-between items-center">
+                    <div className="flex items-center gap-2 text-xs text-slate-500">
                       <Users className="h-3 w-3" />
                       <span>{company.employees} employees</span>
                     </div>
-                    <Button variant="ghost" size="sm" className="h-8 gap-1 text-xs hover:text-primary">
+                    <Button variant="ghost" size="sm" className="h-8 gap-1 text-xs text-slate-500 hover:text-primary hover:bg-slate-100">
                       <LinkIcon className="h-3 w-3" />
                       詳細を見る
                     </Button>

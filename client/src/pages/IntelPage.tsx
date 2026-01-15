@@ -139,9 +139,9 @@ export default function IntelPage() {
           </div>
 
           {/* Feed List - Newswire Style */}
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-lg overflow-hidden shadow-xl">
+          <div className="bg-white/90 backdrop-blur-md border border-white/20 rounded-lg overflow-hidden shadow-xl">
             {/* List Header */}
-            <div className="grid grid-cols-12 gap-4 p-4 border-b border-white/20 bg-black/10 text-xs font-medium text-muted-foreground uppercase tracking-wider">
+            <div className="grid grid-cols-12 gap-4 p-4 border-b border-slate-200 bg-slate-50 text-xs font-medium text-slate-500 uppercase tracking-wider">
               <div className="col-span-2 md:col-span-1">Time</div>
               <div className="col-span-3 md:col-span-2">Source</div>
               <div className="col-span-7 md:col-span-6">Headline & Summary</div>
@@ -149,11 +149,11 @@ export default function IntelPage() {
             </div>
 
             {/* List Items */}
-            <div className="divide-y divide-white/10">
+            <div className="divide-y divide-slate-200">
               {intelFeeds.map((item) => (
-                <div key={item.id} className="grid grid-cols-12 gap-4 p-4 hover:bg-white/20 transition-colors group items-start">
+                <div key={item.id} className="grid grid-cols-12 gap-4 p-4 hover:bg-white/95 transition-colors group items-start">
                   {/* Time */}
-                  <div className="col-span-2 md:col-span-1 text-xs text-gray-400 font-mono pt-1">
+                  <div className="col-span-2 md:col-span-1 text-xs text-slate-500 font-mono pt-1">
                     {item.date}
                   </div>
 
@@ -164,30 +164,30 @@ export default function IntelPage() {
                     </Badge>
                     <div className="flex flex-wrap gap-1 mt-2">
                       {item.tags.map(tag => (
-                        <span key={tag} className="text-[10px] text-gray-500">#{tag}</span>
+                        <span key={tag} className="text-[10px] text-slate-500">#{tag}</span>
                       ))}
                     </div>
                   </div>
 
                   {/* Content */}
                   <div className="col-span-7 md:col-span-6 space-y-2">
-                    <h3 className="text-sm font-bold leading-snug text-gray-200 group-hover:text-white transition-colors">
+                    <h3 className="text-sm font-bold leading-snug text-[#0B1026] group-hover:text-primary transition-colors">
                       <a href={item.url} className="hover:underline decoration-primary/50 underline-offset-4">
                         {item.title}
                       </a>
                     </h3>
-                    <p className="text-xs text-gray-400 leading-relaxed line-clamp-2 group-hover:line-clamp-none transition-all">
+                    <p className="text-xs text-slate-600 leading-relaxed line-clamp-2 group-hover:line-clamp-none transition-all">
                       {item.summary}
                     </p>
                   </div>
 
                   {/* AI Analysis (Desktop only) */}
-                  <div className="hidden md:block md:col-span-3 bg-purple-500/10 rounded p-3 border border-purple-500/20 backdrop-blur-sm">
-                    <div className="flex items-center gap-1.5 text-[10px] font-medium text-purple-400 mb-1">
+                  <div className="hidden md:block md:col-span-3 bg-purple-50/50 rounded p-3 border border-purple-200 backdrop-blur-sm">
+                    <div className="flex items-center gap-1.5 text-[10px] font-medium text-purple-600 mb-1">
                       <Bot className="h-3 w-3" />
                       <span>BizOps Impact</span>
                     </div>
-                    <p className="text-[11px] text-gray-400 leading-relaxed">
+                    <p className="text-[11px] text-slate-600 leading-relaxed">
                       {item.aiAnalysis}
                     </p>
                   </div>
