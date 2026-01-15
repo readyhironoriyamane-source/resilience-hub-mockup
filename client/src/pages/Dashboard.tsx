@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useLocation } from "wouter";
 import { Sidebar } from "@/components/Sidebar";
+import { MobileHeader } from "@/components/MobileHeader";
 import { Button } from "@/components/ui/button";
 import { 
   ShieldCheck, 
@@ -62,6 +63,7 @@ export default function Dashboard() {
   const [checkedItems, setCheckedItems] = useState<string[]>(["bcp", "drill", "hazard"]);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [showResult, setShowResult] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   // スコア計算 (100点満点)
   const score = Math.round((checkedItems.length / DIAGNOSTIC_ITEMS.length) * 100);
@@ -94,32 +96,22 @@ export default function Dashboard() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B1026]/80 via-transparent to-[#0B1026]" />
       </div>
 
-      {/* Sidebar for Desktop */}
-      <div className="hidden md:block fixed inset-y-0 left-0 z-50 w-64">
+      {/* Mobile Sidebar Overlay */}
+      {isSidebarOpen && (
+        <div 
+          className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm md:hidden"
+          onClick={() => setIsSidebarOpen(false)}
+        />
+      )}
+
+      {/* Sidebar */}
+      <div className={`fixed inset-y-0 left-0 z-50 w-64 transform transition-transform duration-300 ease-in-out md:translate-x-0 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         <Sidebar />
       </div>
 
       {/* Main Content */}
       <div className="flex-1 md:pl-64 relative z-10">
-        {/* Mobile Header */}
-        <div className="md:hidden sticky top-0 z-40 bg-[#0B1026]/80 backdrop-blur-md border-b border-white/10 p-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center border border-white/20">
-              <span className="font-serif text-white font-bold text-xs">RH</span>
-            </div>
-            <span className="font-serif font-bold text-sm tracking-tight">Resilience Hub</span>
-          </div>
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="text-white">
-                <Menu className="w-5 h-5" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="left" className="p-0 w-64 border-r border-white/10 bg-[#0B1026]">
-              <Sidebar />
-            </SheetContent>
-          </Sheet>
-        </div>
+        <MobileHeader onMenuClick={() => setIsSidebarOpen(true)} />
 
         <div className="container mx-auto px-4 py-8 max-w-5xl">
           <header className="mb-10">

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ExternalLink, Globe, Bot, RefreshCw, AlertCircle, Menu, Search, Filter } from "lucide-react";
 import { Sidebar } from "@/components/Sidebar";
+import { MobileHeader } from "@/components/MobileHeader";
 
 export default function IntelPage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -75,13 +76,13 @@ export default function IntelPage() {
       </div>
 
       <main className="md:pl-64 relative z-10 min-h-screen flex flex-col">
+        <MobileHeader onMenuClick={() => setIsSidebarOpen(true)} />
+        
         <div className="container mx-auto px-4 py-8 pb-24">
           {/* Header */}
           <header className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
             <div className="flex items-center gap-4">
-              <Button variant="ghost" size="icon" className="md:hidden text-white -ml-2" onClick={() => setIsSidebarOpen(true)}>
-                <Menu className="w-6 h-6" />
-              </Button>
+              {/* Mobile menu trigger removed as it is handled by MobileHeader */}
               <div>
                 <div className="flex items-center gap-2 mb-2 opacity-80">
                   <Globe className="w-6 h-6 text-[#d4a574]" />

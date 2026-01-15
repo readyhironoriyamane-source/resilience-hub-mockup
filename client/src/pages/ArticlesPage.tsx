@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search, Filter, Clock, User, Menu, BookOpen } from "lucide-react";
 import { Sidebar } from "@/components/Sidebar";
+import { MobileHeader } from "@/components/MobileHeader";
 import { Link } from "wouter";
 
 export default function ArticlesPage() {
@@ -47,13 +48,13 @@ export default function ArticlesPage() {
       </div>
 
       <main className="md:pl-64 relative z-10 min-h-screen flex flex-col">
+        <MobileHeader onMenuClick={() => setIsSidebarOpen(true)} />
+        
         <div className="container mx-auto px-4 py-8 pb-24">
           {/* Header */}
           <header className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
             <div className="flex items-center gap-4">
-              <Button variant="ghost" size="icon" className="md:hidden text-white -ml-2" onClick={() => setIsSidebarOpen(true)}>
-                <Menu className="w-6 h-6" />
-              </Button>
+              {/* Mobile menu trigger removed as it is handled by MobileHeader */}
               <div>
                 <h1 className="font-serif text-3xl md:text-4xl font-bold mb-2 flex items-center gap-3">
                   <BookOpen className="w-8 h-8 text-[#d4a574]" />

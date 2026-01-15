@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ContentCard } from "@/components/ContentCard";
 import { PremiumModal } from "@/components/PremiumModal";
 import { Sidebar } from "@/components/Sidebar";
+import { MobileHeader } from "@/components/MobileHeader";
 import { contentItems, type ContentItem } from "@/lib/mock-data";
 import { Bell, Menu, Search, ShoppingBag, Sparkles, Settings2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -61,25 +62,17 @@ export default function Home() {
       </div>
 
       <main className="md:pl-64 relative z-10 min-h-screen flex flex-col">
-        {/* Header */}
+        <MobileHeader onMenuClick={() => setIsSidebarOpen(true)} />
+
+        {/* Header (Desktop only) */}
         <header 
-          className={`sticky top-0 z-30 bg-[#0B1026]/95 backdrop-blur-md border-b border-white/10 transition-transform duration-300 ${
+          className={`hidden md:block sticky top-0 z-30 bg-[#0B1026]/95 backdrop-blur-md border-b border-white/10 transition-transform duration-300 ${
             isHeaderVisible ? "translate-y-0" : "-translate-y-full"
           }`}
         >
           <div className="container mx-auto px-4 h-16 flex items-center justify-between">
             <div className="md:hidden flex items-center gap-3">
-              <Button variant="ghost" size="icon" className="text-white -ml-2" onClick={() => setIsSidebarOpen(true)}>
-                <Menu className="w-6 h-6" />
-              </Button>
-              <Link href="/">
-                <div className="flex items-center gap-2 cursor-pointer">
-                  <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center border border-white/20">
-                    <span className="font-serif text-white font-bold text-xs">RH</span>
-                  </div>
-                  <span className="font-serif font-bold text-sm truncate max-w-[180px]">The Global Resilience Hub</span>
-                </div>
-              </Link>
+              {/* Mobile menu trigger removed as it is handled by MobileHeader */}
             </div>
             <div className="hidden md:block">
               {/* Desktop Header Content if needed */}

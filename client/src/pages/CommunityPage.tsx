@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { MessageSquare, Users, Lock, TrendingUp, AlertTriangle, Activity, Menu } from "lucide-react";
 import { toast } from "sonner";
 import { Sidebar } from "@/components/Sidebar";
+import { MobileHeader } from "@/components/MobileHeader";
 
 export default function CommunityPage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -88,13 +89,13 @@ export default function CommunityPage() {
       </div>
 
       <main className="md:pl-64 relative z-10 min-h-screen flex flex-col">
+        <MobileHeader onMenuClick={() => setIsSidebarOpen(true)} />
+        
         <div className="container mx-auto px-4 py-8 pb-24">
           {/* Header */}
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
             <div className="flex items-center gap-4">
-              <Button variant="ghost" size="icon" className="md:hidden text-white -ml-2" onClick={() => setIsSidebarOpen(true)}>
-                <Menu className="w-6 h-6" />
-              </Button>
+              {/* Mobile menu trigger removed as it is handled by MobileHeader */}
               <div>
                 <h1 className="text-3xl font-bold tracking-tight text-white">Community Forum</h1>
                 <p className="text-muted-foreground mt-2">
