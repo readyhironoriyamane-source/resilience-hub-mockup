@@ -4,12 +4,18 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ExternalLink, Globe, Bot, RefreshCw, AlertCircle, Menu, Search, Filter } from "lucide-react";
+import { toast } from "sonner";
 import { Sidebar } from "@/components/Sidebar";
 import { MobileHeader } from "@/components/MobileHeader";
 
 export default function IntelPage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+
+  const handleLinkClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    toast.info("デモ版のため、外部サイトへの遷移は無効化されています。");
+  };
 
   const intelFeeds = [
     {
@@ -172,7 +178,7 @@ export default function IntelPage() {
                   {/* Content */}
                   <div className="col-span-7 md:col-span-6 space-y-2">
                     <h3 className="text-sm font-bold leading-snug text-[#0B1026] group-hover:text-blue-700 transition-colors">
-                      <a href={item.url} className="hover:underline decoration-blue-600/50 underline-offset-4 text-blue-900">
+                      <a href={item.url} onClick={handleLinkClick} className="hover:underline decoration-blue-600/50 underline-offset-4 text-blue-900">
                         {item.title}
                       </a>
                     </h3>
