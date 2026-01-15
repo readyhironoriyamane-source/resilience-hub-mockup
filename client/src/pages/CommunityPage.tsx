@@ -112,7 +112,7 @@ export default function CommunityPage() {
           {/* Forum Categories */}
           <div className="grid grid-cols-1 gap-6">
             {forums.map((forum) => (
-              <Card key={forum.id} className="bg-white/5 backdrop-blur-md border-white/10 hover:bg-white/10 transition-all overflow-hidden relative group">
+              <Card key={forum.id} className="bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/20 transition-all overflow-hidden relative group shadow-lg">
                 {/* Category Color Strip */}
                 <div className={`absolute top-0 left-0 w-1.5 h-full ${forum.color}`} />
                 
@@ -156,7 +156,7 @@ export default function CommunityPage() {
                       {forum.topics.map((topic, index) => (
                         <div 
                           key={index} 
-                          className="flex items-center justify-between p-3 rounded-md bg-white/5 hover:bg-white/10 cursor-pointer transition-colors group-inner border border-transparent hover:border-white/5"
+                          className="flex items-center justify-between p-3 rounded-md bg-white/10 hover:bg-white/20 cursor-pointer transition-colors group-inner border border-transparent hover:border-white/10"
                           onClick={handleJoinClick}
                         >
                           <div className="flex items-center gap-3">

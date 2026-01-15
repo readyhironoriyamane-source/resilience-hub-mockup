@@ -113,7 +113,7 @@ export default function DirectoryPage() {
           {/* Company Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {companies.map((company) => (
-              <Card key={company.id} className="bg-white/5 backdrop-blur-md border-white/10 hover:bg-white/10 hover:border-primary/30 transition-all duration-300 group shadow-lg">
+              <Card key={company.id} className="bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/20 hover:border-primary/30 transition-all duration-300 group shadow-lg">
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
                     <div className="h-16 w-16 rounded-lg bg-primary/20 flex items-center justify-center text-xl font-bold text-primary shrink-0 border border-primary/20 shadow-inner">
@@ -142,7 +142,7 @@ export default function DirectoryPage() {
 
                       <div className="flex flex-wrap gap-2 mt-4">
                         {company.tags.map(tag => (
-                          <Badge key={tag} variant="secondary" className="text-xs bg-white/10 text-gray-300 border border-white/5 hover:bg-white/20 transition-colors">
+                          <Badge key={tag} variant="secondary" className="text-xs bg-white/20 text-gray-200 border border-white/10 hover:bg-white/30 transition-colors">
                             {tag}
                           </Badge>
                         ))}

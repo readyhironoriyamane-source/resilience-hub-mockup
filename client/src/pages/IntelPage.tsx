@@ -139,9 +139,9 @@ export default function IntelPage() {
           </div>
 
           {/* Feed List - Newswire Style */}
-          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-lg overflow-hidden shadow-xl">
+          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-lg overflow-hidden shadow-xl">
             {/* List Header */}
-            <div className="grid grid-cols-12 gap-4 p-4 border-b border-white/10 bg-black/20 text-xs font-medium text-muted-foreground uppercase tracking-wider">
+            <div className="grid grid-cols-12 gap-4 p-4 border-b border-white/20 bg-black/10 text-xs font-medium text-muted-foreground uppercase tracking-wider">
               <div className="col-span-2 md:col-span-1">Time</div>
               <div className="col-span-3 md:col-span-2">Source</div>
               <div className="col-span-7 md:col-span-6">Headline & Summary</div>
@@ -149,9 +149,9 @@ export default function IntelPage() {
             </div>
 
             {/* List Items */}
-            <div className="divide-y divide-white/5">
+            <div className="divide-y divide-white/10">
               {intelFeeds.map((item) => (
-                <div key={item.id} className="grid grid-cols-12 gap-4 p-4 hover:bg-white/5 transition-colors group items-start">
+                <div key={item.id} className="grid grid-cols-12 gap-4 p-4 hover:bg-white/20 transition-colors group items-start">
                   {/* Time */}
                   <div className="col-span-2 md:col-span-1 text-xs text-gray-400 font-mono pt-1">
                     {item.date}
