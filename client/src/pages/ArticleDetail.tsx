@@ -5,7 +5,7 @@ import { ArrowLeft, ExternalLink, Lock, Share2, Bookmark, Clock, User, Zap, Thum
 import { toast } from "sonner";
 import { useState, useEffect } from "react";
 import { PremiumModal } from "@/components/PremiumModal";
-import { useArticleLimit } from "@/hooks/useArticleLimit";
+
 import { useBookmark } from "@/hooks/useBookmark";
 import { DiscussionSection } from "@/components/DiscussionSection";
 import { ContentCard } from "@/components/ContentCard";
@@ -14,10 +14,10 @@ export default function ArticleDetail() {
   const [, params] = useRoute("/article/:id");
   const [, setLocation] = useLocation();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { remainingCount, maxCount, consumeFreeArticle, isInitialized } = useArticleLimit();
+
   const { isBookmarked, toggleBookmark } = useBookmark();
-  const [isUnlocked, setIsUnlocked] = useState(false);
-  const [hasCheckedLimit, setHasCheckedLimit] = useState(false);
+
+
   const [isLiked, setIsLiked] = useState(false);
   
   const item = contentItems.find(i => i.id === params?.id);
@@ -27,19 +27,7 @@ export default function ArticleDetail() {
     .filter(i => i.category === item?.category && i.id !== item?.id)
     .slice(0, 3);
 
-  useEffect(() => {
-    if (!isInitialized || !item) return;
 
-    if (item.isPremium) {
-      // Try to consume a free article slot
-      const unlocked = consumeFreeArticle(item.id);
-      setIsUnlocked(unlocked);
-    } else {
-      // Non-premium items are always unlocked
-      setIsUnlocked(true);
-    }
-    setHasCheckedLimit(true);
-  }, [item?.id, isInitialized, consumeFreeArticle]);
 
   // Scroll to top when article changes
   useEffect(() => {
@@ -61,12 +49,7 @@ export default function ArticleDetail() {
     );
   }
 
-  // Wait for limit check to complete before rendering content to prevent flash of unlocked content
-  if (!hasCheckedLimit && item.isPremium) {
-    return <div className="min-h-screen bg-[#0B1026]" />;
-  }
-
-  const isLocked = item.isPremium && !isUnlocked;
+  const isLocked = item.isPremium;
 
   const handleCardClick = (id: number) => {
     setLocation(`/article/${id}`);
@@ -91,30 +74,7 @@ export default function ArticleDetail() {
           </Link>
         </div>
 
-        {/* Free Article Meter (Only show if premium item and unlocked) */}
-        {item.isPremium && isUnlocked && (
-          <div className="mb-6 bg-gradient-to-r from-blue-900/40 to-purple-900/40 border border-white/10 rounded-lg p-4 flex items-center justify-between backdrop-blur-sm">
-            <div className="flex items-center gap-3">
-              <div className="p-2 rounded-full bg-primary/20 text-primary">
-                <Zap className="w-4 h-4" />
-              </div>
-              <div>
-                <div className="text-sm font-bold text-white">本日の無料閲覧枠</div>
-                <div className="text-xs text-muted-foreground">
-                  残り <span className="text-primary font-bold">{remainingCount}</span> / {maxCount} 本の記事を無料で読めます
-                </div>
-              </div>
-            </div>
-            <Button 
-              variant="outline" 
-              size="sm" 
-              onClick={() => setIsModalOpen(true)}
-              className="text-xs border-primary/30 text-primary hover:bg-primary/10 hover:text-primary"
-            >
-              無制限プランへ
-            </Button>
-          </div>
-        )}
+
 
         {/* Article Header */}
         <header className="mb-10">
@@ -196,7 +156,7 @@ export default function ArticleDetail() {
           
           {/* Full Content or Locked Content */}
           <div className="relative">
-            {/* Show full content if not premium OR if premium but unlocked via free limit */}
+            {/* Show full content if not premium */}
             {!isLocked ? (
               <div dangerouslySetInnerHTML={{ __html: item.fullContent || "" }} />
             ) : (
@@ -209,8 +169,9 @@ export default function ArticleDetail() {
                 {/* Premium Lock Overlay */}
                 <div className="relative -mt-12 z-10 p-8 rounded-xl bg-[#0F172A] border border-[#d4a574]/30 text-center shadow-2xl shadow-black/50">
                   <Lock className="w-12 h-12 text-[#d4a574] mx-auto mb-4" />
-                  <h3 className="text-xl font-bold mb-2">本日の無料閲覧枠が終了しました</h3>
+                  <h3 className="text-xl font-bold mb-2">プレミアム会員限定記事</h3>
                   <p className="text-muted-foreground mb-6 max-w-md mx-auto">
+                    この記事はプレミアム会員限定です。
                     Resilience Hub Insightsの全文、専門家による詳細な分析、
                     そしてコミュニティでの議論に参加するには、プレミアムプランへの登録が必要です。
                   </p>
