@@ -49,7 +49,8 @@ export default function ArticleDetail() {
     );
   }
 
-  const isLocked = item.isPremium;
+  // For mockup purposes, all content is unlocked
+  const isLocked = false;
 
   const handleCardClick = (id: number) => {
     setLocation(`/article/${id}`);
