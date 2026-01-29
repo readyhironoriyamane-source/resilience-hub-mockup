@@ -10,37 +10,37 @@ export function Sidebar() {
 
   const mainNavItems = [
     { 
-      name: "自組織の対応状況・集計", 
+      name: "防災ダッシュボード", 
       icon: <LayoutDashboard className="w-4 h-4" />,
       description: "課題と対策の進捗を見える化",
       href: "/dashboard"
     },
     { 
-      name: "専門家への相談窓口", 
+      name: "防災相談窓口", 
       icon: <HelpCircle className="w-4 h-4" />,
       description: "補助金・取材・対策の相談",
       href: "/desk"
     },
     { 
-      name: "自治体・企業間の連携", 
+      name: "防災コミュニティ", 
       icon: <Sparkles className="w-4 h-4" />,
       description: "組織を超えた知見の共有",
       href: "/community"
     },
     { 
-      name: "海外リスク・最新動向", 
+      name: "海外防災の最新動向", 
       icon: <Globe className="w-4 h-4" />,
       description: "世界の災害事例と対策を収集",
       href: "/intel"
     },
     { 
-      name: "支援企業・団体リスト", 
+      name: "レジハブパートナー", 
       icon: <Building2 className="w-4 h-4" />,
       description: "連携パートナーを一覧から探す",
       href: "/directory"
     },
     { 
-      name: "報告資料の自動作成", 
+      name: "防災レポート作成", 
       icon: <FileText className="w-4 h-4" />,
       description: "企業別レポートを即座に生成",
       href: "/reports",
@@ -85,7 +85,7 @@ export function Sidebar() {
                 <Activity className="w-4 h-4" />
               </span>
               <div className="flex flex-col">
-                <span className="leading-tight text-sm">最新の防災ニュース・動向</span>
+                <span className="leading-tight text-sm">最新の防災ニュース</span>
                 <span className="text-[10px] text-muted-foreground/70 mt-0.5 font-normal">リスク・技術・制度の最新情報</span>
               </div>
             </div>

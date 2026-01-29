@@ -33,7 +33,7 @@ export default function Dashboard() {
 
         <div className="container mx-auto px-4 py-8 max-w-5xl">
           <header className="mb-10">
-            <h1 className="text-3xl font-bold mb-2">自組織の対応状況・集計</h1>
+            <h1 className="text-3xl font-bold mb-2">防災ダッシュボード</h1>
             <p className="text-muted-foreground">
               組織のレジリエンスレベルを診断し、次のアクションを明確にします。
             </p>
