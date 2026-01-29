@@ -108,7 +108,7 @@ export default function ArticleDetail() {
           </div>
         </header>
 
-        {/* Resilience Hub Insights (Key Takeaways) */}
+        {/* 3つの要点 (Key Takeaways) */}
         {item.keyTakeaways && (
           <section className={`mb-12 bg-[#0F172A]/80 border border-primary/20 rounded-xl p-6 md:p-8 relative overflow-hidden backdrop-blur-md shadow-lg ${isLocked ? 'select-none' : ''}`}>
             <div className="absolute top-0 right-0 p-4 opacity-10">
@@ -117,7 +117,7 @@ export default function ArticleDetail() {
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg font-bold text-[#d4a574] flex items-center gap-2">
                 <SparklesIcon className="w-5 h-5" />
-                Resilience Hub Insights
+                3つの要点
               </h2>
               <div className="flex items-center gap-2">
                 <span className="px-2 py-0.5 rounded bg-white/10 border border-white/10 text-[10px] text-muted-foreground font-mono">
@@ -142,7 +142,7 @@ export default function ArticleDetail() {
               <div className="absolute inset-0 flex items-center justify-center bg-[#0F172A]/40 backdrop-blur-[2px]">
                 <div className="text-center p-4">
                   <Lock className="w-8 h-8 text-[#d4a574] mx-auto mb-2" />
-                  <p className="text-sm font-bold text-white">Insightsは有料会員限定です</p>
+                  <p className="text-sm font-bold text-white">3つの要点は有料会員限定です</p>
                 </div>
               </div>
             )}
@@ -151,10 +151,7 @@ export default function ArticleDetail() {
 
         {/* Article Content */}
         <article className="prose prose-invert prose-lg max-w-none bg-[#0B1026]/60 p-6 md:p-8 rounded-xl backdrop-blur-sm border border-white/5 mb-8">
-          <div className="text-lg leading-relaxed text-white/80 mb-8">
-            {item.description}
-          </div>
-          
+          {/* Description removed as per new requirements */}         
           {/* Full Content or Locked Content */}
           <div className="relative">
             {/* Show full content if not premium */}
@@ -173,7 +170,7 @@ export default function ArticleDetail() {
                   <h3 className="text-xl font-bold mb-2">プレミアム会員限定記事</h3>
                   <p className="text-muted-foreground mb-6 max-w-md mx-auto">
                     この記事はプレミアム会員限定です。
-                    Resilience Hub Insightsの全文、専門家による詳細な分析、
+                    3つの要点の全文、専門家による詳細な分析、
                     そしてコミュニティでの議論に参加するには、プレミアムプランへの登録が必要です。
                   </p>
                   <Button 

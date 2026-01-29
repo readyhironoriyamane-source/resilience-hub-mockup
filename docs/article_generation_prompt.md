@@ -23,12 +23,7 @@ You MUST output a single valid JSON object with the following structure. Do not 
   "date": "String (YYYY年MM月DD日 HH:mm)",
   "author": "Resilience Hub Editorial",
   "image": "String (Suggested Unsplash keyword, e.g., 'drone logistics', 'cyber security')",
-  "description": "String (Max 100 chars, lead sentence)",
-  "keyTakeaways": [
-    "String (【Fact】...)",
-    "String (【Impact】...)",
-    "String (【Target】...)"
-  ],
+  "description": "String (Max 100 chars, lead sentence)""keyTakeaways": [\n    "String (Summary point 1 - Max 40 chars)",\n    "String (Summary point 2 - Max 40 chars)",\n    "String (Summary point 3 - Max 40 chars)"\n  ],
   "fullContent": "String (HTML string containing structured sections)",
   "sourceUrl": "String (Primary source URL from search results)"
 }
@@ -39,64 +34,15 @@ You MUST output a single valid JSON object with the following structure. Do not 
 #### 1. Title
 - Must be impactful and concise.
 - Format: `【Category/Keyword】Main Title ｜ Sub Title`
-- Example: `【経産省】BCPガイドライン改定｜中小企業の補助金要件が厳格化`
-
-#### 2. Key Takeaways (3 points)
-- **【Fact】**: What happened? (Objective fact)
-- **【Impact】**: Why it matters? (Business consequence)
-- **【Target】**: Who should care? (Specific departments/roles)
-
+- Example: `【経産省】BCPガイドライン改定｜中小企業の補助金要件が厳格化`#### 2. Key Takeaways (3つの要点)\n- Provide 3 concise summary sentences.\n- Each point should be under 40 characters.\n- Focus on the "So What?" for business readers.
 #### 3. Full Content (HTML Structure)
 The `fullContent` field MUST be a string containing HTML with the following specific Tailwind classes and structure.
 Do NOT output a full HTML document (no `<html>`, `<body>`), only the inner content `<div>`.
 
-**Required Sections:**
-
-**Section 1: Context (背景)**
-```html
-<div class="space-y-8">
-  <section>
-    <h3 class="text-xl font-bold mb-4 text-white border-l-4 border-blue-500 pl-3">Context (背景)</h3>
-    <p class="text-gray-300 leading-relaxed">
-      [Write a 200-300 char background explanation here. Why is this news happening now? What is the history?]
-    </p>
-  </section>
-```
-
-**Section 2: Key Details (詳細)**
+**Required Sections:***Section 1: Context (概要と背景)**\n```html\n<div class="space-y-8">\n  <section>\n    <h3 class="text-xl font-bold mb-4 text-white border-l-4 border-blue-500 pl-3">概要と背景: なぜ今それが重要なのか</h3>\n    <p class="text-gray-300 leading-relaxed">\n      [Write a 200-300 char background explanation here. Why is this news happening now? What is the history?]\n    </p>\n  </section>\n\n  <section>\n    <h3 class="text-xl font-bold mb-4 text-white border-l-4 border-blue-500 pl-3">詳細データ</h3>\n    <div class="bg-white/5 rounded-lg p-4 border border-white/10">\n      <table class="w-full text-sm text-left text-gray-300">\n        <thead class="text-xs text-gray-400 uppercase bg-white/5">\n          <tr>\n            <th class="px-4 py-3 rounded-tl-lg w-1/3">項目</th>\n            <th class="px-4 py-3 rounded-tr-lg">内容</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr class="border-b border-white/5">\n            <td class="px-4 py-3 font-medium text-white">具体的な数値</td>\n            <td class="px-4 py-3">[Value or "No Data"]</td>\n          </tr>\n          <tr class="border-b border-white/5">\n            <td class="px-4 py-3 font-medium text-white">スペック</td>\n            <td class="px-4 py-3">[Specs or "No Data"]</td>\n          </tr>\n          <tr class="border-b border-white/5">\n            <td class="px-4 py-3 font-medium text-white">金額</td>\n            <td class="px-4 py-3">[Price/Cost or "No Data"]</td>\n          </tr>\n          <tr>\n            <td class="px-4 py-3 font-medium text-white">日付</td>\n            <td class="px-4 py-3">[Date/Deadline or "No Data"]</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </section>\n```ction 2: Business Impact (ビジネス影響)**
 ```html
   <section>
-    <h3 class="text-xl font-bold mb-4 text-white border-l-4 border-blue-500 pl-3">Key Details (詳細)</h3>
-    <div class="bg-white/5 rounded-lg p-4 border border-white/10">
-      <table class="w-full text-sm text-left text-gray-300">
-        <thead class="text-xs text-gray-400 uppercase bg-white/5">
-          <tr>
-            <th class="px-4 py-3 rounded-tl-lg">[Header 1]</th>
-            <th class="px-4 py-3 rounded-tr-lg">[Header 2]</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="border-b border-white/5">
-            <td class="px-4 py-3 font-medium text-white">[Row 1 Col 1]</td>
-            <td class="px-4 py-3">[Row 1 Col 2]</td>
-          </tr>
-          <!-- Add more rows as needed -->
-        </tbody>
-      </table>
-    </div>
-    <!-- OR use a list if a table is not appropriate -->
-    <!--
-    <ul class="list-disc list-inside space-y-2 text-gray-300 mt-4">
-      <li><strong class="text-white">[Point 1]:</strong> [Description]</li>
-    </ul>
-    -->
-  </section>
-```
-
-**Section 3: Business Impact (自社への影響)**
-```html
-  <section>
-    <h3 class="text-xl font-bold mb-4 text-white border-l-4 border-blue-500 pl-3">Business Impact (自社への影響)</h3>
+    <h3 class="text-xl font-bold mb-4 text-white border-l-4 border-blue-500 pl-3">ビジネス影響: 企業のどの部門にどのような影響があるか</h3>
     <p class="text-gray-300 mb-4">
       [Explain the direct impact on business operations, costs, or strategy.]
     </p>
@@ -113,12 +59,11 @@ Do NOT output a full HTML document (no `<html>`, `<body>`), only the inner conte
   </section>
 ```
 
-**Section 4: Recommended Action (推奨アクション)**
+**Section 3: Recommended Action (推奨アクション)**
 ```html
   <section>
     <div class="bg-blue-900/30 border border-blue-500/30 rounded-xl p-6">
       <h3 class="text-xl font-bold mb-4 text-blue-400 flex items-center gap-2">
-        <!-- Icon SVG is optional here as it might be hard to generate, but text is mandatory -->
         Recommended Action (推奨アクション)
       </h3>
       <ul class="space-y-3 text-gray-200">

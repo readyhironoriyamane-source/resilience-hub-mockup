@@ -25,51 +25,19 @@ export const contentItems: ContentItem[] = [
     isPremium: true,
     type: 'general',
     keyTakeaways: [
-      "【Fact】認定基準に「サイバーセキュリティ対策」が必須項目として追加",
-      "【Impact】未対応の場合、来年度の補助金採択率が大幅に低下するリスク",
-      "【Target】ものづくり補助金・IT導入補助金の申請を予定している全中小企業"
+      "認定基準に「サイバーセキュリティ対策」が必須項目として追加",
+      "未対応の場合、来年度の補助金採択率が大幅に低下するリスク",
+      "ものづくり補助金・IT導入補助金の申請を予定している全中小企業が対象"
     ],
     sourceUrl: "https://www.meti.go.jp/policy/mono_info_service/mono/toushin/index.html",
     fullContent: `
       <div class="space-y-8">
         <section>
-          <h3 class="text-xl font-bold mb-4 text-white border-l-4 border-blue-500 pl-3">Context (背景)</h3>
+          <h3 class="text-xl font-bold mb-4 text-white border-l-4 border-blue-500 pl-3">概要と背景: なぜ今それが重要なのか</h3>
           <p class="text-gray-300 leading-relaxed">
             近年、中小企業を標的としたランサムウェア被害が急増しており、サプライチェーン全体への影響が深刻化しています。これを受け、経済産業省は「事業継続力強化計画」の認定基準を見直し、従来の自然災害対策に加え、サイバー攻撃への対策を必須要件とする改定を行いました。この変更は2026年4月1日申請分より適用されます。
           </p>
-        </section>
-
-        <section>
-          <h3 class="text-xl font-bold mb-4 text-white border-l-4 border-blue-500 pl-3">Key Details (変更のポイント)</h3>
-          <div class="bg-white/5 rounded-lg p-4 border border-white/10">
-            <table class="w-full text-sm text-left text-gray-300">
-              <thead class="text-xs text-gray-400 uppercase bg-white/5">
-                <tr>
-                  <th class="px-4 py-3 rounded-tl-lg">項目</th>
-                  <th class="px-4 py-3 rounded-tr-lg">内容</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="border-b border-white/5">
-                  <td class="px-4 py-3 font-medium text-white">適用開始日</td>
-                  <td class="px-4 py-3">2026年4月1日（3月31日までの申請は旧基準）</td>
-                </tr>
-                <tr class="border-b border-white/5">
-                  <td class="px-4 py-3 font-medium text-white">追加要件</td>
-                  <td class="px-4 py-3">データのバックアップ体制、OSの更新管理、パスワード管理規定の策定</td>
-                </tr>
-                <tr>
-                  <td class="px-4 py-3 font-medium text-white">影響範囲</td>
-                  <td class="px-4 py-3">事業継続力強化計画の新規認定および更新申請</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        <section>
-          <h3 class="text-xl font-bold mb-4 text-white border-l-4 border-blue-500 pl-3">Business Impact (自社への影響)</h3>
-          <ul class="list-disc list-inside space-y-2 text-gray-300">
+        </section>\n\n        <section>\n          <h3 class="text-xl font-bold mb-4 text-white border-l-4 border-blue-500 pl-3">詳細データ</h3>\n          <div class="bg-white/5 rounded-lg p-4 border border-white/10">\n            <table class="w-full text-sm text-left text-gray-300">\n              <thead class="text-xs text-gray-400 uppercase bg-white/5">\n                <tr>\n                  <th class="px-4 py-3 rounded-tl-lg w-1/3">項目</th>\n                  <th class="px-4 py-3 rounded-tr-lg">内容</th>\n                </tr>\n              </thead>\n              <tbody>\n                <tr class="border-b border-white/5">\n                  <td class="px-4 py-3 font-medium text-white">具体的な数値</td>\n                  <td class="px-4 py-3">加点幅：最大+5点（審査基準による）</td>\n                </tr>\n                <tr class="border-b border-white/5">\n                  <td class="px-4 py-3 font-medium text-white">スペック</td>\n                  <td class="px-4 py-3">3-2-1ルールに基づくバックアップ体制</td>\n                </tr>\n                <tr class="border-b border-white/5">\n                  <td class="px-4 py-3 font-medium text-white">金額</td>\n                  <td class="px-4 py-3">補助上限額：1,000万円（ものづくり補助金）</td>\n                </tr>\n                <tr>\n                  <td class="px-4 py-3 font-medium text-white">日付</td>\n                  <td class="px-4 py-3">適用開始：2026年4月1日</td>\n                </tr>\n              </tbody>\n            </table>\n          </div>\n        </section>\n\n\n\n        <section>\n          <h3 class="text-xl font-bold mb-4 text-white border-l-4 border-blue-500 pl-3">ビジネス影響: 企業のどの部門にどのような影響があるか</h3>        <ul class="list-disc list-inside space-y-2 text-gray-300">
             <li><strong class="text-white">補助金採択への影響：</strong> ものづくり補助金などで実施されている「認定企業への加点」を得るためには、新基準での認定が必須となります。</li>
             <li><strong class="text-white">システム投資の必要性：</strong> バックアップサーバーの導入やセキュリティソフトの更新など、追加のIT投資が必要になる可能性があります。</li>
           </ul>
@@ -111,31 +79,22 @@ export const contentItems: ContentItem[] = [
     isPremium: true,
     type: 'seeds',
     keyTakeaways: [
-      "【Fact】機体認証の手続き期間が従来の3ヶ月から最短1ヶ月に短縮",
-      "【Impact】物流コストの高騰に悩む地方自治体や小売業にとって、ドローン配送の導入ハードルが劇的に下がる",
-      "【Target】物流事業者、地方自治体の防災担当、小売チェーンの物流部門"
+      "機体認証の手続き期間が従来の3ヶ月から最短1ヶ月に短縮",
+      "物流コストの高騰に悩む地方自治体や小売業にとって、ドローン配送の導入ハードルが劇的に下がる",
+      "物流事業者、地方自治体の防災担当、小売チェーンの物流部門"
     ],
     sourceUrl: "https://www.mlit.go.jp/koku/koku_tk10_000003.html",
     fullContent: `
       <div class="space-y-8">
         <section>
-          <h3 class="text-xl font-bold mb-4 text-white border-l-4 border-blue-500 pl-3">Context (背景)</h3>
+          <h3 class="text-xl font-bold mb-4 text-white border-l-4 border-blue-500 pl-3">概要と背景: なぜ今それが重要なのか</h3>
           <p class="text-gray-300 leading-relaxed">
             2024年問題以降、トラックドライバー不足による「物流クライシス」が深刻化しています。特に過疎地や離島では、配送網の維持が困難になりつつあります。政府はこの課題解決のため、ドローンによる「レベル4飛行（有人地帯での目視外飛行）」の普及を急いでおり、今回の規制緩和はその一環として実施されました。
           </p>
         </section>
 
         <section>
-          <h3 class="text-xl font-bold mb-4 text-white border-l-4 border-blue-500 pl-3">Key Details (緩和の内容)</h3>
-          <ul class="list-disc list-inside space-y-2 text-gray-300">
-            <li><strong class="text-white">機体認証の迅速化：</strong> 量産型機体については、型式認証を活用することで個別の機体検査を大幅に省略。</li>
-            <li><strong class="text-white">運航管理要件の柔軟化：</strong> 遠隔監視センターの設置要件が緩和され、1人のオペレーターが複数機を同時監視することが条件付きで可能に。</li>
-            <li><strong class="text-white">飛行経路の事前審査：</strong> 人口密度が低いエリアについては、包括申請の適用範囲が拡大。</li>
-          </ul>
-        </section>
-
-        <section>
-          <h3 class="text-xl font-bold mb-4 text-white border-l-4 border-blue-500 pl-3">Business Impact (自社への影響)</h3>
+          <h3 class="text-xl font-bold mb-4 text-white border-l-4 border-blue-500 pl-3">ビジネス影響: 企業のどの部門にどのような影響があるか</h3>
           <p class="text-gray-300 mb-4">
             これまで「実証実験」止まりだったドローン物流が、いよいよ「社会実装」フェーズに入ります。
           </p>
@@ -183,50 +142,22 @@ export const contentItems: ContentItem[] = [
     isPremium: true,
     type: 'needs',
     keyTakeaways: [
-      "【Fact】台湾からの輸入が停止した場合、国内製造業の生産活動の約3割が1ヶ月以内に停止する試算",
-      "【Impact】半導体だけでなく、化学品やプラスチック部品の調達も困難に",
-      "【Target】経営企画部、調達部門、リスク管理担当者"
+      "台湾からの輸入が停止した場合、国内製造業の生産活動の約3割が1ヶ月以内に停止する試算",
+      "半導体だけでなく、化学品やプラスチック部品の調達も困難に",
+      "経営企画部、調達部門、リスク管理担当者"
     ],
     sourceUrl: "https://example.com/report/taiwan-risk-2026",
     fullContent: `
       <div class="space-y-8">
         <section>
-          <h3 class="text-xl font-bold mb-4 text-white border-l-4 border-blue-500 pl-3">Context (背景)</h3>
+          <h3 class="text-xl font-bold mb-4 text-white border-l-4 border-blue-500 pl-3">概要と背景: なぜ今それが重要なのか</h3>
           <p class="text-gray-300 leading-relaxed">
             米中対立の激化に伴い、台湾海峡における地政学リスクが高止まりしています。多くの日本企業にとって台湾は重要な調達拠点ですが、万が一の事態における具体的な被害想定や代替策の準備は十分とは言えません。今回のレポートは、最悪のシナリオ（海上封鎖）を想定した定量的なインパクト分析を提供しています。
           </p>
         </section>
 
         <section>
-          <h3 class="text-xl font-bold mb-4 text-white border-l-4 border-blue-500 pl-3">Key Details (被害想定)</h3>
-          <div class="bg-white/5 rounded-lg p-4 border border-white/10">
-            <table class="w-full text-sm text-left text-gray-300">
-              <thead class="text-xs text-gray-400 uppercase bg-white/5">
-                <tr>
-                  <th class="px-4 py-3 rounded-tl-lg">産業分野</th>
-                  <th class="px-4 py-3 rounded-tr-lg">想定される影響</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="border-b border-white/5">
-                  <td class="px-4 py-3 font-medium text-white">自動車</td>
-                  <td class="px-4 py-3">車載半導体の不足により、国内工場の稼働率が40%以下に低下</td>
-                </tr>
-                <tr class="border-b border-white/5">
-                  <td class="px-4 py-3 font-medium text-white">電子機器</td>
-                  <td class="px-4 py-3">スマートフォンやPCの新規出荷が数ヶ月単位で停止</td>
-                </tr>
-                <tr>
-                  <td class="px-4 py-3 font-medium text-white">化学・素材</td>
-                  <td class="px-4 py-3">台湾経由の原材料輸入がストップし、川下製品への連鎖的な供給不足が発生</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        <section>
-          <h3 class="text-xl font-bold mb-4 text-white border-l-4 border-blue-500 pl-3">Business Impact (自社への影響)</h3>
+          <h3 class="text-xl font-bold mb-4 text-white border-l-4 border-blue-500 pl-3">ビジネス影響: 企業のどの部門にどのような影響があるか</h3>
           <p class="text-gray-300 mb-4">
             「うちは台湾と直接取引していない」という企業も安全ではありません。2次、3次サプライヤーが台湾部材を使用している可能性が高く、見えないリスクが内在しています。
           </p>
