@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ContentCard } from "@/components/ContentCard";
+import { ResilienceDashboard } from "@/components/ResilienceDashboard";
 import { PremiumModal } from "@/components/PremiumModal";
 import { Sidebar } from "@/components/Sidebar";
 import { MobileHeader } from "@/components/MobileHeader";
@@ -154,7 +155,16 @@ export default function Home() {
         </header>
 
         {/* Content */}
-        <div className="container mx-auto px-4 py-8 pb-24">
+        <div className="container mx-auto px-4 py-8 pb-24 space-y-12">
+          {/* Resilience Dashboard */}
+          <section>
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="font-sans text-xl font-bold">Resilience Status</h2>
+              <div className="text-xs text-muted-foreground">組織のレジリエンスレベル</div>
+            </div>
+            <ResilienceDashboard />
+          </section>
+
           {/* Timeline View */}
           <section>
             <div className="flex items-center justify-between mb-6">
