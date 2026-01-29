@@ -89,7 +89,7 @@ export default function ArticleDetail() {
             </div>
           </div>
           
-          <h1 className="text-2xl md:text-4xl font-serif font-bold leading-tight mb-6">
+          <h1 className="text-2xl md:text-4xl font-sans font-bold leading-tight mb-6">
             {item.title}
           </h1>
 

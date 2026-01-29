@@ -33,7 +33,7 @@ export default function GRSDesk() {
       <div className="flex-1 md:pl-64 relative z-10">
         <div className="container mx-auto max-w-3xl px-8 py-12">
           <div className="mb-8">
-            <h1 className="text-3xl font-serif font-bold mb-2 flex items-center gap-3">
+            <h1 className="text-3xl font-sans font-bold mb-2 flex items-center gap-3">
               <HelpCircle className="w-8 h-8 text-primary" />
               GRS Desk
             </h1>

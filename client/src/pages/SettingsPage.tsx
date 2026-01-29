@@ -87,9 +87,9 @@ export default function SettingsPage() {
                       <div className="flex justify-between items-start z-10">
                         <div className="flex items-center gap-2">
                           <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center backdrop-blur-sm">
-                            <span className="font-serif font-bold text-white text-xs">RH</span>
+                            <span className="font-sans font-bold text-white text-xs">RH</span>
                           </div>
-                          <span className="font-serif font-bold text-white text-sm tracking-wide">RESILIENCE HUB</span>
+                          <span className="font-sans font-bold text-white text-sm tracking-wide">RESILIENCE HUB</span>
                         </div>
                         <Badge variant="outline" className="bg-amber-500/10 text-amber-400 border-amber-500/30">GOLD MEMBER</Badge>
                       </div>

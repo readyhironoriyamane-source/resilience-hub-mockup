@@ -51,7 +51,7 @@ export function DiscussionSection({ isLocked, onUpgrade }: DiscussionSectionProp
     <section className="mt-16 pt-10 border-t border-white/10" id="discussion-section">
       <div className="flex items-center gap-3 mb-8 opacity-50">
         <MessageSquare className="w-6 h-6 text-muted-foreground" />
-        <h2 className="text-xl font-bold font-serif text-muted-foreground">Community Discussion</h2>
+        <h2 className="text-xl font-bold font-sans text-muted-foreground">Community Discussion</h2>
         <span className="px-2 py-0.5 rounded-full bg-white/5 text-xs text-muted-foreground">
           Coming Soon
         </span>

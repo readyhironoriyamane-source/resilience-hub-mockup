@@ -23,7 +23,7 @@ export function PremiumModal({ isOpen, onClose }: PremiumModalProps) {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#1a2a4a]" />
           <div className="absolute bottom-4 left-6 right-6 text-center">
-            <h2 className="font-serif text-2xl font-bold mb-1 text-white drop-shadow-md">The Global Resilience Hub</h2>
+            <h2 className="font-sans text-2xl font-bold mb-1 text-white drop-shadow-md">The Global Resilience Hub</h2>
             <p className="text-xs text-white/80">レジハブ（The Global Resilience Hub）は、日本と世界の"防災とレジリエンスの知を繋ぐ"</p>
             <p className="text-xs text-white/80">〜みんなで育てるコミュニティ型プラットフォーム〜</p>
           </div>

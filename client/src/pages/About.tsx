@@ -23,9 +23,9 @@ export default function About() {
           <Link href="/">
             <div className="flex items-center gap-3 cursor-pointer">
               <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#1e293b] to-[#0f172a] border border-white/10 flex items-center justify-center">
-                <span className="font-serif font-bold text-white">RH</span>
+                <span className="font-sans font-bold text-white">RH</span>
               </div>
-              <span className="font-serif font-bold text-lg tracking-tight truncate max-w-[200px] md:max-w-none">The Global Resilience Hub</span>
+              <span className="font-sans font-bold text-lg tracking-tight truncate max-w-[200px] md:max-w-none">The Global Resilience Hub</span>
             </div>
           </Link>
           
@@ -74,7 +74,7 @@ export default function About() {
         <div className="container mx-auto px-4 relative z-10 text-center">
 
           
-          <h1 className="text-4xl md:text-6xl font-serif font-bold mb-6 leading-tight">
+          <h1 className="text-4xl md:text-6xl font-sans font-bold mb-6 leading-tight">
             地球規模の課題を、<br className="md:hidden" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-slate-400">集合知で解決する</span>
           </h1>
@@ -101,7 +101,7 @@ export default function About() {
       <section className="py-20 bg-[#0f172a] relative">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-serif font-bold mb-4">なぜ、今レジハブなのか？</h2>
+            <h2 className="text-3xl font-sans font-bold mb-4">なぜ、今レジハブなのか？</h2>
             <p className="text-muted-foreground">私たちが直面している、待ったなしの課題</p>
           </div>
 
@@ -143,7 +143,7 @@ export default function About() {
       <section className="py-20 bg-[#0a0f1c]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-serif font-bold mb-4">3つのコアバリュー</h2>
+            <h2 className="text-3xl font-sans font-bold mb-4">3つのコアバリュー</h2>
             <p className="text-muted-foreground">レジハブが提供する、持続可能な成長のための3つのエンジン</p>
           </div>
 
@@ -290,7 +290,7 @@ export default function About() {
       <section className="py-20 bg-[#0f172a]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-serif font-bold mb-4">誰のためのプラットフォームか？</h2>
+            <h2 className="text-3xl font-sans font-bold mb-4">誰のためのプラットフォームか？</h2>
             <p className="text-muted-foreground">それぞれの立場から、レジリエンス社会の実現に貢献します</p>
           </div>
 
@@ -353,7 +353,7 @@ export default function About() {
       <section className="py-20 bg-[#0a0f1c]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-serif font-bold mb-4">料金プラン</h2>
+            <h2 className="text-3xl font-sans font-bold mb-4">料金プラン</h2>
             <p className="text-muted-foreground">あなたのニーズに合わせた最適なプランをお選びください</p>
           </div>
 
@@ -681,7 +681,7 @@ export default function About() {
       <section className="py-20 bg-[#0f172a]">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-serif font-bold mb-4">よくある質問</h2>
+            <h2 className="text-3xl font-sans font-bold mb-4">よくある質問</h2>
             <p className="text-muted-foreground">導入検討時によくいただくご質問をまとめました</p>
           </div>
 
@@ -807,7 +807,7 @@ export default function About() {
         <div className="absolute inset-0 bg-[url('/images/bg-stars.png')] opacity-20 mix-blend-overlay"></div>
         
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6 text-white">
+          <h2 className="text-3xl md:text-5xl font-sans font-bold mb-6 text-white">
             まずは無料で、<br/>世界の知見に触れる
           </h2>
           <p className="text-white/90 text-lg mb-10 max-w-2xl mx-auto">
@@ -828,9 +828,9 @@ export default function About() {
         <div className="container mx-auto px-4 text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
             <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center">
-              <span className="font-serif font-bold text-white text-xs">RH</span>
+              <span className="font-sans font-bold text-white text-xs">RH</span>
             </div>
-            <span className="font-serif font-bold text-white">The Global Resilience Hub</span>
+            <span className="font-sans font-bold text-white">The Global Resilience Hub</span>
           </div>
           <p>&copy; 2025 The Global Resilience Hub. All rights reserved.</p>
         </div>

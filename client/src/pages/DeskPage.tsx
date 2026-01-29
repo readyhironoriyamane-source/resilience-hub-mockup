@@ -79,9 +79,9 @@ export default function DeskPage() {
         <div className="md:hidden sticky top-0 z-40 bg-[#0B1026]/80 backdrop-blur-md border-b border-white/10 p-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center border border-white/20">
-              <span className="font-serif text-white font-bold text-xs">RH</span>
+              <span className="font-sans text-white font-bold text-xs">RH</span>
             </div>
-            <span className="font-serif font-bold text-sm tracking-tight">Resilience Hub</span>
+            <span className="font-sans font-bold text-sm tracking-tight">Resilience Hub</span>
           </div>
           <Sheet>
             <SheetTrigger asChild>
@@ -101,7 +101,7 @@ export default function DeskPage() {
               <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
                 <HelpCircle className="w-6 h-6 text-primary" />
               </div>
-              <h1 className="text-3xl font-serif font-bold">GRS Desk</h1>
+              <h1 className="text-3xl font-sans font-bold">GRS Desk</h1>
             </div>
             <p className="text-muted-foreground text-lg leading-relaxed">
               ここは、防災・レジリエンスに関する「共創」の窓口です。<br className="hidden md:block"/>

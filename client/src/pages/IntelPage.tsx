@@ -92,9 +92,9 @@ export default function IntelPage() {
               <div>
                 <div className="flex items-center gap-2 mb-2 opacity-80">
                   <Globe className="w-6 h-6 text-[#d4a574]" />
-                  <span className="font-serif font-bold text-sm">Global Intelligence</span>
+                  <span className="font-sans font-bold text-sm">Global Intelligence</span>
                 </div>
-                <h1 className="font-serif text-3xl md:text-4xl font-bold mb-2">
+                <h1 className="font-sans text-3xl md:text-4xl font-bold mb-2">
                   External Intel Feed
                 </h1>
                 <p className="text-muted-foreground">

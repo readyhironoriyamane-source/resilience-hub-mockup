@@ -69,9 +69,9 @@ export function Sidebar() {
       <Link href="/">
         <div className="p-6 flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity">
           <div className="w-10 h-10 rounded-full bg-black flex items-center justify-center border border-white/20">
-            <span className="font-serif text-white font-bold">RH</span>
+            <span className="font-sans text-white font-bold">RH</span>
           </div>
-          <span className="font-serif font-bold text-lg tracking-tight">The Global Resilience Hub</span>
+          <span className="font-sans font-bold text-lg tracking-tight">The Global Resilience Hub</span>
         </div>
       </Link>
 

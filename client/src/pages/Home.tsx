@@ -105,7 +105,7 @@ export default function Home() {
                 <div className="md:hidden w-20 h-20 rounded-xl overflow-hidden border border-white/10 shadow-2xl mx-auto mb-4">
                   <img src="/images/bg-stars.png" alt="Logo" className="w-full h-full object-cover" />
                 </div>
-                <h1 className="font-serif text-2xl md:text-3xl font-bold mb-2">The Global Resilience Hub</h1>
+                <h1 className="font-sans text-2xl md:text-3xl font-bold mb-2">The Global Resilience Hub</h1>
                 <p className="text-sm text-muted-foreground mb-2 px-2 md:px-0">
                   レジハブ（The Global Resilience Hub）は、日本と世界の"防災とレジリエンスの知を繋ぐ"<br className="hidden md:block"/>
                   〜みんなで育てるコミュニティ型プラットフォーム〜
@@ -158,7 +158,7 @@ export default function Home() {
           {/* Timeline View */}
           <section>
             <div className="flex items-center justify-between mb-6">
-              <h2 className="font-serif text-xl font-bold">最新の投稿</h2>
+              <h2 className="font-sans text-xl font-bold">最新の投稿</h2>
               <div className="text-xs text-muted-foreground">全 {contentItems.length} 件</div>
             </div>
             

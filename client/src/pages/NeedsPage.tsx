@@ -85,7 +85,7 @@ export default function NeedsPage() {
                     課題・目的 (Needs)
                   </span>
                 </div>
-                <h1 className="text-4xl font-serif font-bold mb-4">{data.title}</h1>
+                <h1 className="text-4xl font-sans font-bold mb-4">{data.title}</h1>
                 <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl">
                   {data.description}
                 </p>
@@ -140,7 +140,7 @@ export default function NeedsPage() {
 
             {/* Right Column: Articles (Crawled Content) */}
             <div className="lg:col-span-2">
-              <h2 className="text-2xl font-serif font-bold mb-8 flex items-center gap-3">
+              <h2 className="text-2xl font-sans font-bold mb-8 flex items-center gap-3">
                 <CheckCircle2 className="w-6 h-6 text-green-400" />
                 関連トピック・記事
               </h2>

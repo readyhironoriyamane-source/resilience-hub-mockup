@@ -56,7 +56,7 @@ export default function ArticlesPage() {
             <div className="flex items-center gap-4">
               {/* Mobile menu trigger removed as it is handled by MobileHeader */}
               <div>
-                <h1 className="font-serif text-3xl md:text-4xl font-bold mb-2 flex items-center gap-3">
+                <h1 className="font-sans text-3xl md:text-4xl font-bold mb-2 flex items-center gap-3">
                   <BookOpen className="w-8 h-8 text-[#d4a574]" />
                   Articles
                 </h1>

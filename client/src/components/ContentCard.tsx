@@ -70,7 +70,7 @@ export function ContentCard({ item, onClick, isRead = false }: ContentCardProps)
           </div>
           <span className="text-xs text-muted-foreground truncate">By {item.author}</span>
         </div>
-        <h3 className={`font-serif font-bold text-base leading-tight mb-2 line-clamp-2 group-hover:text-primary transition-colors ${isRead ? 'text-muted-foreground' : ''}`}>
+        <h3 className={`font-sans font-bold text-base leading-tight mb-2 line-clamp-2 group-hover:text-primary transition-colors ${isRead ? 'text-muted-foreground' : ''}`}>
           {item.title}
         </h3>
         <p className="text-xs text-muted-foreground">
