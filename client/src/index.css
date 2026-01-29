@@ -53,7 +53,7 @@
   --chart-3: oklch(0.5 0.15 260);
   --chart-4: oklch(0.4 0.15 260);
   --chart-5: oklch(0.3 0.15 260);
-  --radius: 0.5rem;
+  --radius: 0.75rem; /* UD: 角丸を大きくして親しみやすく (12px) */
   --background: oklch(0.98 0.01 260);
   --foreground: oklch(0.2 0.05 260);
   --card: oklch(1 0 0);
@@ -66,7 +66,7 @@
   --muted-foreground: oklch(0.45 0.05 260); /* UD: コントラスト比向上 (4.5:1以上を目指す) */
   --accent: oklch(0.95 0.02 260);
   --accent-foreground: oklch(0.2 0.05 260);
-  --destructive: oklch(0.6 0.2 25);
+  --destructive: oklch(0.65 0.18 25); /* UD: 警告色を少しマイルドに */
   --destructive-foreground: oklch(0.98 0 0);
   --border: oklch(0.9 0.02 260);
   --input: oklch(0.9 0.02 260);
@@ -106,7 +106,7 @@
   --accent: oklch(0.75 0.15 85 / 0.15); /* Gold tint */
   --accent-foreground: oklch(0.98 0.01 85);
   
-  --destructive: oklch(0.6 0.2 25);
+  --destructive: oklch(0.65 0.18 25); /* UD: 警告色を少しマイルドに */
   --destructive-foreground: oklch(0.98 0 0);
   
   --border: oklch(0.98 0.01 260 / 0.15);
@@ -138,16 +138,17 @@
   }
   body {
     @apply bg-background text-foreground font-sans;
-    font-family: 'Noto Sans JP', 'Lato', sans-serif; /* Noto Sans JPを優先 */
-    line-height: 1.75; /* UD: ゆったりとした行間 */
-    letter-spacing: 0.05em; /* UD: 文字間を少し広げる */
-    font-size: 16px; /* UD: 視認性の高いベースサイズ */
+    font-family: 'Noto Sans JP', sans-serif; /* UD: 欧文もNoto Sans JPで統一感 */
+    line-height: 1.75;
+    letter-spacing: 0.05em;
+    font-size: 16px;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Noto Sans JP', 'Cinzel', serif; /* 見出しも可読性重視でNoto Sans JP優先 */
-    line-height: 1.4; /* 見出しは少し詰めるが、それでも余裕を持たせる */
-    letter-spacing: 0.08em;
-    margin-bottom: 0.75em; /* UD: 塊ごとの区切りを明確に */
+    font-family: 'Noto Sans JP', sans-serif; /* UD: 完全ゴシック体統一。Cinzel/serifを排除 */
+    font-weight: 700; /* UD: 見出しの太さを明確に */
+    line-height: 1.4;
+    letter-spacing: 0.05em; /* UD: 見出しも広げすぎず読みやすく */
+    margin-bottom: 0.75em;
   }
   p {
     margin-bottom: 1.25em; /* UD: 段落間の余白を確保 */
