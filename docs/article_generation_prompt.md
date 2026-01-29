@@ -59,12 +59,12 @@ Do NOT output a full HTML document (no `<html>`, `<body>`), only the inner conte
   </section>
 ```
 
-**Section 3: Recommended Action (推奨アクション)**
+**Section 3: 推奨アクション**
 ```html
   <section>
     <div class="bg-blue-900/30 border border-blue-500/30 rounded-xl p-6">
       <h3 class="text-xl font-bold mb-4 text-blue-400 flex items-center gap-2">
-        Recommended Action (推奨アクション)
+        推奨アクション
       </h3>
       <ul class="space-y-3 text-gray-200">
         <li class="flex items-start gap-3">

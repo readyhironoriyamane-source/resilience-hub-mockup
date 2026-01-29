@@ -10,39 +10,39 @@ export function Sidebar() {
 
   const mainNavItems = [
     { 
-      name: "パーソナル・ダッシュボード", 
+      name: "自組織の対応状況・集計", 
       icon: <LayoutDashboard className="w-4 h-4" />,
-      description: "自社課題を見える化",
+      description: "課題と対策の進捗を見える化",
       href: "/dashboard"
     },
     { 
-      name: "GRS Desk (相談窓口)", 
+      name: "専門家への相談窓口", 
       icon: <HelpCircle className="w-4 h-4" />,
-      description: "協業・取材・補助金のご相談",
+      description: "補助金・取材・対策の相談",
       href: "/desk"
     },
     { 
-      name: "Community", 
+      name: "自治体・企業間の連携", 
       icon: <Sparkles className="w-4 h-4" />,
-      description: "世界中の有識者とつながる",
+      description: "組織を超えた知見の共有",
       href: "/community"
     },
     { 
-      name: "Global Intel", 
+      name: "海外リスク・最新動向", 
       icon: <Globe className="w-4 h-4" />,
-      description: "世界のリスク情報をAI収集",
+      description: "世界の災害事例と対策を収集",
       href: "/intel"
     },
     { 
-      name: "Directory", 
+      name: "支援企業・団体リスト", 
       icon: <Building2 className="w-4 h-4" />,
-      description: "会員企業・パートナー一覧",
+      description: "連携パートナーを一覧から探す",
       href: "/directory"
     },
     { 
-      name: "Reports", 
+      name: "報告資料の自動作成", 
       icon: <FileText className="w-4 h-4" />,
-      description: "企業別レポート自動生成",
+      description: "企業別レポートを即座に生成",
       href: "/reports",
       locked: true,
       release: "2026.04"
@@ -78,11 +78,16 @@ export function Sidebar() {
       <div className="flex-1 overflow-y-auto py-4">
         <div className="px-4 mb-6">
           <Link href="/">
-            <div className={`flex items-center justify-between px-4 py-2 rounded-lg mb-2 cursor-pointer transition-colors ${
-              location === "/" ? "bg-primary/10 text-primary" : "text-muted-foreground hover:bg-primary/20 hover:text-primary"
+            <div className={`flex items-start gap-3 px-4 py-3 rounded-lg mb-1 cursor-pointer transition-colors ${
+              location === "/" ? "bg-white/10 text-white" : "text-muted-foreground hover:bg-white/5 hover:text-foreground"
             }`}>
-              <span className="font-bold text-sm">タイムライン</span>
-              <Settings className="w-4 h-4 opacity-70" />
+              <span className={`mt-0.5 ${location === "/" ? "text-[#d4a574]" : "text-muted-foreground"}`}>
+                <Activity className="w-4 h-4" />
+              </span>
+              <div className="flex flex-col">
+                <span className="leading-tight text-sm">最新の防災ニュース・動向</span>
+                <span className="text-[10px] text-muted-foreground/70 mt-0.5 font-normal">リスク・技術・制度の最新情報</span>
+              </div>
             </div>
           </Link>
           
