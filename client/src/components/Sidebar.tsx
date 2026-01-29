@@ -98,7 +98,7 @@ export function Sidebar() {
                 <div 
                   key={item.name}
                   onClick={() => toast.info(`${item.name}機能は${item.release}リリース予定です`)}
-                  className="px-4 py-3 text-sm rounded-lg cursor-pointer transition-colors flex items-start gap-3 mb-1 text-muted-foreground hover:text-foreground hover:bg-white/5 opacity-50 group relative"
+                  className="px-4 py-3 min-h-[44px] text-sm rounded-lg cursor-pointer transition-colors flex items-start gap-3 mb-1 text-muted-foreground hover:text-foreground hover:bg-white/5 opacity-50 group relative" /* UD: タッチターゲット44px以上確保 */
                 >
                   <div className="relative">
                     {item.icon && <span className="mt-0.5 text-muted-foreground group-hover:text-white">{item.icon}</span>}
@@ -122,7 +122,7 @@ export function Sidebar() {
             return (
               <Link key={item.name} href={item.href}>
                 <div 
-                  className={`px-4 py-3 text-sm rounded-lg cursor-pointer transition-colors flex items-start gap-3 mb-1 ${
+                  className={`px-4 py-3 min-h-[44px] text-sm rounded-lg cursor-pointer transition-colors flex items-start gap-3 mb-1 ${ /* UD: タッチターゲット44px以上確保 */
                     location === item.href 
                       ? "text-white bg-white/10" 
                       : "text-muted-foreground hover:text-foreground hover:bg-white/5"
@@ -146,7 +146,7 @@ export function Sidebar() {
           {needsNavItems.map((item) => (
             <Link key={item.name} href={item.href}>
               <div 
-                className={`px-4 py-2 text-sm rounded-lg cursor-pointer transition-colors flex items-center gap-3 mb-1 ${
+                className={`px-4 py-3 min-h-[44px] text-sm rounded-lg cursor-pointer transition-colors flex items-center gap-3 mb-1 ${ /* UD: タッチターゲット44px以上確保 */
                   location === item.href 
                     ? "text-white bg-white/10" 
                     : "text-muted-foreground hover:text-foreground hover:bg-white/5"
@@ -164,7 +164,7 @@ export function Sidebar() {
           {techNavItems.map((item) => (
             <Link key={item.name} href={item.href}>
               <div 
-                className={`px-4 py-2 text-sm rounded-lg cursor-pointer transition-colors flex items-center gap-3 mb-1 ${
+                className={`px-4 py-3 min-h-[44px] text-sm rounded-lg cursor-pointer transition-colors flex items-center gap-3 mb-1 ${ /* UD: タッチターゲット44px以上確保 */
                   location === item.href 
                     ? "text-white bg-white/10" 
                     : "text-muted-foreground hover:text-foreground hover:bg-white/5"

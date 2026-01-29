@@ -63,7 +63,7 @@
   --secondary: oklch(0.95 0.02 260);
   --secondary-foreground: oklch(0.2 0.05 260);
   --muted: oklch(0.95 0.02 260);
-  --muted-foreground: oklch(0.5 0.05 260);
+  --muted-foreground: oklch(0.45 0.05 260); /* UD: コントラスト比向上 (4.5:1以上を目指す) */
   --accent: oklch(0.95 0.02 260);
   --accent-foreground: oklch(0.2 0.05 260);
   --destructive: oklch(0.6 0.2 25);
@@ -101,7 +101,7 @@
   --secondary-foreground: oklch(0.9 0.02 260);
   
   --muted: oklch(0.25 0.05 260 / 0.5);
-  --muted-foreground: oklch(0.7 0.05 260);
+  --muted-foreground: oklch(0.75 0.05 260); /* UD: ダークモードでも視認性を確保 */
   
   --accent: oklch(0.75 0.15 85 / 0.15); /* Gold tint */
   --accent-foreground: oklch(0.98 0.01 85);
@@ -129,14 +129,28 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
+  }
+  /* UD: フォーカスインジケータの強化 */
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
   }
   body {
     @apply bg-background text-foreground font-sans;
-    font-family: 'Lato', 'Noto Sans JP', sans-serif;
+    font-family: 'Noto Sans JP', 'Lato', sans-serif; /* Noto Sans JPを優先 */
+    line-height: 1.75; /* UD: ゆったりとした行間 */
+    letter-spacing: 0.05em; /* UD: 文字間を少し広げる */
+    font-size: 16px; /* UD: 視認性の高いベースサイズ */
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Cinzel', 'Noto Sans JP', serif;
+    font-family: 'Noto Sans JP', 'Cinzel', serif; /* 見出しも可読性重視でNoto Sans JP優先 */
+    line-height: 1.4; /* 見出しは少し詰めるが、それでも余裕を持たせる */
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75em; /* UD: 塊ごとの区切りを明確に */
+  }
+  p {
+    margin-bottom: 1.25em; /* UD: 段落間の余白を確保 */
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
