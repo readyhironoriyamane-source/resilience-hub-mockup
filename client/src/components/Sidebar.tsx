@@ -86,7 +86,6 @@ export function Sidebar() {
               </span>
               <div className="flex flex-col">
                 <span className="leading-tight text-sm">最新の防災ニュース</span>
-                <span className="text-[10px] text-muted-foreground/70 mt-0.5 font-normal">リスク・技術・制度の最新情報</span>
               </div>
             </div>
           </Link>
@@ -111,9 +110,6 @@ export function Sidebar() {
                       <span className="leading-tight">{item.name}</span>
                       <span className="text-[9px] border border-slate-700 rounded px-1 py-0.5 text-slate-500">{item.release}</span>
                     </div>
-                    {item.description && (
-                      <span className="text-[10px] text-muted-foreground/70 mt-0.5 font-normal">{item.description}</span>
-                    )}
                   </div>
                 </div>
               );
@@ -131,9 +127,6 @@ export function Sidebar() {
                   {item.icon && <span className={`mt-0.5 ${location === item.href ? "text-[#d4a574]" : "text-muted-foreground group-hover:text-white"}`}>{item.icon}</span>}
                   <div className="flex flex-col">
                     <span className="leading-tight">{item.name}</span>
-                    {item.description && (
-                      <span className="text-[10px] text-muted-foreground/70 mt-0.5 font-normal">{item.description}</span>
-                    )}
                   </div>
                 </div>
               </Link>
