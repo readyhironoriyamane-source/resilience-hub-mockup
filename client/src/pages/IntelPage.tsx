@@ -39,7 +39,7 @@ export default function IntelPage() {
             <h1 className="font-sans text-3xl md:text-5xl font-bold mb-6 tracking-tight">
               海外防災の最新動向
             </h1>
-            <div className="w-24 h-1 bg-blue-500 mx-auto rounded-full mb-8"></div>
+
           </div>
 
           {/* Coming Soon Content */}
