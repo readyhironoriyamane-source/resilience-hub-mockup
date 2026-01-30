@@ -40,12 +40,10 @@ export function Sidebar() {
       href: "/directory"
     },
     { 
-      name: "防災レポート作成", 
-      icon: <FileText className="w-4 h-4" />,
-      description: "企業別レポートを即座に生成",
-      href: "/reports",
-      locked: true,
-      release: "2026.04"
+      name: "設定", 
+      icon: <Settings className="w-4 h-4" />,
+      description: "アカウント・支払い・チーム管理",
+      href: "/settings"
     },
   ];
 
@@ -90,46 +88,20 @@ export function Sidebar() {
             </div>
           </Link>
           
-          {mainNavItems.map((item) => {
-            // ロックされた機能（Roadmap）
-            if (item.locked) {
-              return (
-                <div 
-                  key={item.name}
-                  onClick={() => toast.info(`${item.name}機能は${item.release}リリース予定です`)}
-                  className="px-4 py-3 min-h-[44px] text-base rounded-lg cursor-pointer transition-colors flex items-start gap-3 mb-1 text-muted-foreground hover:text-foreground hover:bg-white/5 opacity-50 group relative" /* UD: タッチターゲット44px以上確保 */
-                >
-                  <div className="relative">
-                    {item.icon && <span className="mt-0.5 text-muted-foreground group-hover:text-white">{item.icon}</span>}
-                    <div className="absolute -top-1 -right-1 bg-[#0B1026] rounded-full p-0.5">
-                      <Lock className="w-2 h-2 text-slate-500" />
-                    </div>
-                  </div>
-                  <div className="flex flex-col">
-                    <div className="flex items-center gap-2">
-                      <span className="leading-tight">{item.name}</span>
-                      <span className="text-[9px] border border-slate-700 rounded px-1 py-0.5 text-slate-500">{item.release}</span>
-                    </div>
-                  </div>
-                </div>
-              );
-            }
-
-            return (
-              <Link key={item.name} href={item.href}>
-                <div 
-                  className={`px-4 py-3 min-h-[44px] text-base rounded-lg cursor-pointer transition-colors flex items-center gap-3 mb-1 ${ /* UD: タッチターゲット44px以上確保 */
-                    location === item.href 
-                      ? "text-white bg-white/10" 
-                      : "text-muted-foreground hover:text-foreground hover:bg-white/5"
-                  }`}
-                >
-                  {item.icon && <span className={`${location === item.href ? "text-[#d4a574]" : "text-muted-foreground group-hover:text-white"}`}>{item.icon}</span>}
-                  <span className="leading-tight">{item.name}</span>
-                </div>
-              </Link>
-            );
-          })}
+          {mainNavItems.map((item) => (
+            <Link key={item.name} href={item.href}>
+              <div 
+                className={`px-4 py-3 min-h-[44px] text-base rounded-lg cursor-pointer transition-colors flex items-center gap-3 mb-1 ${ /* UD: タッチターゲット44px以上確保 */
+                  location === item.href 
+                    ? "text-white bg-white/10" 
+                    : "text-muted-foreground hover:text-foreground hover:bg-white/5"
+                }`}
+              >
+                {item.icon && <span className={`${location === item.href ? "text-[#d4a574]" : "text-muted-foreground group-hover:text-white"}`}>{item.icon}</span>}
+                <span className="leading-tight">{item.name}</span>
+              </div>
+            </Link>
+          ))}
         </div>
 
 

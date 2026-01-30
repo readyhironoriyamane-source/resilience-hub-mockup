@@ -1,22 +1,15 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import { QrCode, Wallet, Users, CreditCard, FileText, Star, MessageSquare, ChevronRight, Settings, Clock } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { Sidebar } from "@/components/Sidebar";
 import { MobileHeader } from "@/components/MobileHeader";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { User, CreditCard, Users, Bell, Shield, Download, Check, Plus, Activity, Bookmark, MessageSquare } from "lucide-react";
-import { toast } from "sonner";
 
 export default function SettingsPage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-  const handleSave = () => {
-    toast.success("設定を保存しました");
-  };
 
   return (
     <div className="min-h-screen bg-[#0B1026] text-white font-sans selection:bg-primary/30">
@@ -42,315 +35,227 @@ export default function SettingsPage() {
       <main className="md:pl-64 relative z-10 min-h-screen flex flex-col">
         <MobileHeader onMenuClick={() => setIsSidebarOpen(true)} />
 
-        <div className="container mx-auto px-4 py-8 pb-24 max-w-4xl">
-          <div className="mb-8">
-            <h1 className="text-3xl font-bold tracking-tight text-white">Settings & Profile</h1>
-            <p className="text-muted-foreground mt-2">
-              アカウント設定、チーム管理、請求情報の確認
-            </p>
-          </div>
+        <div className="max-w-5xl mx-auto px-4 py-8 w-full">
+          <header className="mb-8">
+            <h1 className="text-2xl md:text-3xl font-bold mb-2">設定</h1>
+            <p className="text-gray-400">アカウント情報、チーム管理、お支払い状況を確認・変更できます。</p>
+          </header>
 
-          <Tabs defaultValue="profile" className="space-y-6">
-            <TabsList className="bg-black/20 border border-border/30 p-1">
-              <TabsTrigger value="profile" className="data-[state=active]:bg-primary/20 data-[state=active]:text-primary">
-                <User className="w-4 h-4 mr-2" /> Profile
-              </TabsTrigger>
-              <TabsTrigger value="focus" className="data-[state=active]:bg-primary/20 data-[state=active]:text-primary">
-                <Shield className="w-4 h-4 mr-2" /> My Focus
-              </TabsTrigger>
-              <TabsTrigger value="activity" className="data-[state=active]:bg-primary/20 data-[state=active]:text-primary">
-                <Activity className="w-4 h-4 mr-2" /> Activity
-              </TabsTrigger>
-              <TabsTrigger value="team" className="data-[state=active]:bg-primary/20 data-[state=active]:text-primary">
-                <Users className="w-4 h-4 mr-2" /> Team
-              </TabsTrigger>
-              <TabsTrigger value="billing" className="data-[state=active]:bg-primary/20 data-[state=active]:text-primary">
-                <CreditCard className="w-4 h-4 mr-2" /> Billing
-              </TabsTrigger>
-            </TabsList>
-
-            {/* Profile Tab */}
-            <TabsContent value="profile">
-              <div className="grid gap-6 md:grid-cols-2">
-                <Card className="bg-[#1A1F36] border-border/50">
-                  <CardHeader>
-                    <CardTitle>Digital Member Card</CardTitle>
-                    <CardDescription>The Global Resilience Hub 会員証</CardDescription>
-                  </CardHeader>
-                  <CardContent className="flex justify-center py-6">
-                    <div className="w-full max-w-sm aspect-[1.58/1] rounded-xl bg-gradient-to-br from-slate-900 to-slate-800 border border-white/10 shadow-2xl relative overflow-hidden p-6 flex flex-col justify-between group hover:scale-[1.02] transition-transform duration-500">
-                      {/* Card Background Effects */}
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-3xl rounded-full -mr-10 -mt-10" />
-                      <div className="absolute bottom-0 left-0 w-24 h-24 bg-purple-500/20 blur-2xl rounded-full -ml-5 -mb-5" />
-                      
-                      {/* Card Header */}
-                      <div className="flex justify-between items-start z-10">
-                        <div className="flex items-center gap-2">
-                          <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center backdrop-blur-sm">
-                            <span className="font-sans font-bold text-white text-base">RH</span>
-                          </div>
-                          <span className="font-sans font-bold text-white text-base tracking-wide">RESILIENCE HUB</span>
-                        </div>
-                        <Badge variant="outline" className="bg-amber-500/10 text-amber-400 border-amber-500/30">GOLD MEMBER</Badge>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Left Column: Digital Member Card & Quick Access */}
+            <div className="lg:col-span-1 space-y-6">
+              {/* 1. Digital Member Card */}
+              <Card className="bg-gradient-to-br from-[#1a2342] to-[#0f1629] border-white/10 overflow-hidden relative">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#d4a574] to-[#8a6a4b]" />
+                <CardHeader className="pb-2">
+                  <div className="flex justify-between items-start">
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center border border-white/20">
+                        <span className="font-sans text-white font-bold text-xs">RH</span>
                       </div>
-
-                      {/* Card Chip */}
-                      <div className="w-10 h-8 rounded bg-gradient-to-br from-yellow-200 to-yellow-500 opacity-80 my-4 z-10" />
-
-                      {/* Card Footer */}
-                      <div className="z-10">
-                        <div className="text-base text-gray-400 mb-1">MEMBER NAME</div>
-                        <div className="text-lg font-mono text-white tracking-wider mb-4">HIRONORI</div>
-                        <div className="flex justify-between items-end">
-                          <div className="text-[10px] text-gray-500">ID: 8823-1989-0115</div>
-                          <div className="text-[10px] text-gray-500">VALID THRU: 04/27</div>
-                        </div>
-                      </div>
+                      <span className="font-bold text-sm tracking-tight text-gray-300">Resilience Hub</span>
                     </div>
-                  </CardContent>
-                  <CardFooter className="justify-center">
-                    <Button variant="outline" size="sm" className="gap-2">
-                      <Download className="w-4 h-4" /> Apple Walletに追加
-                    </Button>
-                  </CardFooter>
-                </Card>
-
-                <Card className="bg-[#1A1F36] border-border/50">
-                  <CardHeader>
-                    <CardTitle>Basic Information</CardTitle>
-                    <CardDescription>プロフィール情報の編集</CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="space-y-2">
-                      <Label>Display Name</Label>
-                      <Input defaultValue="Hironori" className="bg-black/20 border-white/10" />
-                    </div>
-                    <div className="space-y-2">
-                      <Label>Email</Label>
-                      <Input defaultValue="hironori@example.com" className="bg-black/20 border-white/10" />
-                    </div>
-                    <div className="space-y-2">
-                      <Label>Company / Organization</Label>
-                      <Input defaultValue="BizOps Inc." className="bg-black/20 border-white/10" />
-                    </div>
-                    <div className="space-y-2">
-                      <Label>Role</Label>
-                      <Input defaultValue="Expert" className="bg-black/20 border-white/10" />
-                    </div>
-                  </CardContent>
-                  <CardFooter>
-                    <Button onClick={handleSave} className="ml-auto">変更を保存</Button>
-                  </CardFooter>
-                </Card>
-              </div>
-            </TabsContent>
-
-            {/* Activity Tab */}
-            <TabsContent value="activity">
-              <div className="grid gap-6">
-                <Card className="bg-[#1A1F36] border-border/50">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Bookmark className="w-5 h-5 text-primary" />
-                      Saved Articles
-                    </CardTitle>
-                    <CardDescription>保存した記事一覧</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-4">
-                      {[
-                        { title: "【経産省】BCPガイドライン改定｜中小企業の補助金要件が厳格化", date: "2026.01.12", category: "制度・補助金" },
-                        { title: "サプライチェーン途絶時の代替調達ルート確保について", date: "2026.01.10", category: "サプライチェーン" },
-                        { title: "最新の安否確認システム比較レポート2026", date: "2025.12.28", category: "安否確認" },
-                      ].map((item, i) => (
-                        <div key={i} className="flex items-center justify-between p-3 rounded-lg bg-black/20 hover:bg-white/5 transition-colors cursor-pointer group">
-                          <div className="space-y-1">
-                            <div className="font-medium text-base text-white group-hover:text-primary transition-colors">{item.title}</div>
-                            <div className="flex items-center gap-2 text-base text-muted-foreground">
-                              <Badge variant="outline" className="text-[10px] py-0 h-5 border-white/10">{item.category}</Badge>
-                              <span>Saved on {item.date}</span>
-                            </div>
-                          </div>
-                          <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-white">
-                            <Bookmark className="w-4 h-4 fill-current" />
-                          </Button>
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                  <CardFooter>
-                    <Button variant="outline" className="w-full text-base">すべての保存記事を見る</Button>
-                  </CardFooter>
-                </Card>
-
-                <Card className="bg-[#1A1F36] border-border/50">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <MessageSquare className="w-5 h-5 text-primary" />
-                      Community Participation
-                    </CardTitle>
-                    <CardDescription>参加中のコミュニティトピック</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-4">
-                      {[
-                        { title: "2026年の防災トレンドについて語るスレ", forum: "General Discussion", replies: 12, lastActive: "2h ago" },
-                        { title: "ISO22301認証取得のメリット・デメリット", forum: "Risk Management", replies: 15, lastActive: "3d ago" },
-                      ].map((item, i) => (
-                        <div key={i} className="flex items-center justify-between p-3 rounded-lg bg-black/20 hover:bg-white/5 transition-colors cursor-pointer group">
-                          <div className="space-y-1">
-                            <div className="font-medium text-base text-white group-hover:text-primary transition-colors">{item.title}</div>
-                            <div className="flex items-center gap-2 text-base text-muted-foreground">
-                              <span className="text-primary/80">{item.forum}</span>
-                              <span>•</span>
-                              <span>{item.replies} replies</span>
-                              <span>•</span>
-                              <span>Last active {item.lastActive}</span>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            </TabsContent>
-
-            {/* My Focus Tab */}
-            <TabsContent value="focus">
-              <Card className="bg-[#1A1F36] border-border/50">
-                <CardHeader>
-                  <CardTitle>My Focus Settings</CardTitle>
-                  <CardDescription>タイムラインに表示する情報の優先度を設定します</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-6">
-                    <div>
-                      <h3 className="text-base font-medium text-gray-400 mb-3">Needs (業務課題)</h3>
-                      <div className="flex flex-wrap gap-2">
-                        {["リスク可視化", "安否確認", "サプライチェーン", "法規制対応", "BCP策定", "サイバーセキュリティ"].map((tag) => (
-                          <Badge 
-                            key={tag} 
-                            variant={["リスク可視化", "安否確認"].includes(tag) ? "default" : "outline"}
-                            className={`cursor-pointer px-3 py-1.5 ${["リスク可視化", "安否確認"].includes(tag) ? "bg-primary hover:bg-primary/80" : "hover:bg-white/10"}`}
-                          >
-                            {tag}
-                            {["リスク可視化", "安否確認"].includes(tag) && <Check className="w-3 h-3 ml-1" />}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
-                    <div>
-                      <h3 className="text-base font-medium text-gray-400 mb-3">Seeds (技術・分野)</h3>
-                      <div className="flex flex-wrap gap-2">
-                        {["AI・ビッグデータ", "ドローン", "衛星データ", "IoT・センサー", "ロボティクス", "ブロックチェーン"].map((tag) => (
-                          <Badge 
-                            key={tag} 
-                            variant={["AI・ビッグデータ", "ドローン"].includes(tag) ? "default" : "outline"}
-                            className={`cursor-pointer px-3 py-1.5 ${["AI・ビッグデータ", "ドローン"].includes(tag) ? "bg-primary hover:bg-primary/80" : "hover:bg-white/10"}`}
-                          >
-                            {tag}
-                            {["AI・ビッグデータ", "ドローン"].includes(tag) && <Check className="w-3 h-3 ml-1" />}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
+                    <Badge variant="outline" className="bg-[#d4a574]/10 text-[#d4a574] border-[#d4a574]/30">
+                      GOLD MEMBER
+                    </Badge>
                   </div>
-                </CardContent>
-                <CardFooter>
-                  <Button onClick={handleSave} className="ml-auto">設定を更新</Button>
-                </CardFooter>
-              </Card>
-            </TabsContent>
-
-            {/* Team Tab */}
-            <TabsContent value="team">
-              <Card className="bg-[#1A1F36] border-border/50">
-                <CardHeader>
-                  <div className="flex justify-between items-center">
-                    <div>
-                      <CardTitle>Team Members</CardTitle>
-                      <CardDescription>同じ組織のメンバー管理</CardDescription>
-                    </div>
-                    <Button size="sm" variant="outline" className="gap-2">
-                      <Plus className="w-4 h-4" /> 招待する
-                    </Button>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    {[
-                      { name: "Hironori", role: "Admin", email: "hironori@example.com", status: "Active" },
-                      { name: "T.Yamada", role: "Member", email: "yamada@example.com", status: "Active" },
-                      { name: "K.Sato", role: "Viewer", email: "sato@example.com", status: "Pending" },
-                    ].map((member, i) => (
-                      <div key={i} className="flex items-center justify-between p-3 rounded-lg bg-black/20">
-                        <div className="flex items-center gap-3">
-                          <Avatar className="h-8 w-8">
-                            <AvatarFallback>{member.name[0]}</AvatarFallback>
-                          </Avatar>
-                          <div>
-                            <div className="font-medium text-base text-white">{member.name}</div>
-                            <div className="text-base text-gray-500">{member.email}</div>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <Badge variant="secondary" className="text-base">{member.role}</Badge>
-                          <span className={`text-base ${member.status === 'Active' ? 'text-green-500' : 'text-yellow-500'}`}>
-                            {member.status}
-                          </span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </TabsContent>
-
-            {/* Billing Tab */}
-            <TabsContent value="billing">
-              <Card className="bg-[#1A1F36] border-border/50">
-                <CardHeader>
-                  <CardTitle>Billing & Plan</CardTitle>
-                  <CardDescription>請求書の発行とプラン管理</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
-                  <div className="flex items-center justify-between p-4 rounded-lg bg-gradient-to-r from-primary/20 to-transparent border border-primary/20">
+                  <div className="text-center space-y-2">
+                    <Avatar className="w-20 h-20 mx-auto border-2 border-[#d4a574]/50">
+                      <AvatarImage src="/images/avatar-placeholder.jpg" />
+                      <AvatarFallback className="bg-[#1e293b] text-xl">HI</AvatarFallback>
+                    </Avatar>
                     <div>
-                      <div className="text-base text-primary font-medium mb-1">Current Plan</div>
-                      <div className="text-2xl font-bold text-white">Business Plan</div>
-                      <div className="text-base text-gray-400 mt-1">Next billing date: 2026/02/01</div>
+                      <h3 className="text-xl font-bold text-white">Hironori</h3>
+                      <p className="text-sm text-gray-400">株式会社META EARTH</p>
+                      <p className="text-xs text-gray-500 mt-1">BizOps本部 エキスパート</p>
                     </div>
-                    <Badge className="bg-primary text-primary-foreground">Active</Badge>
                   </div>
 
-                  <div>
-                    <h3 className="text-base font-medium text-gray-400 mb-3">Invoice History</h3>
-                    <div className="space-y-2">
+                  <div className="bg-white p-4 rounded-lg mx-auto w-32 h-32 flex items-center justify-center">
+                    <QrCode className="w-24 h-24 text-black" />
+                  </div>
+                  <p className="text-[10px] text-center text-gray-500 font-mono">ID: 8829-1029-3847</p>
+
+                  <Button className="w-full bg-black hover:bg-gray-900 text-white border border-gray-800 h-12 rounded-xl flex items-center justify-center gap-2 transition-all">
+                    <Wallet className="w-5 h-5" />
+                    <span className="font-medium">Apple Walletに追加</span>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* 2. Quick Access */}
+              <Card className="bg-[#131b33] border-white/5">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg flex items-center gap-2">
+                    <Clock className="w-4 h-4 text-[#d4a574]" />
+                    クイックアクセス
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-1 px-2">
+                  <Button variant="ghost" className="w-full justify-start text-left h-auto py-3 px-3 hover:bg-white/5 rounded-lg group">
+                    <div className="bg-blue-500/10 p-2 rounded-md mr-3 group-hover:bg-blue-500/20 transition-colors">
+                      <Star className="w-4 h-4 text-blue-400" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="font-medium text-sm truncate">あとで読む記事 (3)</div>
+                      <div className="text-xs text-gray-500 truncate">最新の補助金情報ほか</div>
+                    </div>
+                    <ChevronRight className="w-4 h-4 text-gray-600" />
+                  </Button>
+                  
+                  <Button variant="ghost" className="w-full justify-start text-left h-auto py-3 px-3 hover:bg-white/5 rounded-lg group">
+                    <div className="bg-green-500/10 p-2 rounded-md mr-3 group-hover:bg-green-500/20 transition-colors">
+                      <MessageSquare className="w-4 h-4 text-green-400" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="font-medium text-sm truncate">マイ・スレッド (5)</div>
+                      <div className="text-xs text-gray-500 truncate">新着コメントあり</div>
+                    </div>
+                    <div className="w-2 h-2 rounded-full bg-red-500 mr-2"></div>
+                    <ChevronRight className="w-4 h-4 text-gray-600" />
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Right Column: Team & Billing */}
+            <div className="lg:col-span-2 space-y-8">
+              
+              {/* 3. Team Management */}
+              <section>
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-xl font-bold flex items-center gap-2">
+                    <Users className="w-5 h-5 text-[#d4a574]" />
+                    一緒に使うメンバー
+                  </h2>
+                  <Button variant="outline" size="sm" className="border-white/10 hover:bg-white/5 text-xs">
+                    + 招待する
+                  </Button>
+                </div>
+                
+                <Card className="bg-[#131b33] border-white/5">
+                  <CardContent className="p-0">
+                    <div className="divide-y divide-white/5">
                       {[
-                        { date: "2026/01/01", amount: "¥50,000", id: "INV-2026001" },
-                        { date: "2025/12/01", amount: "¥50,000", id: "INV-2025121" },
-                        { date: "2025/11/01", amount: "¥50,000", id: "INV-2025111" },
-                      ].map((inv, i) => (
-                        <div key={i} className="flex items-center justify-between p-3 rounded-lg hover:bg-white/5 transition-colors cursor-pointer group">
+                        { name: "Hironori", role: "管理者", email: "hironori@metaearth.co.jp", avatar: "HI", active: true },
+                        { name: "Tanaka", role: "一般ユーザー", email: "tanaka@metaearth.co.jp", avatar: "TA", active: true },
+                        { name: "Suzuki", role: "一般ユーザー", email: "suzuki@metaearth.co.jp", avatar: "SU", active: false },
+                      ].map((member, i) => (
+                        <div key={i} className="flex items-center justify-between p-4 hover:bg-white/5 transition-colors">
                           <div className="flex items-center gap-3">
-                            <div className="p-2 rounded bg-white/5 text-gray-400 group-hover:text-white">
-                              <Download className="w-4 h-4" />
-                            </div>
+                            <Avatar className="w-10 h-10 border border-white/10">
+                              <AvatarFallback className="bg-[#1e293b] text-xs">{member.avatar}</AvatarFallback>
+                            </Avatar>
                             <div>
-                              <div className="text-base font-medium text-gray-200">{inv.date}</div>
-                              <div className="text-base text-gray-500">{inv.id}</div>
+                              <div className="font-medium text-sm text-white">{member.name}</div>
+                              <div className="text-xs text-gray-500">{member.email}</div>
                             </div>
                           </div>
-                          <div className="text-base font-mono text-gray-300">{inv.amount}</div>
+                          <div className="flex items-center gap-4">
+                            <Badge variant={member.role === "管理者" ? "default" : "secondary"} className={cn(
+                              "text-xs font-normal",
+                              member.role === "管理者" ? "bg-[#d4a574] text-black hover:bg-[#d4a574]/90" : "bg-white/10 text-gray-300 hover:bg-white/20"
+                            )}>
+                              {member.role}
+                            </Badge>
+                            <Button variant="ghost" size="icon" className="h-8 w-8 text-gray-500 hover:text-white">
+                              <Settings className="w-4 h-4" />
+                            </Button>
+                          </div>
                         </div>
                       ))}
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </TabsContent>
-          </Tabs>
+                  </CardContent>
+                </Card>
+                <p className="text-xs text-gray-500 mt-2 ml-1">
+                  ※ 管理者は支払い情報の変更やメンバーの追加・削除が可能です。
+                </p>
+              </section>
+
+              {/* 4. Billing & Plan */}
+              <section>
+                <h2 className="text-xl font-bold flex items-center gap-2 mb-4">
+                  <CreditCard className="w-5 h-5 text-[#d4a574]" />
+                  お支払い・契約内容
+                </h2>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                  <Card className="bg-[#131b33] border-white/5">
+                    <CardHeader className="pb-2">
+                      <CardDescription>現在のプラン</CardDescription>
+                      <CardTitle className="text-2xl text-[#d4a574]">GOLD MEMBER</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="text-sm text-gray-400 mb-4">
+                        すべての機能と無制限のレポート作成が利用可能です。
+                      </div>
+                      <Button variant="outline" size="sm" className="w-full border-white/10 hover:bg-white/5">
+                        プランを変更する
+                      </Button>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="bg-[#131b33] border-white/5">
+                    <CardHeader className="pb-2">
+                      <CardDescription>次回のお支払い</CardDescription>
+                      <div className="flex items-baseline gap-1">
+                        <CardTitle className="text-3xl font-bold text-white">¥19,800</CardTitle>
+                        <span className="text-sm text-gray-500">/月</span>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="text-sm text-gray-400 mb-4 flex items-center gap-2">
+                        <Clock className="w-3 h-3" />
+                        <span>2026年2月28日に請求されます</span>
+                      </div>
+                      <Button variant="outline" size="sm" className="w-full border-white/10 hover:bg-white/5 flex items-center justify-center gap-2">
+                        <CreditCard className="w-3 h-3" />
+                        カード情報を変更
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </div>
+
+                <Card className="bg-[#131b33] border-white/5">
+                  <CardHeader className="pb-0">
+                    <CardTitle className="text-base">請求履歴・領収書</CardTitle>
+                  </CardHeader>
+                  <CardContent className="pt-4">
+                    <div className="space-y-1">
+                      {[
+                        { date: "2026/01/31", amount: "¥19,800", status: "決済完了" },
+                        { date: "2025/12/31", amount: "¥19,800", status: "決済完了" },
+                        { date: "2025/11/30", amount: "¥19,800", status: "決済完了" },
+                      ].map((invoice, i) => (
+                        <div key={i} className="flex items-center justify-between p-3 hover:bg-white/5 rounded-lg transition-colors group">
+                          <div className="flex items-center gap-4">
+                            <div className="bg-white/5 p-2 rounded text-gray-400">
+                              <FileText className="w-4 h-4" />
+                            </div>
+                            <div>
+                              <div className="text-sm font-medium text-white">{invoice.date} 分</div>
+                              <div className="text-xs text-gray-500">{invoice.status} • Visa **** 4242</div>
+                            </div>
+                          </div>
+                          <div className="flex items-center gap-4">
+                            <span className="text-sm font-medium text-white">{invoice.amount}</span>
+                            <Button variant="ghost" size="sm" className="text-[#d4a574] hover:text-[#e5b685] hover:bg-[#d4a574]/10 opacity-0 group-hover:opacity-100 transition-all">
+                              領収書を発行
+                            </Button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <Button variant="link" className="text-gray-500 hover:text-white text-xs mt-2 px-0">
+                      すべての履歴を見る
+                    </Button>
+                  </CardContent>
+                </Card>
+              </section>
+            </div>
+          </div>
         </div>
       </main>
     </div>
