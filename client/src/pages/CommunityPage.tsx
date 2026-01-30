@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from "react";
+import { useLocation } from "wouter";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -58,6 +59,7 @@ const FORUMS = [
 type FilterType = 'all' | 'region' | 'saved' | 'popular' | 'new';
 
 export default function CommunityPage() {
+  const [, setLocation] = useLocation();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [activeFilter, setActiveFilter] = useState<FilterType>('all');
@@ -215,7 +217,7 @@ export default function CommunityPage() {
                         <div 
                           key={topic.id} 
                           className="flex items-center justify-between p-6 rounded-xl bg-white border border-slate-200 shadow-lg hover:shadow-xl hover:border-blue-300 cursor-pointer transition-all group relative top-0 hover:-top-1"
-                          onClick={() => toast.info("トピック詳細画面へ遷移します")}
+                          onClick={() => setLocation(`/community/topic/${topic.id}`)}
                         >
                           <div className="flex items-center gap-4 flex-1 min-w-0">
                             <div className={`h-3 w-3 rounded-full flex-shrink-0 ${forum?.color || 'bg-gray-400'}`} />
@@ -298,7 +300,7 @@ export default function CommunityPage() {
                             <div 
                               key={topic.id} 
                               className="flex items-center justify-between p-4 rounded-lg bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-300 cursor-pointer transition-all group relative top-0 hover:-top-0.5"
-                              onClick={() => toast.info("トピック詳細画面へ遷移します")}
+                              onClick={() => setLocation(`/community/topic/${topic.id}`)}
                             >
                               <div className="flex items-center gap-4 flex-1 min-w-0">
                                 <div className={`h-3 w-3 rounded-full flex-shrink-0 ${forum.color}`} />

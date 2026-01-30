@@ -13,6 +13,7 @@ import NeedsPage from "@/pages/NeedsPage";
 import SeedsPage from "@/pages/SeedsPage";
 import DeskPage from "./pages/DeskPage";
 import CommunityPage from "./pages/CommunityPage";
+import TopicDetailPage from "./pages/TopicDetailPage";
 import ArticlesPage from "./pages/ArticlesPage";
 import IntelPage from "./pages/IntelPage";
 import DirectoryPage from "./pages/DirectoryPage";
@@ -27,6 +28,7 @@ function Router() {
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/desk" component={DeskPage} />
           <Route path="/community" component={CommunityPage} />
+          <Route path="/community/topic/:id" component={TopicDetailPage} />
           <Route path="/articles" component={ArticlesPage} />
           <Route path="/intel" component={IntelPage} />
           <Route path="/directory" component={DirectoryPage} />
