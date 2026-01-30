@@ -46,14 +46,7 @@ const FORUMS = [
     color: "bg-emerald-500",
     isLocked: false,
   },
-  {
-    id: 4,
-    title: "経営層・CISO限定ラウンジ",
-    description: "経営層・CISO限定のクローズドコミュニティ",
-    icon: Lock,
-    color: "bg-purple-500",
-    isLocked: true,
-  }
+
 ];
 
 type FilterType = 'all' | 'region' | 'saved' | 'popular' | 'new';
