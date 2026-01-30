@@ -95,46 +95,44 @@ export default function Home() {
               </div>
             </div>
           </div>
-          
-          {/* Hero Section (Compact) */}
-          <div className="bg-[#151e32] border-b border-white/5 relative z-20">
-            <div className="container mx-auto px-4 py-8 flex flex-col md:flex-row gap-6 items-center">
-              <div className="w-24 h-24 rounded-xl overflow-hidden shrink-0 border border-white/10 shadow-2xl hidden md:block">
+        </header>
+
+        {/* Hero Section (Visible on all devices) */}
+        <div className="bg-[#151e32] border-b border-white/5 relative z-20">
+          <div className="container mx-auto px-4 py-8 flex flex-col md:flex-row gap-6 items-center">
+            <div className="w-24 h-24 rounded-xl overflow-hidden shrink-0 border border-white/10 shadow-2xl hidden md:block">
+              <img src="/images/bg-stars.png" alt="Logo" className="w-full h-full object-cover" />
+            </div>
+            <div className="flex-1 text-center md:text-left w-full">
+              <div className="md:hidden w-20 h-20 rounded-xl overflow-hidden border border-white/10 shadow-2xl mx-auto mb-4">
                 <img src="/images/bg-stars.png" alt="Logo" className="w-full h-full object-cover" />
               </div>
-              <div className="flex-1 text-center md:text-left w-full">
-                <div className="md:hidden w-20 h-20 rounded-xl overflow-hidden border border-white/10 shadow-2xl mx-auto mb-4">
-                  <img src="/images/bg-stars.png" alt="Logo" className="w-full h-full object-cover" />
-                </div>
-                <h1 className="font-sans text-3xl md:text-4xl font-bold mb-4">最新の防災ニュース</h1>
-                <div className="text-base md:text-lg text-muted-foreground mb-4 px-2 md:px-0 leading-relaxed">
+              <h1 className="font-sans text-3xl md:text-4xl font-bold mb-4">最新の防災ニュース</h1>
+              <div className="text-base md:text-lg text-muted-foreground mb-4 px-2 md:px-0 leading-relaxed">
 
-                  <p className="font-bold text-white">国内の最新の取り組みがわかります。</p>
-                </div>
-
-                {/* Solution Intelligence Settings Area */}
-                <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md max-w-2xl mx-auto md:mx-0">
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="flex items-center gap-2 text-[#d4a574]">
-                      <Sparkles className="w-4 h-4" />
-                      <span className="font-bold text-lg">あなたの関心を選んでください</span>
-                    </div>
-                  </div>
-                  <div className="flex flex-wrap gap-2 justify-center md:justify-start">
-                    {["避難所・物資の管理", "住民への情報伝達", "ハザードマップ・地図", "補助金・国の動向", "他自治体の成功事例"].map((tag) => (
-                      <span key={tag} className="px-3 py-2 rounded-md bg-white/10 text-base text-white/90 border border-white/5 hover:bg-white/20 cursor-pointer transition-colors">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
+                <p className="font-bold text-white">国内の最新の取り組みがわかります。</p>
               </div>
-            </div>
-            
 
+              {/* Solution Intelligence Settings Area */}
+              <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md max-w-2xl mx-auto md:mx-0">
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-2 text-[#d4a574]">
+                    <Sparkles className="w-4 h-4" />
+                    <span className="font-bold text-lg">あなたの関心を選んでください</span>
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-2 justify-center md:justify-start">
+                  {["避難所・物資の管理", "住民への情報伝達", "ハザードマップ・地図", "補助金・国の動向", "他自治体の成功事例"].map((tag) => (
+                    <span key={tag} className="px-3 py-2 rounded-md bg-white/10 text-base text-white/90 border border-white/5 hover:bg-white/20 cursor-pointer transition-colors">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+            </div>
           </div>
-        </header>
+        </div>
 
         {/* Content */}
         <div className="container mx-auto px-4 py-8 pb-24">
