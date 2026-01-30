@@ -11,6 +11,8 @@ export interface ContentItem {
   sourceUrl?: string;      // 元記事のURL
   fullContent?: string;    // 記事本文（モック用）
   type?: 'needs' | 'seeds' | 'general'; // 記事タイプ
+  likes?: number;
+  saves?: number;
 }
 
 export const contentItems: ContentItem[] = [
@@ -24,6 +26,8 @@ export const contentItems: ContentItem[] = [
     description: "経済産業省が事業継続力強化計画の認定基準を改定。ものづくり補助金などの加点要件に関わる重要変更。",
     isPremium: true,
     type: 'general',
+    likes: 124,
+    saves: 45,
     keyTakeaways: [
       "認定基準に「サイバーセキュリティ対策」が必須項目として追加",
       "未対応の場合、来年度の補助金採択率が大幅に低下するリスク",
@@ -78,6 +82,8 @@ export const contentItems: ContentItem[] = [
     description: "国土交通省が有人地帯での目視外飛行（レベル4）に関する審査基準を一部簡素化。物流クライシスへの切り札となるか。",
     isPremium: true,
     type: 'seeds',
+    likes: 89,
+    saves: 32,
     keyTakeaways: [
       "機体認証の手続き期間が従来の3ヶ月から最短1ヶ月に短縮",
       "物流コストの高騰に悩む地方自治体や小売業にとって、ドローン配送の導入ハードルが劇的に下がる",
@@ -141,6 +147,8 @@ export const contentItems: ContentItem[] = [
     description: "民間シンクタンクが最新の地政学リスクレポートを公開。台湾海峡封鎖時の国内GDP損失額は推計50兆円超。",
     isPremium: true,
     type: 'needs',
+    likes: 256,
+    saves: 128,
     keyTakeaways: [
       "台湾からの輸入が停止した場合、国内製造業の生産活動の約3割が1ヶ月以内に停止する試算",
       "半導体だけでなく、化学品やプラスチック部品の調達も困難に",

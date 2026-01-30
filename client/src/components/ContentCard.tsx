@@ -1,6 +1,7 @@
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { ContentItem } from "@/lib/mock-data";
-import { Lock, CheckCircle2, Tag } from "lucide-react";
+import { Lock, CheckCircle2, Tag, Heart, Bookmark } from "lucide-react";
+import { useState } from "react";
 
 interface ContentCardProps {
   item: ContentItem;
@@ -10,6 +11,32 @@ interface ContentCardProps {
 }
 
 export function ContentCard({ item, onClick, isRead = false, featured = false }: ContentCardProps) {
+  const [likes, setLikes] = useState(item.likes || 0);
+  const [saves, setSaves] = useState(item.saves || 0);
+  const [isLiked, setIsLiked] = useState(false);
+  const [isSaved, setIsSaved] = useState(false);
+
+  const handleLike = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!isLiked) {
+      setLikes(prev => prev + 1);
+      setIsLiked(true);
+    } else {
+      setLikes(prev => prev - 1);
+      setIsLiked(false);
+    }
+  };
+
+  const handleSave = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!isSaved) {
+      setSaves(prev => prev + 1);
+      setIsSaved(true);
+    } else {
+      setSaves(prev => prev - 1);
+      setIsSaved(false);
+    }
+  };
   // Determine badge style based on item type
   const getBadgeStyle = (type?: string) => {
     switch (type) {
@@ -79,9 +106,27 @@ export function ContentCard({ item, onClick, isRead = false, featured = false }:
             {item.description || "この記事の概要はまだありません。クリックして詳細をご覧ください。"}
           </p>
         )}
-        <p className="text-base text-muted-foreground">
-          {item.date}
-        </p>
+        <div className="flex items-center justify-between mt-4">
+          <p className="text-base text-muted-foreground">
+            {item.date}
+          </p>
+          <div className="flex items-center gap-4">
+            <button 
+              onClick={handleLike}
+              className={`flex items-center gap-1.5 text-sm transition-colors ${isLiked ? 'text-pink-500' : 'text-muted-foreground hover:text-pink-500'}`}
+            >
+              <Heart className={`w-4 h-4 ${isLiked ? 'fill-current' : ''}`} />
+              <span>{likes}</span>
+            </button>
+            <button 
+              onClick={handleSave}
+              className={`flex items-center gap-1.5 text-sm transition-colors ${isSaved ? 'text-[#d4a574]' : 'text-muted-foreground hover:text-[#d4a574]'}`}
+            >
+              <Bookmark className={`w-4 h-4 ${isSaved ? 'fill-current' : ''}`} />
+              <span>{saves}</span>
+            </button>
+          </div>
+        </div>
       </CardContent>
     </Card>
   );
