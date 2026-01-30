@@ -199,60 +199,26 @@ export default function SettingsPage() {
 
                   <Card className="bg-[#131b33] border-white/5">
                     <CardHeader className="pb-2">
-                      <CardDescription>次回のお支払い</CardDescription>
+                      <CardDescription>次回更新日</CardDescription>
                       <div className="flex items-baseline gap-1">
-                        <CardTitle className="text-3xl font-bold text-white">¥19,800</CardTitle>
-                        <span className="text-sm text-gray-500">/月</span>
+                        <CardTitle className="text-3xl font-bold text-white">¥600,000</CardTitle>
+                        <span className="text-sm text-gray-500">/年</span>
                       </div>
                     </CardHeader>
                     <CardContent>
                       <div className="text-sm text-gray-400 mb-4 flex items-center gap-2">
                         <Clock className="w-3 h-3" />
-                        <span>2026年2月28日に請求されます</span>
+                        <span>2027年1月31日</span>
                       </div>
                       <Button variant="outline" size="sm" className="w-full border-white/10 hover:bg-white/5 flex items-center justify-center gap-2">
-                        <CreditCard className="w-3 h-3" />
-                        カード情報を変更
+                        <FileText className="w-3 h-3" />
+                        領収書を発行
                       </Button>
                     </CardContent>
                   </Card>
                 </div>
 
-                <Card className="bg-[#131b33] border-white/5">
-                  <CardHeader className="pb-0">
-                    <CardTitle className="text-base">請求履歴・領収書</CardTitle>
-                  </CardHeader>
-                  <CardContent className="pt-4">
-                    <div className="space-y-1">
-                      {[
-                        { date: "2026/01/31", amount: "¥19,800", status: "決済完了" },
-                        { date: "2025/12/31", amount: "¥19,800", status: "決済完了" },
-                        { date: "2025/11/30", amount: "¥19,800", status: "決済完了" },
-                      ].map((invoice, i) => (
-                        <div key={i} className="flex items-center justify-between p-3 hover:bg-white/5 rounded-lg transition-colors group">
-                          <div className="flex items-center gap-4">
-                            <div className="bg-white/5 p-2 rounded text-gray-400">
-                              <FileText className="w-4 h-4" />
-                            </div>
-                            <div>
-                              <div className="text-sm font-medium text-white">{invoice.date} 分</div>
-                              <div className="text-xs text-gray-500">{invoice.status} • Visa **** 4242</div>
-                            </div>
-                          </div>
-                          <div className="flex items-center gap-4">
-                            <span className="text-sm font-medium text-white">{invoice.amount}</span>
-                            <Button variant="ghost" size="sm" className="text-[#d4a574] hover:text-[#e5b685] hover:bg-[#d4a574]/10 opacity-0 group-hover:opacity-100 transition-all">
-                              領収書を発行
-                            </Button>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                    <Button variant="link" className="text-gray-500 hover:text-white text-xs mt-2 px-0">
-                      すべての履歴を見る
-                    </Button>
-                  </CardContent>
-                </Card>
+                
               </section>
             </div>
           </div>

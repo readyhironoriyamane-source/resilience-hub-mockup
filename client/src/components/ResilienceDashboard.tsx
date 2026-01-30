@@ -3,7 +3,8 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter }
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
-import { Check, AlertTriangle, ShieldCheck, ArrowRight, Info, ChevronDown, ChevronUp, Heart, Building2, Users } from "lucide-react";
+import { Check, AlertTriangle, ShieldCheck, ArrowRight, Info, ChevronDown, ChevronUp, Heart, Building2, Users, FileText } from "lucide-react";
+import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 
 // --- Types & Data Definitions ---
@@ -227,6 +228,18 @@ export function ResilienceDashboard() {
                 <h3 className="text-base font-bold text-white leading-tight">{evaluation.label}</h3>
                 <p className="text-sm text-muted-foreground mt-1">{evaluation.message}</p>
               </div>
+            </div>
+
+            {/* Export Report Button */}
+            <div className="mb-6">
+              <Button 
+                variant="outline" 
+                className="w-full border-primary/50 text-primary hover:bg-primary/10 hover:text-primary font-bold h-10 flex items-center justify-center gap-2"
+                onClick={() => toast.success("レポートのPDF出力を開始しました")}
+              >
+                <FileText className="w-4 h-4" />
+                PDFでレポートを出す
+              </Button>
             </div>
             
             {/* Next Actions List */}

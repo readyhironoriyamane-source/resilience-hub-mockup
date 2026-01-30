@@ -107,10 +107,7 @@ export function Sidebar() {
 
 
         <div className="mt-4 px-4 border-t border-white/5 pt-4">
-          <div className="flex items-center justify-between px-4 py-2 text-muted-foreground hover:text-foreground cursor-pointer">
-            <span className="font-bold text-base">メンバー</span>
-            <Settings className="w-4 h-4 opacity-70" />
-          </div>
+          
           <Link href="/about">
             <div className="flex items-center justify-between px-4 py-2 text-muted-foreground hover:text-foreground cursor-pointer mt-1">
               <span className="font-bold text-base">サービス紹介</span>
