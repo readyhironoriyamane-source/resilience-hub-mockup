@@ -158,30 +158,16 @@ export default function Home() {
               <div className="text-base text-muted-foreground">全 {contentItems.length} 件</div>
             </div>
             
-            <div className="flex flex-col gap-8">
-              {/* Top Article (1 column, large) */}
-              {contentItems.length > 0 && (
-                <div className="w-full">
-                  <ContentCard 
-                    item={contentItems[0]} 
-                    onClick={handleCardClick} 
-                    isRead={allReadArticles.includes(contentItems[0].id)}
-                    featured={true}
-                  />
-                </div>
-              )}
-
-              {/* Sub Articles (3 columns) */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {contentItems.slice(1, 4).map(item => (
-                  <ContentCard 
-                    key={item.id} 
-                    item={item} 
-                    onClick={handleCardClick} 
-                    isRead={allReadArticles.includes(item.id)}
-                  />
-                ))}
-              </div>
+            {/* Articles Grid (3 columns) */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {contentItems.map(item => (
+                <ContentCard 
+                  key={item.id} 
+                  item={item} 
+                  onClick={handleCardClick} 
+                  isRead={allReadArticles.includes(item.id)}
+                />
+              ))}
             </div>
           </section>
         </div>
