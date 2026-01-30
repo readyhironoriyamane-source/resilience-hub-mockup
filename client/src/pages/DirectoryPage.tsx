@@ -127,39 +127,43 @@ export default function DirectoryPage() {
                 <CardContent className="p-0">
                   <div className="flex flex-col md:flex-row">
                     {/* Left: Main Content */}
-                    <div className="p-6 md:p-8 flex-1">
-                      {/* Benefit (Top Priority) */}
-                      <div className="mb-4">
-                        <h3 className="text-xl md:text-2xl font-bold text-[#0B1026] leading-snug group-hover:text-blue-700 transition-colors">
-                          {company.benefit}
-                        </h3>
+                    <div className="p-6 md:p-8 flex-1 flex flex-col md:flex-row gap-6">
+                      {/* Large Logo Area */}
+                      <div className="w-24 h-24 md:w-32 md:h-32 rounded-xl bg-slate-100 flex items-center justify-center text-3xl font-bold text-slate-700 border border-slate-200 shrink-0 shadow-inner">
+                        {company.logo}
                       </div>
 
-                      {/* Company Info & Stats */}
-                      <div className="flex flex-wrap items-center gap-4 mb-5 text-sm md:text-base">
-                        <div className="flex items-center gap-2 text-slate-600 font-bold">
-                          <div className="w-8 h-8 rounded bg-slate-100 flex items-center justify-center text-xs font-bold text-slate-700 border border-slate-200">
-                            {company.logo}
+                      <div className="flex-1 min-w-0">
+                        {/* Benefit (Top Priority) */}
+                        <div className="mb-3">
+                          <h3 className="text-xl md:text-2xl font-bold text-[#0B1026] leading-snug group-hover:text-blue-700 transition-colors">
+                            {company.benefit}
+                          </h3>
+                        </div>
+
+                        {/* Company Info & Stats */}
+                        <div className="flex flex-wrap items-center gap-3 mb-4 text-sm md:text-base">
+                          <div className="font-bold text-slate-700 text-lg">
+                            {company.name}
                           </div>
-                          {company.name}
+                          <div className="hidden md:block w-px h-4 bg-slate-300"></div>
+                          <div className="flex items-center gap-1 text-slate-600">
+                            <MapPin className="h-4 w-4 text-slate-400" />
+                            {company.location}
+                          </div>
+                          <div className="hidden md:block w-px h-4 bg-slate-300"></div>
+                          <div className="flex items-center gap-1 text-blue-700 font-bold bg-blue-50 px-2 py-0.5 rounded">
+                            <Users className="h-4 w-4" />
+                            {company.stats}
+                          </div>
                         </div>
-                        <div className="hidden md:block w-px h-4 bg-slate-300"></div>
-                        <div className="flex items-center gap-1.5 text-slate-600">
-                          <MapPin className="h-4 w-4 text-slate-400" />
-                          {company.location}
-                        </div>
-                        <div className="hidden md:block w-px h-4 bg-slate-300"></div>
-                        <div className="flex items-center gap-1.5 text-blue-700 font-bold bg-blue-50 px-2 py-1 rounded">
-                          <Users className="h-4 w-4" />
-                          {company.stats}
-                        </div>
-                      </div>
 
-                      {/* Description */}
-                      <div className="space-y-4 mb-6">
-                        <p className="text-base text-slate-700 leading-relaxed">
-                          {company.description}
-                        </p>
+                        {/* Description */}
+                        <div>
+                          <p className="text-base text-slate-700 leading-relaxed">
+                            {company.description}
+                          </p>
+                        </div>
                       </div>
                     </div>
 
