@@ -282,84 +282,87 @@ export default function TopicDetailPage() {
 
             {/* Sidebar Column */}
             <div className="space-y-6">
-              {/* AI Summary Panel */}
-              <Card className="bg-gradient-to-br from-indigo-900/90 to-slate-900/90 border-indigo-500/30 shadow-xl text-white overflow-hidden">
-                <CardHeader className="pb-3 border-b border-white/10 bg-white/5">
-                  <CardTitle className="text-lg flex items-center gap-2">
-                    <Sparkles className="h-5 w-5 text-yellow-400" />
-                    AI要約（3行まとめ）
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="pt-4 space-y-3">
-                  <div className="flex gap-3 items-start">
-                    <span className="bg-white/20 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
-                    <p className="text-sm text-slate-200 leading-snug">
-                      2026年は「フェーズフリー」が標準化。平時活用のインフラ整備が鍵。
-                    </p>
-                  </div>
-                  <div className="flex gap-3 items-start">
-                    <span className="bg-white/20 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
-                    <p className="text-sm text-slate-200 leading-snug">
-                      大阪市では公園ベンチを「かまどベンチ」へ更新し、予算を獲得。
-                    </p>
-                  </div>
-                  <div className="flex gap-3 items-start">
-                    <span className="bg-white/20 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
-                    <p className="text-sm text-slate-200 leading-snug">
-                      福岡市は避難所システムでデジ田交付金を活用。マイナカード連携が必須。
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Related Comparison Table */}
+              {/* Reference Info (Only if attachments exist) */}
+              {/* Assuming attachments exist for this mock */}
               <Card className="bg-white/10 backdrop-blur-md border-white/10 shadow-lg text-white">
                 <CardHeader className="pb-2">
                   <CardTitle className="text-base flex items-center gap-2">
                     <FileText className="h-4 w-4 text-blue-400" />
-                    関連する比較表
+                    参考情報
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-3">
                     <a href="#" className="block p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors border border-white/5 hover:border-white/20 group">
-                      <div className="font-bold text-sm group-hover:text-blue-300 transition-colors mb-1">
-                        安否確認システム 5選比較
+                      <div className="font-bold text-sm group-hover:text-blue-300 transition-colors mb-1 flex items-center gap-2">
+                        <span className="bg-blue-500/20 text-blue-300 text-[10px] px-1.5 py-0.5 rounded">PDF</span>
+                        避難所運営マニュアル.pdf
                       </div>
                       <div className="text-xs text-slate-400">
-                        コスト・機能・自治体導入実績で比較
+                        2.4 MB • 2026.01.28
                       </div>
                     </a>
                     <a href="#" className="block p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors border border-white/5 hover:border-white/20 group">
-                      <div className="font-bold text-sm group-hover:text-blue-300 transition-colors mb-1">
-                        避難所Wi-Fi整備の補助金リスト
+                      <div className="font-bold text-sm group-hover:text-blue-300 transition-colors mb-1 flex items-center gap-2">
+                        <span className="bg-emerald-500/20 text-emerald-300 text-[10px] px-1.5 py-0.5 rounded">IMG</span>
+                        現場写真_01.jpg
                       </div>
                       <div className="text-xs text-slate-400">
-                        2026年度版・対象要件まとめ
+                        1.2 MB • 2026.01.28
                       </div>
                     </a>
                   </div>
                 </CardContent>
               </Card>
 
-              {/* Official Data Link */}
-              <Card className="bg-white/10 backdrop-blur-md border-white/10 shadow-lg text-white">
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-base flex items-center gap-2">
-                    <ExternalLink className="h-4 w-4 text-emerald-400" />
-                    一次情報・公的データ
+              {/* Expert Consultation */}
+              <Card className="bg-gradient-to-br from-slate-800 to-slate-900 border-amber-500/30 shadow-xl text-white overflow-hidden relative group">
+                <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
+                  <HelpCircle className="h-24 w-24 text-amber-500" />
+                </div>
+                <CardHeader className="pb-2 relative z-10">
+                  <CardTitle className="text-lg font-bold text-amber-400 flex items-center gap-2">
+                    専門家に相談する
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <Button variant="outline" className="w-full justify-start text-left h-auto py-3 bg-transparent border-white/20 text-white hover:bg-white/10 hover:text-white group">
-                    <div>
-                      <div className="font-bold text-sm group-hover:text-emerald-300 transition-colors">
-                        デジタル田園都市国家構想
-                      </div>
-                      <div className="text-xs text-slate-400 mt-1">
-                        内閣官房・デジタル庁 (2025.12更新)
-                      </div>
+                <CardContent className="relative z-10 space-y-4">
+                  <p className="text-sm text-slate-300 leading-relaxed">
+                    スレッドで解決しない課題や関連するお悩みを専門家に相談することができます。
+                    自社の状況に合わせた最適なソリューションをご提案します。
+                  </p>
+                  <Button 
+                    className="w-full bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold shadow-lg shadow-amber-900/20"
+                    onClick={() => setLocation("/desk")}
+                  >
+                    コンシェルジュに相談
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Solution Listing */}
+              <Card className="bg-gradient-to-br from-slate-900 to-slate-950 border-white/10 shadow-lg text-white overflow-hidden relative group">
+                <div className="absolute top-0 right-0 p-3 opacity-5 group-hover:opacity-10 transition-opacity">
+                  <Sparkles className="h-24 w-24 text-white" />
+                </div>
+                <CardHeader className="pb-2 relative z-10">
+                  <CardTitle className="text-lg font-bold text-white flex items-center gap-2">
+                    <div className="bg-white/10 p-1 rounded">
+                      <Sparkles className="h-4 w-4" />
                     </div>
+                    ソリューション掲載について
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="relative z-10 space-y-4">
+                  <p className="text-sm text-slate-300 leading-relaxed">
+                    自社の防災・レジリエンスソリューションを掲載しませんか？
+                    自治体担当者に直接アプローチできます。
+                  </p>
+                  <Button 
+                    variant="outline"
+                    className="w-full border-white/20 text-white hover:bg-white/10 hover:text-white bg-transparent"
+                    onClick={() => setLocation("/desk")}
+                  >
+                    掲載の相談をする
                   </Button>
                 </CardContent>
               </Card>
