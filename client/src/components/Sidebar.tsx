@@ -132,46 +132,7 @@ export function Sidebar() {
           })}
         </div>
 
-        <div className="px-4 mb-6">
-          <h3 className="px-4 text-base font-bold text-muted-foreground/50 uppercase tracking-wider mb-2">課題・目的から探す</h3>
-          {needsNavItems.map((item) => (
-            <Link key={item.name} href={item.href}>
-              <div 
-                className={`px-4 py-3 min-h-[44px] text-base rounded-lg cursor-pointer transition-colors flex items-center gap-3 mb-1 ${ /* UD: タッチターゲット44px以上確保 */
-                  location === item.href 
-                    ? "text-white bg-white/10" 
-                    : "text-muted-foreground hover:text-foreground hover:bg-white/5"
-                }`}
-              >
-                <span className={`${location === item.href ? "text-[#d4a574]" : "text-muted-foreground"}`}>{item.icon}</span>
-                <span>{item.name}</span>
-              </div>
-            </Link>
-          ))}
-        </div>
 
-        <div className="px-4 mb-6">
-          <h3 className="px-4 text-base font-bold text-muted-foreground/50 uppercase tracking-wider mb-2">技術・分野から探す</h3>
-          {techNavItems.map((item) => (
-            <Link key={item.name} href={item.href}>
-              <div 
-                className={`px-4 py-3 min-h-[44px] text-base rounded-lg cursor-pointer transition-colors flex items-start gap-3 mb-1 ${ /* UD: タッチターゲット44px以上確保 */
-                  location === item.href 
-                    ? "text-white bg-white/10" 
-                    : "text-muted-foreground hover:text-foreground hover:bg-white/5"
-                }`}
-              >
-                <span className={`mt-0.5 ${location === item.href ? "text-[#d4a574]" : "text-muted-foreground"}`}>{item.icon}</span>
-                <div className="flex flex-col">
-                  <span className="leading-tight">{item.name}</span>
-                  {item.description && (
-                    <span className="text-base text-muted-foreground mt-0.5 font-normal">{item.description}</span>
-                  )}
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
 
         <div className="mt-4 px-4 border-t border-white/5 pt-4">
           <div className="flex items-center justify-between px-4 py-2 text-muted-foreground hover:text-foreground cursor-pointer">
