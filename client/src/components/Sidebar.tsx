@@ -118,19 +118,14 @@ export function Sidebar() {
             return (
               <Link key={item.name} href={item.href}>
                 <div 
-                  className={`px-4 py-3 min-h-[44px] text-sm rounded-lg cursor-pointer transition-colors flex items-start gap-3 mb-1 ${ /* UD: タッチターゲット44px以上確保 */
+                  className={`px-4 py-3 min-h-[44px] text-sm rounded-lg cursor-pointer transition-colors flex items-center gap-3 mb-1 ${ /* UD: タッチターゲット44px以上確保 */
                     location === item.href 
                       ? "text-white bg-white/10" 
                       : "text-muted-foreground hover:text-foreground hover:bg-white/5"
                   }`}
                 >
-                  {item.icon && <span className={`mt-0.5 ${location === item.href ? "text-[#d4a574]" : "text-muted-foreground group-hover:text-white"}`}>{item.icon}</span>}
-                  <div className="flex flex-col">
-                    <span className="leading-tight">{item.name}</span>
-                    {item.description && (
-                      <span className="text-[10px] text-muted-foreground/70 mt-0.5 font-normal">{item.description}</span>
-                    )}
-                  </div>
+                  {item.icon && <span className={`${location === item.href ? "text-[#d4a574]" : "text-muted-foreground group-hover:text-white"}`}>{item.icon}</span>}
+                  <span className="leading-tight">{item.name}</span>
                 </div>
               </Link>
             );
@@ -160,14 +155,19 @@ export function Sidebar() {
           {techNavItems.map((item) => (
             <Link key={item.name} href={item.href}>
               <div 
-                className={`px-4 py-3 min-h-[44px] text-sm rounded-lg cursor-pointer transition-colors flex items-center gap-3 mb-1 ${ /* UD: タッチターゲット44px以上確保 */
+                className={`px-4 py-3 min-h-[44px] text-sm rounded-lg cursor-pointer transition-colors flex items-start gap-3 mb-1 ${ /* UD: タッチターゲット44px以上確保 */
                   location === item.href 
                     ? "text-white bg-white/10" 
                     : "text-muted-foreground hover:text-foreground hover:bg-white/5"
                 }`}
               >
-                <span className={`${location === item.href ? "text-[#d4a574]" : "text-muted-foreground"}`}>{item.icon}</span>
-                <span>{item.name}</span>
+                <span className={`mt-0.5 ${location === item.href ? "text-[#d4a574]" : "text-muted-foreground"}`}>{item.icon}</span>
+                <div className="flex flex-col">
+                  <span className="leading-tight">{item.name}</span>
+                  {item.description && (
+                    <span className="text-[10px] text-muted-foreground/70 mt-0.5 font-normal">{item.description}</span>
+                  )}
+                </div>
               </div>
             </Link>
           ))}
