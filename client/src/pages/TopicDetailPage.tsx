@@ -155,13 +155,7 @@ export default function TopicDetailPage() {
                     }} 
                   />
                   
-                  <div className="flex flex-wrap gap-2 mt-6 mb-8">
-                    {TOPIC_DATA.tags.map(tag => (
-                      <Badge key={tag} variant="secondary" className="bg-slate-100 text-slate-600 hover:bg-slate-200">
-                        #{tag}
-                      </Badge>
-                    ))}
-                  </div>
+                  <div className="mb-8"></div>
 
                   <Separator className="my-6" />
 
@@ -182,14 +176,7 @@ export default function TopicDetailPage() {
                       </Button>
                     </div>
                     
-                    <div className="flex gap-2">
-                      <Button variant="ghost" size="icon" className="text-slate-400 hover:text-slate-600">
-                        <Share2 className="h-5 w-5" />
-                      </Button>
-                      <Button variant="ghost" size="icon" className="text-slate-400 hover:text-slate-600">
-                        <MoreHorizontal className="h-5 w-5" />
-                      </Button>
-                    </div>
+
                   </div>
                 </CardContent>
               </Card>
