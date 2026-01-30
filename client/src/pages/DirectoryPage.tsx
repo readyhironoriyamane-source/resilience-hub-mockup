@@ -116,7 +116,7 @@ export default function DirectoryPage() {
               レジハブパートナー
             </h1>
             <p className="text-gray-300 text-base md:text-lg">
-              地域の課題を一緒に解決する、先進的な企業をご紹介します。
+              日本と世界の防災を共にリードする、先進的なパートナーたちをご紹介します。
             </p>
           </header>
 
@@ -185,9 +185,13 @@ export default function DirectoryPage() {
           
           {/* Footer Call to Action */}
           <div className="mt-12 text-center">
-            <p className="text-gray-400 mb-4">お探しの企業が見つからない場合は？</p>
-            <Button variant="link" className="text-[#d4a574] hover:text-[#e5b685] text-lg p-0 h-auto font-bold">
-              事務局に無料で相談する &rarr;
+            <p className="text-gray-400 mb-4">あなたの技術やノウハウで、防災の未来を共に創りませんか？</p>
+            <Button 
+              variant="link" 
+              className="text-[#d4a574] hover:text-[#e5b685] text-lg p-0 h-auto font-bold"
+              onClick={() => window.location.href = '/desk'}
+            >
+              パートナー参画について相談する &rarr;
             </Button>
           </div>
         </div>
