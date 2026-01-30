@@ -35,7 +35,7 @@ export default function Dashboard() {
           <header className="mb-10">
             <h1 className="text-3xl font-bold mb-2">防災ダッシュボード</h1>
             <p className="text-muted-foreground">
-              組織のレジリエンスレベルを診断し、次のアクションを明確にします。
+              あなたの組織の「今の備え」をチェックして、今日からできることをお伝えします。
             </p>
           </header>
 
