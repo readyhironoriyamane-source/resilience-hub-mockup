@@ -165,7 +165,7 @@ export function Sidebar() {
                 <div className="flex flex-col">
                   <span className="leading-tight">{item.name}</span>
                   {item.description && (
-                    <span className="text-[10px] text-muted-foreground/70 mt-0.5 font-normal">{item.description}</span>
+                    <span className="text-xs text-muted-foreground mt-0.5 font-normal">{item.description}</span>
                   )}
                 </div>
               </div>
