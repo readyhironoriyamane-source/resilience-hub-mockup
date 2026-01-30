@@ -195,7 +195,7 @@ export function Sidebar() {
             </div>
             <div className="flex-1">
               <div className="text-base font-bold">Hironori</div>
-              <div className="text-base text-muted-foreground">Settings</div>
+              <div className="text-base text-muted-foreground">設定</div>
             </div>
             <div className="relative cursor-pointer group">
               <Bell className="w-5 h-5 text-muted-foreground group-hover:text-foreground" />

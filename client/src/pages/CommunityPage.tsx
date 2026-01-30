@@ -17,47 +17,51 @@ export default function CommunityPage() {
   const forums = [
     {
       id: 1,
-      title: "General Discussion",
+      title: "なんでも相談・雑談",
       description: "防災・BCPに関する全般的な話題、ニュースの共有など",
+      example: "例：新しく担当になった方の自己紹介や、ニュースの感想など",
       icon: MessageSquare,
       color: "bg-blue-500",
       members: 1240,
       active: 45,
       topics: [
-        { title: "2026年の防災トレンドについて語るスレ", author: "T.Yamada", replies: 12, lastActive: "2h ago" },
-        { title: "【自己紹介】新しく担当になりました", author: "K.Sato", replies: 5, lastActive: "5h ago" },
+        { title: "2026年の防災トレンドについて語るスレ", author: "T.Yamada", replies: 12, lastActive: "2時間前" },
+        { title: "【自己紹介】新しく担当になりました", author: "K.Sato", replies: 5, lastActive: "5時間前" },
       ]
     },
     {
       id: 2,
-      title: "Risk Management",
+      title: "BCP・リスク管理の悩み",
       description: "リスク評価手法、BCP策定の実務的な悩み相談",
+      example: "例：訓練のマンネリ化対策や、他社の事例を知りたい時など",
       icon: AlertTriangle,
       color: "bg-amber-500",
       members: 850,
       active: 32,
       topics: [
-        { title: "サプライチェーン途絶時の代替調達ルート確保について", author: "M.Tanaka", replies: 8, lastActive: "1d ago" },
-        { title: "ISO22301認証取得のメリット・デメリット", author: "S.Suzuki", replies: 15, lastActive: "3d ago" },
+        { title: "サプライチェーン途絶時の代替調達ルート確保について", author: "M.Tanaka", replies: 8, lastActive: "1日前" },
+        { title: "ISO22301認証取得のメリット・デメリット", author: "S.Suzuki", replies: 15, lastActive: "3日前" },
       ]
     },
     {
       id: 3,
-      title: "Technology & Tools",
+      title: "防災製品・ツールの情報交換",
       description: "防災テック、安否確認システム、備蓄品などの情報交換",
+      example: "例：導入して良かったシステムや、備蓄品の管理方法など",
       icon: Activity,
       color: "bg-emerald-500",
       members: 920,
       active: 28,
       topics: [
-        { title: "衛星データ活用のコスト感について", author: "H.Kato", replies: 6, lastActive: "4h ago" },
-        { title: "おすすめの安否確認システム教えてください", author: "Y.Ito", replies: 22, lastActive: "2d ago" },
+        { title: "衛星データ活用のコスト感について", author: "H.Kato", replies: 6, lastActive: "4時間前" },
+        { title: "おすすめの安否確認システム教えてください", author: "Y.Ito", replies: 22, lastActive: "2日前" },
       ]
     },
     {
       id: 4,
-      title: "Executive Lounge",
+      title: "経営層・CISO限定ラウンジ",
       description: "経営層・CISO限定のクローズドコミュニティ",
+      example: "例：経営判断に関わる重大なリスク情報の共有など",
       icon: Lock,
       color: "bg-purple-500",
       members: 120,
@@ -97,14 +101,14 @@ export default function CommunityPage() {
             <div className="flex items-center gap-4">
               {/* Mobile menu trigger removed as it is handled by MobileHeader */}
               <div>
-                <h1 className="text-3xl font-bold tracking-tight text-white">Community Forum</h1>
+                <h1 className="text-3xl font-bold tracking-tight text-white">防災コミュニティ</h1>
                 <p className="text-muted-foreground mt-2">
                   実務担当者同士が知見を共有し、共に解決策を探る場所。
                 </p>
               </div>
             </div>
-            <Button onClick={handleJoinClick} className="bg-primary text-primary-foreground hover:bg-primary/90">
-              <MessageSquare className="mr-2 h-4 w-4" />
+            <Button onClick={handleJoinClick} className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6 h-auto shadow-lg shadow-primary/20 transition-all hover:scale-105">
+              <span className="mr-2 text-3xl font-bold leading-none">+</span>
               新しいトピックを作成
             </Button>
           </div>
@@ -127,7 +131,12 @@ export default function CommunityPage() {
                           {forum.title}
                           {forum.isLocked && <Lock className="h-4 w-4 text-muted-foreground" />}
                         </CardTitle>
-                        <CardDescription className="mt-1 text-slate-600">{forum.description}</CardDescription>
+                        <CardDescription className="mt-1 text-slate-600">
+                          {forum.description}
+                          <span className="block mt-1 text-sm text-slate-500 bg-slate-100/50 px-2 py-1 rounded-md inline-block border border-slate-200/50">
+                            {forum.example}
+                          </span>
+                        </CardDescription>
                       </div>
                     </div>
                     <div className="flex items-center gap-4 text-base text-muted-foreground">
@@ -135,9 +144,12 @@ export default function CommunityPage() {
                         <Users className="h-4 w-4" />
                         <span>{forum.members}</span>
                       </div>
-                      <div className="flex items-center gap-1 text-green-500">
-                        <TrendingUp className="h-4 w-4" />
-                        <span>{forum.active} online</span>
+                      <div className="flex items-center gap-1.5 text-green-600 font-medium bg-green-50 px-3 py-1 rounded-full border border-green-100 shadow-sm">
+                        <div className="relative flex h-2 w-2">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                        </div>
+                        <span>今{forum.active}人が見ています</span>
                       </div>
                     </div>
                   </div>
@@ -168,7 +180,7 @@ export default function CommunityPage() {
                           <div className="flex items-center gap-4 text-base text-slate-500">
                             <span>by {topic.author}</span>
                             <span className="flex items-center gap-1">
-                              <MessageSquare className="h-3 w-3" /> {topic.replies}
+                              <MessageSquare className="h-3 w-3" /> コメント{topic.replies}件
                             </span>
                             <span>{topic.lastActive}</span>
                           </div>
