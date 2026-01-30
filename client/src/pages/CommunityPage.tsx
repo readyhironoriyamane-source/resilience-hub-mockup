@@ -177,25 +177,11 @@ export default function CommunityPage() {
                         </CardTitle>
                         <CardDescription className="mt-1 text-slate-600">
                           {forum.description}
-                          <span className="block mt-1 text-sm text-slate-500 bg-slate-100/50 px-2 py-1 rounded-md inline-block border border-slate-200/50">
-                            {forum.example}
-                          </span>
+                          
                         </CardDescription>
                       </div>
                     </div>
-                    <div className="flex items-center gap-4 text-base text-muted-foreground">
-                      <div className="flex items-center gap-1">
-                        <Users className="h-4 w-4" />
-                        <span>{forum.members}</span>
-                      </div>
-                      <div className="flex items-center gap-1.5 text-green-600 font-medium bg-green-50 px-3 py-1 rounded-full border border-green-100 shadow-sm">
-                        <div className="relative flex h-2 w-2">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                          <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                        </div>
-                        <span>今{forum.active}人が見ています</span>
-                      </div>
-                    </div>
+                    
                   </div>
                 </CardHeader>
                 
