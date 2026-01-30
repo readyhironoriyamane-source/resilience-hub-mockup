@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter }
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
-import { Check, AlertTriangle, ShieldCheck, ArrowRight, Info } from "lucide-react";
+import { Check, AlertTriangle, ShieldCheck, ArrowRight, Info, ChevronDown, ChevronUp } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 // --- Types & Data Definitions ---
@@ -91,6 +91,8 @@ const getScoreEvaluation = (score: number) => {
 
 export function ResilienceDashboard() {
   const [currentPhase, setCurrentPhase] = useState<Phase>("survival");
+  const [isExpanded, setIsExpanded] = useState(false);
+  
   // Mock state for checked items (In a real app, this would be persisted)
   const [checkedItems, setCheckedItems] = useState<Record<string, boolean>>({
     "survival-1": true,
@@ -116,6 +118,18 @@ export function ResilienceDashboard() {
   const score = calculateScore(currentPhase);
   const evaluation = getScoreEvaluation(score);
   const config = RESILIENCE_DATA[currentPhase];
+
+  // Get next actions (unchecked mandatory items first, then highest weight)
+  const nextActions = useMemo(() => {
+    return config.items
+      .filter(item => !checkedItems[`${currentPhase}-${item.id}`])
+      .sort((a, b) => {
+        if (a.isMandatory && !b.isMandatory) return -1;
+        if (!a.isMandatory && b.isMandatory) return 1;
+        return b.weight - a.weight;
+      })
+      .slice(0, 3);
+  }, [currentPhase, checkedItems, config.items]);
 
   return (
     <div className="space-y-6">
@@ -152,59 +166,93 @@ export function ResilienceDashboard() {
 
       {/* Main Dashboard Card */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Left: Score & Evaluation */}
+        {/* Left: Score & Next Actions (Compact) */}
         <Card className="lg:col-span-1 bg-[#151e32] border-white/10 flex flex-col h-full">
-          <CardHeader>
+          <CardHeader className="pb-2">
             <CardTitle className="flex items-center gap-2">
               <ShieldCheck className="w-5 h-5 text-primary" />
               Current Status
             </CardTitle>
             <CardDescription>現在の到達レベル判定</CardDescription>
           </CardHeader>
-          <CardContent className="flex-1 flex flex-col items-center justify-center text-center py-6">
-            <div className="relative w-40 h-40 flex items-center justify-center mb-6">
-              {/* Circular Progress Placeholder - using SVG for custom look */}
-              <svg className="w-full h-full -rotate-90" viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="45" fill="none" stroke="#1e293b" strokeWidth="8" />
-                <circle 
-                  cx="50" cy="50" r="45" fill="none" 
-                  stroke="currentColor" 
-                  strokeWidth="8" 
-                  strokeDasharray="283" 
-                  strokeDashoffset={283 - (283 * score) / 100}
-                  className={cn("transition-all duration-1000 ease-out", evaluation.color)}
-                  strokeLinecap="round"
-                />
-              </svg>
-              <div className="absolute inset-0 flex flex-col items-center justify-center">
-                <span className={cn("text-4xl font-bold font-mono", evaluation.color)}>{score}</span>
-                <span className="text-base text-muted-foreground">現在の点数</span>
+          <CardContent className="flex-1 flex flex-col py-4">
+            {/* Compact Score Display */}
+            <div className="flex items-center gap-4 mb-6">
+              <div className="relative w-20 h-20 flex items-center justify-center shrink-0">
+                <svg className="w-full h-full -rotate-90" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#1e293b" strokeWidth="8" />
+                  <circle 
+                    cx="50" cy="50" r="45" fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="8" 
+                    strokeDasharray="283" 
+                    strokeDashoffset={283 - (283 * score) / 100}
+                    className={cn("transition-all duration-1000 ease-out", evaluation.color)}
+                    strokeLinecap="round"
+                  />
+                </svg>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className={cn("text-xl font-bold font-mono", evaluation.color)}>{score}</span>
+                </div>
+              </div>
+              
+              <div>
+                <Badge variant="outline" className={cn("mb-1 px-2 py-0.5 text-sm font-bold border-2", evaluation.color, evaluation.bg)}>
+                  {evaluation.rank}
+                </Badge>
+                <h3 className="text-base font-bold text-white leading-tight">{evaluation.label}</h3>
+                <p className="text-sm text-muted-foreground mt-1">{evaluation.message}</p>
               </div>
             </div>
             
-            <Badge variant="outline" className={cn("mb-3 px-3 py-1 text-base font-bold border-2", evaluation.color, evaluation.bg)}>
-              {evaluation.rank}
-            </Badge>
-            <h3 className="text-lg font-bold text-white mb-1">{evaluation.label}</h3>
-            <p className="text-base text-muted-foreground mb-6">{evaluation.message}</p>
-            
-            <div className="w-full bg-white/5 rounded-lg p-4 border border-white/10 text-left">
-              <div className="flex items-center gap-2 mb-2 text-base font-bold text-primary uppercase tracking-wider">
-                <Info className="w-3 h-3" />
+            {/* Next Actions List */}
+            <div className="w-full bg-white/5 rounded-lg p-4 border border-white/10 text-left flex-1">
+              <div className="flex items-center gap-2 mb-3 text-base font-bold text-primary uppercase tracking-wider">
+                <Info className="w-4 h-4" />
                 次に行うこと
               </div>
-              <div className="font-bold text-white mb-1">{evaluation.cta}</div>
-              <p className="text-base text-muted-foreground">{evaluation.ctaDesc}</p>
+              
+              {nextActions.length > 0 ? (
+                <div className="space-y-3">
+                  {nextActions.map((item, idx) => (
+                    <div key={item.id} className="flex items-start gap-2 text-sm">
+                      <div className="mt-0.5 w-4 h-4 rounded-full bg-primary/20 text-primary flex items-center justify-center text-[10px] font-bold shrink-0">
+                        {idx + 1}
+                      </div>
+                      <div>
+                        <p className="text-white font-medium leading-snug">{item.text}</p>
+                        {item.isMandatory && (
+                          <span className="text-[10px] text-red-400 flex items-center gap-0.5 mt-0.5">
+                            <AlertTriangle className="w-3 h-3" /> 必須項目
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-4 text-muted-foreground">
+                  <Check className="w-8 h-8 mx-auto mb-2 text-emerald-500" />
+                  <p>すべて完了しました！</p>
+                  <p className="text-xs mt-1">次のステージへ進みましょう</p>
+                </div>
+              )}
             </div>
           </CardContent>
         </Card>
 
-        {/* Right: Checklist */}
+        {/* Right: Checklist (Accordion Style) */}
         <Card className="lg:col-span-2 bg-[#151e32] border-white/10 flex flex-col h-full">
-          <CardHeader>
-            <div className="flex justify-between items-start">
+          <CardHeader 
+            className="cursor-pointer hover:bg-white/5 transition-colors"
+            onClick={() => setIsExpanded(!isExpanded)}
+          >
+            <div className="flex justify-between items-center">
               <div>
-                <CardTitle>{config.title}</CardTitle>
+                <CardTitle className="flex items-center gap-2">
+                  {config.title}
+                  {isExpanded ? <ChevronUp className="w-5 h-5 text-muted-foreground" /> : <ChevronDown className="w-5 h-5 text-muted-foreground" />}
+                </CardTitle>
                 <CardDescription className="mt-1">{config.description}</CardDescription>
               </div>
               <Badge variant="secondary" className="bg-white/10 text-white hover:bg-white/20">
@@ -212,58 +260,80 @@ export function ResilienceDashboard() {
               </Badge>
             </div>
           </CardHeader>
-          <CardContent className="flex-1">
-            <div className="space-y-3">
-              {config.items.map((item) => {
-                const isChecked = checkedItems[`${currentPhase}-${item.id}`] || false;
-                const key = `${currentPhase}-${item.id}`;
-                
-                return (
-                  <div 
-                    key={item.id}
-                    onClick={() => handleToggle(currentPhase, item.id)}
-                    className={cn(
-                      "group flex items-start gap-3 p-3 rounded-lg border transition-all cursor-pointer",
-                      isChecked 
-                        ? "bg-primary/10 border-primary/30" 
-                        : "bg-black/20 border-white/5 hover:bg-white/5 hover:border-white/10"
-                    )}
-                  >
-                    <div className={cn(
-                      "mt-0.5 w-5 h-5 rounded border flex items-center justify-center shrink-0 transition-colors",
-                      isChecked 
-                        ? "bg-primary border-primary text-primary-foreground" 
-                        : "border-white/30 group-hover:border-white/50"
-                    )}>
-                      {isChecked && <Check className="w-3.5 h-3.5" />}
-                    </div>
-                    
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-1">
-                        {item.isMandatory && (
-                          <Badge variant="destructive" className="text-[10px] px-1.5 py-0 h-4 bg-red-500/80 hover:bg-red-500/80 border-0">
-                            必須
-                          </Badge>
-                        )}
-                        <span className={cn("text-base font-medium transition-colors", isChecked ? "text-white" : "text-gray-300")}>
-                          {item.text}
-                        </span>
+          
+          {/* Collapsible Content */}
+          <div className={cn(
+            "transition-all duration-300 ease-in-out overflow-hidden",
+            isExpanded ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
+          )}>
+            <CardContent className="pt-0">
+              <div className="space-y-3 pt-2">
+                {config.items.map((item) => {
+                  const isChecked = checkedItems[`${currentPhase}-${item.id}`] || false;
+                  
+                  return (
+                    <div 
+                      key={item.id}
+                      onClick={() => handleToggle(currentPhase, item.id)}
+                      className={cn(
+                        "group flex items-start gap-3 p-3 rounded-lg border transition-all cursor-pointer",
+                        isChecked 
+                          ? "bg-primary/10 border-primary/30" 
+                          : "bg-black/20 border-white/5 hover:bg-white/5 hover:border-white/10"
+                      )}
+                    >
+                      <div className={cn(
+                        "mt-0.5 w-5 h-5 rounded border flex items-center justify-center shrink-0 transition-colors",
+                        isChecked 
+                          ? "bg-primary border-primary text-primary-foreground" 
+                          : "border-white/30 group-hover:border-white/50"
+                      )}>
+                        {isChecked && <Check className="w-3.5 h-3.5" />}
                       </div>
-                      <div className="text-[10px] text-muted-foreground flex items-center gap-2">
-                        <span>配点: {item.weight}点</span>
-                        {item.isMandatory && <span className="text-red-400/80 flex items-center gap-0.5"><AlertTriangle className="w-3 h-3" /> 重要項目</span>}
+                      
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-1">
+                          {item.isMandatory && (
+                            <Badge variant="destructive" className="text-[10px] px-1.5 py-0 h-4 bg-red-500/80 hover:bg-red-500/80 border-0">
+                              必須
+                            </Badge>
+                          )}
+                          <span className={cn("text-base font-medium transition-colors", isChecked ? "text-white" : "text-gray-300")}>
+                            {item.text}
+                          </span>
+                        </div>
+                        <div className="text-[10px] text-muted-foreground flex items-center gap-2">
+                          <span>配点: {item.weight}点</span>
+                          {item.isMandatory && <span className="text-red-400/80 flex items-center gap-0.5"><AlertTriangle className="w-3 h-3" /> 重要項目</span>}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                );
-              })}
-            </div>
-          </CardContent>
-          <CardFooter className="border-t border-white/5 pt-4">
-            <Button className="w-full gap-2" disabled={score < 100}>
-              次のステージへ進む <ArrowRight className="w-4 h-4" />
-            </Button>
-          </CardFooter>
+                  );
+                })}
+              </div>
+            </CardContent>
+            <CardFooter className="border-t border-white/5 pt-4 pb-6">
+              <Button className="w-full gap-2" disabled={score < 100}>
+                次のステージへ進む <ArrowRight className="w-4 h-4" />
+              </Button>
+            </CardFooter>
+          </div>
+          
+          {/* Collapsed State Preview (Show only if collapsed) */}
+          {!isExpanded && (
+            <CardContent className="pt-0 pb-6">
+              <p className="text-sm text-muted-foreground mb-4">
+                タップして詳細リストを展開し、チェックを行ってください。
+              </p>
+              <Button 
+                variant="outline" 
+                className="w-full border-white/10 hover:bg-white/5"
+                onClick={() => setIsExpanded(true)}
+              >
+                チェックリストを表示する <ChevronDown className="w-4 h-4 ml-2" />
+              </Button>
+            </CardContent>
+          )}
         </Card>
       </div>
     </div>
