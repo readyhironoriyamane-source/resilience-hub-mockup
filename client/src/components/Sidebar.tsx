@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Bell, Home, Settings, ShoppingBag, User, LayoutDashboard, Sparkles, Globe, Activity, ShieldAlert, Building2, Briefcase, Database, Bot, Satellite, Map, HelpCircle, FileText, Lock } from "lucide-react";
+import { Bell, Home, Settings, ShoppingBag, User, LayoutDashboard, Sparkles, Globe, Activity, ShieldAlert, Building2, Briefcase, Database, Bot, Satellite, Map, HelpCircle, FileText, Lock, Wifi } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { toast } from "sonner";
@@ -58,10 +58,10 @@ export function Sidebar() {
   ];
 
   const techNavItems = [
-    { name: "AI・ビッグデータ", icon: <Database className="w-4 h-4" />, href: "/seeds/ai-bigdata" },
-    { name: "ドローン・ロボティクス", icon: <Bot className="w-4 h-4" />, href: "/seeds/drone" },
-    { name: "衛星・地理情報", icon: <Satellite className="w-4 h-4" />, href: "/seeds/satellite" },
-    { name: "IoT・センサー・観測", icon: <Activity className="w-4 h-4" />, href: "/seeds/iot-sensor" },
+    { name: "AI・ビッグデータ解析", icon: <Database className="w-4 h-4" />, href: "/seeds/ai-bigdata", description: "被害予測・画像診断" },
+    { name: "ドローン・ロボティクス", icon: <Bot className="w-4 h-4" />, href: "/seeds/drone", description: "状況調査・物資運搬" },
+    { name: "衛星データ・地理情報", icon: <Globe className="w-4 h-4" />, href: "/seeds/satellite", description: "広域の被害把握" },
+    { name: "IoT・センサー観測", icon: <Wifi className="w-4 h-4" />, href: "/seeds/iot", description: "水位・土砂の遠隔監視" },
   ];
 
   return (
@@ -127,6 +127,9 @@ export function Sidebar() {
                   {item.icon && <span className={`mt-0.5 ${location === item.href ? "text-[#d4a574]" : "text-muted-foreground group-hover:text-white"}`}>{item.icon}</span>}
                   <div className="flex flex-col">
                     <span className="leading-tight">{item.name}</span>
+                    {item.description && (
+                      <span className="text-[10px] text-muted-foreground/70 mt-0.5 font-normal">{item.description}</span>
+                    )}
                   </div>
                 </div>
               </Link>
