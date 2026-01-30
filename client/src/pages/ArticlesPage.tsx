@@ -133,10 +133,10 @@ export default function ArticlesPage() {
                 </CardHeader>
                 
                 <CardContent className="p-5 pt-2 pb-4">
-                  <p className="text-muted-foreground text-sm line-clamp-3 mb-4">
+                  <p className="text-muted-foreground text-base line-clamp-3 mb-4">
                     {article.summary}
                   </p>
-                  <div className="flex items-center justify-between text-xs text-muted-foreground mt-auto">
+                  <div className="flex items-center justify-between text-base text-muted-foreground mt-auto">
                     <div className="flex items-center gap-2">
                       <User className="h-3 w-3" />
                       <span>{article.author}</span>

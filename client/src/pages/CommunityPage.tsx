@@ -130,7 +130,7 @@ export default function CommunityPage() {
                         <CardDescription className="mt-1 text-slate-600">{forum.description}</CardDescription>
                       </div>
                     </div>
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-4 text-base text-muted-foreground">
                       <div className="flex items-center gap-1">
                         <Users className="h-4 w-4" />
                         <span>{forum.members}</span>
@@ -148,7 +148,7 @@ export default function CommunityPage() {
                     <div className="flex items-center justify-center h-24 bg-slate-100 rounded-md border border-dashed border-slate-300">
                       <div className="text-center">
                         <Lock className="h-5 w-5 mx-auto text-gray-500 mb-2" />
-                        <p className="text-sm text-slate-500">このフォーラムは招待制です</p>
+                        <p className="text-base text-slate-500">このフォーラムは招待制です</p>
                       </div>
                     </div>
                   ) : (
@@ -165,7 +165,7 @@ export default function CommunityPage() {
                               {topic.title}
                             </span>
                           </div>
-                          <div className="flex items-center gap-4 text-xs text-slate-500">
+                          <div className="flex items-center gap-4 text-base text-slate-500">
                             <span>by {topic.author}</span>
                             <span className="flex items-center gap-1">
                               <MessageSquare className="h-3 w-3" /> {topic.replies}

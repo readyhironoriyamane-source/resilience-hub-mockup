@@ -84,7 +84,7 @@ export default function Home() {
                 <input 
                   type="text" 
                   placeholder="キーワード検索..." 
-                  className="bg-white/5 border border-white/10 rounded-full pl-9 pr-4 py-1.5 text-sm text-white placeholder:text-muted-foreground focus:outline-none focus:bg-white/10 focus:border-white/20 w-64 transition-all"
+                  className="bg-white/5 border border-white/10 rounded-full pl-9 pr-4 py-1.5 text-base text-white placeholder:text-muted-foreground focus:outline-none focus:bg-white/10 focus:border-white/20 w-64 transition-all"
                 />
               </div>
               <Search className="md:hidden w-5 h-5 text-muted-foreground hover:text-white cursor-pointer transition-colors" />
@@ -135,7 +135,7 @@ export default function Home() {
                   </div>
                   <div className="flex flex-wrap gap-2 justify-center md:justify-start">
                     {["避難所・物資の管理", "住民への情報伝達", "ハザードマップ・地図", "補助金・国の動向", "他自治体の成功事例"].map((tag) => (
-                      <span key={tag} className="px-3 py-2 rounded-md bg-white/10 text-sm text-white/90 border border-white/5 hover:bg-white/20 cursor-pointer transition-colors">
+                      <span key={tag} className="px-3 py-2 rounded-md bg-white/10 text-base text-white/90 border border-white/5 hover:bg-white/20 cursor-pointer transition-colors">
                         {tag}
                       </span>
                     ))}
@@ -155,7 +155,7 @@ export default function Home() {
           <section>
             <div className="flex items-center justify-between mb-6">
               <h2 className="font-sans text-xl font-bold">最新の投稿</h2>
-              <div className="text-xs text-muted-foreground">全 {contentItems.length} 件</div>
+              <div className="text-base text-muted-foreground">全 {contentItems.length} 件</div>
             </div>
             
             <div className="flex flex-col gap-8">

@@ -52,7 +52,7 @@ export function DiscussionSection({ isLocked, onUpgrade }: DiscussionSectionProp
       <div className="flex items-center gap-3 mb-8 opacity-50">
         <MessageSquare className="w-6 h-6 text-muted-foreground" />
         <h2 className="text-xl font-bold font-sans text-muted-foreground">Community Discussion</h2>
-        <span className="px-2 py-0.5 rounded-full bg-white/5 text-xs text-muted-foreground">
+        <span className="px-2 py-0.5 rounded-full bg-white/5 text-base text-muted-foreground">
           Coming Soon
         </span>
       </div>
@@ -63,7 +63,7 @@ export function DiscussionSection({ isLocked, onUpgrade }: DiscussionSectionProp
             <MessageSquare className="w-6 h-6 text-muted-foreground" />
           </div>
           <h3 className="text-lg font-bold mb-2 text-white/80">コミュニティ機能は準備中です</h3>
-          <p className="text-sm text-muted-foreground mb-6">
+          <p className="text-base text-muted-foreground mb-6">
             専門家や他のメンバーとのディスカッション機能は、
             2026年4月のリリースを予定しています。
             現在は情報の閲覧・収集に特化した体験をお楽しみください。

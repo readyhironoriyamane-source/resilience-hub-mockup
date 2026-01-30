@@ -54,7 +54,7 @@ export default function GRSDesk() {
                   以下の受付番号にて承りました。担当者より3営業日以内にご連絡いたします。
                 </p>
                 <div className="bg-black/30 rounded-lg p-4 mb-8 inline-block">
-                  <span className="text-sm text-muted-foreground block mb-1">受付番号</span>
+                  <span className="text-base text-muted-foreground block mb-1">受付番号</span>
                   <span className="text-xl font-mono font-bold text-primary tracking-wider">{ticketId}</span>
                 </div>
                 <div className="flex justify-center gap-4">
@@ -125,7 +125,7 @@ export default function GRSDesk() {
 
                   <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4 flex gap-3 items-start">
                     <AlertCircle className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />
-                    <div className="text-sm text-slate-300">
+                    <div className="text-base text-slate-300">
                       <p className="mb-1 font-bold text-blue-400">AIによる自動応答について</p>
                       <p>
                         お問い合わせ内容によっては、AIエージェントが一次回答を行う場合があります。

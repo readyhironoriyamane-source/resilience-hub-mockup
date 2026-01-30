@@ -85,7 +85,7 @@ export default function DirectoryPage() {
               <div>
                 <div className="flex items-center gap-2 mb-2 opacity-80">
                   <Building2 className="w-6 h-6 text-[#d4a574]" />
-                  <span className="font-sans font-bold text-sm">Member Directory</span>
+                  <span className="font-sans font-bold text-base">Member Directory</span>
                 </div>
                 <h1 className="font-sans text-3xl md:text-4xl font-bold mb-2">
                   Resilience Partners
@@ -125,7 +125,7 @@ export default function DirectoryPage() {
                           <h3 className="text-lg font-bold truncate group-hover:text-blue-700 transition-colors text-[#0B1026]">
                             {company.name}
                           </h3>
-                          <div className="flex items-center gap-3 text-sm text-slate-500 mt-1">
+                          <div className="flex items-center gap-3 text-base text-slate-500 mt-1">
                             <span className="flex items-center gap-1">
                               <Building2 className="h-3 w-3" /> {company.industry}
                             </span>
@@ -136,13 +136,13 @@ export default function DirectoryPage() {
                         </div>
                       </div>
                       
-                      <p className="text-sm text-slate-600 mt-3 line-clamp-2">
+                      <p className="text-base text-slate-600 mt-3 line-clamp-2">
                         {company.description}
                       </p>
 
                       <div className="flex flex-wrap gap-2 mt-4">
                         {company.tags.map(tag => (
-                          <Badge key={tag} variant="secondary" className="text-xs bg-slate-100 text-slate-700 border border-slate-300 hover:bg-slate-200 transition-colors font-medium">
+                          <Badge key={tag} variant="secondary" className="text-base bg-slate-100 text-slate-700 border border-slate-300 hover:bg-slate-200 transition-colors font-medium">
                             {tag}
                           </Badge>
                         ))}
@@ -151,11 +151,11 @@ export default function DirectoryPage() {
                   </div>
                   
                   <div className="mt-6 pt-4 border-t border-slate-200 flex justify-between items-center">
-                    <div className="flex items-center gap-2 text-xs text-slate-500">
+                    <div className="flex items-center gap-2 text-base text-slate-500">
                       <Users className="h-3 w-3" />
                       <span>{company.employees} employees</span>
                     </div>
-                    <Button variant="ghost" size="sm" className="h-8 gap-1 text-xs text-slate-500 hover:text-primary hover:bg-slate-100">
+                    <Button variant="ghost" size="sm" className="h-8 gap-1 text-base text-slate-500 hover:text-primary hover:bg-slate-100">
                       <LinkIcon className="h-3 w-3" />
                       詳細を見る
                     </Button>

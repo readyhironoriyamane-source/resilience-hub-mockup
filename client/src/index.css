@@ -141,7 +141,8 @@
     font-family: 'Noto Sans JP', sans-serif !important; /* UD: 強制的にNoto Sans JPを適用 */
     line-height: 1.75;
     letter-spacing: 0.05em;
-    font-size: 16px;
+    font-size: 16px; /* Mobile base size */
+    line-height: 1.6; /* UD: 1.5-1.6 line height */
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Noto Sans JP', sans-serif !important; /* UD: 強制的にNoto Sans JPを適用 */
@@ -205,6 +206,11 @@
       padding-left: 2rem; /* 32px - desktop padding */
       padding-right: 2rem;
       max-width: 1280px; /* Standard content width */
+    }
+    
+    /* UD: PC base font size 18px */
+    html {
+      font-size: 18px;
     }
   }
 }

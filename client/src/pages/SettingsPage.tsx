@@ -87,9 +87,9 @@ export default function SettingsPage() {
                       <div className="flex justify-between items-start z-10">
                         <div className="flex items-center gap-2">
                           <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center backdrop-blur-sm">
-                            <span className="font-sans font-bold text-white text-xs">RH</span>
+                            <span className="font-sans font-bold text-white text-base">RH</span>
                           </div>
-                          <span className="font-sans font-bold text-white text-sm tracking-wide">RESILIENCE HUB</span>
+                          <span className="font-sans font-bold text-white text-base tracking-wide">RESILIENCE HUB</span>
                         </div>
                         <Badge variant="outline" className="bg-amber-500/10 text-amber-400 border-amber-500/30">GOLD MEMBER</Badge>
                       </div>
@@ -99,7 +99,7 @@ export default function SettingsPage() {
 
                       {/* Card Footer */}
                       <div className="z-10">
-                        <div className="text-xs text-gray-400 mb-1">MEMBER NAME</div>
+                        <div className="text-base text-gray-400 mb-1">MEMBER NAME</div>
                         <div className="text-lg font-mono text-white tracking-wider mb-4">HIRONORI</div>
                         <div className="flex justify-between items-end">
                           <div className="text-[10px] text-gray-500">ID: 8823-1989-0115</div>
@@ -165,8 +165,8 @@ export default function SettingsPage() {
                       ].map((item, i) => (
                         <div key={i} className="flex items-center justify-between p-3 rounded-lg bg-black/20 hover:bg-white/5 transition-colors cursor-pointer group">
                           <div className="space-y-1">
-                            <div className="font-medium text-sm text-white group-hover:text-primary transition-colors">{item.title}</div>
-                            <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                            <div className="font-medium text-base text-white group-hover:text-primary transition-colors">{item.title}</div>
+                            <div className="flex items-center gap-2 text-base text-muted-foreground">
                               <Badge variant="outline" className="text-[10px] py-0 h-5 border-white/10">{item.category}</Badge>
                               <span>Saved on {item.date}</span>
                             </div>
@@ -179,7 +179,7 @@ export default function SettingsPage() {
                     </div>
                   </CardContent>
                   <CardFooter>
-                    <Button variant="outline" className="w-full text-xs">すべての保存記事を見る</Button>
+                    <Button variant="outline" className="w-full text-base">すべての保存記事を見る</Button>
                   </CardFooter>
                 </Card>
 
@@ -199,8 +199,8 @@ export default function SettingsPage() {
                       ].map((item, i) => (
                         <div key={i} className="flex items-center justify-between p-3 rounded-lg bg-black/20 hover:bg-white/5 transition-colors cursor-pointer group">
                           <div className="space-y-1">
-                            <div className="font-medium text-sm text-white group-hover:text-primary transition-colors">{item.title}</div>
-                            <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                            <div className="font-medium text-base text-white group-hover:text-primary transition-colors">{item.title}</div>
+                            <div className="flex items-center gap-2 text-base text-muted-foreground">
                               <span className="text-primary/80">{item.forum}</span>
                               <span>•</span>
                               <span>{item.replies} replies</span>
@@ -226,7 +226,7 @@ export default function SettingsPage() {
                 <CardContent>
                   <div className="space-y-6">
                     <div>
-                      <h3 className="text-sm font-medium text-gray-400 mb-3">Needs (業務課題)</h3>
+                      <h3 className="text-base font-medium text-gray-400 mb-3">Needs (業務課題)</h3>
                       <div className="flex flex-wrap gap-2">
                         {["リスク可視化", "安否確認", "サプライチェーン", "法規制対応", "BCP策定", "サイバーセキュリティ"].map((tag) => (
                           <Badge 
@@ -241,7 +241,7 @@ export default function SettingsPage() {
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-sm font-medium text-gray-400 mb-3">Seeds (技術・分野)</h3>
+                      <h3 className="text-base font-medium text-gray-400 mb-3">Seeds (技術・分野)</h3>
                       <div className="flex flex-wrap gap-2">
                         {["AI・ビッグデータ", "ドローン", "衛星データ", "IoT・センサー", "ロボティクス", "ブロックチェーン"].map((tag) => (
                           <Badge 
@@ -290,13 +290,13 @@ export default function SettingsPage() {
                             <AvatarFallback>{member.name[0]}</AvatarFallback>
                           </Avatar>
                           <div>
-                            <div className="font-medium text-sm text-white">{member.name}</div>
-                            <div className="text-xs text-gray-500">{member.email}</div>
+                            <div className="font-medium text-base text-white">{member.name}</div>
+                            <div className="text-base text-gray-500">{member.email}</div>
                           </div>
                         </div>
                         <div className="flex items-center gap-3">
-                          <Badge variant="secondary" className="text-xs">{member.role}</Badge>
-                          <span className={`text-xs ${member.status === 'Active' ? 'text-green-500' : 'text-yellow-500'}`}>
+                          <Badge variant="secondary" className="text-base">{member.role}</Badge>
+                          <span className={`text-base ${member.status === 'Active' ? 'text-green-500' : 'text-yellow-500'}`}>
                             {member.status}
                           </span>
                         </div>
@@ -317,15 +317,15 @@ export default function SettingsPage() {
                 <CardContent className="space-y-6">
                   <div className="flex items-center justify-between p-4 rounded-lg bg-gradient-to-r from-primary/20 to-transparent border border-primary/20">
                     <div>
-                      <div className="text-sm text-primary font-medium mb-1">Current Plan</div>
+                      <div className="text-base text-primary font-medium mb-1">Current Plan</div>
                       <div className="text-2xl font-bold text-white">Business Plan</div>
-                      <div className="text-xs text-gray-400 mt-1">Next billing date: 2026/02/01</div>
+                      <div className="text-base text-gray-400 mt-1">Next billing date: 2026/02/01</div>
                     </div>
                     <Badge className="bg-primary text-primary-foreground">Active</Badge>
                   </div>
 
                   <div>
-                    <h3 className="text-sm font-medium text-gray-400 mb-3">Invoice History</h3>
+                    <h3 className="text-base font-medium text-gray-400 mb-3">Invoice History</h3>
                     <div className="space-y-2">
                       {[
                         { date: "2026/01/01", amount: "¥50,000", id: "INV-2026001" },
@@ -338,11 +338,11 @@ export default function SettingsPage() {
                               <Download className="w-4 h-4" />
                             </div>
                             <div>
-                              <div className="text-sm font-medium text-gray-200">{inv.date}</div>
-                              <div className="text-xs text-gray-500">{inv.id}</div>
+                              <div className="text-base font-medium text-gray-200">{inv.date}</div>
+                              <div className="text-base text-gray-500">{inv.id}</div>
                             </div>
                           </div>
-                          <div className="text-sm font-mono text-gray-300">{inv.amount}</div>
+                          <div className="text-base font-mono text-gray-300">{inv.amount}</div>
                         </div>
                       ))}
                     </div>

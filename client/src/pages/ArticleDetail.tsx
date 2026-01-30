@@ -80,10 +80,10 @@ export default function ArticleDetail() {
         {/* Article Header */}
         <header className="mb-10">
           <div className="flex items-center gap-3 mb-4">
-            <span className="px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold border border-primary/20">
+            <span className="px-3 py-1 rounded-full bg-primary/20 text-primary text-base font-bold border border-primary/20">
               {item.category}
             </span>
-            <div className="flex items-center gap-1 text-xs text-muted-foreground">
+            <div className="flex items-center gap-1 text-base text-muted-foreground">
               <Clock className="w-3 h-3" />
               {item.date}
             </div>
@@ -98,8 +98,8 @@ export default function ArticleDetail() {
               <User className="w-5 h-5 text-muted-foreground" />
             </div>
             <div>
-              <div className="text-sm font-bold">{item.author}</div>
-              <div className="text-xs text-muted-foreground">Contributor</div>
+              <div className="text-base font-bold">{item.author}</div>
+              <div className="text-base text-muted-foreground">Contributor</div>
             </div>
           </div>
 
@@ -130,8 +130,8 @@ export default function ArticleDetail() {
             </div>
             <ul className={`space-y-3 ${isLocked ? 'blur-sm' : ''}`}>
               {item.keyTakeaways.map((point, index) => (
-                <li key={index} className="flex items-start gap-3 text-sm md:text-base text-white/90">
-                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center text-xs font-bold mt-0.5">
+                <li key={index} className="flex items-start gap-3 text-base md:text-base text-white/90">
+                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center text-base font-bold mt-0.5">
                     {index + 1}
                   </span>
                   {point}
@@ -142,7 +142,7 @@ export default function ArticleDetail() {
               <div className="absolute inset-0 flex items-center justify-center bg-[#0F172A]/40 backdrop-blur-[2px]">
                 <div className="text-center p-4">
                   <Lock className="w-8 h-8 text-[#d4a574] mx-auto mb-2" />
-                  <p className="text-sm font-bold text-white">3つの要点は有料会員限定です</p>
+                  <p className="text-base font-bold text-white">3つの要点は有料会員限定です</p>
                 </div>
               </div>
             )}
@@ -188,7 +188,7 @@ export default function ArticleDetail() {
         {/* Source Link - Only show if unlocked */}
         {item.sourceUrl && !isLocked && (
           <div className="mb-8 bg-[#0F172A]/80 p-4 rounded-lg border border-white/10 backdrop-blur-sm">
-            <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+            <div className="flex items-center gap-2 text-base text-muted-foreground mb-2">
               <ExternalLink className="w-4 h-4" />
               <span className="font-bold text-white">一次情報ソース</span>
             </div>
@@ -197,15 +197,15 @@ export default function ArticleDetail() {
                 href={item.sourceUrl} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-primary hover:underline truncate flex-1 text-sm"
+                className="text-primary hover:underline truncate flex-1 text-base"
               >
                 {item.sourceUrl}
               </a>
-              <span className="text-xs text-muted-foreground whitespace-nowrap bg-white/5 px-2 py-1 rounded">
+              <span className="text-base text-muted-foreground whitespace-nowrap bg-white/5 px-2 py-1 rounded">
                 信頼性確認済み
               </span>
             </div>
-            <p className="text-xs text-muted-foreground mt-2">
+            <p className="text-base text-muted-foreground mt-2">
               ※ AI要約は情報の正確性を期していますが、重要な意思決定の際は必ず一次情報をご確認ください。
             </p>
           </div>

@@ -137,14 +137,14 @@ export function ResilienceDashboard() {
                   : "bg-white/5 border-white/5 hover:bg-white/10 opacity-70 hover:opacity-100"
               )}
             >
-              <div className="text-[10px] md:text-xs font-bold tracking-wider uppercase mb-1 text-muted-foreground">
+              <div className="text-[10px] md:text-base font-bold tracking-wider uppercase mb-1 text-muted-foreground">
                 {pConfig.subtitle}
               </div>
-              <div className="text-sm md:text-base font-bold text-white mb-2">
+              <div className="text-base md:text-base font-bold text-white mb-2">
                 {pConfig.title.split("：")[0]}
               </div>
               <Progress value={pScore} className="h-1.5 w-full bg-black/40" indicatorClassName={pConfig.color} />
-              <div className="text-xs mt-1 font-mono">{pScore}%</div>
+              <div className="text-base mt-1 font-mono">{pScore}%</div>
             </button>
           );
         })}
@@ -178,23 +178,23 @@ export function ResilienceDashboard() {
               </svg>
               <div className="absolute inset-0 flex flex-col items-center justify-center">
                 <span className={cn("text-4xl font-bold font-mono", evaluation.color)}>{score}</span>
-                <span className="text-xs text-muted-foreground">POINTS</span>
+                <span className="text-base text-muted-foreground">POINTS</span>
               </div>
             </div>
             
-            <Badge variant="outline" className={cn("mb-3 px-3 py-1 text-sm font-bold border-2", evaluation.color, evaluation.bg)}>
+            <Badge variant="outline" className={cn("mb-3 px-3 py-1 text-base font-bold border-2", evaluation.color, evaluation.bg)}>
               {evaluation.rank}
             </Badge>
             <h3 className="text-lg font-bold text-white mb-1">{evaluation.label}</h3>
-            <p className="text-sm text-muted-foreground mb-6">{evaluation.message}</p>
+            <p className="text-base text-muted-foreground mb-6">{evaluation.message}</p>
             
             <div className="w-full bg-white/5 rounded-lg p-4 border border-white/10 text-left">
-              <div className="flex items-center gap-2 mb-2 text-xs font-bold text-primary uppercase tracking-wider">
+              <div className="flex items-center gap-2 mb-2 text-base font-bold text-primary uppercase tracking-wider">
                 <Info className="w-3 h-3" />
                 Recommended Action
               </div>
               <div className="font-bold text-white mb-1">{evaluation.cta}</div>
-              <p className="text-xs text-muted-foreground">{evaluation.ctaDesc}</p>
+              <p className="text-base text-muted-foreground">{evaluation.ctaDesc}</p>
             </div>
           </CardContent>
         </Card>
@@ -245,7 +245,7 @@ export function ResilienceDashboard() {
                             必須
                           </Badge>
                         )}
-                        <span className={cn("text-sm font-medium transition-colors", isChecked ? "text-white" : "text-gray-300")}>
+                        <span className={cn("text-base font-medium transition-colors", isChecked ? "text-white" : "text-gray-300")}>
                           {item.text}
                         </span>
                       </div>

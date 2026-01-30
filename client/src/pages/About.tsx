@@ -165,25 +165,25 @@ export default function About() {
                 </div>
               </div>
               <div className="p-6 flex-1 flex flex-col">
-                <p className="text-xs font-bold text-blue-400 mb-4 tracking-wider">OSINTech連携</p>
-                <p className="text-blue-200/80 mb-6 text-sm leading-relaxed">
+                <p className="text-base font-bold text-blue-400 mb-4 tracking-wider">OSINTech連携</p>
+                <p className="text-blue-200/80 mb-6 text-base leading-relaxed">
                   世界中の防災テック情報を会員限定で閲覧可能。
                   AIが関心に合わせてタイムラインを最適化し、1500を超える国際機関からの情報を一元化します。
                 </p>
                 <ul className="space-y-3 mt-auto">
-                  <li className="flex items-center text-sm text-gray-300">
+                  <li className="flex items-center text-base text-gray-300">
                     <div className="w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center mr-3 shrink-0">
                       <Check className="w-3 h-3 text-blue-400" />
                     </div>
                     AIによるタイムライン最適化
                   </li>
-                  <li className="flex items-center text-sm text-gray-300">
+                  <li className="flex items-center text-base text-gray-300">
                     <div className="w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center mr-3 shrink-0">
                       <Check className="w-3 h-3 text-blue-400" />
                     </div>
                     1500超の国際機関情報連携
                   </li>
-                  <li className="flex items-center text-sm text-gray-300">
+                  <li className="flex items-center text-base text-gray-300">
                     <div className="w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center mr-3 shrink-0">
                       <Check className="w-3 h-3 text-blue-400" />
                     </div>
@@ -210,25 +210,25 @@ export default function About() {
                 </div>
               </div>
               <div className="p-6 flex-1 flex flex-col">
-                <p className="text-xs font-bold text-emerald-400 mb-4 tracking-wider">AI最適化 & 可視化</p>
-                <p className="text-emerald-200/80 mb-6 text-sm leading-relaxed">
+                <p className="text-base font-bold text-emerald-400 mb-4 tracking-wider">AI最適化 & 可視化</p>
+                <p className="text-emerald-200/80 mb-6 text-base leading-relaxed">
                   自社課題からのリスク可視化と導入ソリューション管理を実現。
                   関心分野のクリッピングによって、ダッシュボードの精度を高めていくことができます。
                 </p>
                 <ul className="space-y-3 mt-auto">
-                  <li className="flex items-center text-sm text-gray-300">
+                  <li className="flex items-center text-base text-gray-300">
                     <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mr-3 shrink-0">
                       <Check className="w-3 h-3 text-emerald-400" />
                     </div>
                     自社課題・リスクの可視化
                   </li>
-                  <li className="flex items-center text-sm text-gray-300">
+                  <li className="flex items-center text-base text-gray-300">
                     <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mr-3 shrink-0">
                       <Check className="w-3 h-3 text-emerald-400" />
                     </div>
                     導入ソリューション管理
                   </li>
-                  <li className="flex items-center text-sm text-gray-300">
+                  <li className="flex items-center text-base text-gray-300">
                     <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mr-3 shrink-0">
                       <Check className="w-3 h-3 text-emerald-400" />
                     </div>
@@ -255,25 +255,25 @@ export default function About() {
                 </div>
               </div>
               <div className="p-6 flex-1 flex flex-col">
-                <p className="text-xs font-bold text-orange-400 mb-4 tracking-wider">ユーザー共創</p>
-                <p className="text-orange-200/80 mb-6 text-sm leading-relaxed">
+                <p className="text-base font-bold text-orange-400 mb-4 tracking-wider">ユーザー共創</p>
+                <p className="text-orange-200/80 mb-6 text-base leading-relaxed">
                   ダッシュボードに対しAIが要約や最適解をレコメンド。
                   ユーザー同士のコミュニティ形成により、世界中の人と質の高いQ&Aを繰り広げられます。
                 </p>
                 <ul className="space-y-3 mt-auto">
-                  <li className="flex items-center text-sm text-gray-300">
+                  <li className="flex items-center text-base text-gray-300">
                     <div className="w-5 h-5 rounded-full bg-orange-500/20 flex items-center justify-center mr-3 shrink-0">
                       <Check className="w-3 h-3 text-orange-400" />
                     </div>
                     AI要約 & 最適解レコメンド
                   </li>
-                  <li className="flex items-center text-sm text-gray-300">
+                  <li className="flex items-center text-base text-gray-300">
                     <div className="w-5 h-5 rounded-full bg-orange-500/20 flex items-center justify-center mr-3 shrink-0">
                       <Check className="w-3 h-3 text-orange-400" />
                     </div>
                     質の高いQ&Aコミュニティ
                   </li>
-                  <li className="flex items-center text-sm text-gray-300">
+                  <li className="flex items-center text-base text-gray-300">
                     <div className="w-5 h-5 rounded-full bg-orange-500/20 flex items-center justify-center mr-3 shrink-0">
                       <Check className="w-3 h-3 text-orange-400" />
                     </div>
@@ -304,8 +304,8 @@ export default function About() {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">自治体・公共機関</h3>
-                <p className="text-sm text-muted-foreground mb-4">地域防災計画の策定と実行</p>
-                <ul className="space-y-2 text-sm text-slate-300">
+                <p className="text-base text-muted-foreground mb-4">地域防災計画の策定と実行</p>
+                <ul className="space-y-2 text-base text-slate-300">
                   <li className="flex items-start gap-2"><Check className="w-4 h-4 text-[#d4a574] mt-0.5" /> 先進的な防災事例の参照</li>
                   <li className="flex items-start gap-2"><Check className="w-4 h-4 text-[#d4a574] mt-0.5" /> 最適なソリューションの選定</li>
                 </ul>
@@ -321,8 +321,8 @@ export default function About() {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">企業・ビジネス</h3>
-                <p className="text-sm text-muted-foreground mb-4">BCP策定と新規事業創出</p>
-                <ul className="space-y-2 text-sm text-slate-300">
+                <p className="text-base text-muted-foreground mb-4">BCP策定と新規事業創出</p>
+                <ul className="space-y-2 text-base text-slate-300">
                   <li className="flex items-start gap-2"><Check className="w-4 h-4 text-[#d4a574] mt-0.5" /> サプライチェーンリスク管理</li>
                   <li className="flex items-start gap-2"><Check className="w-4 h-4 text-[#d4a574] mt-0.5" /> 防災ビジネスのパートナー探索</li>
                 </ul>
@@ -338,8 +338,8 @@ export default function About() {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">投資家・金融機関</h3>
-                <p className="text-sm text-muted-foreground mb-4">ESG投資とリスク評価</p>
-                <ul className="space-y-2 text-sm text-slate-300">
+                <p className="text-base text-muted-foreground mb-4">ESG投資とリスク評価</p>
+                <ul className="space-y-2 text-base text-slate-300">
                   <li className="flex items-start gap-2"><Check className="w-4 h-4 text-[#d4a574] mt-0.5" /> 気候変動リスクの定量評価</li>
                   <li className="flex items-start gap-2"><Check className="w-4 h-4 text-[#d4a574] mt-0.5" /> 有望な防災テックへの投資</li>
                 </ul>
@@ -364,13 +364,13 @@ export default function About() {
               <div className="mb-4">
                 <h3 className="text-lg font-bold text-white">Free</h3>
                 <div className="text-2xl font-bold mt-2">¥0</div>
-                <p className="text-xs text-muted-foreground mt-1">リード獲得用</p>
+                <p className="text-base text-muted-foreground mt-1">リード獲得用</p>
               </div>
               <div className="flex-1 space-y-4 mb-6">
-                <div className="text-sm border-t border-white/10 pt-4">
+                <div className="text-base border-t border-white/10 pt-4">
                   <p className="font-medium text-slate-300 mb-2">機能ハイライト</p>
                   <ul className="space-y-2">
-                    <li className="text-xs text-muted-foreground flex items-center gap-2">
+                    <li className="text-base text-muted-foreground flex items-center gap-2">
                       <Check className="w-3 h-3 text-slate-500" /> タイムライン閲覧 (3件/日)
                     </li>
                   </ul>
@@ -386,20 +386,20 @@ export default function About() {
               <div className="absolute top-0 left-0 w-full h-1 bg-blue-500"></div>
               <div className="mb-4">
                 <h3 className="text-lg font-bold text-blue-100">Standard</h3>
-                <div className="text-2xl font-bold mt-2 text-blue-400">¥30,000<span className="text-sm text-muted-foreground font-normal">/月</span></div>
-                <p className="text-xs text-muted-foreground mt-1">SaaS単体利用</p>
+                <div className="text-2xl font-bold mt-2 text-blue-400">¥30,000<span className="text-base text-muted-foreground font-normal">/月</span></div>
+                <p className="text-base text-muted-foreground mt-1">SaaS単体利用</p>
               </div>
               <div className="flex-1 space-y-4 mb-6">
-                <div className="text-sm border-t border-white/10 pt-4">
+                <div className="text-base border-t border-white/10 pt-4">
                   <p className="font-medium text-slate-300 mb-2">機能ハイライト</p>
                   <ul className="space-y-2">
-                    <li className="text-xs text-muted-foreground flex items-center gap-2">
+                    <li className="text-base text-muted-foreground flex items-center gap-2">
                       <Check className="w-3 h-3 text-blue-500" /> タイムライン無制限閲覧
                     </li>
-                    <li className="text-xs text-muted-foreground flex items-center gap-2">
+                    <li className="text-base text-muted-foreground flex items-center gap-2">
                       <Check className="w-3 h-3 text-blue-500" /> 課題・導入管理
                     </li>
-                    <li className="text-xs text-muted-foreground flex items-center gap-2">
+                    <li className="text-base text-muted-foreground flex items-center gap-2">
                       <Check className="w-3 h-3 text-blue-500" /> AIサマリー/マッチング
                     </li>
                   </ul>
@@ -417,20 +417,20 @@ export default function About() {
               </div>
               <div className="mb-4 mt-4">
                 <h3 className="text-lg font-bold text-emerald-100">Bundle</h3>
-                <div className="text-2xl font-bold mt-2 text-emerald-400">¥60,000<span className="text-sm text-muted-foreground font-normal">/月</span></div>
-                <p className="text-xs text-emerald-500/80 mt-1 font-medium">OSINTech + 協会付帯</p>
+                <div className="text-2xl font-bold mt-2 text-emerald-400">¥60,000<span className="text-base text-muted-foreground font-normal">/月</span></div>
+                <p className="text-base text-emerald-500/80 mt-1 font-medium">OSINTech + 協会付帯</p>
               </div>
               <div className="flex-1 space-y-4 mb-6">
-                <div className="text-sm border-t border-white/10 pt-4">
+                <div className="text-base border-t border-white/10 pt-4">
                   <p className="font-medium text-slate-300 mb-2">Standardの全機能に加え:</p>
                   <ul className="space-y-2">
-                    <li className="text-xs text-emerald-400 flex items-center gap-2 font-medium">
+                    <li className="text-base text-emerald-400 flex items-center gap-2 font-medium">
                       <ShieldCheck className="w-3 h-3" /> OSINTech リスク予兆
                     </li>
-                    <li className="text-xs text-muted-foreground flex items-center gap-2">
+                    <li className="text-base text-muted-foreground flex items-center gap-2">
                       <Check className="w-3 h-3 text-emerald-500" /> コミュニティ参加権限
                     </li>
-                    <li className="text-xs text-muted-foreground flex items-center gap-2">
+                    <li className="text-base text-muted-foreground flex items-center gap-2">
                       <Check className="w-3 h-3 text-emerald-500" /> 協会会員資格 (自動付帯)
                     </li>
                   </ul>
@@ -446,20 +446,20 @@ export default function About() {
               <div className="absolute top-0 left-0 w-full h-1 bg-orange-500"></div>
               <div className="mb-4">
                 <h3 className="text-lg font-bold text-orange-100">Premium</h3>
-                <div className="text-2xl font-bold mt-2 text-orange-400">¥100,000<span className="text-sm text-muted-foreground font-normal">/月</span></div>
-                <p className="text-xs text-muted-foreground mt-1">戦略パートナー枠</p>
+                <div className="text-2xl font-bold mt-2 text-orange-400">¥100,000<span className="text-base text-muted-foreground font-normal">/月</span></div>
+                <p className="text-base text-muted-foreground mt-1">戦略パートナー枠</p>
               </div>
               <div className="flex-1 space-y-4 mb-6">
-                <div className="text-sm border-t border-white/10 pt-4">
+                <div className="text-base border-t border-white/10 pt-4">
                   <p className="font-medium text-slate-300 mb-2">Bundleの全機能に加え:</p>
                   <ul className="space-y-2">
-                    <li className="text-xs text-muted-foreground flex items-center gap-2">
+                    <li className="text-base text-muted-foreground flex items-center gap-2">
                       <Crown className="w-3 h-3 text-orange-500" /> 特別会員 (VIP)
                     </li>
-                    <li className="text-xs text-muted-foreground flex items-center gap-2">
+                    <li className="text-base text-muted-foreground flex items-center gap-2">
                       <Check className="w-3 h-3 text-orange-500" /> 優先レコメンド
                     </li>
-                    <li className="text-xs text-muted-foreground flex items-center gap-2">
+                    <li className="text-base text-muted-foreground flex items-center gap-2">
                       <Check className="w-3 h-3 text-orange-500" /> イベント出展権含む
                     </li>
                   </ul>
@@ -477,7 +477,7 @@ export default function About() {
               {/* Header Row */}
               <div className="grid grid-cols-5 border-b border-white/10">
                 <div className="p-6 flex flex-col justify-center border-r border-white/5 bg-[#0f172a]/50">
-                  <span className="text-xs font-bold text-muted-foreground tracking-wider uppercase">Plan Comparison</span>
+                  <span className="text-base font-bold text-muted-foreground tracking-wider uppercase">Plan Comparison</span>
                   <h3 className="text-lg font-bold text-white mt-1">機能・特典一覧</h3>
                 </div>
                 
@@ -485,14 +485,14 @@ export default function About() {
                 <div className="p-6 text-center border-r border-white/5 bg-[#1e293b]/30">
                   <h4 className="font-bold text-slate-300 mb-2">Free</h4>
                   <div className="text-2xl font-bold text-white mb-1">¥0</div>
-                  <p className="text-xs text-muted-foreground">リード獲得用</p>
+                  <p className="text-base text-muted-foreground">リード獲得用</p>
                 </div>
 
                 {/* Standard */}
                 <div className="p-6 text-center border-r border-white/5 bg-[#1e293b]/30">
                   <h4 className="font-bold text-blue-400 mb-2">Standard</h4>
-                  <div className="text-2xl font-bold text-white mb-1">¥30,000<span className="text-sm font-normal text-muted-foreground">/月</span></div>
-                  <p className="text-xs text-muted-foreground">SaaS単体利用</p>
+                  <div className="text-2xl font-bold text-white mb-1">¥30,000<span className="text-base font-normal text-muted-foreground">/月</span></div>
+                  <p className="text-base text-muted-foreground">SaaS単体利用</p>
                 </div>
 
                 {/* Bundle (Recommended) */}
@@ -502,31 +502,31 @@ export default function About() {
                     Recommended
                   </div>
                   <h4 className="font-bold text-emerald-400 mb-2 mt-4">Bundle</h4>
-                  <div className="text-2xl font-bold text-white mb-1">¥60,000<span className="text-sm font-normal text-muted-foreground">/月</span></div>
-                  <p className="text-xs text-emerald-500/80 font-medium">OSINTech + 協会付帯</p>
+                  <div className="text-2xl font-bold text-white mb-1">¥60,000<span className="text-base font-normal text-muted-foreground">/月</span></div>
+                  <p className="text-base text-emerald-500/80 font-medium">OSINTech + 協会付帯</p>
                 </div>
 
                 {/* Premium */}
                 <div className="p-6 text-center bg-orange-950/20 relative overflow-hidden">
                   <div className="absolute top-0 left-0 w-full h-1 bg-orange-500"></div>
                   <h4 className="font-bold text-orange-400 mb-2">Premium</h4>
-                  <div className="text-2xl font-bold text-white mb-1">¥100,000<span className="text-sm font-normal text-muted-foreground">/月</span></div>
-                  <p className="text-xs text-orange-500/80 font-medium">戦略パートナー枠</p>
+                  <div className="text-2xl font-bold text-white mb-1">¥100,000<span className="text-base font-normal text-muted-foreground">/月</span></div>
+                  <p className="text-base text-orange-500/80 font-medium">戦略パートナー枠</p>
                 </div>
               </div>
 
               {/* Section 1: Solution Intelligence */}
               <div className="bg-[#0f172a]/30 px-6 py-3 border-b border-white/10">
-                <h4 className="text-sm font-bold text-slate-300">① ソリューション・インテリジェンス（情報収集）</h4>
+                <h4 className="text-base font-bold text-slate-300">① ソリューション・インテリジェンス（情報収集）</h4>
               </div>
               
               {/* Row: Timeline */}
               <div className="grid grid-cols-5 border-b border-white/5 hover:bg-white/[0.02] transition-colors">
                 <div className="p-4 border-r border-white/5 flex flex-col justify-center">
-                  <span className="font-bold text-sm text-slate-200">タイムライン閲覧</span>
-                  <span className="text-xs text-muted-foreground mt-0.5">最新の防災ソリューション・ニュース</span>
+                  <span className="font-bold text-base text-slate-200">タイムライン閲覧</span>
+                  <span className="text-base text-muted-foreground mt-0.5">最新の防災ソリューション・ニュース</span>
                 </div>
-                <div className="p-4 border-r border-white/5 flex items-center justify-center text-sm font-medium text-slate-300">
+                <div className="p-4 border-r border-white/5 flex items-center justify-center text-base font-medium text-slate-300">
                   3件/日
                 </div>
                 <div className="p-4 border-r border-white/5 flex items-center justify-center">
@@ -549,8 +549,8 @@ export default function About() {
               {/* Row: OSINTech Risk Prediction */}
               <div className="grid grid-cols-5 border-b border-white/10 hover:bg-white/[0.02] transition-colors">
                 <div className="p-4 border-r border-white/5 flex flex-col justify-center">
-                  <span className="font-bold text-sm text-emerald-400">OSINTech リスク予兆</span>
-                  <span className="text-xs text-muted-foreground mt-0.5">国際ルール形成・予兆検知 (RuleWatcher)</span>
+                  <span className="font-bold text-base text-emerald-400">OSINTech リスク予兆</span>
+                  <span className="text-base text-muted-foreground mt-0.5">国際ルール形成・予兆検知 (RuleWatcher)</span>
                 </div>
                 <div className="p-4 border-r border-white/5 flex items-center justify-center text-muted-foreground">-</div>
                 <div className="p-4 border-r border-white/5 flex items-center justify-center text-muted-foreground">-</div>
@@ -569,14 +569,14 @@ export default function About() {
 
               {/* Section 2: Personal Dashboard */}
               <div className="bg-[#0f172a]/30 px-6 py-3 border-b border-white/10">
-                <h4 className="text-sm font-bold text-slate-300">② パーソナル・ダッシュボード（業務管理）</h4>
+                <h4 className="text-base font-bold text-slate-300">② パーソナル・ダッシュボード（業務管理）</h4>
               </div>
 
               {/* Row: Issue Management */}
               <div className="grid grid-cols-5 border-b border-white/10 hover:bg-white/[0.02] transition-colors">
                 <div className="p-4 border-r border-white/5 flex flex-col justify-center">
-                  <span className="font-bold text-sm text-slate-200">課題・導入管理</span>
-                  <span className="text-xs text-muted-foreground mt-0.5">自社のリスク・対策状況の可視化と台帳管理</span>
+                  <span className="font-bold text-base text-slate-200">課題・導入管理</span>
+                  <span className="text-base text-muted-foreground mt-0.5">自社のリスク・対策状況の可視化と台帳管理</span>
                 </div>
                 <div className="p-4 border-r border-white/5 flex items-center justify-center text-muted-foreground">-</div>
                 <div className="p-4 border-r border-white/5 flex items-center justify-center">
@@ -598,14 +598,14 @@ export default function About() {
 
               {/* Section 3: AI Matching & Community */}
               <div className="bg-[#0f172a]/30 px-6 py-3 border-b border-white/10">
-                <h4 className="text-sm font-bold text-slate-300">③ AIマッチング & コミュニティ（解決・権威）</h4>
+                <h4 className="text-base font-bold text-slate-300">③ AIマッチング & コミュニティ（解決・権威）</h4>
               </div>
 
               {/* Row: AI Summary/Matching */}
               <div className="grid grid-cols-5 border-b border-white/5 hover:bg-white/[0.02] transition-colors">
                 <div className="p-4 border-r border-white/5 flex flex-col justify-center">
-                  <span className="font-bold text-sm text-slate-200">AIサマリー/マッチング</span>
-                  <span className="text-xs text-muted-foreground mt-0.5">課題に対する最適解レコメンド・AIスレッド</span>
+                  <span className="font-bold text-base text-slate-200">AIサマリー/マッチング</span>
+                  <span className="text-base text-muted-foreground mt-0.5">課題に対する最適解レコメンド・AIスレッド</span>
                 </div>
                 <div className="p-4 border-r border-white/5 flex items-center justify-center text-muted-foreground">-</div>
                 <div className="p-4 border-r border-white/5 flex items-center justify-center">
@@ -628,13 +628,13 @@ export default function About() {
               {/* Row: Association Membership */}
               <div className="grid grid-cols-5 border-b border-white/10 hover:bg-white/[0.02] transition-colors">
                 <div className="p-4 border-r border-white/5 flex flex-col justify-center">
-                  <span className="font-bold text-sm text-[#d4a574]">協会 会員資格</span>
-                  <span className="text-xs text-muted-foreground mt-0.5">認証バッジ付与・イベント優先出展権</span>
+                  <span className="font-bold text-base text-[#d4a574]">協会 会員資格</span>
+                  <span className="text-base text-muted-foreground mt-0.5">認証バッジ付与・イベント優先出展権</span>
                 </div>
                 <div className="p-4 border-r border-white/5 flex items-center justify-center text-muted-foreground">-</div>
                 <div className="p-4 border-r border-white/5 flex items-center justify-center text-muted-foreground">-</div>
                 <div className="p-4 border-r border-white/5 flex flex-col items-center justify-center bg-emerald-950/10">
-                  <span className="text-xs font-bold text-emerald-500 bg-emerald-500/10 px-2 py-1 rounded">自動付帯</span>
+                  <span className="text-base font-bold text-emerald-500 bg-emerald-500/10 px-2 py-1 rounded">自動付帯</span>
                 </div>
                 <div className="p-4 flex flex-col items-center justify-center bg-orange-950/10">
                   <Crown className="w-4 h-4 text-orange-500 mb-1" />
@@ -646,31 +646,31 @@ export default function About() {
               <div className="grid grid-cols-5 bg-[#0f172a]/50">
                 <div className="p-6 border-r border-white/5"></div>
                 <div className="p-6 border-r border-white/5">
-                  <Button variant="outline" className="w-full border-white/20 text-white hover:bg-white/10 bg-transparent text-xs h-9">
+                  <Button variant="outline" className="w-full border-white/20 text-white hover:bg-white/10 bg-transparent text-base h-9">
                     無料で開始
                   </Button>
                 </div>
                 <div className="p-6 border-r border-white/5 text-center">
-                  <span className="text-xs font-bold text-blue-400 block mb-2">SaaS標準</span>
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white border-none text-xs h-9">
+                  <span className="text-base font-bold text-blue-400 block mb-2">SaaS標準</span>
+                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white border-none text-base h-9">
                     選択する
                   </Button>
                 </div>
                 <div className="p-6 border-r border-white/5 bg-emerald-950/10 text-center">
-                  <span className="text-xs font-bold text-emerald-500 block mb-2">一番人気 (お得)</span>
-                  <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white border-none font-bold text-xs h-9 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+                  <span className="text-base font-bold text-emerald-500 block mb-2">一番人気 (お得)</span>
+                  <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white border-none font-bold text-base h-9 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
                     今すぐ始める
                   </Button>
                 </div>
                 <div className="p-6 bg-orange-950/10 text-center">
-                  <span className="text-xs font-bold text-orange-500 block mb-2">戦略パートナー</span>
-                  <Button className="w-full bg-orange-600 hover:bg-orange-700 text-white border-none text-xs h-9">
+                  <span className="text-base font-bold text-orange-500 block mb-2">戦略パートナー</span>
+                  <Button className="w-full bg-orange-600 hover:bg-orange-700 text-white border-none text-base h-9">
                     お問い合わせ
                   </Button>
                 </div>
               </div>
             </div>
-            <p className="text-right text-xs text-muted-foreground mt-4">
+            <p className="text-right text-base text-muted-foreground mt-4">
               ※ プレミアムプラン（年額120万円相当）には、年1回のイベント出展権（30万円相当）を含みます。
             </p>
           </div>
@@ -824,11 +824,11 @@ export default function About() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 bg-[#0a0f1c] border-t border-white/10 text-sm text-muted-foreground">
+      <footer className="py-12 bg-[#0a0f1c] border-t border-white/10 text-base text-muted-foreground">
         <div className="container mx-auto px-4 text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
             <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center">
-              <span className="font-sans font-bold text-white text-xs">RH</span>
+              <span className="font-sans font-bold text-white text-base">RH</span>
             </div>
             <span className="font-sans font-bold text-white">The Global Resilience Hub</span>
           </div>

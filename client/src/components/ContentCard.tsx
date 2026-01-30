@@ -69,17 +69,17 @@ export function ContentCard({ item, onClick, isRead = false, featured = false }:
           <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center text-[10px] text-primary font-bold">
             {item.author.charAt(0)}
           </div>
-          <span className="text-xs text-muted-foreground truncate">By {item.author}</span>
+          <span className="text-base text-muted-foreground truncate">By {item.author}</span>
         </div>
         <h3 className={`font-sans font-bold leading-tight mb-2 group-hover:text-primary transition-colors ${isRead ? 'text-muted-foreground' : ''} ${featured ? 'text-2xl md:text-3xl mb-4' : 'text-base line-clamp-2'}`}>
           {item.title}
         </h3>
         {featured && (
-          <p className="text-sm text-muted-foreground mb-4 line-clamp-3 hidden md:block">
+          <p className="text-base text-muted-foreground mb-4 line-clamp-3 hidden md:block">
             {item.description || "この記事の概要はまだありません。クリックして詳細をご覧ください。"}
           </p>
         )}
-        <p className="text-xs text-muted-foreground">
+        <p className="text-base text-muted-foreground">
           {item.date}
         </p>
       </CardContent>

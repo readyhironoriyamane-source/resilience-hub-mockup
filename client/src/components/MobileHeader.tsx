@@ -13,7 +13,7 @@ export function MobileHeader({ onMenuClick }: MobileHeaderProps) {
       <Link href="/">
         <div className="flex items-center gap-3 cursor-pointer">
           <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center shadow-lg shadow-primary/20">
-            <span className="font-sans text-white font-bold text-sm">RH</span>
+            <span className="font-sans text-white font-bold text-base">RH</span>
           </div>
           <span className="font-sans text-lg font-bold tracking-tight text-white">
             Resilience Hub

@@ -79,9 +79,9 @@ export default function DeskPage() {
         <div className="md:hidden sticky top-0 z-40 bg-[#0B1026]/80 backdrop-blur-md border-b border-white/10 p-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center border border-white/20">
-              <span className="font-sans text-white font-bold text-xs">RH</span>
+              <span className="font-sans text-white font-bold text-base">RH</span>
             </div>
-            <span className="font-sans font-bold text-sm tracking-tight">Resilience Hub</span>
+            <span className="font-sans font-bold text-base tracking-tight">Resilience Hub</span>
           </div>
           <Sheet>
             <SheetTrigger asChild>
@@ -121,34 +121,34 @@ export default function DeskPage() {
                 
                 {/* 1. 相談種別 */}
                 <div className="space-y-3">
-                  <Label className="text-base font-bold text-white">1. 相談種別 <span className="text-red-500 text-xs ml-1">*</span></Label>
+                  <Label className="text-base font-bold text-white">1. 相談種別 <span className="text-red-500 text-base ml-1">*</span></Label>
                   <RadioGroup defaultValue="alliance" className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="flex items-center space-x-2 border border-white/10 rounded-lg p-4 hover:bg-white/5 transition-colors cursor-pointer">
                       <RadioGroupItem value="alliance" id="alliance" className="border-white/50 text-primary" />
                       <Label htmlFor="alliance" className="cursor-pointer flex-1">
                         <span className="block font-bold text-white">協業・アライアンス</span>
-                        <span className="text-xs text-muted-foreground">技術連携、サービス連携のご提案</span>
+                        <span className="text-base text-muted-foreground">技術連携、サービス連携のご提案</span>
                       </Label>
                     </div>
                     <div className="flex items-center space-x-2 border border-white/10 rounded-lg p-4 hover:bg-white/5 transition-colors cursor-pointer">
                       <RadioGroupItem value="media" id="media" className="border-white/50 text-primary" />
                       <Label htmlFor="media" className="cursor-pointer flex-1">
                         <span className="block font-bold text-white">掲載・取材依頼</span>
-                        <span className="text-xs text-muted-foreground">プレスリリース送付、インタビュー希望</span>
+                        <span className="text-base text-muted-foreground">プレスリリース送付、インタビュー希望</span>
                       </Label>
                     </div>
                     <div className="flex items-center space-x-2 border border-white/10 rounded-lg p-4 hover:bg-white/5 transition-colors cursor-pointer">
                       <RadioGroupItem value="sales" id="sales" className="border-white/50 text-primary" />
                       <Label htmlFor="sales" className="cursor-pointer flex-1">
                         <span className="block font-bold text-white">導入・利用相談</span>
-                        <span className="text-xs text-muted-foreground">有料プラン詳細、法人契約について</span>
+                        <span className="text-base text-muted-foreground">有料プラン詳細、法人契約について</span>
                       </Label>
                     </div>
                     <div className="flex items-center space-x-2 border border-white/10 rounded-lg p-4 hover:bg-white/5 transition-colors cursor-pointer">
                       <RadioGroupItem value="subsidy" id="subsidy" className="border-white/50 text-primary" />
                       <Label htmlFor="subsidy" className="cursor-pointer flex-1">
                         <span className="block font-bold text-white">補助金・制度活用</span>
-                        <span className="text-xs text-muted-foreground">具体的な申請サポートの依頼</span>
+                        <span className="text-base text-muted-foreground">具体的な申請サポートの依頼</span>
                       </Label>
                     </div>
                   </RadioGroup>
@@ -157,30 +157,30 @@ export default function DeskPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* 2. 会社名 */}
                   <div className="space-y-2">
-                    <Label htmlFor="company" className="text-white">2. 会社名・組織名 <span className="text-red-500 text-xs ml-1">*</span></Label>
+                    <Label htmlFor="company" className="text-white">2. 会社名・組織名 <span className="text-red-500 text-base ml-1">*</span></Label>
                     <Input id="company" placeholder="例）株式会社レジリエンス・ハブ" required className="bg-white/5 border-white/10 text-white placeholder:text-muted-foreground/50" />
                   </div>
 
                   {/* 3. 担当者名 */}
                   <div className="space-y-2">
-                    <Label htmlFor="name" className="text-white">3. 担当者名 <span className="text-red-500 text-xs ml-1">*</span></Label>
+                    <Label htmlFor="name" className="text-white">3. 担当者名 <span className="text-red-500 text-base ml-1">*</span></Label>
                     <Input id="name" placeholder="例）防災 太郎" required className="bg-white/5 border-white/10 text-white placeholder:text-muted-foreground/50" />
                   </div>
                 </div>
 
                 {/* 4. メールアドレス */}
                 <div className="space-y-2">
-                  <Label htmlFor="email" className="text-white">4. 連絡先メールアドレス <span className="text-red-500 text-xs ml-1">*</span></Label>
+                  <Label htmlFor="email" className="text-white">4. 連絡先メールアドレス <span className="text-red-500 text-base ml-1">*</span></Label>
                   <Input id="email" type="email" placeholder="example@company.co.jp" required className="bg-white/5 border-white/10 text-white placeholder:text-muted-foreground/50" />
-                  <p className="text-xs text-muted-foreground">※原則として法人メールアドレスをご入力ください</p>
+                  <p className="text-base text-muted-foreground">※原則として法人メールアドレスをご入力ください</p>
                 </div>
 
                 {/* 5. 相談内容詳細 */}
                 <div className="space-y-4">
-                  <Label className="text-base font-bold text-white">5. 具体的な相談内容 <span className="text-red-500 text-xs ml-1">*</span></Label>
+                  <Label className="text-base font-bold text-white">5. 具体的な相談内容 <span className="text-red-500 text-base ml-1">*</span></Label>
                   
                   <div className="space-y-2">
-                    <Label htmlFor="urgency" className="text-sm text-slate-300">今回のご相談の緊急度は？</Label>
+                    <Label htmlFor="urgency" className="text-base text-slate-300">今回のご相談の緊急度は？</Label>
                     <Select defaultValue="warm">
                       <SelectTrigger className="bg-white/5 border-white/10 text-white w-full md:w-1/2">
                         <SelectValue placeholder="選択してください" />
@@ -194,7 +194,7 @@ export default function DeskPage() {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="details" className="text-sm text-slate-300">詳細内容 (任意)</Label>
+                    <Label htmlFor="details" className="text-base text-slate-300">詳細内容 (任意)</Label>
                     <Textarea 
                       id="details" 
                       placeholder="協業の場合：貴社の技術・サービスの概要&#13;&#10;取材の場合：対象となる取り組みや時期&#13;&#10;導入の場合：対象人数や解決したい課題" 
@@ -217,7 +217,7 @@ export default function DeskPage() {
                       <SelectItem value="large">500万円〜</SelectItem>
                     </SelectContent>
                   </Select>
-                  <p className="text-xs text-muted-foreground">※現時点での想定で構いません</p>
+                  <p className="text-base text-muted-foreground">※現時点での想定で構いません</p>
                 </div>
 
                 <div className="pt-4">

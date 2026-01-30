@@ -81,7 +81,7 @@ export default function NeedsPage() {
               </div>
               <div>
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold border border-primary/20">
+                  <span className="px-3 py-1 rounded-full bg-primary/20 text-primary text-base font-bold border border-primary/20">
                     課題・目的 (Needs)
                   </span>
                 </div>
@@ -105,7 +105,7 @@ export default function NeedsPage() {
                 </h3>
                 <ul className="space-y-4">
                   {data.challenges.map((challenge, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm text-white/80">
+                    <li key={i} className="flex items-start gap-3 text-base text-white/80">
                       <div className="mt-1 w-1.5 h-1.5 rounded-full bg-red-400 shrink-0" />
                       {challenge}
                     </li>
@@ -115,7 +115,7 @@ export default function NeedsPage() {
 
               <div className="bg-gradient-to-br from-primary/20 to-blue-600/10 rounded-xl p-6 border border-primary/20">
                 <h3 className="text-lg font-bold mb-2 text-primary">専門家に相談する</h3>
-                <p className="text-sm text-muted-foreground mb-4">
+                <p className="text-base text-muted-foreground mb-4">
                   自社の状況に合わせた最適なソリューションをご提案します。
                 </p>
                 <Button className="w-full bg-primary hover:bg-primary/90 text-white">
@@ -129,7 +129,7 @@ export default function NeedsPage() {
                   <MessageSquarePlus className="w-5 h-5" />
                   ソリューション掲載について
                 </h3>
-                <p className="text-sm text-muted-foreground mb-4">
+                <p className="text-base text-muted-foreground mb-4">
                   自社の防災・レジリエンスソリューションを掲載しませんか？
                 </p>
                 <Button variant="outline" className="w-full border-white/20 hover:bg-white/10 hover:text-white">

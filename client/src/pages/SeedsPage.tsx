@@ -60,7 +60,7 @@ export default function SeedsPage() {
                   {data.icon}
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-blue-400 uppercase tracking-wider mb-1">Technology & Seeds</div>
+                  <div className="text-base font-bold text-blue-400 uppercase tracking-wider mb-1">Technology & Seeds</div>
                   <h1 className="text-3xl font-bold font-serif">{data.title}</h1>
                 </div>
               </div>
@@ -86,12 +86,12 @@ export default function SeedsPage() {
             {/* Left Sidebar: Filters & CTA */}
             <div className="lg:col-span-1 space-y-6">
               <div className="bg-white/5 rounded-xl p-6 border border-white/10">
-                <h3 className="text-sm font-bold mb-4 text-slate-300 uppercase tracking-wider">Filter</h3>
+                <h3 className="text-base font-bold mb-4 text-slate-300 uppercase tracking-wider">Filter</h3>
                 <div className="space-y-2">
                   {["すべて", "実証実験済み", "導入事例あり", "特許取得済み"].map((filter) => (
                     <div key={filter} className="flex items-center gap-2">
                       <div className="w-4 h-4 rounded border border-white/30" />
-                      <span className="text-sm text-slate-400">{filter}</span>
+                      <span className="text-base text-slate-400">{filter}</span>
                     </div>
                   ))}
                 </div>
@@ -103,7 +103,7 @@ export default function SeedsPage() {
                   <Database className="w-5 h-5" />
                   技術シーズを掲載
                 </h3>
-                <p className="text-sm text-muted-foreground mb-4">
+                <p className="text-base text-muted-foreground mb-4">
                   貴社の保有する防災・レジリエンス技術を、世界中の課題保有者に届けませんか？
                 </p>
                 <Button variant="outline" className="w-full border-blue-500/30 text-blue-400 hover:bg-blue-500/10 hover:text-blue-300">

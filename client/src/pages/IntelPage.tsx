@@ -92,7 +92,7 @@ export default function IntelPage() {
               <div>
                 <div className="flex items-center gap-2 mb-2 opacity-80">
                   <Globe className="w-6 h-6 text-[#d4a574]" />
-                  <span className="font-sans font-bold text-sm">Global Intelligence</span>
+                  <span className="font-sans font-bold text-base">Global Intelligence</span>
                 </div>
                 <h1 className="font-sans text-3xl md:text-4xl font-bold mb-2">
                   External Intel Feed
@@ -102,7 +102,7 @@ export default function IntelPage() {
                 </p>
               </div>
             </div>
-            <div className="flex items-center gap-2 text-xs text-muted-foreground bg-muted/30 px-3 py-1 rounded-full border border-border/50 mt-4 md:mt-0">
+            <div className="flex items-center gap-2 text-base text-muted-foreground bg-muted/30 px-3 py-1 rounded-full border border-border/50 mt-4 md:mt-0">
               <RefreshCw className="h-3 w-3 animate-spin-slow" />
               <span>Last updated: Just now</span>
             </div>
@@ -136,7 +136,7 @@ export default function IntelPage() {
           {/* AI Disclaimer */}
           <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4 flex items-start gap-3 mb-8">
             <Bot className="h-5 w-5 text-blue-400 mt-0.5 shrink-0" />
-            <div className="text-sm">
+            <div className="text-base">
               <p className="font-medium text-blue-200">AI Generated Content</p>
               <p className="text-blue-200/70 mt-1">
                 このフィードの要約と分析はAIによって生成されています。意思決定の際は、必ず「Source」リンクから一次情報を確認してください。
@@ -147,7 +147,7 @@ export default function IntelPage() {
           {/* Feed List - Newswire Style */}
           <div className="bg-white/90 backdrop-blur-md border border-white/20 rounded-lg overflow-hidden shadow-xl">
             {/* List Header */}
-            <div className="grid grid-cols-12 gap-4 p-4 border-b border-slate-200 bg-slate-50 text-xs font-medium text-slate-500 uppercase tracking-wider">
+            <div className="grid grid-cols-12 gap-4 p-4 border-b border-slate-200 bg-slate-50 text-base font-medium text-slate-500 uppercase tracking-wider">
               <div className="col-span-2 md:col-span-1">Time</div>
               <div className="col-span-3 md:col-span-2">Source</div>
               <div className="col-span-7 md:col-span-6">Headline & Summary</div>
@@ -159,7 +159,7 @@ export default function IntelPage() {
               {intelFeeds.map((item) => (
                 <div key={item.id} className="grid grid-cols-12 gap-4 p-4 hover:bg-white/95 transition-colors group items-start">
                   {/* Time */}
-                  <div className="col-span-2 md:col-span-1 text-xs text-slate-500 font-mono pt-1">
+                  <div className="col-span-2 md:col-span-1 text-base text-slate-500 font-mono pt-1">
                     {item.date}
                   </div>
 
@@ -177,12 +177,12 @@ export default function IntelPage() {
 
                   {/* Content */}
                   <div className="col-span-7 md:col-span-6 space-y-2">
-                    <h3 className="text-sm font-bold leading-snug text-[#0B1026] group-hover:text-blue-700 transition-colors">
+                    <h3 className="text-base font-bold leading-snug text-[#0B1026] group-hover:text-blue-700 transition-colors">
                       <a href={item.url} onClick={handleLinkClick} className="hover:underline decoration-blue-600/50 underline-offset-4 text-blue-900">
                         {item.title}
                       </a>
                     </h3>
-                    <p className="text-xs text-slate-600 leading-relaxed line-clamp-2 group-hover:line-clamp-none transition-all">
+                    <p className="text-base text-slate-600 leading-relaxed line-clamp-2 group-hover:line-clamp-none transition-all">
                       {item.summary}
                     </p>
                   </div>
