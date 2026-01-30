@@ -179,7 +179,7 @@ export function ResilienceDashboard() {
                     
                     {/* "Start Here" prompt for unstarted phases */}
                     {!isActive && pScore === 0 && (
-                      <span className="hidden md:inline-flex items-center text-[9px] bg-white/10 px-1.5 py-0.5 rounded text-primary-foreground/70 ml-1">
+                      <span className="hidden md:inline-flex items-center text-[9px] bg-white/10 px-1.5 py-0.5 rounded text-white ml-1 font-bold border border-white/20">
                         ここから診断
                       </span>
                     )}
@@ -250,12 +250,12 @@ export function ResilienceDashboard() {
                       >
                         <div className={cn(
                           "mt-0.5 w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold shrink-0",
-                          isFirst ? "bg-primary text-primary-foreground" : "bg-white/10 text-muted-foreground"
+                          isFirst ? "bg-primary text-white" : "bg-white/10 text-muted-foreground"
                         )}>
                           {idx + 1}
                         </div>
                         <div>
-                          <p className={cn("font-bold leading-snug mb-0.5", isFirst ? "text-primary-foreground" : "text-white")}>
+                          <p className={cn("font-bold leading-snug mb-0.5", isFirst ? "text-amber-400" : "text-white")}>
                             {item.actionLabel || item.text}
                           </p>
                           <p className="text-xs text-muted-foreground leading-tight mb-1">
