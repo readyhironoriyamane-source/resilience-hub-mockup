@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter }
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
-import { Check, AlertTriangle, ShieldCheck, ArrowRight, Info, ChevronDown, ChevronUp } from "lucide-react";
+import { Check, AlertTriangle, ShieldCheck, ArrowRight, Info, ChevronDown, ChevronUp, Heart, Building2, Users } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 // --- Types & Data Definitions ---
@@ -133,32 +133,45 @@ export function ResilienceDashboard() {
 
   return (
     <div className="space-y-6">
-      {/* Phase Navigation / Progress */}
-      <div className="grid grid-cols-3 gap-2 md:gap-4">
+      {/* Header & Guidance */}
+      <div className="mb-2">
+        <h2 className="text-lg md:text-xl font-bold text-white mb-1">3つのステップで備えを固める</h2>
+        <p className="text-xs md:text-sm text-muted-foreground">まずは『命を守る準備』から確認しましょう。各項目を選んで切り替えられます</p>
+      </div>
+
+      {/* Phase Navigation (Tabs) */}
+      <div className="flex w-full border-b border-white/10 mb-6">
         {(Object.keys(RESILIENCE_DATA) as Phase[]).map((phase) => {
           const pConfig = RESILIENCE_DATA[phase];
           const isActive = currentPhase === phase;
           const pScore = calculateScore(phase);
+          
+          // Icons mapping
+          const Icon = phase === "survival" ? Heart : phase === "continuity" ? Building2 : Users;
           
           return (
             <button
               key={phase}
               onClick={() => setCurrentPhase(phase)}
               className={cn(
-                "relative flex flex-col items-center p-3 rounded-xl border transition-all duration-300",
+                "flex-1 relative flex flex-col items-center justify-center py-3 px-1 transition-all duration-300 border-b-2",
                 isActive 
-                  ? "bg-white/10 border-primary/50 shadow-[0_0_15px_rgba(var(--primary),0.3)]" 
-                  : "bg-white/5 border-white/5 hover:bg-white/10 opacity-70 hover:opacity-100"
+                  ? "border-primary bg-white/5 text-white" 
+                  : "border-transparent text-muted-foreground hover:bg-white/5 hover:text-gray-300"
               )}
             >
-              <div className="text-[10px] md:text-base font-bold tracking-wider uppercase mb-1 text-muted-foreground">
-                {pConfig.subtitle}
+              {/* Line 1: Icon + Subtitle */}
+              <div className="flex items-center gap-1.5 mb-1">
+                <Icon className={cn("w-4 h-4", isActive ? "text-primary" : "text-muted-foreground")} />
+                <span className="text-xs md:text-sm font-bold whitespace-nowrap">{pConfig.subtitle}</span>
               </div>
-              <div className="text-base md:text-base font-bold text-white mb-2">
-                {pConfig.title.split("：")[0]}
+              
+              {/* Line 2: Level + Score + Indicator */}
+              <div className="flex items-center gap-2 text-[10px] md:text-xs">
+                <span className="opacity-80">{pConfig.title.split("：")[0]}</span>
+                <span className="font-mono font-bold">{pScore}%</span>
+                {isActive && <ChevronDown className="w-3 h-3 text-primary animate-bounce" />}
               </div>
-              <Progress value={pScore} className="h-1.5 w-full bg-black/40" indicatorClassName={pConfig.color} />
-              <div className="text-base mt-1 font-mono">{pScore}%</div>
             </button>
           );
         })}
