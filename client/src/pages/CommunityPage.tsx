@@ -95,43 +95,61 @@ export default function CommunityPage() {
       <main className="md:pl-64 relative z-10 min-h-screen flex flex-col">
         <MobileHeader onMenuClick={() => setIsSidebarOpen(true)} />
         
-        <div className="container mx-auto px-4 py-8 pb-24 flex flex-col lg:flex-row gap-8">
-          {/* Left Sidebar Navigation */}
-          <div className="hidden lg:block w-64 flex-shrink-0 space-y-6">
-            <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/10 sticky top-24">
-              <h3 className="text-lg font-bold text-white mb-4 px-2">クイックアクセス</h3>
-              <nav className="space-y-2">
-                <Button variant="ghost" className="w-full justify-start text-white hover:bg-white/10 hover:text-white" onClick={handleJoinClick}>
-                  <span className="mr-2">📍</span> 自分の担当地域
+        <div className="container mx-auto px-4 py-8 pb-24">
+          {/* Header */}
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+            <div className="flex items-center gap-4">
+              <div>
+                <h1 className="text-3xl font-bold tracking-tight text-white">防災コミュニティ</h1>
+                <p className="text-muted-foreground mt-2 text-lg leading-relaxed max-w-3xl">
+                  同じ悩みを持つ担当者とつながり、知恵を出し合える場所です。<br className="hidden md:block" />
+                  「どうすればいい？」を一人で抱えず、みんなの経験をヒントに解決しましょう。
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Quick Access - Moved to top for better visibility */}
+          <div className="mb-10">
+            <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/10">
+              <h3 className="text-lg font-bold text-white mb-4 px-2 flex items-center gap-2">
+                <span className="text-primary">⚡</span> クイックアクセス
+              </h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <Button variant="ghost" className="w-full justify-start text-white hover:bg-white/10 hover:text-white h-auto py-3" onClick={handleJoinClick}>
+                  <span className="mr-2 text-xl">📍</span> 
+                  <div className="text-left">
+                    <div className="font-bold">自分の担当地域</div>
+                    <div className="text-xs text-white/60 font-normal">地域ごとの話題</div>
+                  </div>
                 </Button>
-                <Button variant="ghost" className="w-full justify-start text-white hover:bg-white/10 hover:text-white" onClick={handleJoinClick}>
-                  <span className="mr-2">🔖</span> 保存した投稿
+                <Button variant="ghost" className="w-full justify-start text-white hover:bg-white/10 hover:text-white h-auto py-3" onClick={handleJoinClick}>
+                  <span className="mr-2 text-xl">🔖</span> 
+                  <div className="text-left">
+                    <div className="font-bold">保存した投稿</div>
+                    <div className="text-xs text-white/60 font-normal">後で読む</div>
+                  </div>
                 </Button>
-                <Button variant="ghost" className="w-full justify-start text-white hover:bg-white/10 hover:text-white" onClick={handleJoinClick}>
-                  <span className="mr-2">🔥</span> 人気のトピック
+                <Button variant="ghost" className="w-full justify-start text-white hover:bg-white/10 hover:text-white h-auto py-3" onClick={handleJoinClick}>
+                  <span className="mr-2 text-xl">🔥</span> 
+                  <div className="text-left">
+                    <div className="font-bold">人気のトピック</div>
+                    <div className="text-xs text-white/60 font-normal">注目度が高い</div>
+                  </div>
                 </Button>
-                <Button variant="ghost" className="w-full justify-start text-white hover:bg-white/10 hover:text-white" onClick={handleJoinClick}>
-                  <span className="mr-2">🆕</span> 新着の投稿
+                <Button variant="ghost" className="w-full justify-start text-white hover:bg-white/10 hover:text-white h-auto py-3" onClick={handleJoinClick}>
+                  <span className="mr-2 text-xl">🆕</span> 
+                  <div className="text-left">
+                    <div className="font-bold">新着の投稿</div>
+                    <div className="text-xs text-white/60 font-normal">最新の議論</div>
+                  </div>
                 </Button>
-              </nav>
+              </div>
             </div>
           </div>
 
           {/* Main Content */}
           <div className="flex-1 min-w-0">
-            {/* Header */}
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
-            <div className="flex items-center gap-4">
-              {/* Mobile menu trigger removed as it is handled by MobileHeader */}
-              <div>
-                <h1 className="text-3xl font-bold tracking-tight text-white">防災コミュニティ</h1>
-                <p className="text-muted-foreground mt-2">
-                  実務担当者同士が知見を共有し、共に解決策を探る場所。
-                </p>
-              </div>
-            </div>
-            {/* Button moved to floating action button */}
-          </div>
 
           {/* Forum Categories */}
             <div className="grid grid-cols-1 gap-6">
@@ -216,7 +234,8 @@ export default function CommunityPage() {
               </Card>
               ))}
             </div>
-          </div>
+        </div>
+
         </div>
 
         {/* Floating Action Button */}
