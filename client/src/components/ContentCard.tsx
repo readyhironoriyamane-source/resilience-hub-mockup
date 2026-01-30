@@ -35,10 +35,10 @@ export function ContentCard({ item, onClick, isRead = false, featured = false }:
 
   return (
     <Card 
-      className={`overflow-hidden cursor-pointer group hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 border-white/10 bg-card/40 backdrop-blur-md ${isRead ? 'opacity-70 hover:opacity-100' : ''} ${featured ? 'md:flex md:flex-row md:h-[400px]' : ''}`}
+      className={`overflow-hidden cursor-pointer group hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 border-white/10 bg-card/40 backdrop-blur-md ${isRead ? 'opacity-70 hover:opacity-100' : ''}`}
       onClick={() => onClick(item)}
     >
-      <div className={`relative overflow-hidden ${featured ? 'md:w-2/3 h-64 md:h-full' : 'aspect-video'}`}>
+      <div className={`relative overflow-hidden ${featured ? 'aspect-video md:aspect-[21/9]' : 'aspect-video'}`}>
         <img 
           src={item.image} 
           alt={item.title} 
@@ -64,7 +64,7 @@ export function ContentCard({ item, onClick, isRead = false, featured = false }:
           </div>
         )}
       </div>
-      <CardContent className={`p-4 ${featured ? 'md:w-1/3 md:p-8 md:flex md:flex-col md:justify-center' : ''}`}>
+      <CardContent className={`p-4 ${featured ? 'p-6 md:p-8' : ''}`}>
         <div className="flex items-center gap-2 mb-2">
           <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center text-[10px] text-primary font-bold">
             {item.author.charAt(0)}

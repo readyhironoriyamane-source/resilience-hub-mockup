@@ -106,27 +106,36 @@ export default function Home() {
                 <div className="md:hidden w-20 h-20 rounded-xl overflow-hidden border border-white/10 shadow-2xl mx-auto mb-4">
                   <img src="/images/bg-stars.png" alt="Logo" className="w-full h-full object-cover" />
                 </div>
-                <h1 className="font-sans text-2xl md:text-3xl font-bold mb-2">最新の防災ニュース</h1>
-                <p className="text-sm text-muted-foreground mb-2 px-2 md:px-0">
-                  みんなで育てる、防災の知恵袋<br className="hidden md:block"/>
-                  <span className="inline-block mt-1">
-                    <span className="text-white font-bold">知る：</span> 国内の最新の取り組みがわかります。<br className="md:hidden"/>
-                    <span className="text-white font-bold ml-0 md:ml-2">使う：</span> あなたの地域の活動にそのまま活かせます。<br className="md:hidden"/>
-                    <span className="text-white font-bold ml-0 md:ml-2">広める：</span> よい事例を共有して、みんなで助け合えます。
-                  </span>
-                </p>
+                <h1 className="font-sans text-3xl md:text-4xl font-bold mb-4">最新の防災ニュース</h1>
+                <div className="text-base md:text-lg text-muted-foreground mb-4 px-2 md:px-0 leading-relaxed">
+                  <p className="mb-3 font-medium text-white/90">みんなで育てる、防災の知恵袋</p>
+                  <ul className="space-y-2">
+                    <li className="flex items-start gap-2">
+                      <span className="text-white font-bold shrink-0">知る：</span>
+                      <span>国内の最新の取り組みがわかります。</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-white font-bold shrink-0">使う：</span>
+                      <span>あなたの地域の活動にそのまま活かせます。</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-white font-bold shrink-0">広める：</span>
+                      <span>よい事例を共有して、みんなで助け合えます。</span>
+                    </li>
+                  </ul>
+                </div>
 
                 {/* Solution Intelligence Settings Area */}
                 <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md max-w-2xl mx-auto md:mx-0">
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2 text-[#d4a574]">
                       <Sparkles className="w-4 h-4" />
-                      <span className="font-bold text-sm">あなたの関心を選んでください</span>
+                      <span className="font-bold text-lg">あなたの関心を選んでください</span>
                     </div>
                   </div>
                   <div className="flex flex-wrap gap-2 justify-center md:justify-start">
                     {["避難所・物資の管理", "住民への情報伝達", "ハザードマップ・地図", "補助金・国の動向", "他自治体の成功事例"].map((tag) => (
-                      <span key={tag} className="px-2 py-1 rounded-md bg-white/10 text-xs text-white/90 border border-white/5 hover:bg-white/20 cursor-pointer transition-colors">
+                      <span key={tag} className="px-3 py-2 rounded-md bg-white/10 text-sm text-white/90 border border-white/5 hover:bg-white/20 cursor-pointer transition-colors">
                         {tag}
                       </span>
                     ))}
