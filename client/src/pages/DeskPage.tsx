@@ -101,11 +101,11 @@ export default function DeskPage() {
               <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
                 <HelpCircle className="w-6 h-6 text-primary" />
               </div>
-              <h1 className="text-3xl font-sans font-bold">GRS Desk</h1>
+              <h1 className="text-3xl font-sans font-bold">防災相談窓口</h1>
             </div>
             <p className="text-muted-foreground text-lg leading-relaxed">
-              ここは、防災・レジリエンスに関する「共創」の窓口です。<br className="hidden md:block"/>
-              単なる問い合わせだけでなく、新しい価値を生み出すための対話をお待ちしています。
+              ここは、地域の「守る力」を一緒に高めるための相談窓口です。<br className="hidden md:block"/>
+              小さな悩みごとの相談から、新しい取り組みへの挑戦まで、幅広くサポートします。
             </p>
           </header>
 
@@ -121,34 +121,51 @@ export default function DeskPage() {
                 
                 {/* 1. 相談種別 */}
                 <div className="space-y-3">
-                  <Label className="text-base font-bold text-white">1. 相談種別 <span className="text-red-500 text-base ml-1">*</span></Label>
+                  <Label className="text-base font-bold text-white flex items-center gap-2">
+                    1. 相談種別
+                    <span className="bg-red-600 text-white text-xs px-2 py-0.5 rounded font-bold flex items-center gap-1">
+                      <span className="text-[10px]">⚠</span> 【必須】
+                    </span>
+                  </Label>
                   <RadioGroup defaultValue="alliance" className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="flex items-center space-x-2 border border-white/10 rounded-lg p-4 hover:bg-white/5 transition-colors cursor-pointer">
                       <RadioGroupItem value="alliance" id="alliance" className="border-white/50 text-primary" />
-                      <Label htmlFor="alliance" className="cursor-pointer flex-1">
-                        <span className="block font-bold text-white">協業・アライアンス</span>
-                        <span className="text-base text-muted-foreground">技術連携、サービス連携のご提案</span>
+                      <Label htmlFor="alliance" className="cursor-pointer flex-1 flex items-center gap-3">
+                        <span className="text-2xl">🤝</span>
+                        <div>
+                          <span className="block font-bold text-white">一緒にサービスを作りたい</span>
+                          <span className="text-base text-muted-foreground">協業・アライアンス</span>
+                        </div>
+                      </Label>
+                    </div>
+                    <div className="flex items-center space-x-2 border border-white/10 rounded-lg p-4 hover:bg-white/5 transition-colors cursor-pointer">
+                      <RadioGroupItem value="tech" id="tech" className="border-white/50 text-primary" />
+                      <Label htmlFor="tech" className="cursor-pointer flex-1 flex items-center gap-3">
+                        <span className="text-2xl">💡</span>
+                        <div>
+                          <span className="block font-bold text-white">最新技術を取り入れたい</span>
+                          <span className="text-base text-muted-foreground">技術連携、サービス連携のご提案</span>
+                        </div>
                       </Label>
                     </div>
                     <div className="flex items-center space-x-2 border border-white/10 rounded-lg p-4 hover:bg-white/5 transition-colors cursor-pointer">
                       <RadioGroupItem value="media" id="media" className="border-white/50 text-primary" />
-                      <Label htmlFor="media" className="cursor-pointer flex-1">
-                        <span className="block font-bold text-white">掲載・取材依頼</span>
-                        <span className="text-base text-muted-foreground">プレスリリース送付、インタビュー希望</span>
+                      <Label htmlFor="media" className="cursor-pointer flex-1 flex items-center gap-3">
+                        <span className="text-2xl">🎤</span>
+                        <div>
+                          <span className="block font-bold text-white">ニュース・情報を届けたい</span>
+                          <span className="text-base text-muted-foreground">プレスリリース送付</span>
+                        </div>
                       </Label>
                     </div>
                     <div className="flex items-center space-x-2 border border-white/10 rounded-lg p-4 hover:bg-white/5 transition-colors cursor-pointer">
                       <RadioGroupItem value="sales" id="sales" className="border-white/50 text-primary" />
-                      <Label htmlFor="sales" className="cursor-pointer flex-1">
-                        <span className="block font-bold text-white">導入・利用相談</span>
-                        <span className="text-base text-muted-foreground">有料プラン詳細、法人契約について</span>
-                      </Label>
-                    </div>
-                    <div className="flex items-center space-x-2 border border-white/10 rounded-lg p-4 hover:bg-white/5 transition-colors cursor-pointer">
-                      <RadioGroupItem value="subsidy" id="subsidy" className="border-white/50 text-primary" />
-                      <Label htmlFor="subsidy" className="cursor-pointer flex-1">
-                        <span className="block font-bold text-white">補助金・制度活用</span>
-                        <span className="text-base text-muted-foreground">具体的な申請サポートの依頼</span>
+                      <Label htmlFor="sales" className="cursor-pointer flex-1 flex items-center gap-3">
+                        <span className="text-2xl">💼</span>
+                        <div>
+                          <span className="block font-bold text-white">導入・利用相談</span>
+                          <span className="text-base text-muted-foreground">有料プラン詳細、法人契約について</span>
+                        </div>
                       </Label>
                     </div>
                   </RadioGroup>
@@ -157,27 +174,49 @@ export default function DeskPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* 2. 会社名 */}
                   <div className="space-y-2">
-                    <Label htmlFor="company" className="text-white">2. 会社名・組織名 <span className="text-red-500 text-base ml-1">*</span></Label>
+                    <Label htmlFor="company" className="text-white flex items-center gap-2">
+                      2. 会社名・組織名
+                      <span className="bg-red-600 text-white text-xs px-2 py-0.5 rounded font-bold flex items-center gap-1">
+                        <span className="text-[10px]">⚠</span> 【必須】
+                      </span>
+                    </Label>
                     <Input id="company" placeholder="例）株式会社レジリエンス・ハブ" required className="bg-white/5 border-white/10 text-white placeholder:text-muted-foreground/50" />
+                    <p className="text-sm text-muted-foreground mt-1">例）株式会社レジリエンス・ハブ</p>
                   </div>
 
                   {/* 3. 担当者名 */}
                   <div className="space-y-2">
-                    <Label htmlFor="name" className="text-white">3. 担当者名 <span className="text-red-500 text-base ml-1">*</span></Label>
-                    <Input id="name" placeholder="例）防災 太郎" required className="bg-white/5 border-white/10 text-white placeholder:text-muted-foreground/50" />
+                    <Label htmlFor="name" className="text-white flex items-center gap-2">
+                      3. 担当者名
+                      <span className="bg-red-600 text-white text-xs px-2 py-0.5 rounded font-bold flex items-center gap-1">
+                        <span className="text-[10px]">⚠</span> 【必須】
+                      </span>
+                    </Label>
+                    <Input id="name" placeholder="例）山田 太郎（ヤマダ タロウ）" required className="bg-white/5 border-white/10 text-white placeholder:text-muted-foreground/50" />
+                    <p className="text-sm text-muted-foreground mt-1">例）山田 太郎（ヤマダ タロウ） ※フリガナもお願いします</p>
                   </div>
                 </div>
 
                 {/* 4. メールアドレス */}
                 <div className="space-y-2">
-                  <Label htmlFor="email" className="text-white">4. 連絡先メールアドレス <span className="text-red-500 text-base ml-1">*</span></Label>
+                  <Label htmlFor="email" className="text-white flex items-center gap-2">
+                    4. 連絡先メールアドレス
+                    <span className="bg-red-600 text-white text-xs px-2 py-0.5 rounded font-bold flex items-center gap-1">
+                      <span className="text-[10px]">⚠</span> 【必須】
+                    </span>
+                  </Label>
                   <Input id="email" type="email" placeholder="example@company.co.jp" required className="bg-white/5 border-white/10 text-white placeholder:text-muted-foreground/50" />
                   <p className="text-base text-muted-foreground">※原則として法人メールアドレスをご入力ください</p>
                 </div>
 
                 {/* 5. 相談内容詳細 */}
                 <div className="space-y-4">
-                  <Label className="text-base font-bold text-white">5. 具体的な相談内容 <span className="text-red-500 text-base ml-1">*</span></Label>
+                  <Label className="text-base font-bold text-white flex items-center gap-2">
+                    5. 具体的な相談内容
+                    <span className="bg-red-600 text-white text-xs px-2 py-0.5 rounded font-bold flex items-center gap-1">
+                      <span className="text-[10px]">⚠</span> 【必須】
+                    </span>
+                  </Label>
                   
                   <div className="space-y-2">
                     <Label htmlFor="urgency" className="text-base text-slate-300">今回のご相談の緊急度は？</Label>
@@ -197,9 +236,10 @@ export default function DeskPage() {
                     <Label htmlFor="details" className="text-base text-slate-300">詳細内容 (任意)</Label>
                     <Textarea 
                       id="details" 
-                      placeholder="協業の場合：貴社の技術・サービスの概要&#13;&#10;取材の場合：対象となる取り組みや時期&#13;&#10;導入の場合：対象人数や解決したい課題" 
+                      placeholder="具体的な相談内容をご記入ください" 
                       className="bg-white/5 border-white/10 text-white placeholder:text-muted-foreground/50 min-h-[120px]" 
                     />
+                    <p className="text-sm text-muted-foreground mt-1">例）「避難所の物資管理について、他市の事例を聞きたい」</p>
                   </div>
                 </div>
 
@@ -234,7 +274,7 @@ export default function DeskPage() {
                     ) : (
                       <span className="flex items-center gap-2">
                         <Send className="w-5 h-5" />
-                        共創を始める
+                        内容を確認して、相談を送る
                       </span>
                     )}
                   </Button>
