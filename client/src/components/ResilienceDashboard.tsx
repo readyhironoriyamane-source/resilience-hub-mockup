@@ -13,6 +13,7 @@ type Phase = "survival" | "continuity" | "contribution";
 interface ChecklistItem {
   id: number;
   text: string;
+  actionLabel?: string; // Action-oriented text for next steps
   isMandatory: boolean;
   weight: number; // Score weight
 }
@@ -29,19 +30,19 @@ interface PhaseConfig {
 const RESILIENCE_DATA: Record<Phase, PhaseConfig> = {
   survival: {
     id: "survival",
-    title: "初級：生存フェーズ",
+    title: "初級：命を守る準備からチェックする",
     subtitle: "命を守る準備",
-    description: "生命と拠点を守るための最低限の備え",
+    description: "",
     color: "bg-red-500",
     items: [
-      { id: 1, text: "全従業員3日分の水・食料・トイレを備蓄している", isMandatory: true, weight: 20 },
-      { id: 2, text: "自社拠点のハザードマップ（水害・地震）を把握している", isMandatory: true, weight: 20 },
-      { id: 3, text: "オフィスの什器・設備の転倒防止対策済みである", isMandatory: false, weight: 8 },
-      { id: 4, text: "緊急連絡網（電話以外にLINE/チャット等）がある", isMandatory: true, weight: 20 },
-      { id: 5, text: "防災管理者（リーダー）を選任している", isMandatory: false, weight: 8 },
-      { id: 6, text: "従業員向けの避難訓練を年1回実施している", isMandatory: false, weight: 8 },
-      { id: 7, text: "負傷者対応のための救急セット（AED等）がある", isMandatory: false, weight: 8 },
-      { id: 8, text: "損害保険（火災・地震・水災）に加入している", isMandatory: false, weight: 8 },
+      { id: 1, text: "全従業員3日分の水・食料・トイレを備蓄している", actionLabel: "備蓄品リストを作成し、不足分を購入する", isMandatory: true, weight: 20 },
+      { id: 2, text: "自社拠点のハザードマップ（水害・地震）を把握している", actionLabel: "自治体のサイトで最新のハザードマップを確認する", isMandatory: true, weight: 20 },
+      { id: 3, text: "オフィスの什器・設備の転倒防止対策済みである", actionLabel: "固定器具を購入し、棚やコピー機を固定する", isMandatory: false, weight: 8 },
+      { id: 4, text: "緊急連絡網（電話以外にLINE/チャット等）がある", actionLabel: "連絡網ツールを導入し、テスト送信を行う", isMandatory: true, weight: 20 },
+      { id: 5, text: "防災管理者（リーダー）を選任している", actionLabel: "リーダーを指名し、役割を周知する", isMandatory: false, weight: 8 },
+      { id: 6, text: "従業員向けの避難訓練を年1回実施している", actionLabel: "訓練日程を決定し、従業員に案内する", isMandatory: false, weight: 8 },
+      { id: 7, text: "負傷者対応のための救急セット（AED等）がある", actionLabel: "救急セットの中身を確認し、期限切れを交換する", isMandatory: false, weight: 8 },
+      { id: 8, text: "損害保険（火災・地震・水災）に加入している", actionLabel: "保険証券を確認し、補償範囲を見直す", isMandatory: false, weight: 8 },
     ]
   },
   continuity: {
@@ -51,14 +52,14 @@ const RESILIENCE_DATA: Record<Phase, PhaseConfig> = {
     description: "被災後も事業を止めない・早期復旧する力",
     color: "bg-amber-500",
     items: [
-      { id: 1, text: "BCP（事業継続計画）を策定し、年1回更新している", isMandatory: true, weight: 15 },
-      { id: 2, text: "重要業務の目標復旧時間（RTO）を設定している", isMandatory: true, weight: 15 },
-      { id: 3, text: "安否確認システムを導入し、回答率訓練を行っている", isMandatory: false, weight: 10 },
-      { id: 4, text: "重要データのクラウドバックアップ・代替手段がある", isMandatory: true, weight: 15 },
-      { id: 5, text: "非常用電源（発電機・蓄電池）を72時間分確保している", isMandatory: true, weight: 15 },
-      { id: 6, text: "従業員がリモート・代替拠点で業務できる環境がある", isMandatory: false, weight: 10 },
-      { id: 7, text: "被災時の運転資金（手元流動性）を確保している", isMandatory: false, weight: 10 },
-      { id: 8, text: "災害対策本部マニュアル（初動フロー）がある", isMandatory: false, weight: 10 },
+      { id: 1, text: "BCP（事業継続計画）を策定し、年1回更新している", actionLabel: "BCP策定テンプレートをダウンロードする", isMandatory: true, weight: 15 },
+      { id: 2, text: "重要業務の目標復旧時間（RTO）を設定している", actionLabel: "各部署の責任者と復旧目標時間を協議する", isMandatory: true, weight: 15 },
+      { id: 3, text: "安否確認システムを導入し、回答率訓練を行っている", actionLabel: "安否確認システムの無料トライアルを申し込む", isMandatory: false, weight: 10 },
+      { id: 4, text: "重要データのクラウドバックアップ・代替手段がある", actionLabel: "クラウドストレージの容量とバックアップ設定を確認する", isMandatory: true, weight: 15 },
+      { id: 5, text: "非常用電源（発電機・蓄電池）を72時間分確保している", actionLabel: "必要な電力量を計算し、発電機を選定する", isMandatory: true, weight: 15 },
+      { id: 6, text: "従業員がリモート・代替拠点で業務できる環境がある", actionLabel: "リモートアクセス権限の付与状況を確認する", isMandatory: false, weight: 10 },
+      { id: 7, text: "被災時の運転資金（手元流動性）を確保している", actionLabel: "融資枠や現預金残高を確認する", isMandatory: false, weight: 10 },
+      { id: 8, text: "災害対策本部マニュアル（初動フロー）がある", actionLabel: "初動対応フロー図を作成し、掲示する", isMandatory: false, weight: 10 },
     ]
   },
   contribution: {
@@ -68,14 +69,14 @@ const RESILIENCE_DATA: Record<Phase, PhaseConfig> = {
     description: "地域や社会全体のレジリエンスを高める存在へ",
     color: "bg-emerald-500",
     items: [
-      { id: 1, text: "地域住民・帰宅困難者の受入体制を整備している", isMandatory: false, weight: 10 },
-      { id: 2, text: "被災時の意思決定権限の委譲ルールが明確である", isMandatory: true, weight: 15 },
-      { id: 3, text: "サプライチェーン全体の被災リスクを管理している", isMandatory: true, weight: 15 },
-      { id: 4, text: "サイバー攻撃など複合災害への対策・演習を行っている", isMandatory: false, weight: 10 },
-      { id: 5, text: "平時から自治体・他社と災害協定を締結している", isMandatory: false, weight: 10 },
-      { id: 6, text: "経営層が参画するトップダウン型の訓練を実施している", isMandatory: true, weight: 15 },
-      { id: 7, text: "防災・レジリエンスに関する認証を取得している", isMandatory: false, weight: 10 },
-      { id: 8, text: "自社の防災ノウハウや資源を地域/社会へ提供できる", isMandatory: true, weight: 15 },
+      { id: 1, text: "地域住民・帰宅困難者の受入体制を整備している", actionLabel: "受入可能人数と備蓄品を計算する", isMandatory: false, weight: 10 },
+      { id: 2, text: "被災時の意思決定権限の委譲ルールが明確である", actionLabel: "権限委譲規定を作成し、承認を得る", isMandatory: true, weight: 15 },
+      { id: 3, text: "サプライチェーン全体の被災リスクを管理している", actionLabel: "主要取引先のBCP策定状況をアンケート調査する", isMandatory: true, weight: 15 },
+      { id: 4, text: "サイバー攻撃など複合災害への対策・演習を行っている", actionLabel: "セキュリティ診断を実施する", isMandatory: false, weight: 10 },
+      { id: 5, text: "平時から自治体・他社と災害協定を締結している", actionLabel: "自治体の防災課に協定について問い合わせる", isMandatory: false, weight: 10 },
+      { id: 6, text: "経営層が参画するトップダウン型の訓練を実施している", actionLabel: "経営会議で訓練日程を提案する", isMandatory: true, weight: 15 },
+      { id: 7, text: "防災・レジリエンスに関する認証を取得している", actionLabel: "認証制度（レジリエンス認証等）の要件を確認する", isMandatory: false, weight: 10 },
+      { id: 8, text: "自社の防災ノウハウや資源を地域/社会へ提供できる", actionLabel: "提供可能なリソース（場所・物・人）をリスト化する", isMandatory: true, weight: 15 },
     ]
   }
 };
@@ -149,31 +150,42 @@ export function ResilienceDashboard() {
           // Icons mapping
           const Icon = phase === "survival" ? Heart : phase === "continuity" ? Building2 : Users;
           
-          return (
-            <button
-              key={phase}
-              onClick={() => setCurrentPhase(phase)}
-              className={cn(
-                "flex-1 relative flex flex-col items-center justify-center py-3 px-1 transition-all duration-300 border-b-2",
-                isActive 
-                  ? "border-primary bg-white/5 text-white" 
-                  : "border-transparent text-muted-foreground hover:bg-white/5 hover:text-gray-300"
-              )}
-            >
-              {/* Line 1: Icon + Subtitle */}
-              <div className="flex items-center gap-1.5 mb-1">
-                <Icon className={cn("w-4 h-4", isActive ? "text-primary" : "text-muted-foreground")} />
-                <span className="text-xs md:text-sm font-bold whitespace-nowrap">{pConfig.subtitle}</span>
-              </div>
-              
-              {/* Line 2: Level + Score + Indicator */}
-              <div className="flex items-center gap-2 text-[10px] md:text-xs">
-                <span className="opacity-80">{pConfig.title.split("：")[0]}</span>
-                <span className="font-mono font-bold">{pScore}%</span>
-                {isActive && <ChevronDown className="w-3 h-3 text-primary animate-bounce" />}
-              </div>
-            </button>
-          );
+              return (
+                <button
+                  key={phase}
+                  onClick={() => setCurrentPhase(phase)}
+                  className={cn(
+                    "flex-1 relative flex flex-col items-center justify-center py-3 px-1 transition-all duration-300 border-b-2 group",
+                    isActive 
+                      ? "border-primary bg-white/5 text-white" 
+                      : "border-transparent text-muted-foreground hover:bg-white/5 hover:text-gray-300"
+                  )}
+                >
+                  {/* Active Indicator Triangle */}
+                  {isActive && (
+                    <div className="absolute -bottom-[9px] left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-primary z-10" />
+                  )}
+
+                  {/* Line 1: Icon + Subtitle */}
+                  <div className="flex items-center gap-1.5 mb-1">
+                    <Icon className={cn("w-4 h-4", isActive ? "text-primary" : "text-muted-foreground group-hover:text-gray-300")} />
+                    <span className="text-xs md:text-sm font-bold whitespace-nowrap">{pConfig.subtitle}</span>
+                  </div>
+                  
+                  {/* Line 2: Level + Score + Indicator */}
+                  <div className="flex items-center gap-2 text-[10px] md:text-xs">
+                    <span className="opacity-80">{pConfig.title.split("：")[0]}</span>
+                    <span className="font-mono font-bold">{pScore}%</span>
+                    
+                    {/* "Start Here" prompt for unstarted phases */}
+                    {!isActive && pScore === 0 && (
+                      <span className="hidden md:inline-flex items-center text-[9px] bg-white/10 px-1.5 py-0.5 rounded text-primary-foreground/70 ml-1">
+                        ここから診断
+                      </span>
+                    )}
+                  </div>
+                </button>
+              );
         })}
       </div>
 
@@ -184,9 +196,8 @@ export function ResilienceDashboard() {
           <CardHeader className="pb-2">
             <CardTitle className="flex items-center gap-2">
               <ShieldCheck className="w-5 h-5 text-primary" />
-              Current Status
+              現在の防災レベル判定
             </CardTitle>
-            <CardDescription>現在の到達レベル判定</CardDescription>
           </CardHeader>
           <CardContent className="flex-1 flex flex-col py-4">
             {/* Compact Score Display */}
@@ -227,44 +238,59 @@ export function ResilienceDashboard() {
               
               {nextActions.length > 0 ? (
                 <div className="space-y-3">
-                  {nextActions.map((item, idx) => (
-                    <div key={item.id} className="flex items-start gap-2 text-sm">
-                      <div className="mt-0.5 w-4 h-4 rounded-full bg-primary/20 text-primary flex items-center justify-center text-[10px] font-bold shrink-0">
-                        {idx + 1}
-                      </div>
-                      <div>
-                        <p className="text-white font-medium leading-snug">{item.text}</p>
-                        {item.isMandatory && (
-                          <span className="text-[10px] text-red-400 flex items-center gap-0.5 mt-0.5">
-                            <AlertTriangle className="w-3 h-3" /> 必須項目
-                          </span>
+                  {nextActions.map((item, idx) => {
+                    const isFirst = idx === 0;
+                    return (
+                      <div 
+                        key={item.id} 
+                        className={cn(
+                          "flex items-start gap-3 text-sm p-2 rounded-md transition-colors",
+                          isFirst ? "bg-primary/10 border border-primary/20" : ""
                         )}
+                      >
+                        <div className={cn(
+                          "mt-0.5 w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold shrink-0",
+                          isFirst ? "bg-primary text-primary-foreground" : "bg-white/10 text-muted-foreground"
+                        )}>
+                          {idx + 1}
+                        </div>
+                        <div>
+                          <p className={cn("font-bold leading-snug mb-0.5", isFirst ? "text-primary-foreground" : "text-white")}>
+                            {item.actionLabel || item.text}
+                          </p>
+                          <p className="text-xs text-muted-foreground leading-tight mb-1">
+                            {item.text}
+                          </p>
+                          {item.isMandatory && (
+                            <span className="text-[10px] text-red-400 flex items-center gap-0.5 font-medium">
+                              <AlertTriangle className="w-3 h-3" /> 最優先・必須
+                            </span>
+                          )}
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               ) : (
-                <div className="text-center py-4 text-muted-foreground">
-                  <Check className="w-8 h-8 mx-auto mb-2 text-emerald-500" />
-                  <p>すべて完了しました！</p>
-                  <p className="text-xs mt-1">次のステージへ進みましょう</p>
+                <div className="text-center py-6 text-muted-foreground bg-emerald-500/10 rounded-lg border border-emerald-500/20">
+                  <div className="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center mx-auto mb-3">
+                    <Check className="w-6 h-6 text-emerald-500" />
+                  </div>
+                  <p className="text-white font-bold mb-1">素晴らしい！完璧です</p>
+                  <p className="text-xs text-emerald-200/70">この調子で次のステージもクリアしましょう</p>
                 </div>
               )}
             </div>
           </CardContent>
         </Card>
 
-        {/* Right: Checklist (Accordion Style) */}
+        {/* Right: Checklist (Always Expanded) */}
         <Card className="lg:col-span-2 bg-[#151e32] border-white/10 flex flex-col h-full">
-          <CardHeader 
-            className="cursor-pointer hover:bg-white/5 transition-colors"
-            onClick={() => setIsExpanded(!isExpanded)}
-          >
+          <CardHeader className="pb-2">
             <div className="flex justify-between items-center">
               <div>
-                <CardTitle className="flex items-center gap-2">
+                <CardTitle className="flex items-center gap-2 text-xl text-white">
                   {config.title}
-                  {isExpanded ? <ChevronUp className="w-5 h-5 text-muted-foreground" /> : <ChevronDown className="w-5 h-5 text-muted-foreground" />}
                 </CardTitle>
                 <CardDescription className="mt-1">{config.description}</CardDescription>
               </div>
@@ -274,79 +300,57 @@ export function ResilienceDashboard() {
             </div>
           </CardHeader>
           
-          {/* Collapsible Content */}
-          <div className={cn(
-            "transition-all duration-300 ease-in-out overflow-hidden",
-            isExpanded ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
-          )}>
-            <CardContent className="pt-0">
-              <div className="space-y-3 pt-2">
-                {config.items.map((item) => {
-                  const isChecked = checkedItems[`${currentPhase}-${item.id}`] || false;
-                  
-                  return (
-                    <div 
-                      key={item.id}
-                      onClick={() => handleToggle(currentPhase, item.id)}
-                      className={cn(
-                        "group flex items-start gap-3 p-3 rounded-lg border transition-all cursor-pointer",
-                        isChecked 
-                          ? "bg-primary/10 border-primary/30" 
-                          : "bg-black/20 border-white/5 hover:bg-white/5 hover:border-white/10"
-                      )}
-                    >
-                      <div className={cn(
-                        "mt-0.5 w-5 h-5 rounded border flex items-center justify-center shrink-0 transition-colors",
-                        isChecked 
-                          ? "bg-primary border-primary text-primary-foreground" 
-                          : "border-white/30 group-hover:border-white/50"
-                      )}>
-                        {isChecked && <Check className="w-3.5 h-3.5" />}
+          <CardContent className="flex-1">
+            <div className="space-y-3 pt-2">
+              {config.items.map((item) => {
+                const isChecked = checkedItems[`${currentPhase}-${item.id}`] || false;
+                
+                return (
+                  <div 
+                    key={item.id}
+                    onClick={() => handleToggle(currentPhase, item.id)}
+                    className={cn(
+                      "group flex items-start gap-3 p-3 rounded-lg border transition-all cursor-pointer",
+                      isChecked 
+                        ? "bg-primary/10 border-primary/30" 
+                        : "bg-black/20 border-white/5 hover:bg-white/5 hover:border-white/10"
+                    )}
+                  >
+                    <div className={cn(
+                      "mt-0.5 w-5 h-5 rounded border flex items-center justify-center shrink-0 transition-colors",
+                      isChecked 
+                        ? "bg-primary border-primary text-primary-foreground" 
+                        : "border-white/30 group-hover:border-white/50"
+                    )}>
+                      {isChecked && <Check className="w-3.5 h-3.5" />}
+                    </div>
+                    
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-1">
+                        {item.isMandatory && (
+                          <Badge variant="destructive" className="text-[10px] px-1.5 py-0 h-4 bg-red-500/80 hover:bg-red-500/80 border-0">
+                            必須
+                          </Badge>
+                        )}
+                        <span className={cn("text-base font-medium transition-colors", isChecked ? "text-white" : "text-gray-300")}>
+                          {item.text}
+                        </span>
                       </div>
-                      
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-1">
-                          {item.isMandatory && (
-                            <Badge variant="destructive" className="text-[10px] px-1.5 py-0 h-4 bg-red-500/80 hover:bg-red-500/80 border-0">
-                              必須
-                            </Badge>
-                          )}
-                          <span className={cn("text-base font-medium transition-colors", isChecked ? "text-white" : "text-gray-300")}>
-                            {item.text}
-                          </span>
-                        </div>
-                        <div className="text-[10px] text-muted-foreground flex items-center gap-2">
-                          <span>配点: {item.weight}点</span>
-                          {item.isMandatory && <span className="text-red-400/80 flex items-center gap-0.5"><AlertTriangle className="w-3 h-3" /> 重要項目</span>}
-                        </div>
+                      <div className="text-[10px] text-muted-foreground flex items-center gap-2">
+                        <span>配点: {item.weight}点</span>
+                        {item.isMandatory && <span className="text-red-400/80 flex items-center gap-0.5"><AlertTriangle className="w-3 h-3" /> 重要項目</span>}
                       </div>
                     </div>
-                  );
-                })}
-              </div>
-            </CardContent>
-            <CardFooter className="border-t border-white/5 pt-4 pb-6">
-              <Button className="w-full gap-2" disabled={score < 100}>
-                次のステージへ進む <ArrowRight className="w-4 h-4" />
-              </Button>
-            </CardFooter>
-          </div>
-          
-          {/* Collapsed State Preview (Show only if collapsed) */}
-          {!isExpanded && (
-            <CardContent className="pt-0 pb-6">
-              <p className="text-sm text-muted-foreground mb-4">
-                タップして詳細リストを展開し、チェックを行ってください。
-              </p>
-              <Button 
-                variant="outline" 
-                className="w-full border-white/10 hover:bg-white/5"
-                onClick={() => setIsExpanded(true)}
-              >
-                チェックリストを表示する <ChevronDown className="w-4 h-4 ml-2" />
-              </Button>
-            </CardContent>
-          )}
+                  </div>
+                );
+              })}
+            </div>
+          </CardContent>
+          <CardFooter className="border-t border-white/5 pt-4 pb-6">
+            <Button className="w-full gap-2" disabled={score < 100}>
+              次のステージへ進む <ArrowRight className="w-4 h-4" />
+            </Button>
+          </CardFooter>
         </Card>
       </div>
     </div>
