@@ -50,11 +50,11 @@ export function Sidebar() {
   ];
 
   const needsNavItems = [
-    { name: "リスク可視化・被害想定", icon: <Activity className="w-4 h-4" />, href: "/needs/risk-visualization" },
-    { name: "安否確認・備蓄・訓練", icon: <ShieldAlert className="w-4 h-4" />, href: "/needs/safety-stockpile" },
-    { name: "拠点保全・建物管理", icon: <Building2 className="w-4 h-4" />, href: "/needs/facility-management" },
-    { name: "サプライチェーン・調達", icon: <Briefcase className="w-4 h-4" />, href: "/needs/supply-chain" },
-    { name: "制度・補助金・法対応", icon: <FileText className="w-4 h-4" />, href: "/needs/regulations" },
+    { name: "被害を予測する", icon: <Activity className="w-4 h-4" />, href: "/needs/risk-visualization" },
+    { name: "安全と備えを管理する", icon: <ShieldAlert className="w-4 h-4" />, href: "/needs/safety-stockpile" },
+    { name: "防災拠点の安全を守る", icon: <Building2 className="w-4 h-4" />, href: "/needs/facility-management" },
+    { name: "災害時の物資調達・輸送を確認する", icon: <Briefcase className="w-4 h-4" />, href: "/needs/supply-chain" },
+    { name: "使える支援制度と義務化への対応", icon: <FileText className="w-4 h-4" />, href: "/needs/regulations" },
   ];
 
   const techNavItems = [
