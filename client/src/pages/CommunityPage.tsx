@@ -120,28 +120,28 @@ export default function CommunityPage() {
                   <span className="mr-2 text-xl">📍</span> 
                   <div className="text-left">
                     <div className="font-bold">自分の担当地域</div>
-                    <div className="text-xs text-white/60 font-normal">地域ごとの話題</div>
+                    <div className="text-xs text-white/60 font-normal">近隣自治体の動き</div>
                   </div>
                 </Button>
                 <Button variant="ghost" className="w-full justify-start text-white hover:bg-white/10 hover:text-white h-auto py-3" onClick={handleJoinClick}>
                   <span className="mr-2 text-xl">🔖</span> 
                   <div className="text-left">
                     <div className="font-bold">保存した投稿</div>
-                    <div className="text-xs text-white/60 font-normal">後で読む</div>
+                    <div className="text-xs text-white/60 font-normal">自分専用の知恵袋</div>
                   </div>
                 </Button>
                 <Button variant="ghost" className="w-full justify-start text-white hover:bg-white/10 hover:text-white h-auto py-3" onClick={handleJoinClick}>
                   <span className="mr-2 text-xl">🔥</span> 
                   <div className="text-left">
                     <div className="font-bold">人気のトピック</div>
-                    <div className="text-xs text-white/60 font-normal">注目度が高い</div>
+                    <div className="text-xs text-white/60 font-normal">乗り遅れない情報</div>
                   </div>
                 </Button>
                 <Button variant="ghost" className="w-full justify-start text-white hover:bg-white/10 hover:text-white h-auto py-3" onClick={handleJoinClick}>
                   <span className="mr-2 text-xl">🆕</span> 
                   <div className="text-left">
                     <div className="font-bold">新着の投稿</div>
-                    <div className="text-xs text-white/60 font-normal">最新の議論</div>
+                    <div className="text-xs text-white/60 font-normal">新しい質問・相談</div>
                   </div>
                 </Button>
               </div>
