@@ -6,9 +6,10 @@ interface ContentCardProps {
   item: ContentItem;
   onClick: (item: ContentItem) => void;
   isRead?: boolean;
+  featured?: boolean;
 }
 
-export function ContentCard({ item, onClick, isRead = false }: ContentCardProps) {
+export function ContentCard({ item, onClick, isRead = false, featured = false }: ContentCardProps) {
   // Determine badge style based on item type
   const getBadgeStyle = (type?: string) => {
     switch (type) {
@@ -34,10 +35,10 @@ export function ContentCard({ item, onClick, isRead = false }: ContentCardProps)
 
   return (
     <Card 
-      className={`overflow-hidden cursor-pointer group hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 border-white/10 bg-card/40 backdrop-blur-md ${isRead ? 'opacity-70 hover:opacity-100' : ''}`}
+      className={`overflow-hidden cursor-pointer group hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 border-white/10 bg-card/40 backdrop-blur-md ${isRead ? 'opacity-70 hover:opacity-100' : ''} ${featured ? 'md:flex md:flex-row md:h-[400px]' : ''}`}
       onClick={() => onClick(item)}
     >
-      <div className="relative aspect-video overflow-hidden">
+      <div className={`relative overflow-hidden ${featured ? 'md:w-2/3 h-64 md:h-full' : 'aspect-video'}`}>
         <img 
           src={item.image} 
           alt={item.title} 
@@ -63,16 +64,21 @@ export function ContentCard({ item, onClick, isRead = false }: ContentCardProps)
           </div>
         )}
       </div>
-      <CardContent className="p-4">
+      <CardContent className={`p-4 ${featured ? 'md:w-1/3 md:p-8 md:flex md:flex-col md:justify-center' : ''}`}>
         <div className="flex items-center gap-2 mb-2">
           <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center text-[10px] text-primary font-bold">
             {item.author.charAt(0)}
           </div>
           <span className="text-xs text-muted-foreground truncate">By {item.author}</span>
         </div>
-        <h3 className={`font-sans font-bold text-base leading-tight mb-2 line-clamp-2 group-hover:text-primary transition-colors ${isRead ? 'text-muted-foreground' : ''}`}>
+        <h3 className={`font-sans font-bold leading-tight mb-2 group-hover:text-primary transition-colors ${isRead ? 'text-muted-foreground' : ''} ${featured ? 'text-2xl md:text-3xl mb-4' : 'text-base line-clamp-2'}`}>
           {item.title}
         </h3>
+        {featured && (
+          <p className="text-sm text-muted-foreground mb-4 line-clamp-3 hidden md:block">
+            {item.description || "この記事の概要はまだありません。クリックして詳細をご覧ください。"}
+          </p>
+        )}
         <p className="text-xs text-muted-foreground">
           {item.date}
         </p>

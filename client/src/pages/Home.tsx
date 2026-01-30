@@ -106,10 +106,14 @@ export default function Home() {
                 <div className="md:hidden w-20 h-20 rounded-xl overflow-hidden border border-white/10 shadow-2xl mx-auto mb-4">
                   <img src="/images/bg-stars.png" alt="Logo" className="w-full h-full object-cover" />
                 </div>
-                <h1 className="font-sans text-2xl md:text-3xl font-bold mb-2">The Global Resilience Hub</h1>
+                <h1 className="font-sans text-2xl md:text-3xl font-bold mb-2">最新の防災ニュース</h1>
                 <p className="text-sm text-muted-foreground mb-2 px-2 md:px-0">
-                  レジハブ（The Global Resilience Hub）は、日本と世界の"防災とレジリエンスの知を繋ぐ"<br className="hidden md:block"/>
-                  〜みんなで育てるコミュニティ型プラットフォーム〜
+                  みんなで育てる、防災の知恵袋<br className="hidden md:block"/>
+                  <span className="inline-block mt-1">
+                    <span className="text-white font-bold">知る：</span> 国内の最新の取り組みがわかります。<br className="md:hidden"/>
+                    <span className="text-white font-bold ml-0 md:ml-2">使う：</span> あなたの地域の活動にそのまま活かせます。<br className="md:hidden"/>
+                    <span className="text-white font-bold ml-0 md:ml-2">広める：</span> よい事例を共有して、みんなで助け合えます。
+                  </span>
                 </p>
 
                 {/* Solution Intelligence Settings Area */}
@@ -117,40 +121,22 @@ export default function Home() {
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2 text-[#d4a574]">
                       <Sparkles className="w-4 h-4" />
-                      <span className="font-bold text-sm">My Focus / 重点ウォッチ領域</span>
+                      <span className="font-bold text-sm">あなたの関心を選んでください</span>
                     </div>
-                    <Button variant="ghost" size="sm" className="h-6 text-xs text-muted-foreground hover:text-white px-2">
-                      <Settings2 className="w-3 h-3 mr-1" />
-                      設定を変更
-                    </Button>
                   </div>
-                  <p className="text-xs text-muted-foreground mb-3 text-left">
-                    あなたの担当課題・関心技術を選択して、タイムラインをパーソナライズ<br/><span className="opacity-50 text-[10px]">※AIによる高度なレコメンド機能は2026.04リリース予定</span>
-                  </p>
                   <div className="flex flex-wrap gap-2 justify-center md:justify-start">
-                    {["リスク可視化", "AI・ビッグデータ", "安否確認", "ドローン"].map((tag) => (
+                    {["避難所・物資の管理", "住民への情報伝達", "ハザードマップ・地図", "補助金・国の動向", "他自治体の成功事例"].map((tag) => (
                       <span key={tag} className="px-2 py-1 rounded-md bg-white/10 text-xs text-white/90 border border-white/5 hover:bg-white/20 cursor-pointer transition-colors">
                         {tag}
                       </span>
                     ))}
-                    <span className="px-2 py-1 rounded-md border border-dashed border-white/20 text-xs text-muted-foreground hover:text-white cursor-pointer transition-colors">
-                      + 追加
-                    </span>
                   </div>
                 </div>
 
               </div>
             </div>
             
-            {/* Tab Navigation */}
-            <div className="container mx-auto px-4 mt-4 overflow-x-auto no-scrollbar">
-              <div className="flex items-center gap-6 text-sm font-medium min-w-max pb-3">
-                <button className="text-white border-b-2 border-white pb-1">すべて</button>
-                <button className="text-muted-foreground hover:text-white transition-colors pb-1">課題・目的（Needs）</button>
-                <button className="text-muted-foreground hover:text-white transition-colors pb-1">技術・分野（Seeds）</button>
-                <button className="text-muted-foreground hover:text-white transition-colors pb-1">その他</button>
-              </div>
-            </div>
+
           </div>
         </header>
 
@@ -163,16 +149,30 @@ export default function Home() {
               <div className="text-xs text-muted-foreground">全 {contentItems.length} 件</div>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Sort by date descending (mock implementation assumes already sorted or just map) */}
-              {contentItems.map(item => (
-                <ContentCard 
-                  key={item.id} 
-                  item={item} 
-                  onClick={handleCardClick} 
-                  isRead={allReadArticles.includes(item.id)}
-                />
-              ))}
+            <div className="flex flex-col gap-8">
+              {/* Top Article (1 column, large) */}
+              {contentItems.length > 0 && (
+                <div className="w-full">
+                  <ContentCard 
+                    item={contentItems[0]} 
+                    onClick={handleCardClick} 
+                    isRead={allReadArticles.includes(contentItems[0].id)}
+                    featured={true}
+                  />
+                </div>
+              )}
+
+              {/* Sub Articles (3 columns) */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {contentItems.slice(1, 4).map(item => (
+                  <ContentCard 
+                    key={item.id} 
+                    item={item} 
+                    onClick={handleCardClick} 
+                    isRead={allReadArticles.includes(item.id)}
+                  />
+                ))}
+              </div>
             </div>
           </section>
         </div>
