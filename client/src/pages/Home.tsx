@@ -8,6 +8,7 @@ import { contentItems, type ContentItem } from "@/lib/mock-data";
 import { Bell, Menu, Search, ShoppingBag, Sparkles, Settings2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useArticleLimit } from "@/hooks/useArticleLimit";
+import { useBookmark } from "@/hooks/useBookmark";
 
 import { useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
@@ -20,6 +21,8 @@ export default function Home() {
   const lastScrollY = useRef(0);
   const [, setLocation] = useLocation();
   const { allReadArticles } = useArticleLimit();
+  const { isBookmarked, toggleBookmark, bookmarkedIds } = useBookmark();
+  const [activeTab, setActiveTab] = useState<'latest' | 'saved'>('latest');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -138,21 +141,57 @@ export default function Home() {
         <div className="container mx-auto px-4 py-8 pb-24">
           {/* Timeline View */}
           <section>
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="font-sans text-xl font-bold">最新の投稿</h2>
-              <div className="text-base text-muted-foreground">全 {contentItems.length} 件</div>
+            <div className="flex items-center justify-between mb-6 border-b border-white/10">
+              <div className="flex gap-6">
+                <button
+                  onClick={() => setActiveTab('latest')}
+                  className={`pb-3 text-lg font-bold transition-colors relative ${
+                    activeTab === 'latest' ? 'text-white' : 'text-muted-foreground hover:text-white/80'
+                  }`}
+                >
+                  最新の投稿
+                  {activeTab === 'latest' && (
+                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary shadow-[0_0_10px_rgba(56,189,248,0.5)]" />
+                  )}
+                </button>
+                <button
+                  onClick={() => setActiveTab('saved')}
+                  className={`pb-3 text-lg font-bold transition-colors relative ${
+                    activeTab === 'saved' ? 'text-white' : 'text-muted-foreground hover:text-white/80'
+                  }`}
+                >
+                  保存した記事
+                  {activeTab === 'saved' && (
+                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#d4a574] shadow-[0_0_10px_rgba(212,165,116,0.5)]" />
+                  )}
+                </button>
+              </div>
+              <div className="text-base text-muted-foreground hidden md:block">
+                {activeTab === 'latest' ? `全 ${contentItems.length} 件` : `保存済み ${bookmarkedIds.length} 件`}
+              </div>
             </div>
             
             {/* Articles Grid (3 columns) */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {contentItems.map(item => (
+              {contentItems
+                .filter(item => activeTab === 'latest' || isBookmarked(item.id))
+                .map((item, index) => (
                 <ContentCard 
                   key={item.id} 
                   item={item} 
-                  onClick={handleCardClick} 
+                  index={index}
+                  onClick={handleCardClick}
                   isRead={allReadArticles.includes(item.id)}
+                  isSaved={isBookmarked(item.id)}
+                  onToggleSave={toggleBookmark}
                 />
               ))}
+              {activeTab === 'saved' && bookmarkedIds.length === 0 && (
+                <div className="col-span-full py-20 text-center text-muted-foreground bg-white/5 rounded-xl border border-white/10 border-dashed">
+                  <p className="text-lg mb-2">保存された記事はありません</p>
+                  <p className="text-sm opacity-70">気になる記事の「保存」ボタンを押すとここに表示されます</p>
+                </div>
+              )}
             </div>
           </section>
         </div>

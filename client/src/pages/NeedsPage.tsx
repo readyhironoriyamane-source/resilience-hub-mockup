@@ -146,10 +146,11 @@ export default function NeedsPage() {
               </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {relatedArticles.map((item) => (
+                {relatedArticles.map((item, index) => (
                   <ContentCard 
                     key={item.id} 
                     item={item} 
+                    index={index}
                     onClick={() => handleCardClick(Number(item.id))} 
                   />
                 ))}

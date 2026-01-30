@@ -5,36 +5,53 @@ import { useState } from "react";
 
 interface ContentCardProps {
   item: ContentItem;
+  index: number;
   onClick: (item: ContentItem) => void;
   isRead?: boolean;
   featured?: boolean;
+  isSaved?: boolean;
+  onToggleSave?: (id: string) => void;
 }
 
-export function ContentCard({ item, onClick, isRead = false, featured = false }: ContentCardProps) {
-  const [likes, setLikes] = useState(item.likes || 0);
-  const [saves, setSaves] = useState(item.saves || 0);
+export function ContentCard({ item, index, onClick, isRead, featured, isSaved: initialIsSaved = false, onToggleSave }: ContentCardProps) {
   const [isLiked, setIsLiked] = useState(false);
-  const [isSaved, setIsSaved] = useState(false);
+  const [likes, setLikes] = useState(item.likes || 0);
+  // Use internal state if props are not provided, otherwise sync with props
+  const [internalIsSaved, setInternalIsSaved] = useState(initialIsSaved);
+  const isSaved = onToggleSave ? initialIsSaved : internalIsSaved;
+  
+  const [saves, setSaves] = useState(item.saves || 0);
 
   const handleLike = (e: React.MouseEvent) => {
+    e.preventDefault();
     e.stopPropagation();
-    if (!isLiked) {
-      setLikes(prev => prev + 1);
-      setIsLiked(true);
-    } else {
+    if (isLiked) {
       setLikes(prev => prev - 1);
-      setIsLiked(false);
+    } else {
+      setLikes(prev => prev + 1);
     }
+    setIsLiked(!isLiked);
   };
 
   const handleSave = (e: React.MouseEvent) => {
+    e.preventDefault();
     e.stopPropagation();
-    if (!isSaved) {
-      setSaves(prev => prev + 1);
-      setIsSaved(true);
+    
+    if (onToggleSave) {
+      onToggleSave(item.id);
+      // Optimistically update count
+      if (isSaved) {
+        setSaves(prev => prev - 1);
+      } else {
+        setSaves(prev => prev + 1);
+      }
     } else {
-      setSaves(prev => prev - 1);
-      setIsSaved(false);
+      if (isSaved) {
+        setSaves(prev => prev - 1);
+      } else {
+        setSaves(prev => prev + 1);
+      }
+      setInternalIsSaved(!isSaved);
     }
   };
   // Determine badge style based on item type

@@ -225,10 +225,11 @@ export default function ArticleDetail() {
               おすすめの関連記事
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {relatedArticles.map((relatedItem) => (
+              {relatedArticles.map((relatedItem, index) => (
                 <ContentCard 
                   key={relatedItem.id} 
                   item={relatedItem} 
+                  index={index}
                   onClick={() => handleCardClick(Number(relatedItem.id))} 
                 />
               ))}
