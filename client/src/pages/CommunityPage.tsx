@@ -95,9 +95,32 @@ export default function CommunityPage() {
       <main className="md:pl-64 relative z-10 min-h-screen flex flex-col">
         <MobileHeader onMenuClick={() => setIsSidebarOpen(true)} />
         
-        <div className="container mx-auto px-4 py-8 pb-24">
-          {/* Header */}
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+        <div className="container mx-auto px-4 py-8 pb-24 flex flex-col lg:flex-row gap-8">
+          {/* Left Sidebar Navigation */}
+          <div className="hidden lg:block w-64 flex-shrink-0 space-y-6">
+            <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/10 sticky top-24">
+              <h3 className="text-lg font-bold text-white mb-4 px-2">クイックアクセス</h3>
+              <nav className="space-y-2">
+                <Button variant="ghost" className="w-full justify-start text-white hover:bg-white/10 hover:text-white" onClick={handleJoinClick}>
+                  <span className="mr-2">📍</span> 自分の担当地域
+                </Button>
+                <Button variant="ghost" className="w-full justify-start text-white hover:bg-white/10 hover:text-white" onClick={handleJoinClick}>
+                  <span className="mr-2">🔖</span> 保存した投稿
+                </Button>
+                <Button variant="ghost" className="w-full justify-start text-white hover:bg-white/10 hover:text-white" onClick={handleJoinClick}>
+                  <span className="mr-2">🔥</span> 人気のトピック
+                </Button>
+                <Button variant="ghost" className="w-full justify-start text-white hover:bg-white/10 hover:text-white" onClick={handleJoinClick}>
+                  <span className="mr-2">🆕</span> 新着の投稿
+                </Button>
+              </nav>
+            </div>
+          </div>
+
+          {/* Main Content */}
+          <div className="flex-1 min-w-0">
+            {/* Header */}
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
             <div className="flex items-center gap-4">
               {/* Mobile menu trigger removed as it is handled by MobileHeader */}
               <div>
@@ -107,24 +130,21 @@ export default function CommunityPage() {
                 </p>
               </div>
             </div>
-            <Button onClick={handleJoinClick} className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6 h-auto shadow-lg shadow-primary/20 transition-all hover:scale-105">
-              <span className="mr-2 text-3xl font-bold leading-none">+</span>
-              新しいトピックを作成
-            </Button>
+            {/* Button moved to floating action button */}
           </div>
 
           {/* Forum Categories */}
-          <div className="grid grid-cols-1 gap-6">
-            {forums.map((forum) => (
-              <Card key={forum.id} className="bg-white/90 backdrop-blur-md border-white/20 hover:bg-white/95 transition-all overflow-hidden relative group shadow-lg">
+            <div className="grid grid-cols-1 gap-6">
+              {forums.map((forum) => (
+              <Card key={forum.id} className="bg-white/90 backdrop-blur-md border-white/20 hover:bg-white/95 transition-all overflow-hidden relative group shadow-lg mb-6">
                 {/* Category Color Strip */}
                 {/* Color strip removed */}
                 
                 <CardHeader className="pb-2 pl-6">
                   <div className="flex justify-between items-start">
                     <div className="flex items-center gap-3">
-                      <div className={`p-2 rounded-lg ${forum.color.replace('bg-', 'bg-opacity-90 bg-')} text-white shadow-md`}>
-                        <forum.icon className="h-6 w-6" />
+                      <div className={`p-3 rounded-xl ${forum.color.replace('bg-', 'bg-opacity-90 bg-')} text-white shadow-md transform transition-transform group-hover:scale-110`}>
+                        <forum.icon className="h-8 w-8" />
                       </div>
                       <div>
                         <CardTitle className="text-xl flex items-center gap-2 text-[#0B1026]">
@@ -168,21 +188,22 @@ export default function CommunityPage() {
                       {forum.topics.map((topic, index) => (
                         <div 
                           key={index} 
-                          className="flex items-center justify-between p-3 rounded-md bg-slate-100 hover:bg-slate-200 cursor-pointer transition-colors group border border-transparent"
+                          className="flex items-center justify-between p-4 rounded-lg bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-300 cursor-pointer transition-all group relative top-0 hover:-top-0.5"
                           onClick={handleJoinClick}
                         >
-                          <div className="flex items-center gap-3">
-                            <div className={`h-2 w-2 rounded-full ${forum.color}`} />
-                            <span className="font-medium text-[#0B1026] group-hover:text-blue-700 transition-colors">
+                          <div className="flex items-center gap-4 flex-1 min-w-0">
+                            <div className={`h-3 w-3 rounded-full flex-shrink-0 ${forum.color}`} />
+                            <span className="font-bold text-lg text-[#0B1026] group-hover:text-blue-700 transition-colors line-clamp-2 leading-relaxed">
                               {topic.title}
                             </span>
                           </div>
-                          <div className="flex items-center gap-4 text-base text-slate-500">
-                            <span>by {topic.author}</span>
-                            <span className="flex items-center gap-1">
-                              <MessageSquare className="h-3 w-3" /> コメント{topic.replies}件
+                          <div className="flex items-center gap-6 text-base text-slate-600 font-medium flex-shrink-0 ml-4">
+                            <span className="hidden md:inline">by {topic.author}</span>
+                            <span className="flex items-center gap-1.5 bg-slate-100 px-3 py-1 rounded-full">
+                              <MessageSquare className="h-4 w-4 text-slate-500" /> 
+                              <span className="text-slate-700">コメント{topic.replies}件</span>
                             </span>
-                            <span>{topic.lastActive}</span>
+                            <span className="text-slate-500">{topic.lastActive}</span>
                           </div>
                         </div>
                       ))}
@@ -193,8 +214,19 @@ export default function CommunityPage() {
                   )}
                 </CardContent>
               </Card>
-            ))}
+              ))}
+            </div>
           </div>
+        </div>
+
+        {/* Floating Action Button */}
+        <div className="fixed bottom-8 right-8 z-50">
+          <Button 
+            onClick={handleJoinClick} 
+            className="bg-primary text-primary-foreground hover:bg-primary/90 h-16 w-16 rounded-full shadow-xl shadow-primary/30 transition-all hover:scale-110 flex items-center justify-center"
+          >
+            <span className="text-4xl font-bold leading-none pb-1">+</span>
+          </Button>
         </div>
       </main>
     </div>
