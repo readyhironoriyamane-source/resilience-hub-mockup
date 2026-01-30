@@ -109,20 +109,7 @@ export default function Home() {
                 <h1 className="font-sans text-3xl md:text-4xl font-bold mb-4">最新の防災ニュース</h1>
                 <div className="text-base md:text-lg text-muted-foreground mb-4 px-2 md:px-0 leading-relaxed">
                   <p className="mb-3 font-medium text-white/90">みんなで育てる、防災の知恵袋</p>
-                  <ul className="space-y-2">
-                    <li className="flex items-start gap-2">
-                      <span className="text-white font-bold shrink-0">知る：</span>
-                      <span>国内の最新の取り組みがわかります。</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-white font-bold shrink-0">使う：</span>
-                      <span>あなたの地域の活動にそのまま活かせます。</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-white font-bold shrink-0">広める：</span>
-                      <span>よい事例を共有して、みんなで助け合えます。</span>
-                    </li>
-                  </ul>
+                  <p className="font-bold text-white">国内の最新の取り組みがわかります。</p>
                 </div>
 
                 {/* Solution Intelligence Settings Area */}
