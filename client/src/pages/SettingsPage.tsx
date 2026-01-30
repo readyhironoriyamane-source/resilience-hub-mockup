@@ -42,7 +42,7 @@ export default function SettingsPage() {
           </header>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Left Column: Digital Member Card & Quick Access */}
+            {/* Left Column: Digital Member Card */}
             <div className="lg:col-span-1 space-y-6">
               {/* 1. Digital Member Card */}
               <Card className="bg-gradient-to-br from-[#1a2342] to-[#0f1629] border-white/10 overflow-hidden relative">
@@ -84,8 +84,12 @@ export default function SettingsPage() {
                   </Button>
                 </CardContent>
               </Card>
+            </div>
 
-              {/* 2. Quick Access */}
+            {/* Right Column: Quick Access, Team & Billing */}
+            <div className="lg:col-span-2 space-y-8">
+              
+              {/* 2. Quick Access (Moved to Top) */}
               <Card className="bg-[#131b33] border-white/5">
                 <CardHeader className="pb-3">
                   <CardTitle className="text-lg flex items-center gap-2">
@@ -118,11 +122,7 @@ export default function SettingsPage() {
                   </Button>
                 </CardContent>
               </Card>
-            </div>
 
-            {/* Right Column: Team & Billing */}
-            <div className="lg:col-span-2 space-y-8">
-              
               {/* 3. Team Management */}
               <section>
                 <div className="flex items-center justify-between mb-4">
