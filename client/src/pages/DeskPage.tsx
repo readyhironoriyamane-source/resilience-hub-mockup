@@ -98,9 +98,7 @@ export default function DeskPage() {
         <div className="container mx-auto px-4 py-8 max-w-3xl">
           <header className="mb-10">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
-                <HelpCircle className="w-6 h-6 text-primary" />
-              </div>
+              
               <h1 className="text-3xl font-sans font-bold">防災相談窓口</h1>
             </div>
             <p className="text-muted-foreground text-lg leading-relaxed">
@@ -192,8 +190,7 @@ export default function DeskPage() {
                         <span>*</span> 必須
                       </span>
                     </Label>
-                    <Input id="name" placeholder="例）山田 太郎（ヤマダ タロウ）" required className="bg-white/5 border-white/10 text-white placeholder:text-muted-foreground/50" />
-                    <p className="text-sm text-muted-foreground mt-1">例）山田 太郎（ヤマダ タロウ） ※フリガナもお願いします</p>
+                    <Input id="name" placeholder="例）山田 太郎" required className="bg-white/5 border-white/10 text-white placeholder:text-muted-foreground/50" />
                   </div>
                 </div>
 
