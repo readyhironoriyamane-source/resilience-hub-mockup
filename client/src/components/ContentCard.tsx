@@ -106,24 +106,31 @@ export function ContentCard({ item, onClick, isRead = false, featured = false }:
             {item.description || "この記事の概要はまだありません。クリックして詳細をご覧ください。"}
           </p>
         )}
-        <div className="flex items-center justify-between mt-4">
-          <p className="text-base text-muted-foreground">
-            {item.date}
-          </p>
-          <div className="flex items-center gap-4">
-            <button 
-              onClick={handleLike}
-              className={`flex items-center gap-1.5 text-sm transition-colors ${isLiked ? 'text-pink-500' : 'text-muted-foreground hover:text-pink-500'}`}
-            >
-              <Heart className={`w-4 h-4 ${isLiked ? 'fill-current' : ''}`} />
-              <span>{likes}</span>
-            </button>
+        <div className="flex items-center justify-between mt-6 pt-4 border-t border-white/5">
+          <div className="flex items-center gap-3 w-full">
             <button 
               onClick={handleSave}
-              className={`flex items-center gap-1.5 text-sm transition-colors ${isSaved ? 'text-[#d4a574]' : 'text-muted-foreground hover:text-[#d4a574]'}`}
+              className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-sm font-bold transition-all duration-300 border ${
+                isSaved 
+                  ? 'bg-[#d4a574]/20 text-[#d4a574] border-[#d4a574]/50' 
+                  : 'bg-white/5 text-muted-foreground border-white/10 hover:bg-white/10 hover:text-white'
+              }`}
             >
               <Bookmark className={`w-4 h-4 ${isSaved ? 'fill-current' : ''}`} />
-              <span>{saves}</span>
+              <span>{isSaved ? '保存済み' : '保存'}</span>
+              <span className="text-xs opacity-70 ml-1">{saves}</span>
+            </button>
+            <button 
+              onClick={handleLike}
+              className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-sm font-bold transition-all duration-300 border ${
+                isLiked 
+                  ? 'bg-pink-500/20 text-pink-500 border-pink-500/50' 
+                  : 'bg-white/5 text-muted-foreground border-white/10 hover:bg-white/10 hover:text-white'
+              }`}
+            >
+              <Heart className={`w-4 h-4 ${isLiked ? 'fill-current' : ''}`} />
+              <span>{isLiked ? 'おすすめ' : 'おすすめ'}</span>
+              <span className="text-xs opacity-70 ml-1">{likes}</span>
             </button>
           </div>
         </div>

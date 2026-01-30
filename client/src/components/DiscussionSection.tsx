@@ -1,11 +1,18 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Lock, MessageSquare, Send, User, Heart, Reply } from "lucide-react";
+import { Lock, MessageSquare, Send, User, Heart, Reply, ChevronDown } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 interface Comment {
   id: string;
   content: string;
+  role: string;
   date: string;
   likes: number;
   replies?: Comment[];
@@ -15,6 +22,7 @@ const INITIAL_COMMENTS: Comment[] = [
   {
     id: "1",
     content: "非常に興味深い視点です。特にAIによる予兆検知の精度向上については、今後の防災計画において中心的な役割を果たすと考えられます。",
+    role: "研究・専門家",
     date: "2026/01/30 10:00",
     likes: 12,
     replies: []
@@ -22,10 +30,20 @@ const INITIAL_COMMENTS: Comment[] = [
   {
     id: "2",
     content: "現場レベルでの導入障壁について、もう少し具体的な議論が必要です。特に高齢者への対応が課題になるでしょう。",
+    role: "自治体",
     date: "2026/01/29 15:30",
     likes: 5,
     replies: []
   }
+];
+
+const ROLES = [
+  "自治体",
+  "官公庁",
+  "民間企業",
+  "研究・専門家",
+  "NPO・地域団体",
+  "一般"
 ];
 
 interface DiscussionSectionProps {
@@ -36,6 +54,7 @@ interface DiscussionSectionProps {
 export function DiscussionSection({ isLocked, onUpgrade }: DiscussionSectionProps) {
   const [comments, setComments] = useState<Comment[]>(INITIAL_COMMENTS);
   const [newComment, setNewComment] = useState("");
+  const [selectedRole, setSelectedRole] = useState("自治体");
   const [replyingTo, setReplyingTo] = useState<string | null>(null);
   const [replyContent, setReplyContent] = useState("");
 
@@ -46,6 +65,7 @@ export function DiscussionSection({ isLocked, onUpgrade }: DiscussionSectionProp
     const comment: Comment = {
       id: Date.now().toString(),
       content: newComment,
+      role: selectedRole,
       date: new Date().toLocaleString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' }),
       likes: 0,
       replies: []
@@ -61,6 +81,7 @@ export function DiscussionSection({ isLocked, onUpgrade }: DiscussionSectionProp
     const reply: Comment = {
       id: Date.now().toString(),
       content: replyContent,
+      role: "一般", // 返信はデフォルトで一般とする（必要に応じて選択可能にする）
       date: new Date().toLocaleString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' }),
       likes: 0
     };
@@ -100,19 +121,39 @@ export function DiscussionSection({ isLocked, onUpgrade }: DiscussionSectionProp
     <section className="mt-16 pt-10 border-t border-white/10" id="discussion-section">
       <div className="flex items-center gap-3 mb-8">
         <MessageSquare className="w-6 h-6 text-primary" />
-        <h2 className="text-xl font-bold font-sans text-white">Community Discussion</h2>
-        <span className="px-2 py-0.5 rounded-full bg-primary/20 text-xs text-primary border border-primary/20">
-          Beta
-        </span>
+        <h2 className="text-xl font-bold font-sans text-white">コメントする</h2>
       </div>
 
       {/* Comment Form */}
       <div className="mb-10 bg-white/5 rounded-xl p-6 border border-white/10">
         <form onSubmit={handleSubmit}>
+          <div className="flex items-center gap-4 mb-4">
+            <span className="text-sm text-muted-foreground">投稿者の立場:</span>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" className="bg-black/20 border-white/10 text-white hover:bg-white/10 hover:text-white min-w-[140px] justify-between">
+                  {selectedRole}
+                  <ChevronDown className="w-4 h-4 opacity-50" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-[#1a1f2e] border-white/10 text-white">
+                {ROLES.map((role) => (
+                  <DropdownMenuItem 
+                    key={role}
+                    onClick={() => setSelectedRole(role)}
+                    className="hover:bg-white/10 cursor-pointer focus:bg-white/10 focus:text-white"
+                  >
+                    {role}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
+
           <Textarea
             value={newComment}
             onChange={(e) => setNewComment(e.target.value)}
-            placeholder="記事についての感想や意見を投稿する（匿名）..."
+            placeholder="記事についての感想や意見を投稿する..."
             className="bg-black/20 border-white/10 text-white min-h-[100px] mb-4 focus:border-primary/50"
           />
           <div className="flex justify-end">
@@ -133,11 +174,14 @@ export function DiscussionSection({ isLocked, onUpgrade }: DiscussionSectionProp
         {comments.map((comment) => (
           <div key={comment.id} className="bg-white/5 rounded-xl p-6 border border-white/10">
             <div className="flex justify-between items-start mb-4">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
-                  <User className="w-4 h-4 text-muted-foreground" />
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20">
+                  <User className="w-4 h-4 text-primary" />
                 </div>
-                <span className="text-sm text-muted-foreground">Anonymous</span>
+                <div className="flex flex-col">
+                  <span className="text-sm font-bold text-white">{comment.role}</span>
+                  <span className="text-xs text-muted-foreground">Anonymous User</span>
+                </div>
               </div>
               <span className="text-xs text-muted-foreground">{comment.date}</span>
             </div>
