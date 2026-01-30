@@ -30,7 +30,7 @@ const RESILIENCE_DATA: Record<Phase, PhaseConfig> = {
   survival: {
     id: "survival",
     title: "初級：生存フェーズ",
-    subtitle: "Life Safety",
+    subtitle: "命を守る準備",
     description: "生命と拠点を守るための最低限の備え",
     color: "bg-red-500",
     items: [
@@ -47,7 +47,7 @@ const RESILIENCE_DATA: Record<Phase, PhaseConfig> = {
   continuity: {
     id: "continuity",
     title: "中級：事業継続フェーズ",
-    subtitle: "Business Continuity",
+    subtitle: "活動を続ける準備",
     description: "被災後も事業を止めない・早期復旧する力",
     color: "bg-amber-500",
     items: [
@@ -64,7 +64,7 @@ const RESILIENCE_DATA: Record<Phase, PhaseConfig> = {
   contribution: {
     id: "contribution",
     title: "上級：社会貢献フェーズ",
-    subtitle: "Social Resilience",
+    subtitle: "地域を助ける準備",
     description: "地域や社会全体のレジリエンスを高める存在へ",
     color: "bg-emerald-500",
     items: [
@@ -85,7 +85,7 @@ const RESILIENCE_DATA: Record<Phase, PhaseConfig> = {
 const getScoreEvaluation = (score: number) => {
   if (score >= 90) return { rank: "EXCELLENT", label: "次のステージへ", message: "この級は卒業です。", cta: "ランクアップ", ctaDesc: "初級は完璧です。次は『中級：事業継続』に挑みましょう", color: "text-emerald-400", bg: "bg-emerald-500/20" };
   if (score >= 70) return { rank: "GOOD", label: "標準クリアレベル", message: "基礎体力はつきました。", cta: "質を高める", ctaDesc: "運用の質を上げるため、訓練シナリオを見直しましょう", color: "text-blue-400", bg: "bg-blue-500/20" };
-  if (score >= 40) return { rank: "CAUTION", label: "形式的な備えレベル", message: "実際に機能するか不安が残ります。", cta: "弱点補強", ctaDesc: "配点の高い必須項目の整備を急いでください", color: "text-amber-400", bg: "bg-amber-500/20" };
+  if (score >= 40) return { rank: "注意", label: "形式的な備えレベル", message: "実際に機能するか不安が残ります。", cta: "弱点補強", ctaDesc: "配点の高い必須項目の整備を急いでください", color: "text-amber-400", bg: "bg-amber-500/20" };
   return { rank: "DANGER", label: "存続の危機レベル", message: "基本の“き”が抜けています。", cta: "一点突破で改善", ctaDesc: "まずは未達の必須項目だけやりましょう", color: "text-red-400", bg: "bg-red-500/20" };
 };
 
@@ -178,7 +178,7 @@ export function ResilienceDashboard() {
               </svg>
               <div className="absolute inset-0 flex flex-col items-center justify-center">
                 <span className={cn("text-4xl font-bold font-mono", evaluation.color)}>{score}</span>
-                <span className="text-base text-muted-foreground">POINTS</span>
+                <span className="text-base text-muted-foreground">現在の点数</span>
               </div>
             </div>
             
@@ -191,7 +191,7 @@ export function ResilienceDashboard() {
             <div className="w-full bg-white/5 rounded-lg p-4 border border-white/10 text-left">
               <div className="flex items-center gap-2 mb-2 text-base font-bold text-primary uppercase tracking-wider">
                 <Info className="w-3 h-3" />
-                Recommended Action
+                次に行うこと
               </div>
               <div className="font-bold text-white mb-1">{evaluation.cta}</div>
               <p className="text-base text-muted-foreground">{evaluation.ctaDesc}</p>
