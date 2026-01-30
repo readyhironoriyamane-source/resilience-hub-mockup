@@ -123,8 +123,8 @@ export default function DeskPage() {
                 <div className="space-y-3">
                   <Label className="text-base font-bold text-white flex items-center gap-2">
                     1. 相談種別
-                    <span className="bg-red-600 text-white text-base px-3 py-1 rounded-md font-bold flex items-center gap-2 border border-white/30">
-                      <span className="text-sm">⚠</span> 【必須】
+                    <span className="bg-red-500/10 text-red-400 text-xs px-2 py-0.5 rounded border border-red-500/20 font-bold flex items-center gap-1">
+                      <span>*</span> 必須
                     </span>
                   </Label>
                   <RadioGroup defaultValue="alliance" className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -176,8 +176,8 @@ export default function DeskPage() {
                   <div className="space-y-2">
                     <Label htmlFor="company" className="text-white flex items-center gap-2">
                       2. 会社名・組織名
-                      <span className="bg-red-600 text-white text-base px-3 py-1 rounded-md font-bold flex items-center gap-2 border border-white/30">
-                        <span className="text-sm">⚠</span> 【必須】
+                      <span className="bg-red-500/10 text-red-400 text-xs px-2 py-0.5 rounded border border-red-500/20 font-bold flex items-center gap-1">
+                        <span>*</span> 必須
                       </span>
                     </Label>
                     <Input id="company" placeholder="例）株式会社レジリエンス・ハブ" required className="bg-white/5 border-white/10 text-white placeholder:text-muted-foreground/50" />
@@ -188,8 +188,8 @@ export default function DeskPage() {
                   <div className="space-y-2">
                     <Label htmlFor="name" className="text-white flex items-center gap-2">
                       3. 担当者名
-                      <span className="bg-red-600 text-white text-base px-3 py-1 rounded-md font-bold flex items-center gap-2 border border-white/30">
-                        <span className="text-sm">⚠</span> 【必須】
+                      <span className="bg-red-500/10 text-red-400 text-xs px-2 py-0.5 rounded border border-red-500/20 font-bold flex items-center gap-1">
+                        <span>*</span> 必須
                       </span>
                     </Label>
                     <Input id="name" placeholder="例）山田 太郎（ヤマダ タロウ）" required className="bg-white/5 border-white/10 text-white placeholder:text-muted-foreground/50" />
@@ -201,8 +201,8 @@ export default function DeskPage() {
                 <div className="space-y-2">
                   <Label htmlFor="email" className="text-white flex items-center gap-2">
                     4. 連絡先メールアドレス
-                    <span className="bg-red-600 text-white text-base px-3 py-1 rounded-md font-bold flex items-center gap-2 border border-white/30">
-                      <span className="text-sm">⚠</span> 【必須】
+                    <span className="bg-red-500/10 text-red-400 text-xs px-2 py-0.5 rounded border border-red-500/20 font-bold flex items-center gap-1">
+                      <span>*</span> 必須
                     </span>
                   </Label>
                   <Input id="email" type="email" placeholder="example@company.co.jp" required className="bg-white/5 border-white/10 text-white placeholder:text-muted-foreground/50" />
@@ -213,8 +213,8 @@ export default function DeskPage() {
                 <div className="space-y-4">
                   <Label className="text-base font-bold text-white flex items-center gap-2">
                     5. 具体的な相談内容
-                    <span className="bg-red-600 text-white text-base px-3 py-1 rounded-md font-bold flex items-center gap-2 border border-white/30">
-                      <span className="text-sm">⚠</span> 【必須】
+                    <span className="bg-red-500/10 text-red-400 text-xs px-2 py-0.5 rounded border border-red-500/20 font-bold flex items-center gap-1">
+                      <span>*</span> 必須
                     </span>
                   </Label>
                   
