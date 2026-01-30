@@ -34,13 +34,7 @@ export default function IntelPage() {
         <MobileHeader onMenuClick={() => setIsSidebarOpen(true)} />
         
         <div className="container mx-auto px-4 py-8 pb-24 flex flex-col items-center justify-center min-h-[80vh]">
-          {/* Header */}
-          <div className="text-center mb-12">
-            <h1 className="font-sans text-3xl md:text-5xl font-bold mb-6 tracking-tight">
-              海外防災の最新動向
-            </h1>
 
-          </div>
 
           {/* Coming Soon Content */}
           <div className="max-w-2xl w-full bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 md:p-12 text-center shadow-2xl">
