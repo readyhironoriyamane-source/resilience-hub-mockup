@@ -1,64 +1,13 @@
 import React, { useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { ExternalLink, Globe, Bot, RefreshCw, AlertCircle, Menu, Search, Filter } from "lucide-react";
-import { toast } from "sonner";
 import { Sidebar } from "@/components/Sidebar";
 import { MobileHeader } from "@/components/MobileHeader";
+import { Newspaper, Users } from "lucide-react";
 
 export default function IntelPage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
-
-  const handleLinkClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    toast.info("デモ版のため、外部サイトへの遷移は無効化されています。");
-  };
-
-  const intelFeeds = [
-    {
-      id: 1,
-      title: "Global Risk Report 2026 Released",
-      source: "World Economic Forum",
-      date: "2h ago",
-      summary: "WEFが2026年版グローバルリスク報告書を公開。気候変動への適応失敗がトップリスクに。サイバーセキュリティの脅威レベルも過去最高を記録。",
-      tags: ["Global", "Report"],
-      url: "#",
-      aiAnalysis: "企業のBCP担当者は、特に「気候変動適応」と「サイバーレジリエンス」の2点について、自社の対策状況を再点検する必要があります。"
-    },
-    {
-      id: 2,
-      title: "New Earthquake Early Warning System in Japan",
-      source: "Japan Meteorological Agency",
-      date: "5h ago",
-      summary: "気象庁が新しい緊急地震速報システムの運用を開始。海底地震計のデータを活用し、到達予想時間の精度が最大10秒向上。",
-      tags: ["Japan", "Technology"],
-      url: "#",
-      aiAnalysis: "工場の自動停止システムなどの閾値設定を見直す良い機会です。より早期の警報受信が可能になるため、被害軽減効果が期待できます。"
-    },
-    {
-      id: 3,
-      title: "Supply Chain Disruption in Southeast Asia",
-      source: "Reuters",
-      date: "1d ago",
-      summary: "東南アジア地域での大規模な洪水により、半導体部品のサプライチェーンに遅れが生じる可能性。主要メーカー数社が操業停止を発表。",
-      tags: ["Supply Chain", "Asia"],
-      url: "#",
-      aiAnalysis: "代替調達先の確保と、在庫レベルの確認を推奨します。特に電子部品を使用する製品ラインへの影響評価を急いでください。"
-    },
-    {
-      id: 4,
-      title: "Cyber Attack Trends: Ransomware Evolution",
-      source: "CyberSecurity News",
-      date: "1d ago",
-      summary: "ランサムウェア攻撃の手口が高度化。二重脅迫に加え、DDoS攻撃を組み合わせた三重脅迫のケースが増加中。",
-      tags: ["Cyber", "Security"],
-      url: "#",
-      aiAnalysis: "バックアップのオフライン保管（エアギャップ）の重要性が増しています。また、DDoS対策サービスの導入状況も確認してください。"
-    }
-  ];
+  const [, setLocation] = useLocation();
 
   return (
     <div className="min-h-screen bg-[#0B1026] text-white font-sans selection:bg-primary/30">
@@ -84,121 +33,49 @@ export default function IntelPage() {
       <main className="md:pl-64 relative z-10 min-h-screen flex flex-col">
         <MobileHeader onMenuClick={() => setIsSidebarOpen(true)} />
         
-        <div className="container mx-auto px-4 py-8 pb-24">
+        <div className="container mx-auto px-4 py-8 pb-24 flex flex-col items-center justify-center min-h-[80vh]">
           {/* Header */}
-          <header className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
-            <div className="flex items-center gap-4">
-              {/* Mobile menu trigger removed as it is handled by MobileHeader */}
-              <div>
-                <div className="flex items-center gap-2 mb-2 opacity-80">
-                  <Globe className="w-6 h-6 text-[#d4a574]" />
-                  <span className="font-sans font-bold text-base">Global Intelligence</span>
-                </div>
-                <h1 className="font-sans text-3xl md:text-4xl font-bold mb-2">
-                  External Intel Feed
-                </h1>
-                <p className="text-muted-foreground">
-                  世界中の信頼できるソースから、AIがリスク情報を収集・要約。
-                </p>
-              </div>
-            </div>
-            <div className="flex items-center gap-2 text-base text-muted-foreground bg-muted/30 px-3 py-1 rounded-full border border-border/50 mt-4 md:mt-0">
-              <RefreshCw className="h-3 w-3 animate-spin-slow" />
-              <span>Last updated: Just now</span>
-            </div>
-          </header>
-
-          {/* Search & Filter Bar - Emphasizing Database/Search aspect */}
-          <div className="bg-card/30 p-4 rounded-lg border border-border/50 mb-8">
-            <div className="flex flex-col md:flex-row gap-4">
-              <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                <Input 
-                  placeholder="国、リスク種別、キーワードで検索..." 
-                  className="pl-10 bg-background/50"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                />
-              </div>
-              <div className="flex gap-2">
-                <Button variant="outline" className="gap-2">
-                  <Filter className="h-4 w-4" />
-                  ソース絞り込み
-                </Button>
-                <Button variant="outline" className="gap-2">
-                  <Globe className="h-4 w-4" />
-                  地域選択
-                </Button>
-              </div>
-            </div>
+          <div className="text-center mb-12">
+            <h1 className="font-sans text-3xl md:text-5xl font-bold mb-6 tracking-tight">
+              海外防災の最新動向
+            </h1>
+            <div className="w-24 h-1 bg-blue-500 mx-auto rounded-full mb-8"></div>
           </div>
 
-          {/* AI Disclaimer */}
-          <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4 flex items-start gap-3 mb-8">
-            <Bot className="h-5 w-5 text-blue-400 mt-0.5 shrink-0" />
-            <div className="text-base">
-              <p className="font-medium text-blue-200">AI Generated Content</p>
-              <p className="text-blue-200/70 mt-1">
-                このフィードの要約と分析はAIによって生成されています。意思決定の際は、必ず「Source」リンクから一次情報を確認してください。
-              </p>
+          {/* Coming Soon Content */}
+          <div className="max-w-2xl w-full bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 md:p-12 text-center shadow-2xl">
+            <div className="inline-block px-4 py-1.5 rounded-full bg-blue-500/20 text-blue-300 text-sm font-medium mb-6 border border-blue-500/30">
+              Coming Soon
             </div>
-          </div>
+            
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 leading-relaxed">
+              現在、サービス準備中です
+            </h2>
+            
+            <p className="text-lg text-slate-300 mb-10 leading-relaxed">
+              世界中の防災トレンドやリスク情報をAIが収集・分析する機能を開発中です。<br className="hidden md:block" />
+              公開まで今しばらくお待ちください。
+            </p>
 
-          {/* Feed List - Newswire Style */}
-          <div className="bg-white/90 backdrop-blur-md border border-white/20 rounded-lg overflow-hidden shadow-xl">
-            {/* List Header */}
-            <div className="grid grid-cols-12 gap-4 p-4 border-b border-slate-200 bg-slate-50 text-base font-medium text-slate-500 uppercase tracking-wider">
-              <div className="col-span-2 md:col-span-1">Time</div>
-              <div className="col-span-3 md:col-span-2">Source</div>
-              <div className="col-span-7 md:col-span-6">Headline & Summary</div>
-              <div className="hidden md:block md:col-span-3">AI Analysis</div>
-            </div>
-
-            {/* List Items */}
-            <div className="divide-y divide-slate-200">
-              {intelFeeds.map((item) => (
-                <div key={item.id} className="grid grid-cols-12 gap-4 p-4 hover:bg-white/95 transition-colors group items-start">
-                  {/* Time */}
-                  <div className="col-span-2 md:col-span-1 text-base text-slate-500 font-mono pt-1">
-                    {item.date}
-                  </div>
-
-                  {/* Source */}
-                  <div className="col-span-3 md:col-span-2 pt-0.5">
-                    <Badge variant="outline" className="text-[10px] font-normal border-orange-600/30 text-orange-700 bg-orange-50 truncate max-w-full">
-                      {item.source}
-                    </Badge>
-                    <div className="flex flex-wrap gap-1 mt-2">
-                      {item.tags.map(tag => (
-                        <span key={tag} className="text-[10px] text-slate-500">#{tag}</span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="col-span-7 md:col-span-6 space-y-2">
-                    <h3 className="text-base font-bold leading-snug text-[#0B1026] group-hover:text-blue-700 transition-colors">
-                      <a href={item.url} onClick={handleLinkClick} className="hover:underline decoration-blue-600/50 underline-offset-4 text-blue-900">
-                        {item.title}
-                      </a>
-                    </h3>
-                    <p className="text-base text-slate-600 leading-relaxed line-clamp-2 group-hover:line-clamp-none transition-all">
-                      {item.summary}
-                    </p>
-                  </div>
-
-                  {/* AI Analysis (Desktop only) */}
-                  <div className="hidden md:block md:col-span-3 bg-purple-50/50 rounded p-3 border border-purple-200 backdrop-blur-sm">
-                    <div className="flex items-center gap-1.5 text-[10px] font-medium text-purple-600 mb-1">
-                      <Bot className="h-3 w-3" />
-                      <span>BizOps Impact</span>
-                    </div>
-                    <p className="text-[11px] text-slate-600 leading-relaxed">
-                      {item.aiAnalysis}
-                    </p>
-                  </div>
-                </div>
-              ))}
+            <div className="flex flex-col md:flex-row gap-4 justify-center">
+              <Button 
+                size="lg" 
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg h-auto gap-3 shadow-lg shadow-blue-900/20"
+                onClick={() => setLocation('/articles')}
+              >
+                <Newspaper className="w-5 h-5" />
+                最新の防災ニュース
+              </Button>
+              
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-white/20 text-white hover:bg-white/10 px-8 py-6 text-lg h-auto gap-3 bg-transparent"
+                onClick={() => setLocation('/community')}
+              >
+                <Users className="w-5 h-5" />
+                防災コミュニティ
+              </Button>
             </div>
           </div>
         </div>
