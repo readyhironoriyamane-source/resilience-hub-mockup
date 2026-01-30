@@ -6,12 +6,18 @@ import { MessageSquare, Users, Lock, TrendingUp, AlertTriangle, Activity, Menu }
 import { toast } from "sonner";
 import { Sidebar } from "@/components/Sidebar";
 import { MobileHeader } from "@/components/MobileHeader";
+import { CreateTopicModal } from "@/components/CreateTopicModal";
 
 export default function CommunityPage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
 
   const handleJoinClick = () => {
     toast.info("コミュニティ機能は現在プレビュー版です。正式リリースは2026.04を予定しています。");
+  };
+
+  const handleCreateClick = () => {
+    setIsCreateModalOpen(true);
   };
 
   const forums = [
@@ -241,12 +247,14 @@ export default function CommunityPage() {
         {/* Floating Action Button */}
         <div className="fixed bottom-8 right-8 z-50">
           <Button 
-            onClick={handleJoinClick} 
+            onClick={handleCreateClick} 
             className="bg-primary text-primary-foreground hover:bg-primary/90 h-16 w-16 rounded-full shadow-xl shadow-primary/30 transition-all hover:scale-110 flex items-center justify-center"
           >
             <span className="text-4xl font-bold leading-none pb-1">+</span>
           </Button>
         </div>
+
+        <CreateTopicModal isOpen={isCreateModalOpen} onClose={() => setIsCreateModalOpen(false)} />
       </main>
     </div>
   );
