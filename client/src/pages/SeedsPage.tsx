@@ -35,8 +35,8 @@ export default function SeedsPage() {
   const category = params?.category as keyof typeof seedsData;
   const data = seedsData[category] || seedsData["ai-bigdata"]; // Fallback
 
-  // Filter content items to show only 'seeds' type
-  const relatedArticles = contentItems.filter(item => item.type === 'seeds');
+  // Filter content items based on category if needed, or show all for now
+  const relatedArticles = contentItems.filter(item => item.category === data.title || true).slice(0, 4);
 
   const handleCardClick = (id: number) => {
     setLocation(`/article/${id}`);

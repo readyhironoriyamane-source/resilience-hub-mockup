@@ -54,26 +54,21 @@ export function ContentCard({ item, index, onClick, isRead, featured, isSaved: i
       setInternalIsSaved(!isSaved);
     }
   };
-  // Determine badge style based on item type
-  const getBadgeStyle = (type?: string) => {
-    switch (type) {
-      case 'needs':
+  // Determine badge style based on category
+  const getBadgeStyle = (category: string) => {
+    switch (category) {
+      case '避難所・物資の管理':
         return "bg-orange-500/20 text-orange-400 border-orange-500/30";
-      case 'seeds':
+      case '住民への情報伝達':
         return "bg-blue-500/20 text-blue-400 border-blue-500/30";
+      case 'ハザードマップ・地図':
+        return "bg-green-500/20 text-green-400 border-green-500/30";
+      case '補助金・国の動向':
+        return "bg-purple-500/20 text-purple-400 border-purple-500/30";
+      case '他自治体の成功事例':
+        return "bg-yellow-500/20 text-yellow-400 border-yellow-500/30";
       default:
         return "bg-white/10 text-white/70 border-white/10";
-    }
-  };
-
-  const getBadgeLabel = (type?: string) => {
-    switch (type) {
-      case 'needs':
-        return "Needs";
-      case 'seeds':
-        return "Seeds";
-      default:
-        return item.category;
     }
   };
 
@@ -89,10 +84,10 @@ export function ContentCard({ item, index, onClick, isRead, featured, isSaved: i
           className={`object-cover w-full h-full group-hover:scale-105 transition-transform duration-500 ${isRead ? 'grayscale-[30%]' : ''}`}
         />
         
-        {/* Type Badge */}
-        <div className={`absolute top-2 left-2 px-2 py-1 rounded-md text-[10px] font-bold border backdrop-blur-sm flex items-center gap-1 ${getBadgeStyle(item.type)}`}>
-          {item.type !== 'general' && <Tag className="w-3 h-3" />}
-          {getBadgeLabel(item.type)}
+        {/* Category Badge */}
+        <div className={`absolute top-2 left-2 px-2 py-1 rounded-md text-[10px] font-bold border backdrop-blur-sm flex items-center gap-1 ${getBadgeStyle(item.category)}`}>
+          <Tag className="w-3 h-3" />
+          {item.category}
         </div>
 
         {item.isPremium && (

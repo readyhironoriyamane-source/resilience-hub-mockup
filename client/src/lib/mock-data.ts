@@ -10,7 +10,7 @@ export interface ContentItem {
   keyTakeaways?: string[]; // 編集部による要点解説
   sourceUrl?: string;      // 元記事のURL
   fullContent?: string;    // 記事本文（モック用）
-  type?: 'needs' | 'seeds' | 'general'; // 記事タイプ
+  // type field removed
   likes?: number;
   saves?: number;
 }
@@ -22,10 +22,10 @@ export const contentItems: ContentItem[] = [
     author: "Resilience Hub Editorial",
     date: "2026年1月12日 10:00",
     image: "/images/impact-fund.jpg",
-    category: "制度・補助金・法対応",
+    category: "補助金・国の動向",
     description: "経済産業省が事業継続力強化計画の認定基準を改定。ものづくり補助金などの加点要件に関わる重要変更。",
     isPremium: true,
-    type: 'general',
+    
     likes: 124,
     saves: 45,
     keyTakeaways: [
@@ -78,10 +78,10 @@ export const contentItems: ContentItem[] = [
     author: "Resilience Hub Editorial",
     date: "2026年1月11日 14:30",
     image: "/images/tech-drone.jpg",
-    category: "ドローン・ロボティクス",
+    category: "避難所・物資の管理",
     description: "国土交通省が有人地帯での目視外飛行（レベル4）に関する審査基準を一部簡素化。物流クライシスへの切り札となるか。",
     isPremium: true,
-    type: 'seeds',
+    
     likes: 89,
     saves: 32,
     keyTakeaways: [
@@ -143,10 +143,10 @@ export const contentItems: ContentItem[] = [
     author: "Resilience Hub Editorial",
     date: "2026年1月10日 09:00",
     image: "/images/tech-satellite.jpg",
-    category: "サプライチェーン・調達",
+    category: "ハザードマップ・地図",
     description: "民間シンクタンクが最新の地政学リスクレポートを公開。台湾海峡封鎖時の国内GDP損失額は推計50兆円超。",
     isPremium: true,
-    type: 'needs',
+    
     likes: 256,
     saves: 128,
     keyTakeaways: [
@@ -201,7 +201,7 @@ export const mockArticles = [
     author: "Resilience Hub Editorial",
     date: "2026年1月12日",
     thumbnail: "/images/impact-fund.jpg",
-    category: "制度・補助金・法対応",
+    category: "補助金・国の動向",
     summary: "経済産業省が事業継続力強化計画の認定基準を改定。ものづくり補助金などの加点要件に関わる重要変更。",
     isPremium: true
   },
@@ -211,7 +211,7 @@ export const mockArticles = [
     author: "Resilience Hub Editorial",
     date: "2026年1月11日",
     thumbnail: "/images/tech-drone.jpg",
-    category: "ドローン・ロボティクス",
+    category: "避難所・物資の管理",
     summary: "国土交通省が有人地帯での目視外飛行（レベル4）に関する審査基準を一部簡素化。物流クライシスへの切り札となるか。",
     isPremium: true
   },
@@ -221,7 +221,7 @@ export const mockArticles = [
     author: "Resilience Hub Editorial",
     date: "2026年1月10日",
     thumbnail: "/images/tech-satellite.jpg",
-    category: "サプライチェーン・調達",
+    category: "ハザードマップ・地図",
     summary: "民間シンクタンクが最新の地政学リスクレポートを公開。台湾海峡封鎖時の国内GDP損失額は推計50兆円超。",
     isPremium: true
   },
