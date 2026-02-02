@@ -68,8 +68,8 @@ export default function SettingsPage() {
                     </Avatar>
                     <div>
                       <h3 className="text-xl font-bold text-white">Hironori</h3>
-                      <p className="text-sm text-gray-400">株式会社META EARTH</p>
-                      <p className="text-xs text-gray-500 mt-1">BizOps本部 エキスパート</p>
+                      <p className="text-sm text-gray-400">株式会社MetaEarthHeroes</p>
+                      <p className="text-xs text-gray-500 mt-1">レジハブ事業本部　開発責任者</p>
                     </div>
                   </div>
 
