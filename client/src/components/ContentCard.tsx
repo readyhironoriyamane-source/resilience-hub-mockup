@@ -84,11 +84,7 @@ export function ContentCard({ item, index, onClick, isRead, featured, isSaved: i
           className={`object-cover w-full h-full group-hover:scale-105 transition-transform duration-500 ${isRead ? 'grayscale-[30%]' : ''}`}
         />
         
-        {/* Category Badge */}
-        <div className={`absolute top-2 left-2 px-2 py-1 rounded-md text-[10px] font-bold border backdrop-blur-sm flex items-center gap-1 ${getBadgeStyle(item.category)}`}>
-          <Tag className="w-3 h-3" />
-          {item.category}
-        </div>
+        
 
         {item.isPremium && (
           <div className="absolute top-2 right-2 bg-black/60 backdrop-blur-sm p-1.5 rounded-full text-primary border border-primary/30">
@@ -104,6 +100,13 @@ export function ContentCard({ item, index, onClick, isRead, featured, isSaved: i
         )}
       </div>
       <CardContent className={`p-4 ${featured ? 'p-6 md:p-8' : ''}`}>
+        {/* Category Badge - Moved below image for better visibility */}
+        <div className="mb-3">
+          <span className={`inline-flex items-center gap-1 px-2 py-1 rounded-md text-[10px] font-bold border ${getBadgeStyle(item.category)}`}>
+            <Tag className="w-3 h-3" />
+            {item.category}
+          </span>
+        </div>
         <div className="flex items-center gap-2 mb-2">
           <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center text-[10px] text-primary font-bold">
             {item.author.charAt(0)}
