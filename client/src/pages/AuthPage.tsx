@@ -25,6 +25,8 @@ export default function AuthPage() {
   const [selectedOrg, setSelectedOrg] = useState<Organization | null>(null);
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerName, setRegisterName] = useState("");
+  const [registerDepartment, setRegisterDepartment] = useState("");
+  const [registerJobTitle, setRegisterJobTitle] = useState("");
   const [registerRole, setRegisterRole] = useState("");
 
   // Organization Suggestion Logic
@@ -58,7 +60,7 @@ export default function AuthPage() {
 
   const handleRegisterFinal = (e: React.FormEvent) => {
     e.preventDefault();
-    if (registerName && registerEmail && registerRole) {
+    if (registerName && registerEmail && registerRole && registerDepartment && registerJobTitle) {
       toast.success("登録が完了しました", {
         description: "Resilience Hubへようこそ。共に備えましょう。"
       });
@@ -301,8 +303,31 @@ export default function AuthPage() {
                       )}
                     </div>
 
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="reg-dept">所属部署</Label>
+                        <Input 
+                          id="reg-dept" 
+                          placeholder="例：BizOps本部" 
+                          className="bg-white/5 border-white/10 h-12"
+                          value={registerDepartment}
+                          onChange={(e) => setRegisterDepartment(e.target.value)}
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="reg-job">役職名</Label>
+                        <Input 
+                          id="reg-job" 
+                          placeholder="例：エキスパート" 
+                          className="bg-white/5 border-white/10 h-12"
+                          value={registerJobTitle}
+                          onChange={(e) => setRegisterJobTitle(e.target.value)}
+                        />
+                      </div>
+                    </div>
+
                     <div className="space-y-2">
-                      <Label htmlFor="reg-role">役職・役割</Label>
+                      <Label htmlFor="reg-role">システム上の役割</Label>
                       <Select onValueChange={setRegisterRole} value={registerRole}>
                         <SelectTrigger className="h-12 bg-white/5 border-white/10">
                           <SelectValue placeholder="役割を選択してください" />
@@ -315,6 +340,9 @@ export default function AuthPage() {
                           ))}
                         </SelectContent>
                       </Select>
+                      <p className="text-xs text-muted-foreground pl-1">
+                        ※ 他ユーザーとの比較や権限設定に使用されます
+                      </p>
                     </div>
                   </div>
 
