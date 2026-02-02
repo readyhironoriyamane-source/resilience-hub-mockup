@@ -55,9 +55,14 @@ export default function SettingsPage() {
                       </div>
                       <span className="font-bold text-sm tracking-tight text-gray-300">Resilience Hub</span>
                     </div>
-                    <Badge variant="outline" className="bg-[#d4a574]/10 text-[#d4a574] border-[#d4a574]/30">
-                      GOLD MEMBER
-                    </Badge>
+                    <div className="flex flex-col items-end gap-1">
+                      <Badge variant="outline" className="bg-[#d4a574]/10 text-[#d4a574] border-[#d4a574]/30">
+                        GOLD MEMBER
+                      </Badge>
+                      <Badge variant="outline" className="text-[10px] px-1.5 py-0 h-5 bg-white/5 text-gray-400 border-white/10">
+                        民間企業
+                      </Badge>
+                    </div>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-6">
