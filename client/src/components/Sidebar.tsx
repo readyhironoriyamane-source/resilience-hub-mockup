@@ -135,6 +135,14 @@ export function Sidebar() {
             </div>
           </div>
         </Link>
+        <Link href="/auth">
+          <div className="flex items-center gap-3 px-2 py-2 mt-1 cursor-pointer hover:bg-white/5 rounded-lg transition-colors text-muted-foreground hover:text-red-400">
+            <div className="w-8 h-8 flex items-center justify-center">
+              <Lock className="w-4 h-4" />
+            </div>
+            <div className="text-base font-bold">ログアウト</div>
+          </div>
+        </Link>
         <div className="mt-4 px-2 opacity-90">
           <a 
             href="https://www.metaearth.co.jp/" 
