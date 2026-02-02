@@ -96,20 +96,20 @@ export default function AuthPage() {
 
         <Card className="border-white/10 bg-card/40 backdrop-blur-xl shadow-2xl overflow-hidden">
           <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as "login" | "register")} className="w-full">
-            <div className="grid grid-cols-2 border-b border-white/10">
+            <TabsList className="w-full grid grid-cols-2 p-0 bg-transparent border-b border-white/10 h-auto rounded-none">
               <TabsTrigger 
                 value="login" 
-                className="h-14 rounded-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
+                className="h-14 rounded-none bg-transparent data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary text-base font-medium text-muted-foreground hover:text-foreground transition-colors shadow-none"
               >
                 ログイン
               </TabsTrigger>
               <TabsTrigger 
                 value="register" 
-                className="h-14 rounded-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
+                className="h-14 rounded-none bg-transparent data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary text-base font-medium text-muted-foreground hover:text-foreground transition-colors shadow-none"
               >
                 新規登録
               </TabsTrigger>
-            </div>
+            </TabsList>
 
             <TabsContent value="login" className="p-0 m-0 focus-visible:ring-0 focus-visible:outline-none">
               <CardHeader className="space-y-2 pb-6 pt-8 px-8">
