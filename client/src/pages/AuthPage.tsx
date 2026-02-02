@@ -22,6 +22,7 @@ export default function AuthPage() {
 
   // Register Form State
   const [registerStep, setRegisterStep] = useState<1 | 2>(1);
+  const [registerOrgType, setRegisterOrgType] = useState("");
   const [registerOrgQuery, setRegisterOrgQuery] = useState("");
   const [selectedOrg, setSelectedOrg] = useState<Organization | null>(null);
   const [registerEmail, setRegisterEmail] = useState("");
@@ -52,16 +53,16 @@ export default function AuthPage() {
 
   const handleRegisterStep1 = (e: React.FormEvent) => {
     e.preventDefault();
-    if (selectedOrg || registerOrgQuery) {
+    if (registerOrgType) {
       setRegisterStep(2);
     } else {
-      toast.error("所属組織を入力または選択してください");
+      toast.error("所属区分を選択してください");
     }
   };
 
   const handleRegisterFinal = (e: React.FormEvent) => {
     e.preventDefault();
-    if (registerName && registerEmail && registerRole && registerDepartment && registerJobTitle) {
+    if (registerName && registerEmail && registerRole && registerDepartment && registerJobTitle && (selectedOrg || registerOrgQuery)) {
       toast.success("登録が完了しました", {
         description: "Resilience Hubへようこそ。共に備えましょう。"
       });
@@ -203,17 +204,41 @@ export default function AuthPage() {
                 </CardTitle>
                 <CardDescription className="text-base text-muted-foreground">
                   {registerStep === 1 
-                    ? "まずは所属組織を選択してください。入力の手間を省きます。" 
-                    : "あと少しです。あなたの役割を教えてください。"}
+                    ? "まずは所属区分を選択してください。" 
+                    : "あと少しです。詳細情報を入力してください。"}
                 </CardDescription>
               </CardHeader>
               <CardContent className="px-8 pb-8">
                 {registerStep === 1 ? (
                   <form onSubmit={handleRegisterStep1} className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-300">
                     <div className="space-y-2">
+                      <Label htmlFor="reg-org-type">所属区分</Label>
+                      <Select value={registerOrgType} onValueChange={setRegisterOrgType}>
+                        <SelectTrigger id="reg-org-type" className="h-12 bg-white/5 border-white/10">
+                          <SelectValue placeholder="区分を選択してください" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="municipality">自治体</SelectItem>
+                          <SelectItem value="government">官公庁</SelectItem>
+                          <SelectItem value="private">民間企業</SelectItem>
+                          <SelectItem value="research">研究・専門家</SelectItem>
+                          <SelectItem value="npo">NPO・地域団体</SelectItem>
+                          <SelectItem value="general">一般</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <Button type="submit" className="w-full h-12 text-base font-bold bg-primary hover:bg-primary/90 group">
+                      次へ進む
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </form>
+                ) : (
+                  <form onSubmit={handleRegisterFinal} className="space-y-4 animate-in fade-in slide-in-from-right-4 duration-300">
+                    <div className="space-y-2">
                       <Label htmlFor="reg-org">組織・自治体名</Label>
                       <div className="relative">
-                        <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                        <Building2 className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                         <Input 
                           id="reg-org" 
                           placeholder="例：世田谷区、トヨタ自動車..." 
@@ -231,136 +256,108 @@ export default function AuthPage() {
                       
                       {/* Suggestion List */}
                       {registerOrgQuery && !selectedOrg && filteredOrgs.length > 0 && (
-                        <div className="absolute z-50 w-[calc(100%-4rem)] mt-1 bg-[#1a1f2e] border border-white/10 rounded-md shadow-xl overflow-hidden">
-                          {filteredOrgs.map((org) => (
-                            <div 
+                        <div className="absolute z-50 w-full mt-1 bg-popover border border-white/10 rounded-md shadow-lg overflow-hidden">
+                          {filteredOrgs.map(org => (
+                            <button
                               key={org.id}
-                              className="px-4 py-3 hover:bg-white/5 cursor-pointer flex items-center gap-3 transition-colors"
+                              type="button"
+                              className="w-full text-left px-4 py-3 hover:bg-white/5 flex items-center gap-3 transition-colors"
                               onClick={() => selectOrg(org)}
                             >
-                              <div className="w-8 h-8 rounded bg-white/10 flex items-center justify-center">
-                                <Building2 className="w-4 h-4 text-muted-foreground" />
+                              <div className="w-8 h-8 rounded bg-white/10 flex items-center justify-center text-xs font-bold">
+                                {org.name.substring(0, 1)}
                               </div>
                               <div>
                                 <div className="font-medium">{org.name}</div>
-                                <div className="text-xs text-muted-foreground">{org.domain || "ドメイン情報なし"}</div>
+                                <div className="text-xs text-muted-foreground">{org.domain}</div>
                               </div>
-                            </div>
+                            </button>
                           ))}
                         </div>
                       )}
-
-                      {selectedOrg && (
-                        <div className="mt-2 p-3 bg-primary/10 border border-primary/20 rounded-lg flex items-center gap-3">
-                          <CheckCircle2 className="w-5 h-5 text-primary" />
-                          <span className="text-sm font-medium text-primary">
-                            {selectedOrg.name} が選択されています
-                          </span>
-                        </div>
-                      )}
-                      
-                      <p className="text-xs text-muted-foreground pl-1">
-                        候補にない場合は、そのまま入力して次へお進みください
-                      </p>
                     </div>
 
-                    <Button type="submit" className="w-full h-12 text-base font-bold bg-white text-black hover:bg-white/90 mt-4 group">
-                      次へ進む
-                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                    </Button>
-                  </form>
-                ) : (
-                  <form onSubmit={handleRegisterFinal} className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-300">
-                    <div className="space-y-4">
+                    <div className="grid grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <Label htmlFor="reg-name">氏名</Label>
                         <div className="relative">
                           <User className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                           <Input 
                             id="reg-name" 
-                            placeholder="例：防災 太郎" 
+                            placeholder="山田 太郎" 
                             className="pl-10 bg-white/5 border-white/10 h-12"
                             value={registerName}
                             onChange={(e) => setRegisterName(e.target.value)}
-                            autoFocus
                           />
                         </div>
                       </div>
-
                       <div className="space-y-2">
                         <Label htmlFor="reg-email">メールアドレス</Label>
                         <div className="relative">
                           <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                           <Input 
                             id="reg-email" 
-                            type="email" 
-                            placeholder={selectedOrg?.domain ? `name@${selectedOrg.domain}` : "name@example.com"}
+                            type="email"
+                            placeholder="name@example.com" 
                             className="pl-10 bg-white/5 border-white/10 h-12"
                             value={registerEmail}
                             onChange={(e) => setRegisterEmail(e.target.value)}
                           />
                         </div>
-                        {selectedOrg?.domain && (
-                          <p className="text-xs text-primary/80 pl-1">
-                            ※ {selectedOrg.name} のドメイン ({selectedOrg.domain}) を推奨します
-                          </p>
-                        )}
-                      </div>
-
-                      <div className="grid grid-cols-2 gap-4">
-                        <div className="space-y-2">
-                          <Label htmlFor="reg-dept">所属部署</Label>
-                          <Input 
-                            id="reg-dept" 
-                            placeholder="例：BizOps本部" 
-                            className="bg-white/5 border-white/10 h-12"
-                            value={registerDepartment}
-                            onChange={(e) => setRegisterDepartment(e.target.value)}
-                          />
-                        </div>
-                        <div className="space-y-2">
-                          <Label htmlFor="reg-job">役職名</Label>
-                          <Input 
-                            id="reg-job" 
-                            placeholder="例：エキスパート" 
-                            className="bg-white/5 border-white/10 h-12"
-                            value={registerJobTitle}
-                            onChange={(e) => setRegisterJobTitle(e.target.value)}
-                          />
-                        </div>
-                      </div>
-
-                      <div className="space-y-2">
-                        <Label htmlFor="reg-role">システム上の役割</Label>
-                        <Select onValueChange={setRegisterRole} value={registerRole}>
-                          <SelectTrigger className="h-12 bg-white/5 border-white/10">
-                            <SelectValue placeholder="役割を選択してください" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {ROLES.map((role) => (
-                              <SelectItem key={role} value={role}>
-                                {role}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                        <p className="text-xs text-muted-foreground pl-1">
-                          ※ 他ユーザーとの比較や権限設定に使用されます
-                        </p>
                       </div>
                     </div>
 
-                    <div className="flex gap-3 mt-6">
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="reg-dept">所属部署</Label>
+                        <Input 
+                          id="reg-dept" 
+                          placeholder="例：BizOps本部" 
+                          className="bg-white/5 border-white/10 h-12"
+                          value={registerDepartment}
+                          onChange={(e) => setRegisterDepartment(e.target.value)}
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="reg-job">役職名</Label>
+                        <Input 
+                          id="reg-job" 
+                          placeholder="例：エキスパート" 
+                          className="bg-white/5 border-white/10 h-12"
+                          value={registerJobTitle}
+                          onChange={(e) => setRegisterJobTitle(e.target.value)}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="reg-role">システム上の役割</Label>
+                      <Select value={registerRole} onValueChange={setRegisterRole}>
+                        <SelectTrigger id="reg-role" className="h-12 bg-white/5 border-white/10">
+                          <SelectValue placeholder="役割を選択してください" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {ROLES.map(role => (
+                            <SelectItem key={role.id} value={role.id}>
+                              {role.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div className="flex gap-3 pt-2">
                       <Button 
                         type="button" 
                         variant="outline" 
-                        className="h-12 px-6"
+                        className="flex-1 h-12 border-white/10 hover:bg-white/5"
                         onClick={() => setRegisterStep(1)}
                       >
                         戻る
                       </Button>
-                      <Button type="submit" className="flex-1 h-12 text-base font-bold bg-white text-black hover:bg-white/90">
+                      <Button type="submit" className="flex-[2] h-12 text-base font-bold bg-primary hover:bg-primary/90">
                         登録を完了する
+                        <CheckCircle2 className="ml-2 h-4 w-4" />
                       </Button>
                     </div>
                   </form>
