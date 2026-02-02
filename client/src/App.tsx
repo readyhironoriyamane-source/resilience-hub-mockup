@@ -17,12 +17,14 @@ import TopicDetailPage from "./pages/TopicDetailPage";
 import ArticlesPage from "./pages/ArticlesPage";
 import IntelPage from "./pages/IntelPage";
 import DirectoryPage from "./pages/DirectoryPage";
+import AuthPage from "./pages/AuthPage";
 
 
 function Router() {
   return (
     <Switch>
       <Route path={"/"} component={Home} />
+      <Route path={"/auth"} component={AuthPage} />
       <Route path={"/about"} component={About} />
       <Route path="/article/:id" component={ArticleDetail} />
       <Route path="/dashboard" component={Dashboard} />
