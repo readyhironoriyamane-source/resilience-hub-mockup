@@ -62,7 +62,7 @@ export default function AuthPage() {
 
   const handleRegisterFinal = (e: React.FormEvent) => {
     e.preventDefault();
-    if (registerName && registerEmail && registerRole && registerDepartment && registerJobTitle && (selectedOrg || registerOrgQuery)) {
+    if (registerName && registerEmail && registerDepartment && registerJobTitle && (selectedOrg || registerOrgQuery)) {
       toast.success("登録が完了しました", {
         description: "Resilience Hubへようこそ。共に備えましょう。"
       });
@@ -241,7 +241,7 @@ export default function AuthPage() {
                         <Building2 className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                         <Input 
                           id="reg-org" 
-                          placeholder="例：世田谷区、トヨタ自動車..." 
+                          placeholder="例：株式会社MetaEarthHeroes" 
                           className="pl-10 bg-white/5 border-white/10 h-12"
                           value={registerOrgQuery}
                           onChange={(e) => {
@@ -312,7 +312,7 @@ export default function AuthPage() {
                         <Label htmlFor="reg-dept">所属部署</Label>
                         <Input 
                           id="reg-dept" 
-                          placeholder="例：BizOps本部" 
+                          placeholder="例：防災本部" 
                           className="bg-white/5 border-white/10 h-12"
                           value={registerDepartment}
                           onChange={(e) => setRegisterDepartment(e.target.value)}
@@ -322,7 +322,7 @@ export default function AuthPage() {
                         <Label htmlFor="reg-job">役職名</Label>
                         <Input 
                           id="reg-job" 
-                          placeholder="例：エキスパート" 
+                          placeholder="例：防災担当" 
                           className="bg-white/5 border-white/10 h-12"
                           value={registerJobTitle}
                           onChange={(e) => setRegisterJobTitle(e.target.value)}
@@ -330,21 +330,7 @@ export default function AuthPage() {
                       </div>
                     </div>
 
-                    <div className="space-y-2">
-                      <Label htmlFor="reg-role">システム上の役割</Label>
-                      <Select value={registerRole} onValueChange={setRegisterRole}>
-                        <SelectTrigger id="reg-role" className="h-12 bg-white/5 border-white/10">
-                          <SelectValue placeholder="役割を選択してください" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {ROLES.map(role => (
-                            <SelectItem key={role.id} value={role.id}>
-                              {role.label}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
+
 
                     <div className="flex gap-3 pt-2">
                       <Button 
