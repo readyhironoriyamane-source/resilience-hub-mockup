@@ -9,6 +9,7 @@ import { Bell, Menu, Search, ShoppingBag, Sparkles, Settings2 } from "lucide-rea
 import { Button } from "@/components/ui/button";
 import { useArticleLimit } from "@/hooks/useArticleLimit";
 import { useBookmark } from "@/hooks/useBookmark";
+import { usePaywall } from "@/hooks/usePaywall";
 
 import { useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
@@ -23,6 +24,7 @@ export default function Home() {
   const { allReadArticles } = useArticleLimit();
   const { isBookmarked, toggleBookmark, bookmarkedIds } = useBookmark();
   const [activeTab, setActiveTab] = useState<'latest' | 'saved'>('latest');
+  const { isTrialExpired, setIsTrialExpired } = usePaywall();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -67,6 +69,19 @@ export default function Home() {
 
       <main className="md:pl-64 relative z-10 min-h-screen flex flex-col">
         <MobileHeader onMenuClick={() => setIsSidebarOpen(true)} />
+
+        {/* Debug Toggle for Paywall */}
+        <div className="fixed top-20 right-4 z-[100] bg-black/90 p-2 rounded-lg border border-white/20 text-xs shadow-xl">
+          <label className="flex items-center gap-2 cursor-pointer">
+            <input 
+              type="checkbox" 
+              checked={isTrialExpired} 
+              onChange={(e) => setIsTrialExpired(e.target.checked)}
+              className="rounded bg-white/10 border-white/30"
+            />
+            <span>Debug: トライアル終了状態</span>
+          </label>
+        </div>
 
         {/* Header (Desktop only) */}
         <header 

@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { PremiumModal } from "@/components/PremiumModal";
 
 import { useBookmark } from "@/hooks/useBookmark";
+import { usePaywall } from "@/hooks/usePaywall";
 import { DiscussionSection } from "@/components/DiscussionSection";
 import { ContentCard } from "@/components/ContentCard";
 
@@ -50,7 +51,7 @@ export default function ArticleDetail() {
   }
 
   // Paywall logic
-  const [isTrialExpired, setIsTrialExpired] = useState(false);
+  const { isTrialExpired, setIsTrialExpired } = usePaywall();
   const isLocked = item.isPremium && isTrialExpired;
 
   const handleCardClick = (id: number) => {

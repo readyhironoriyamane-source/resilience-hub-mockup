@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from "react";
+import { usePaywall } from "@/hooks/usePaywall";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -93,7 +94,7 @@ const getScoreEvaluation = (score: number) => {
 
 export function ResilienceDashboard() {
   const [currentPhase, setCurrentPhase] = useState<Phase>("survival");
-  const [isTrialExpired, setIsTrialExpired] = useState(false); // Debug state for paywall
+  const { isTrialExpired, setIsTrialExpired } = usePaywall();
   const [isExpanded, setIsExpanded] = useState(false);
   
   // Mock state for checked items (In a real app, this would be persisted)

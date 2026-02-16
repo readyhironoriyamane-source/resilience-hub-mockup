@@ -72,6 +72,7 @@ const COMMENTS_DATA = [
 ];
 
 import { PremiumModal } from "@/components/PremiumModal";
+import { usePaywall } from "@/hooks/usePaywall";
 import { Lock } from "lucide-react";
 
 export default function TopicDetailPage() {
@@ -79,7 +80,7 @@ export default function TopicDetailPage() {
   const [, setLocation] = useLocation();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [liked, setLiked] = useState(false);
-  const [isTrialExpired, setIsTrialExpired] = useState(false); // Debug state for paywall
+  const { isTrialExpired, setIsTrialExpired } = usePaywall();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleBack = () => {
