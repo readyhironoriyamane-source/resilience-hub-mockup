@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from "react";
 import { usePaywall } from "@/hooks/usePaywall";
+import { PremiumModal } from "@/components/PremiumModal";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -96,6 +97,7 @@ export function ResilienceDashboard() {
   const [currentPhase, setCurrentPhase] = useState<Phase>("survival");
   const { isTrialExpired, setIsTrialExpired } = usePaywall();
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   
   // Mock state for checked items (In a real app, this would be persisted)
   const [checkedItems, setCheckedItems] = useState<Record<string, boolean>>({
@@ -205,6 +207,8 @@ export function ResilienceDashboard() {
         })}
       </div>
 
+      <PremiumModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      
       {/* Main Dashboard Card */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 relative">
         {isTrialExpired && (
@@ -219,7 +223,7 @@ export function ResilienceDashboard() {
               </p>
               <Button 
                 className="w-full bg-gradient-to-r from-[#d4a574] to-[#b8865c] hover:from-[#c49260] hover:to-[#a6754b] text-white font-bold px-8 py-4 h-auto text-lg shadow-lg shadow-orange-900/20"
-                onClick={() => document.dispatchEvent(new CustomEvent('open-premium-modal'))}
+                onClick={() => setIsModalOpen(true)}
               >
                 プランを選択する
               </Button>
