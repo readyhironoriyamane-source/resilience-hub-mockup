@@ -71,11 +71,16 @@ const COMMENTS_DATA = [
   }
 ];
 
+import { PremiumModal } from "@/components/PremiumModal";
+import { Lock } from "lucide-react";
+
 export default function TopicDetailPage() {
   const [match, params] = useRoute("/community/topic/:id");
   const [, setLocation] = useLocation();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [liked, setLiked] = useState(false);
+  const [isTrialExpired, setIsTrialExpired] = useState(false); // Debug state for paywall
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleBack = () => {
     setLocation("/community");
@@ -110,6 +115,19 @@ export default function TopicDetailPage() {
       <main className="md:pl-64 relative z-10 min-h-screen flex flex-col">
         <MobileHeader onMenuClick={() => setIsSidebarOpen(true)} />
         
+        {/* Debug Toggle for Paywall */}
+        <div className="fixed bottom-4 right-4 z-50 bg-black/80 p-2 rounded-lg border border-white/20 text-xs">
+          <label className="flex items-center gap-2 cursor-pointer">
+            <input 
+              type="checkbox" 
+              checked={isTrialExpired} 
+              onChange={(e) => setIsTrialExpired(e.target.checked)}
+              className="rounded bg-white/10 border-white/30"
+            />
+            <span>Debug: トライアル終了状態</span>
+          </label>
+        </div>
+
         <div className="container mx-auto px-4 py-8 pb-24 max-w-6xl">
           {/* Navigation */}
           <Button variant="ghost" onClick={handleBack} className="mb-6 text-white/70 hover:text-white hover:bg-white/10 pl-0">
@@ -182,13 +200,34 @@ export default function TopicDetailPage() {
               </Card>
 
               {/* Comments Section */}
-              <div className="space-y-6 mt-8">
+              <div className="space-y-6 mt-8 relative">
                 <h3 className="text-xl font-bold text-white flex items-center gap-2">
                   コメント <span className="text-slate-400 text-lg font-normal">({TOPIC_DATA.commentsCount})</span>
                 </h3>
 
-                {COMMENTS_DATA.map((comment) => (
-                  <div key={comment.id} className="space-y-4">
+                {isTrialExpired && (
+                  <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-[#0B1026]/90 backdrop-blur-sm rounded-xl pt-20">
+                    <div className="p-8 rounded-xl bg-[#0F172A] border border-[#d4a574]/30 text-center shadow-2xl shadow-black/50 max-w-md mx-4">
+                      <Lock className="w-12 h-12 text-[#d4a574] mx-auto mb-4" />
+                      <h3 className="text-xl font-bold mb-2 text-white">コメントの閲覧制限</h3>
+                      <p className="text-muted-foreground mb-6">
+                        無料トライアル期間が終了しました。<br/>
+                        コミュニティでの議論に参加・閲覧するには、<br/>
+                        有料プランへのアップグレードが必要です。
+                      </p>
+                      <Button 
+                        onClick={() => setIsModalOpen(true)}
+                        className="w-full bg-gradient-to-r from-[#d4a574] to-[#b8865c] hover:from-[#c49260] hover:to-[#a6754b] text-white font-bold px-8 py-4 h-auto text-lg shadow-lg shadow-orange-900/20"
+                      >
+                        プランを選択する
+                      </Button>
+                    </div>
+                  </div>
+                )}
+
+                <div className={isTrialExpired ? "blur-sm select-none pointer-events-none" : ""}>
+                  {COMMENTS_DATA.map((comment) => (
+                    <div key={comment.id} className="space-y-4">
                     {/* Parent Comment */}
                     <Card className="bg-white/95 border-none shadow-md">
                       <CardContent className="p-6">
@@ -277,10 +316,11 @@ export default function TopicDetailPage() {
                     )}
                   </div>
                 ))}
+                </div>
               </div>
             </div>
 
-            {/* Sidebar Column */}
+            {/* Right Sidebar */}
             <div className="space-y-6">
               {/* Reference Info (Only if attachments exist) */}
               {/* Assuming attachments exist for this mock */}
@@ -370,6 +410,7 @@ export default function TopicDetailPage() {
           </div>
         </div>
       </main>
+      <PremiumModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 }
