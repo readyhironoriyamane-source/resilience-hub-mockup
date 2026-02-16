@@ -2,9 +2,18 @@ import { useState } from "react";
 import { Sidebar } from "@/components/Sidebar";
 import { MobileHeader } from "@/components/MobileHeader";
 import { ResilienceDashboard } from "@/components/ResilienceDashboard";
+import { PremiumModal } from "@/components/PremiumModal";
+import { useEffect } from "react";
 
 export default function Dashboard() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    const handleOpenModal = () => setIsModalOpen(true);
+    document.addEventListener('open-premium-modal', handleOpenModal);
+    return () => document.removeEventListener('open-premium-modal', handleOpenModal);
+  }, []);
 
   return (
     <div className="min-h-screen bg-[#0B1026] text-white font-sans selection:bg-primary/30 flex">
@@ -42,6 +51,7 @@ export default function Dashboard() {
           <ResilienceDashboard />
         </div>
       </div>
+      <PremiumModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 }

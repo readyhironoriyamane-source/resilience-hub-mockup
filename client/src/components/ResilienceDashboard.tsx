@@ -93,6 +93,7 @@ const getScoreEvaluation = (score: number) => {
 
 export function ResilienceDashboard() {
   const [currentPhase, setCurrentPhase] = useState<Phase>("survival");
+  const [isTrialExpired, setIsTrialExpired] = useState(false); // Debug state for paywall
   const [isExpanded, setIsExpanded] = useState(false);
   
   // Mock state for checked items (In a real app, this would be persisted)
@@ -135,6 +136,19 @@ export function ResilienceDashboard() {
 
   return (
     <div className="space-y-6">
+      {/* Debug Toggle for Paywall */}
+      <div className="fixed bottom-4 right-4 z-50 bg-black/80 p-2 rounded-lg border border-white/20 text-xs">
+        <label className="flex items-center gap-2 cursor-pointer">
+          <input 
+            type="checkbox" 
+            checked={isTrialExpired} 
+            onChange={(e) => setIsTrialExpired(e.target.checked)}
+            className="rounded bg-white/10 border-white/30"
+          />
+          <span>Debug: トライアル終了状態</span>
+        </label>
+      </div>
+
       {/* Header & Guidance */}
       <div className="mb-2">
         <h2 className="text-lg md:text-xl font-bold text-white mb-1">3つのステップで備えを固める</h2>
@@ -191,7 +205,26 @@ export function ResilienceDashboard() {
       </div>
 
       {/* Main Dashboard Card */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 relative">
+        {isTrialExpired && (
+          <div className="absolute inset-0 z-50 flex items-center justify-center bg-[#0B1026]/80 backdrop-blur-sm rounded-xl">
+            <div className="p-8 rounded-xl bg-[#0F172A] border border-[#d4a574]/30 text-center shadow-2xl shadow-black/50 max-w-md mx-4">
+              <ShieldCheck className="w-12 h-12 text-[#d4a574] mx-auto mb-4" />
+              <h3 className="text-xl font-bold mb-2 text-white">診断機能の利用制限</h3>
+              <p className="text-muted-foreground mb-6">
+                無料トライアル期間が終了しました。<br/>
+                最新の防災レベル診断を続けるには、<br/>
+                有料プランへのアップグレードが必要です。
+              </p>
+              <Button 
+                className="w-full bg-gradient-to-r from-[#d4a574] to-[#b8865c] hover:from-[#c49260] hover:to-[#a6754b] text-white font-bold px-8 py-4 h-auto text-lg shadow-lg shadow-orange-900/20"
+                onClick={() => document.dispatchEvent(new CustomEvent('open-premium-modal'))}
+              >
+                プランを選択する
+              </Button>
+            </div>
+          </div>
+        )}
         {/* Left: Score & Next Actions (Compact) */}
         <Card className="lg:col-span-1 bg-[#151e32] border-white/10 flex flex-col h-full">
           <CardHeader className="pb-2">
