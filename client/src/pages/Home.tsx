@@ -48,7 +48,7 @@ export default function Home() {
     <div className="min-h-screen bg-[#0B1026] text-white font-sans selection:bg-primary/30">
       {/* Background Elements */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[url('/images/bg-stars.png')] bg-cover bg-center opacity-60" />
+        <div className="absolute inset-0 bg-[url('https://files.manuscdn.com/user_upload_by_module/session_file/92549119/APwdhsHRGLOnpVQd.png')] bg-cover bg-center opacity-60" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B1026]/80 via-transparent to-[#0B1026]" />
       </div>
 
@@ -104,11 +104,11 @@ export default function Home() {
         <div className="bg-[#151e32] border-b border-white/5 relative z-20">
           <div className="container mx-auto px-4 py-4 flex flex-col md:flex-row gap-4 items-center">
             <div className="w-24 h-24 rounded-xl overflow-hidden shrink-0 border border-white/10 shadow-2xl hidden md:block">
-              <img src="/images/bg-stars.png" alt="Logo" className="w-full h-full object-cover" />
+              <img src="https://files.manuscdn.com/user_upload_by_module/session_file/92549119/APwdhsHRGLOnpVQd.png" alt="Logo" className="w-full h-full object-cover" />
             </div>
             <div className="flex-1 text-center md:text-left w-full">
               <div className="md:hidden w-20 h-20 rounded-xl overflow-hidden border border-white/10 shadow-2xl mx-auto mb-4">
-                <img src="/images/bg-stars.png" alt="Logo" className="w-full h-full object-cover" />
+                <img src="https://files.manuscdn.com/user_upload_by_module/session_file/92549119/APwdhsHRGLOnpVQd.png" alt="Logo" className="w-full h-full object-cover" />
               </div>
               <h1 className="font-sans text-2xl md:text-3xl font-bold mb-2">最新の防災ニュース</h1>
               <div className="text-base md:text-lg text-muted-foreground mb-2 px-2 md:px-0 leading-relaxed">

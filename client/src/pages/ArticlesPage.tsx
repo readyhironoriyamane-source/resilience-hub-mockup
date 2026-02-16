@@ -9,12 +9,15 @@ import { Search, Filter, Clock, User, Menu, BookOpen } from "lucide-react";
 import { Sidebar } from "@/components/Sidebar";
 import { MobileHeader } from "@/components/MobileHeader";
 import { Link } from "wouter";
+import { BillingPopup } from "@/components/BillingPopup";
 
 export default function ArticlesPage() {
   const [location, setLocation] = useLocation();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isBillingPopupOpen, setIsBillingPopupOpen] = useState(false);
+  const [isTrialExpired, setIsTrialExpired] = useState(false); // Debug state for trial expiration
 
   // Filter articles based on search query and category
   const filteredArticles = mockArticles.filter(article => {
@@ -51,6 +54,25 @@ export default function ArticlesPage() {
         <MobileHeader onMenuClick={() => setIsSidebarOpen(true)} />
         
         <div className="container mx-auto px-4 py-8 pb-24">
+          {/* Debug Controls */}
+          <div className="fixed bottom-4 right-4 z-50 bg-black/80 p-4 rounded-lg border border-white/20">
+            <div className="flex items-center gap-2 text-white mb-2">
+              <span className="text-xs font-bold uppercase text-amber-500">Debug Mode</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <input 
+                type="checkbox" 
+                id="trial-expired" 
+                checked={isTrialExpired} 
+                onChange={(e) => setIsTrialExpired(e.target.checked)}
+                className="rounded border-gray-600 bg-gray-700 text-amber-500 focus:ring-amber-500"
+              />
+              <label htmlFor="trial-expired" className="text-sm text-gray-300 cursor-pointer">
+                試用期間終了（14日経過）
+              </label>
+            </div>
+          </div>
+
           {/* Header */}
           <header className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
             <div className="flex items-center gap-4">
@@ -106,7 +128,13 @@ export default function ArticlesPage() {
               <Card 
                 key={article.id} 
                 className="group cursor-pointer hover:shadow-lg transition-all duration-300 border-border/50 bg-card/50 backdrop-blur-sm overflow-hidden"
-                onClick={() => setLocation(`/article/${article.id}`)}
+                onClick={() => {
+                  if (isTrialExpired && article.isPremium) {
+                    setIsBillingPopupOpen(true);
+                  } else {
+                    setLocation(`/article/${article.id}`);
+                  }
+                }}
               >
                 <div className="relative h-48 overflow-hidden">
                   <img 
@@ -161,6 +189,11 @@ export default function ArticlesPage() {
           )}
         </div>
       </main>
+      
+      <BillingPopup 
+        isOpen={isBillingPopupOpen} 
+        onClose={() => setIsBillingPopupOpen(false)} 
+      />
     </div>
   );
 }

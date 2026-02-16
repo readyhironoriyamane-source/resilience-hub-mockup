@@ -17,6 +17,34 @@ export interface ContentItem {
 
 export const contentItems: ContentItem[] = [
   {
+    id: "dummy-paywall",
+    title: "【重要】2026年度版 企業防災ガイドラインの改定ポイント",
+    author: "Resilience Hub Editorial",
+    date: "2026年2月1日 10:00",
+    image: "/images/impact-fund.jpg",
+    category: "ガイドライン・法改正",
+    description: "内閣府が発表した最新の企業防災ガイドラインの全容を解説。BCP策定における新たな必須項目とは。",
+    isPremium: true,
+    likes: 150,
+    saves: 60,
+    keyTakeaways: [
+      "サプライチェーン全体の強靭化が求められる",
+      "従業員の安否確認システムの導入が推奨される",
+      "サイバー攻撃への対策が強化される"
+    ],
+    sourceUrl: "https://www.bousai.go.jp/",
+    fullContent: `
+      <div class="space-y-8">
+        <section>
+          <h3 class="text-xl font-bold mb-4 text-white border-l-4 border-blue-500 pl-3">概要と背景</h3>
+          <p class="text-gray-300 leading-relaxed">
+            2026年度版の企業防災ガイドラインでは、近年の自然災害の激甚化やサイバー攻撃の脅威を踏まえ、BCP（事業継続計画）の実効性を高めるための具体的な指針が示されました。特に、サプライチェーン全体での連携や、デジタル技術を活用した防災対策の重要性が強調されています。
+          </p>
+        </section>
+      </div>
+    `
+  },
+  {
     id: "1",
     title: "【経産省】BCPガイドライン改定｜中小企業の補助金要件が厳格化、3月末までの対応必須",
     author: "Resilience Hub Editorial",
@@ -195,6 +223,16 @@ export const contentItems: ContentItem[] = [
 ];
 
 export const mockArticles = [
+  {
+    id: "dummy-paywall",
+    title: "【重要】2026年度版 企業防災ガイドラインの改定ポイント",
+    author: "Resilience Hub Editorial",
+    date: "2026年2月1日",
+    thumbnail: "/images/impact-fund.jpg",
+    category: "ガイドライン・法改正",
+    summary: "内閣府が発表した最新の企業防災ガイドラインの全容を解説。BCP策定における新たな必須項目とは。",
+    isPremium: true
+  },
   {
     id: "1",
     title: "【経産省】BCPガイドライン改定｜中小企業の補助金要件が厳格化、3月末までの対応必須",

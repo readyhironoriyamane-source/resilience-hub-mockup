@@ -17,7 +17,7 @@ export function PremiumModal({ isOpen, onClose }: PremiumModalProps) {
         </VisuallyHidden>
         <div className="relative h-48 w-full">
           <img 
-            src="/images/bg-stars.png" 
+            src="https://files.manuscdn.com/user_upload_by_module/session_file/92549119/APwdhsHRGLOnpVQd.png" 
             alt="Premium" 
             className="absolute inset-0 w-full h-full object-cover opacity-80"
           />
