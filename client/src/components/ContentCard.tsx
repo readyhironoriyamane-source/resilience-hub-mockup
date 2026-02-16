@@ -86,11 +86,7 @@ export function ContentCard({ item, index, onClick, isRead, featured, isSaved: i
         
         
 
-        {item.isPremium && (
-          <div className="absolute top-2 right-2 bg-black/60 backdrop-blur-sm p-1.5 rounded-full text-primary border border-primary/30">
-            <Lock className="w-3 h-3" />
-          </div>
-        )}
+
         
         {isRead && (
           <div className="absolute bottom-2 right-2 bg-black/60 backdrop-blur-sm px-2 py-1 rounded-full text-white/80 border border-white/10 flex items-center gap-1">
