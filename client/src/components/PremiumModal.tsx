@@ -42,26 +42,18 @@ export function PremiumModal({ isOpen, onClose }: PremiumModalProps) {
               <div className="space-y-3">
                 <div className="flex justify-between items-center pb-2 border-b border-slate-200">
                   <div>
-                    <span className="block text-base font-bold text-slate-700">Standard</span>
-                    <span className="text-base text-slate-500">SaaS単体</span>
+                    <span className="block text-base font-bold text-slate-700">個人会員</span>
+                    <span className="text-base text-slate-500">すべての記事・機能を利用可能</span>
                   </div>
-                  <span className="font-bold text-slate-900">¥40,000<span className="text-base font-normal text-slate-500">/月</span></span>
+                  <span className="font-bold text-slate-900">¥10,000<span className="text-base font-normal text-slate-500">/年</span></span>
                 </div>
                 
                 <div className="flex justify-between items-center pb-2 border-b border-slate-200 bg-emerald-50 -mx-4 px-4 py-2 border-l-4 border-l-emerald-500">
                   <div>
-                    <span className="block text-base font-bold text-emerald-800">Bundle <span className="text-[10px] bg-emerald-100 text-emerald-600 px-1.5 py-0.5 rounded-full ml-1">人気</span></span>
-                    <span className="text-base text-emerald-600">OSINTech付帯</span>
+                    <span className="block text-base font-bold text-emerald-800">法人会員 <span className="text-[10px] bg-emerald-100 text-emerald-600 px-1.5 py-0.5 rounded-full ml-1">推奨</span></span>
+                    <span className="text-base text-emerald-600">組織での利用・請求書払い対応</span>
                   </div>
-                  <span className="font-bold text-emerald-700">¥60,000<span className="text-base font-normal text-emerald-600">/月</span></span>
-                </div>
-
-                <div className="flex justify-between items-center">
-                  <div>
-                    <span className="block text-base font-bold text-slate-700">Premium</span>
-                    <span className="text-base text-slate-500">協会特別会員</span>
-                  </div>
-                  <span className="font-bold text-slate-900">¥100,000<span className="text-base font-normal text-slate-500">/月</span></span>
+                  <span className="font-bold text-emerald-700">¥600,000<span className="text-base font-normal text-emerald-600">/年</span></span>
                 </div>
               </div>
 

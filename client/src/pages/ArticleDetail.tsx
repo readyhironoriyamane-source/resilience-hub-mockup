@@ -49,8 +49,9 @@ export default function ArticleDetail() {
     );
   }
 
-  // For mockup purposes, all content is unlocked
-  const isLocked = false;
+  // Paywall logic
+  const [isTrialExpired, setIsTrialExpired] = useState(false);
+  const isLocked = item.isPremium && isTrialExpired;
 
   const handleCardClick = (id: number) => {
     setLocation(`/article/${id}`);
@@ -62,6 +63,19 @@ export default function ArticleDetail() {
       <div className="fixed inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 bg-[url('/images/bg-stars.png')] bg-cover bg-center opacity-60" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B1026]/80 via-transparent to-[#0B1026]" />
+      </div>
+
+      {/* Debug Toggle for Paywall */}
+      <div className="fixed bottom-4 right-4 z-50 bg-black/80 p-2 rounded-lg border border-white/20 text-xs">
+        <label className="flex items-center gap-2 cursor-pointer">
+          <input 
+            type="checkbox" 
+            checked={isTrialExpired} 
+            onChange={(e) => setIsTrialExpired(e.target.checked)}
+            className="rounded bg-white/10 border-white/30"
+          />
+          <span>Debug: トライアル終了状態</span>
+        </label>
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 py-8">
@@ -165,20 +179,24 @@ export default function ArticleDetail() {
                 </div>
                 
                 {/* Premium Lock Overlay */}
-                <div className="relative -mt-12 z-10 p-8 rounded-xl bg-[#0F172A] border border-[#d4a574]/30 text-center shadow-2xl shadow-black/50">
-                  <Lock className="w-12 h-12 text-[#d4a574] mx-auto mb-4" />
-                  <h3 className="text-xl font-bold mb-2">プレミアム会員限定記事</h3>
-                  <p className="text-muted-foreground mb-6 max-w-md mx-auto">
-                    この記事はプレミアム会員限定です。
-                    3つの要点の全文、専門家による詳細な分析、
-                    そしてコミュニティでの議論に参加するには、プレミアムプランへの登録が必要です。
-                  </p>
-                  <Button 
-                    onClick={() => setIsModalOpen(true)}
-                    className="bg-gradient-to-r from-[#d4a574] to-[#b8865c] hover:from-[#c49260] hover:to-[#a6754b] text-white font-bold px-8 py-6 h-auto text-lg shadow-lg shadow-orange-900/20"
-                  >
-                    プレミアムプランを見る
-                  </Button>
+                <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-gradient-to-b from-transparent via-[#0B1026]/95 to-[#0B1026] pt-20">
+                  <div className="p-8 rounded-xl bg-[#0F172A] border border-[#d4a574]/30 text-center shadow-2xl shadow-black/50 max-w-lg mx-4">
+                    <Lock className="w-12 h-12 text-[#d4a574] mx-auto mb-4" />
+                    <h3 className="text-xl font-bold mb-2 text-white">無料トライアル期間が終了しました</h3>
+                    <p className="text-muted-foreground mb-6">
+                      引き続きすべてのコンテンツをご覧いただくには、<br/>
+                      有料プランへのアップグレードが必要です。
+                    </p>
+                    <Button 
+                      onClick={() => setIsModalOpen(true)}
+                      className="w-full bg-gradient-to-r from-[#d4a574] to-[#b8865c] hover:from-[#c49260] hover:to-[#a6754b] text-white font-bold px-8 py-6 h-auto text-lg shadow-lg shadow-orange-900/20 mb-4"
+                    >
+                      プランを選択する
+                    </Button>
+                    <p className="text-xs text-muted-foreground">
+                      ※ 組織契約をご希望の場合はお問い合わせください
+                    </p>
+                  </div>
                 </div>
               </>
             )}
