@@ -137,7 +137,7 @@ export function ResilienceDashboard() {
   return (
     <div className="space-y-6">
       {/* Debug Toggle for Paywall */}
-      <div className="fixed bottom-4 right-4 z-50 bg-black/80 p-2 rounded-lg border border-white/20 text-xs">
+      <div className="fixed top-20 right-4 z-[100] bg-black/90 p-2 rounded-lg border border-white/20 text-xs shadow-xl">
         <label className="flex items-center gap-2 cursor-pointer">
           <input 
             type="checkbox" 
