@@ -9,6 +9,7 @@ import { PremiumModal } from "@/components/PremiumModal";
 import { useBookmark } from "@/hooks/useBookmark";
 import { usePaywall } from "@/hooks/usePaywall";
 import { DiscussionSection } from "@/components/DiscussionSection";
+import { TrialUsageStats } from "@/components/TrialUsageStats";
 import { ContentCard } from "@/components/ContentCard";
 
 export default function ArticleDetail() {
@@ -182,17 +183,20 @@ export default function ArticleDetail() {
                 {/* Premium Lock Overlay */}
                 <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-gradient-to-b from-transparent via-[#0B1026]/95 to-[#0B1026] pt-20">
                   <div className="p-8 rounded-xl bg-[#0F172A] border border-[#d4a574]/30 text-center shadow-2xl shadow-black/50 max-w-lg mx-4">
-                    <Lock className="w-12 h-12 text-[#d4a574] mx-auto mb-4" />
-                    <h3 className="text-xl font-bold mb-2 text-white">無料トライアル期間が終了しました</h3>
+                    <Lock className="w-12 h-12 text-blue-400 mx-auto mb-4" />
+                    
+                    <TrialUsageStats />
+
+                    <h3 className="text-xl font-bold mb-2 text-white">14日間のトライアルはいかがでしたか？</h3>
                     <p className="text-muted-foreground mb-6">
-                      引き続きすべてのコンテンツをご覧いただくには、<br/>
-                      有料プランへのアップグレードが必要です。
+                      続けることで、全国の担当者との<br/>
+                      つながりが深まります。
                     </p>
                     <Button 
                       onClick={() => setIsModalOpen(true)}
-                      className="w-full bg-gradient-to-r from-[#d4a574] to-[#b8865c] hover:from-[#c49260] hover:to-[#a6754b] text-white font-bold px-8 py-6 h-auto text-lg shadow-lg shadow-orange-900/20 mb-4"
+                      className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-6 h-auto text-lg shadow-lg shadow-blue-500/30 mb-4"
                     >
-                      プランを選択する
+                      このまま続ける
                     </Button>
                     <p className="text-xs text-muted-foreground">
                       ※ 組織契約をご希望の場合はお問い合わせください
