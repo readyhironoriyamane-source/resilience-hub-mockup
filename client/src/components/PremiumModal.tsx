@@ -6,9 +6,10 @@ import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 interface PremiumModalProps {
   isOpen: boolean;
   onClose: () => void;
+  isCorporate?: boolean; // Optional prop to force corporate view or recommendation
 }
 
-export function PremiumModal({ isOpen, onClose }: PremiumModalProps) {
+export function PremiumModal({ isOpen, onClose, isCorporate = false }: PremiumModalProps) {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-sm bg-[#1a2a4a] border-white/10 text-white p-0 overflow-hidden gap-0 max-h-[85vh] overflow-y-auto">
@@ -51,7 +52,12 @@ export function PremiumModal({ isOpen, onClose }: PremiumModalProps) {
                 
                 <div className="flex justify-between items-center pb-2 border-b border-slate-200 bg-blue-50 -mx-4 px-4 py-2 border-l-4 border-l-blue-500">
                   <div>
-                    <span className="block text-base font-bold text-blue-800">法人会員 <span className="text-[10px] bg-blue-100 text-blue-600 px-1.5 py-0.5 rounded-full ml-1">推奨</span></span>
+                    <span className="block text-base font-bold text-blue-800">
+                      法人会員 
+                      {isCorporate && (
+                        <span className="text-[10px] bg-blue-100 text-blue-600 px-1.5 py-0.5 rounded-full ml-1">推奨</span>
+                      )}
+                    </span>
                     <span className="text-xs text-blue-600">組織での利用・請求書払い対応</span>
                   </div>
                   <div className="text-right">

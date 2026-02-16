@@ -56,7 +56,7 @@ export function TrialReminderBanner() {
         body { padding-top: 56px; }
       `}</style>
 
-      <PremiumModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <PremiumModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} isCorporate={false} />
     </>
   );
 }

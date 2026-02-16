@@ -207,7 +207,7 @@ export function ResilienceDashboard() {
         })}
       </div>
 
-      <PremiumModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <PremiumModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} isCorporate={false} />
       
       {/* Main Dashboard Card */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 relative">
