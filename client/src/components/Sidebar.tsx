@@ -42,7 +42,7 @@ export function Sidebar() {
   ];
 
   return (
-    <div className="w-72 h-screen bg-[#0B1026] border-r border-white/10 flex flex-col overflow-hidden shrink-0">
+    <div className="w-72 h-screen bg-[#0B1026] border-r border-white/10 flex flex-col overflow-hidden shrink-0 sticky top-0">
       <Link href="/">
         <div className="p-6 flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity">
           <div className="w-10 h-10 rounded-full bg-black flex items-center justify-center border border-white/20 shrink-0">

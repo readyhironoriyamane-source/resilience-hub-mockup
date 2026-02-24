@@ -70,8 +70,8 @@ export default function Home() {
       <main className="flex-1 relative z-10 min-h-screen flex flex-col min-w-0">
         <MobileHeader onMenuClick={() => setIsSidebarOpen(true)} />
 
-        {/* Debug Toggle for Paywall */}
-        <div className="fixed top-20 right-4 z-[100] bg-black/90 p-2 rounded-lg border border-white/20 text-xs shadow-xl">
+        {/* Debug Toggle for Paywall - Hidden for production */}
+        {/* <div className="fixed top-20 right-4 z-[100] bg-black/90 p-2 rounded-lg border border-white/20 text-xs shadow-xl">
           <label className="flex items-center gap-2 cursor-pointer">
             <input 
               type="checkbox" 
@@ -81,7 +81,7 @@ export default function Home() {
             />
             <span>Debug: トライアル終了状態</span>
           </label>
-        </div>
+        </div> */}
 
         {/* Header (Desktop only) */}
         <header 

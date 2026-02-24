@@ -67,8 +67,8 @@ export default function ArticleDetail() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B1026]/80 via-transparent to-[#0B1026]" />
       </div>
 
-      {/* Debug Toggle for Paywall */}
-      <div className="fixed top-20 right-4 z-[100] bg-black/90 p-2 rounded-lg border border-white/20 text-xs shadow-xl">
+      {/* Debug Toggle for Paywall - Hidden for production */}
+      {/* <div className="fixed top-20 right-4 z-[100] bg-black/90 p-2 rounded-lg border border-white/20 text-xs shadow-xl">
         <label className="flex items-center gap-2 cursor-pointer">
           <input 
             type="checkbox" 
@@ -78,7 +78,7 @@ export default function ArticleDetail() {
           />
           <span>Debug: トライアル終了状態</span>
         </label>
-      </div>
+      </div> */}
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 py-8">
         {/* Header Navigation */}

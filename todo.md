@@ -1,2 +1,3 @@
-- [ ] Fix sidebar layout issue where content appears below the sidebar on PC.
+- [ ] Hide debug toggle in all pages.
+- [ ] Fix sidebar cutoff issue by ensuring full height and scrollability.
 - [ ] Verify layout and responsiveness on PC and mobile.

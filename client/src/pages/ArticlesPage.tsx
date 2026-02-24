@@ -54,8 +54,8 @@ export default function ArticlesPage() {
         <MobileHeader onMenuClick={() => setIsSidebarOpen(true)} />
         
         <div className="container mx-auto px-4 py-8 pb-24">
-          {/* Debug Controls */}
-          <div className="fixed bottom-4 right-4 z-50 bg-black/80 p-4 rounded-lg border border-white/20">
+          {/* Debug Controls - Hidden for production */}
+          {/* <div className="fixed bottom-4 right-4 z-50 bg-black/80 p-4 rounded-lg border border-white/20">
             <div className="flex items-center gap-2 text-white mb-2">
               <span className="text-xs font-bold uppercase text-amber-500">Debug Mode</span>
             </div>
@@ -71,7 +71,7 @@ export default function ArticlesPage() {
                 試用期間終了（14日経過）
               </label>
             </div>
-          </div>
+          </div> */}
 
           {/* Header */}
           <header className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
