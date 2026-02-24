@@ -19,6 +19,51 @@ export default function DirectoryPage() {
       achievement: "令和6年能登半島地震 非常災害対策本部の設置・運営",
       description: "自然災害から国民の生命・財産を守るため、国の防災政策の企画立案と総合調整を担う。平時の備えから発災時の応急対応、復旧・復興まで一貫して対処する防災行政の中枢。",
       logo: "内閣府"
+    },
+    {
+      id: 2,
+      name: "外務省",
+      location: "東京都",
+      strength: "国際防災外交・海外被災地への支援調整",
+      achievement: "仙台防災枠組2015-2030の国際交渉・策定支援",
+      description: "国際社会における防災協力の推進と、海外における大規模災害発生時の邦人保護・支援調整を担う。多国間・二国間の防災外交を通じてグローバルなレジリエンス強化に貢献。",
+      logo: "外務省"
+    },
+    {
+      id: 3,
+      name: "日本商工会議所",
+      location: "東京都",
+      strength: "全国中小企業へのBCP策定支援・地域防災拠点",
+      achievement: "中小企業強靭化法に基づく事業継続力強化支援計画の全国展開",
+      description: "全国515商工会議所のネットワークを活かし、中小企業のBCP策定を継続的に支援。東日本大震災をはじめ大規模災害の発災時には被災事業者の事業継続・再建支援の拠点として機能。",
+      logo: "日商"
+    },
+    {
+      id: 4,
+      name: "YECAP（アジア太平洋若者気候行動プラットフォーム）",
+      location: "国際機関（アジア太平洋地域）",
+      strength: "若者主導の気候・防災アクション推進",
+      achievement: "国連環境開発委員会（CED8）での若者声明発表（2024年）",
+      description: "アジア太平洋地域の若者が気候変動・防災分野で政策立案に参画するための国際プラットフォーム。国連会議での政策提言を通じ、若い世代の防災リーダー育成を推進。",
+      logo: "YECAP"
+    },
+    {
+      id: 5,
+      name: "独立行政法人 国際協力機構（JICA）",
+      location: "東京都",
+      strength: "開発途上国への防災技術移転・国際緊急援助",
+      achievement: "仙台防災枠組への政策貢献と途上国向け防災主流化プログラムの推進",
+      description: "日本の防災知見を開発途上国に移転し、世界の災害リスク削減に貢献する国際協力の実施機関。地震・洪水・感染症など多様な緊急事態に対応する国際緊急援助隊（JDR）を保有。",
+      logo: "JICA"
+    },
+    {
+      id: 6,
+      name: "国際商業会議所 日本委員会（ICC JAPAN）",
+      location: "東京都",
+      strength: "国際ビジネス規範策定・G20への民間提言",
+      achievement: "国連総会オブザーバー資格取得・G7/G20へのビジネス界代表として気候・防災政策提言",
+      description: "世界130カ国以上の企業・団体が参加する民間国際経済機構の日本委員会。国際ビジネスの持続可能性確保の観点から、気候変動・防災リスクに関する政策提言活動を展開。",
+      logo: "ICC"
     }
   ];
 
@@ -69,7 +114,9 @@ export default function DirectoryPage() {
                         <div className="flex flex-col md:flex-row gap-6 items-start">
                           {/* Logo Area */}
                           <div className="w-20 h-20 md:w-24 md:h-24 rounded-xl bg-slate-50 flex items-center justify-center shrink-0 border border-slate-100 shadow-sm">
-                            <span className="text-lg font-bold text-slate-700 writing-vertical-rl">{company.logo}</span>
+                            <span className={`text-lg font-bold text-slate-700 ${company.logo.length > 4 ? 'text-sm px-2 text-center' : 'writing-vertical-rl'}`}>
+                              {company.logo}
+                            </span>
                           </div>
 
                           <div className="flex-1 min-w-0 space-y-4">
