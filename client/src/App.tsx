@@ -7,6 +7,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "@/pages/Home";
 import SettingsPage from "@/pages/SettingsPage";
+import MyThreadsPage from "@/pages/MyThreadsPage";
 import About from "./pages/About";
 import ArticleDetail from "@/pages/ArticleDetail";
 import Dashboard from "@/pages/Dashboard";
@@ -36,6 +37,7 @@ function Router() {
           <Route path="/intel" component={IntelPage} />
           <Route path="/directory" component={DirectoryPage} />
       <Route path="/settings" component={SettingsPage} />
+      <Route path="/settings/threads" component={MyThreadsPage} />
       <Route path="/needs/:category" component={NeedsPage} />
       <Route path="/seeds/:category" component={SeedsPage} />
       <Route path={"/404"} component={NotFound} />

@@ -1,2 +1,4 @@
-- [ ] Hide debug toggle in Dashboard.tsx.
-- [ ] Verify layout and responsiveness on PC and mobile.
+- [ ] Create `MyThreadsPage.tsx` to display user's threads and comments.
+- [ ] Add route for `/settings/threads` in `App.tsx`.
+- [ ] Link "My Threads" button in `SettingsPage.tsx` to `/settings/threads`.
+- [ ] Verify My Threads feature functionality.

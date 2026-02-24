@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { QrCode, Wallet, Users, CreditCard, FileText, Star, MessageSquare, ChevronRight, Settings, Clock } from "lucide-react";
+import { Link } from "wouter";
 import { cn } from "@/lib/utils";
 import { Sidebar } from "@/components/Sidebar";
 import { MobileHeader } from "@/components/MobileHeader";
@@ -114,17 +115,19 @@ export default function SettingsPage() {
                     <ChevronRight className="w-4 h-4 text-gray-600" />
                   </Button>
                   
-                  <Button variant="ghost" className="w-full justify-start text-left h-auto py-3 px-3 hover:bg-white/5 rounded-lg group">
-                    <div className="bg-green-500/10 p-2 rounded-md mr-3 group-hover:bg-green-500/20 transition-colors">
-                      <MessageSquare className="w-4 h-4 text-green-400" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="font-medium text-sm truncate">マイ・スレッド (5)</div>
-                      <div className="text-xs text-gray-500 truncate">新着コメントあり</div>
-                    </div>
-                    <div className="w-2 h-2 rounded-full bg-red-500 mr-2"></div>
-                    <ChevronRight className="w-4 h-4 text-gray-600" />
-                  </Button>
+                  <Link href="/settings/threads">
+                    <Button variant="ghost" className="w-full justify-start text-left h-auto py-3 px-3 hover:bg-white/5 rounded-lg group">
+                      <div className="bg-green-500/10 p-2 rounded-md mr-3 group-hover:bg-green-500/20 transition-colors">
+                        <MessageSquare className="w-4 h-4 text-green-400" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="font-medium text-sm truncate">マイ・スレッド (5)</div>
+                        <div className="text-xs text-gray-500 truncate">新着コメントあり</div>
+                      </div>
+                      <div className="w-2 h-2 rounded-full bg-red-500 mr-2"></div>
+                      <ChevronRight className="w-4 h-4 text-gray-600" />
+                    </Button>
+                  </Link>
                 </CardContent>
               </Card>
 
