@@ -31,7 +31,7 @@ export default function DeskPage() {
 
   if (isSubmitted) {
     return (
-      <div className="min-h-screen bg-[#0B1026] text-white font-sans selection:bg-primary/30 flex">
+      <div className="min-h-screen bg-[#0B1026] text-white font-sans selection:bg-primary/30 flex flex-col md:flex-row">
         <div className="hidden md:block fixed inset-y-0 left-0 z-50 w-64">
           <Sidebar />
         </div>
@@ -61,7 +61,7 @@ export default function DeskPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0B1026] text-white font-sans selection:bg-primary/30 flex">
+    <div className="min-h-screen bg-[#0B1026] text-white font-sans selection:bg-primary/30 flex flex-col md:flex-row">
       {/* Background Elements */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 bg-[url('/images/bg-stars.png')] bg-cover bg-center opacity-60" />

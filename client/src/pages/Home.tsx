@@ -47,7 +47,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0B1026] text-white font-sans selection:bg-primary/30">
+    <div className="min-h-screen bg-[#0B1026] text-white font-sans selection:bg-primary/30 flex flex-col md:flex-row">
       {/* Background Elements */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 bg-[url('https://files.manuscdn.com/user_upload_by_module/session_file/92549119/APwdhsHRGLOnpVQd.png')] bg-cover bg-center opacity-60" />

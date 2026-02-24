@@ -1,0 +1,2 @@
+- [ ] Fix sidebar layout issue where content appears below the sidebar on PC.
+- [ ] Verify layout and responsiveness on PC and mobile.
