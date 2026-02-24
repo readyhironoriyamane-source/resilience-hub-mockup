@@ -139,8 +139,8 @@ export function ResilienceDashboard() {
 
   return (
     <div className="space-y-6">
-      {/* Debug Toggle for Paywall */}
-      <div className="fixed top-20 right-4 z-[100] bg-black/90 p-2 rounded-lg border border-white/20 text-xs shadow-xl">
+      {/* Debug Toggle for Paywall - Hidden for production */}
+      {/* <div className="fixed top-20 right-4 z-[100] bg-black/90 p-2 rounded-lg border border-white/20 text-xs shadow-xl">
         <label className="flex items-center gap-2 cursor-pointer">
           <input 
             type="checkbox" 
@@ -150,7 +150,7 @@ export function ResilienceDashboard() {
           />
           <span>Debug: トライアル終了状態</span>
         </label>
-      </div>
+      </div> */}
 
       {/* Header & Guidance */}
       <div className="mb-2">

@@ -1,3 +1,2 @@
-- [ ] Hide debug toggle in all pages.
-- [ ] Fix sidebar cutoff issue by ensuring full height and scrollability.
+- [ ] Hide debug toggle in Dashboard.tsx.
 - [ ] Verify layout and responsiveness on PC and mobile.
