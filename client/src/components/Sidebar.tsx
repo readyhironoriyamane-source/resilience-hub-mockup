@@ -11,79 +11,59 @@ export function Sidebar() {
   const mainNavItems = [
     { 
       name: "防災ダッシュボード", 
-      icon: <LayoutDashboard className="w-4 h-4" />,
-      description: "課題と対策の進捗を見える化",
+      icon: <LayoutDashboard className="w-5 h-5" />,
+      description: "月1回チェック推奨",
       href: "/dashboard"
     },
     { 
       name: "防災相談窓口", 
-      icon: <HelpCircle className="w-4 h-4" />,
-      description: "補助金・取材・対策の相談",
+      icon: <HelpCircle className="w-5 h-5" />,
+      description: "課題があればいつでも",
       href: "/desk"
     },
     { 
       name: "防災コミュニティ", 
-      icon: <Sparkles className="w-4 h-4" />,
-      description: "組織を超えた知見の共有",
+      icon: <Sparkles className="w-5 h-5" />,
+      description: "事例・知見を交換する",
       href: "/community"
     },
     { 
       name: "海外防災の最新動向", 
-      icon: <Globe className="w-4 h-4" />,
-      description: "世界の災害事例と対策を収集",
+      icon: <Globe className="w-5 h-5" />,
+      description: "グローバルトレンドを把握",
       href: "/intel"
     },
     { 
       name: "レジハブパートナー", 
-      icon: <Building2 className="w-4 h-4" />,
-      description: "連携パートナーを一覧から探す",
+      icon: <Building2 className="w-5 h-5" />,
+      description: "ソリューションを探す",
       href: "/directory"
     },
-    { 
-      name: "設定", 
-      icon: <Settings className="w-4 h-4" />,
-      description: "アカウント・支払い・チーム管理",
-      href: "/settings"
-    },
-  ];
-
-  const needsNavItems = [
-    { name: "被害を予測する", icon: <Activity className="w-4 h-4" />, href: "/needs/risk-visualization" },
-    { name: "安全と備えを管理する", icon: <ShieldAlert className="w-4 h-4" />, href: "/needs/safety-stockpile" },
-    { name: "防災拠点の安全を守る", icon: <Building2 className="w-4 h-4" />, href: "/needs/facility-management" },
-    { name: "災害時の物資調達・輸送を確認する", icon: <Briefcase className="w-4 h-4" />, href: "/needs/supply-chain" },
-    { name: "使える支援制度と義務化への対応", icon: <FileText className="w-4 h-4" />, href: "/needs/regulations" },
-  ];
-
-  const techNavItems = [
-    { name: "AI・ビッグデータ解析", icon: <Database className="w-4 h-4" />, href: "/seeds/ai-bigdata", description: "被害予測・画像診断" },
-    { name: "ドローン・ロボティクス", icon: <Bot className="w-4 h-4" />, href: "/seeds/drone", description: "状況調査・物資運搬" },
-    { name: "衛星データ・地理情報", icon: <Globe className="w-4 h-4" />, href: "/seeds/satellite", description: "広域の被害把握" },
-    { name: "IoT・センサー観測", icon: <Wifi className="w-4 h-4" />, href: "/seeds/iot", description: "水位・土砂の遠隔監視" },
   ];
 
   return (
-    <div className="w-64 h-screen bg-[#0B1026] border-r border-white/10 flex flex-col h-full overflow-hidden">
+    <div className="w-72 h-screen bg-[#0B1026] border-r border-white/10 flex flex-col overflow-hidden shrink-0">
       <Link href="/">
         <div className="p-6 flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity">
-          <div className="w-10 h-10 rounded-full bg-black flex items-center justify-center border border-white/20">
+          <div className="w-10 h-10 rounded-full bg-black flex items-center justify-center border border-white/20 shrink-0">
             <span className="font-sans text-white font-bold">RH</span>
           </div>
-          <span className="font-sans font-bold text-lg tracking-tight">The Global Resilience Hub</span>
+          <span className="font-sans font-bold text-lg tracking-tight text-white">The Global Resilience Hub</span>
         </div>
       </Link>
 
-      <div className="flex-1 overflow-y-auto py-4">
-        <div className="px-4 mb-6">
+      <div className="flex-1 overflow-y-auto py-4 px-4">
+        <div className="mb-6 space-y-1">
           <Link href="/">
-            <div className={`flex items-start gap-3 px-4 py-3 rounded-lg mb-1 cursor-pointer transition-colors ${
-              location === "/" ? "bg-white/10 text-white" : "text-muted-foreground hover:bg-white/5 hover:text-foreground"
+            <div className={`group flex items-start gap-3 px-4 py-3 rounded-xl cursor-pointer transition-all duration-200 ${
+              location === "/" ? "bg-white/10 text-white shadow-sm" : "text-slate-400 hover:bg-white/5 hover:text-white"
             }`}>
-              <span className={`mt-0.5 ${location === "/" ? "text-[#d4a574]" : "text-muted-foreground"}`}>
-                <Activity className="w-4 h-4" />
+              <span className={`mt-1 shrink-0 ${location === "/" ? "text-[#d4a574]" : "text-slate-500 group-hover:text-[#d4a574]"}`}>
+                <Activity className="w-5 h-5" />
               </span>
               <div className="flex flex-col">
-                <span className="leading-tight text-base">最新の防災ニュース</span>
+                <span className="font-bold text-base leading-tight mb-0.5">最新の防災ニュース</span>
+                <span className="text-xs text-slate-500 group-hover:text-slate-400 transition-colors">今日の情報をチェック</span>
               </div>
             </div>
           </Link>
@@ -91,69 +71,80 @@ export function Sidebar() {
           {mainNavItems.map((item) => (
             <Link key={item.name} href={item.href}>
               <div 
-                className={`px-4 py-3 min-h-[44px] text-base rounded-lg cursor-pointer transition-colors flex items-center gap-3 mb-1 ${ /* UD: タッチターゲット44px以上確保 */
+                className={`group flex items-start gap-3 px-4 py-3 rounded-xl cursor-pointer transition-all duration-200 ${
                   location === item.href 
-                    ? "text-white bg-white/10" 
-                    : "text-muted-foreground hover:text-foreground hover:bg-white/5"
+                    ? "bg-white/10 text-white shadow-sm" 
+                    : "text-slate-400 hover:bg-white/5 hover:text-white"
                 }`}
               >
-                {item.icon && <span className={`${location === item.href ? "text-[#d4a574]" : "text-muted-foreground group-hover:text-white"}`}>{item.icon}</span>}
-                <span className="leading-tight">{item.name}</span>
+                <span className={`mt-1 shrink-0 ${location === item.href ? "text-[#d4a574]" : "text-slate-500 group-hover:text-[#d4a574]"}`}>
+                  {item.icon}
+                </span>
+                <div className="flex flex-col">
+                  <span className="font-bold text-base leading-tight mb-0.5">{item.name}</span>
+                  <span className="text-xs text-slate-500 group-hover:text-slate-400 transition-colors">{item.description}</span>
+                </div>
               </div>
             </Link>
           ))}
         </div>
 
-
-
-        <div className="mt-4 px-4 border-t border-white/5 pt-4">
-          
+        <div className="mt-4 border-t border-white/10 pt-4 space-y-1">
           <Link href="/about">
-            <div className="flex items-center justify-between px-4 py-2 text-muted-foreground hover:text-foreground cursor-pointer mt-1">
-              <span className="font-bold text-base">サービス紹介</span>
-              <Globe className="w-4 h-4 opacity-70" />
+            <div className={`group flex items-start gap-3 px-4 py-3 rounded-xl cursor-pointer transition-all duration-200 ${
+              location === "/about" ? "bg-white/10 text-white" : "text-slate-400 hover:bg-white/5 hover:text-white"
+            }`}>
+              <span className={`mt-1 shrink-0 ${location === "/about" ? "text-[#d4a574]" : "text-slate-500 group-hover:text-[#d4a574]"}`}>
+                <HelpCircle className="w-5 h-5" />
+              </span>
+              <div className="flex flex-col">
+                <span className="font-bold text-base leading-tight mb-0.5">サービス紹介</span>
+                <span className="text-xs text-slate-500 group-hover:text-slate-400 transition-colors">レジハブの使い方</span>
+              </div>
             </div>
           </Link>
         </div>
       </div>
 
-      <div className="p-4 border-t border-white/10">
+      <div className="p-4 border-t border-white/10 bg-[#0B1026]">
         <Link href="/settings">
-          <div className="flex items-center gap-3 px-2 py-2 cursor-pointer hover:bg-white/5 rounded-lg transition-colors">
-            <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
-              <User className="w-4 h-4" />
+          <div className="flex items-center gap-3 px-3 py-3 cursor-pointer hover:bg-white/5 rounded-xl transition-colors group">
+            <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0 border border-white/5 group-hover:border-white/20 transition-colors">
+              <User className="w-5 h-5 text-slate-300" />
             </div>
-            <div className="flex-1">
-              <div className="text-base font-bold">Hironori</div>
-              <div className="text-base text-muted-foreground">設定</div>
+            <div className="flex-1 min-w-0">
+              <div className="text-sm font-bold text-white truncate">Hironori</div>
+              <div className="text-xs text-slate-500">設定</div>
             </div>
-            <div className="relative cursor-pointer group">
-              <Bell className="w-5 h-5 text-muted-foreground group-hover:text-foreground" />
-              <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full text-[10px] flex items-center justify-center text-white font-bold">
+            <div className="relative cursor-pointer">
+              <Bell className="w-5 h-5 text-slate-500 group-hover:text-white transition-colors" />
+              <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full text-[10px] flex items-center justify-center text-white font-bold border-2 border-[#0B1026]">
                 10
               </span>
             </div>
           </div>
         </Link>
+        
         <Link href="/auth">
-          <div className="flex items-center gap-3 px-2 py-2 mt-1 cursor-pointer hover:bg-white/5 rounded-lg transition-colors text-muted-foreground hover:text-red-400">
-            <div className="w-8 h-8 flex items-center justify-center">
-              <Lock className="w-4 h-4" />
+          <div className="flex items-center gap-3 px-3 py-2 mt-1 cursor-pointer hover:bg-white/5 rounded-xl transition-colors text-slate-500 hover:text-red-400 group">
+            <div className="w-10 h-10 flex items-center justify-center shrink-0">
+              <Lock className="w-4 h-4 group-hover:scale-110 transition-transform" />
             </div>
-            <div className="text-base font-bold">ログアウト</div>
+            <div className="text-sm font-bold">ログアウト</div>
           </div>
         </Link>
-        <div className="mt-4 px-2 opacity-90">
+
+        <div className="mt-4 px-3 opacity-60 hover:opacity-100 transition-opacity">
           <a 
             href="https://www.metaearth.co.jp/" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="block hover:opacity-80 transition-opacity"
+            className="block"
           >
             <img 
-              src="/images/meta-earth-heroes-logo.png" 
+              src="https://files.manuscdn.com/user_upload_by_module/session_file/92549119/APwdhsHRGLOnpVQd.png" 
               alt="META EARTH HEROES" 
-              className="h-12 w-auto object-contain"
+              className="h-8 w-auto object-contain grayscale hover:grayscale-0 transition-all"
             />
           </a>
         </div>
