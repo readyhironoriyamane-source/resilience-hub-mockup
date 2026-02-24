@@ -129,11 +129,11 @@ export default function DirectoryPage() {
       )}
 
       {/* Sidebar */}
-      <div className={`fixed inset-y-0 left-0 z-50 transform transition-transform duration-300 ease-in-out md:relative md:translate-x-0 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+      <div className={`fixed inset-y-0 left-0 z-50 transform transition-transform duration-300 ease-in-out md:relative md:translate-x-0 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} shrink-0`}>
         <Sidebar />
       </div>
 
-      <main className="flex-1 relative z-10 flex flex-col h-full overflow-hidden">
+      <main className="flex-1 relative z-10 flex flex-col h-full overflow-hidden min-w-0">
         <MobileHeader onMenuClick={() => setIsSidebarOpen(true)} />
         
         <div className="flex-1 overflow-y-auto">

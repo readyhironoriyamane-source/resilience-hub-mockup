@@ -69,12 +69,12 @@ export default function DeskPage() {
       </div>
 
       {/* Sidebar for Desktop */}
-      <div className="hidden md:block fixed inset-y-0 left-0 z-50 w-64">
+      <div className="hidden md:block fixed inset-y-0 left-0 z-50 w-72 shrink-0">
         <Sidebar />
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 md:pl-64 relative z-10">
+      <div className="flex-1 md:pl-72 relative z-10 min-w-0">
         {/* Mobile Header */}
         <div className="md:hidden sticky top-0 z-40 bg-[#0B1026]/80 backdrop-blur-md border-b border-white/10 p-4 flex items-center justify-between">
           <div className="flex items-center gap-2">

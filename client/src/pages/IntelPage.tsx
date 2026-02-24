@@ -26,11 +26,11 @@ export default function IntelPage() {
       )}
 
       {/* Sidebar */}
-      <div className={`fixed inset-y-0 left-0 z-50 w-64 transform transition-transform duration-300 ease-in-out md:translate-x-0 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+      <div className={`fixed inset-y-0 left-0 z-50 w-72 transform transition-transform duration-300 ease-in-out md:relative md:translate-x-0 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} shrink-0`}>
         <Sidebar />
       </div>
 
-      <main className="md:pl-64 relative z-10 min-h-screen flex flex-col">
+      <main className="flex-1 relative z-10 min-h-screen flex flex-col min-w-0">
         <MobileHeader onMenuClick={() => setIsSidebarOpen(true)} />
         
         <div className="container mx-auto px-4 py-8 pb-24 flex flex-col items-center justify-center min-h-[80vh]">
