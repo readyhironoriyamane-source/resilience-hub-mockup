@@ -1,4 +1,2 @@
-- [ ] Create `MyThreadsPage.tsx` to display user's threads and comments.
-- [ ] Add route for `/settings/threads` in `App.tsx`.
-- [ ] Link "My Threads" button in `SettingsPage.tsx` to `/settings/threads`.
-- [ ] Verify My Threads feature functionality.
+- [ ] Add "Follow" button to `TopicDetailPage.tsx` next to "Helpful" and "Comment" buttons.
+- [ ] Verify Follow button functionality and styling.

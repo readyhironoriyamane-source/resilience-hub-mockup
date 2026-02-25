@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { ArrowLeft, MessageSquare, ThumbsUp, Share2, Flag, MoreHorizontal, HelpCircle, ExternalLink, Sparkles, FileText } from "lucide-react";
+import { ArrowLeft, MessageSquare, ThumbsUp, Share2, Flag, MoreHorizontal, HelpCircle, ExternalLink, Sparkles, FileText, Bell } from "lucide-react";
 import { Sidebar } from "@/components/Sidebar";
 import { MobileHeader } from "@/components/MobileHeader";
 import { toast } from "sonner";
@@ -80,6 +80,7 @@ export default function TopicDetailPage() {
   const [, setLocation] = useLocation();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [liked, setLiked] = useState(false);
+  const [followed, setFollowed] = useState(false);
   const { isTrialExpired, setIsTrialExpired } = usePaywall();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -90,6 +91,11 @@ export default function TopicDetailPage() {
   const handleLike = () => {
     setLiked(!liked);
     toast.success(liked ? "「役に立った！」を取り消しました" : "「役に立った！」を送りました");
+  };
+
+  const handleFollow = () => {
+    setFollowed(!followed);
+    toast.success(followed ? "フォローを解除しました" : "このトピックをフォローしました");
   };
 
   return (
@@ -192,6 +198,15 @@ export default function TopicDetailPage() {
                       <Button variant="ghost" className="gap-2 text-slate-600 hover:bg-slate-100 h-12 px-4">
                         <MessageSquare className="h-5 w-5" />
                         コメントする
+                      </Button>
+
+                      <Button 
+                        variant="ghost" 
+                        onClick={handleFollow}
+                        className={`gap-2 h-12 px-4 transition-all ${followed ? 'text-blue-600 bg-blue-50 hover:bg-blue-100' : 'text-slate-600 hover:bg-slate-100'}`}
+                      >
+                        <Bell className={`h-5 w-5 ${followed ? 'fill-current' : ''}`} />
+                        {followed ? 'フォロー中' : 'フォローする'}
                       </Button>
                     </div>
                     
