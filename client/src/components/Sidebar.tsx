@@ -59,6 +59,20 @@ export function Sidebar() {
               location === "/" ? "bg-white/10 text-white shadow-sm" : "text-slate-400 hover:bg-white/5 hover:text-white"
             }`}>
               <span className={`mt-1 shrink-0 ${location === "/" ? "text-[#d4a574]" : "text-slate-500 group-hover:text-[#d4a574]"}`}>
+                <Home className="w-5 h-5" />
+              </span>
+              <div className="flex flex-col">
+                <span className="font-bold text-base leading-tight mb-0.5">ホーム</span>
+                <span className="text-xs text-slate-500 group-hover:text-slate-400 transition-colors">トップページ</span>
+              </div>
+            </div>
+          </Link>
+
+          <Link href="/news">
+            <div className={`group flex items-start gap-3 px-4 py-3 rounded-xl cursor-pointer transition-all duration-200 ${
+              location === "/news" ? "bg-white/10 text-white shadow-sm" : "text-slate-400 hover:bg-white/5 hover:text-white"
+            }`}>
+              <span className={`mt-1 shrink-0 ${location === "/news" ? "text-[#d4a574]" : "text-slate-500 group-hover:text-[#d4a574]"}`}>
                 <Activity className="w-5 h-5" />
               </span>
               <div className="flex flex-col">

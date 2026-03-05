@@ -1,2 +1,5 @@
-- [ ] Move "Interest Selection" section from `Home.tsx` (hero area) to below the "Finalists/Award Winners" section.
-- [ ] Verify layout and responsiveness after moving the section.
+- [ ] Create `NewHomePage.tsx` with "Featured Banners" and "Finalists/Award Winners" sections.
+- [ ] Update `Sidebar.tsx` to add "Home" link at the top.
+- [ ] Update `App.tsx` to route `/` to `NewHomePage` and `/news` to `Home` (renamed to `LatestNewsPage`).
+- [ ] Remove "Featured Banners" and "Finalists/Award Winners" sections from `Home.tsx` (now `LatestNewsPage`).
+- [ ] Verify navigation and layout.
