@@ -5,3 +5,5 @@
 - [ ] Verify navigation and layout.
 - [ ] Add Seminar/Event Announcement section to `NewHomePage.tsx` below the Finalists/Award Winners section.
 - [ ] Verify layout and responsiveness of the new section.
+- [ ] Add Event Report section to `NewHomePage.tsx` above the Featured Banners carousel.
+- [ ] Verify layout and responsiveness of the new section.
