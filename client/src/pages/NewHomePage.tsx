@@ -95,27 +95,27 @@ export default function NewHomePage() {
                 <p className="font-bold text-white">世界中の防災・レジリエンスに関する知見が集まる場所。</p>
               </div>
 
-              {/* Event Report Section */}
+              {/* Event Report Section (Ticker Style) */}
               <div className="mt-6 mb-2">
-                <div className="bg-gradient-to-r from-blue-900/40 to-slate-900/40 border border-blue-500/20 rounded-lg p-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 hover:bg-blue-900/20 transition-colors group cursor-pointer">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-1">
-                      <span className="text-xs font-bold text-blue-300 bg-blue-500/20 px-2 py-0.5 rounded border border-blue-500/30">
-                        イベント報告
-                      </span>
-                      <span className="text-xs text-slate-400">2026.03.01</span>
-                    </div>
-                    <h3 className="text-base md:text-lg font-bold text-white group-hover:text-blue-300 transition-colors">
+                <div className="bg-white/5 border border-white/10 rounded-lg px-4 py-3 flex items-center gap-4 hover:bg-white/10 transition-colors group cursor-pointer">
+                  <div className="flex items-center gap-3 shrink-0">
+                    <span className="text-xs font-bold text-blue-300 bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/20 whitespace-nowrap">
+                      イベント報告
+                    </span>
+                    <span className="text-xs text-slate-400 whitespace-nowrap">2026.03.01</span>
+                  </div>
+                  <div className="flex-1 min-w-0 flex items-center gap-2">
+                    <span className="text-sm font-medium text-white truncate group-hover:text-blue-300 transition-colors">
                       3/1 Global Resilience Summit 開催報告
-                    </h3>
-                    <p className="text-sm text-slate-300 mt-1 line-clamp-1 md:line-clamp-2">
-                      世界30ヶ国から専門家が集結し、次世代の防災インフラについて熱い議論が交わされました。当日のアーカイブ動画と資料を公開しています。
-                    </p>
+                    </span>
+                    <span className="hidden md:inline text-xs text-slate-400 truncate">
+                      — 世界30ヶ国から専門家が集結し、次世代の防災インフラについて熱い議論が交わされました。
+                    </span>
                   </div>
                   <div className="shrink-0">
-                    <Button variant="outline" size="sm" className="text-blue-300 border-blue-500/30 hover:bg-blue-500/20 hover:text-blue-200">
-                      詳細を見る
-                    </Button>
+                    <span className="text-xs text-blue-400 group-hover:translate-x-1 transition-transform inline-flex items-center">
+                      詳細 <span className="ml-1">→</span>
+                    </span>
                   </div>
                 </div>
               </div>

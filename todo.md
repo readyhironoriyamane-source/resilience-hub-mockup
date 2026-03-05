@@ -7,3 +7,5 @@
 - [ ] Verify layout and responsiveness of the new section.
 - [ ] Add Event Report section to `NewHomePage.tsx` above the Featured Banners carousel.
 - [ ] Verify layout and responsiveness of the new section.
+- [ ] Redesign Event Report section in `NewHomePage.tsx` to a simpler list/ticker style to distinguish it from the carousel banner.
+- [ ] Verify layout and responsiveness of the redesigned section.
