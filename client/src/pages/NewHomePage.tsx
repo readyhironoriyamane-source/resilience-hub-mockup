@@ -252,6 +252,75 @@ export default function NewHomePage() {
               </div>
             </div>
           </section>
+
+          {/* Seminar/Event Announcement Section */}
+          <section className="mb-12">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                <span className="w-1 h-6 bg-[#d4a574] rounded-full"></span>
+                セミナー・イベント告知
+              </h2>
+              <Button variant="ghost" className="text-sm text-muted-foreground hover:text-white">
+                すべて見る
+              </Button>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Event 1 */}
+              <div className="bg-white/5 border border-white/10 rounded-xl p-6 flex flex-col md:flex-row gap-6 hover:bg-white/10 transition-colors group">
+                <div className="w-full md:w-48 h-32 rounded-lg overflow-hidden shrink-0 relative">
+                  <img src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=1000&auto=format&fit=crop" alt="Event 1" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute top-2 left-2 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">
+                    オンライン
+                  </div>
+                </div>
+                <div className="flex-1 flex flex-col justify-between">
+                  <div>
+                    <div className="text-sm text-[#d4a574] font-bold mb-1">2026.03.15 (水) 14:00 - 16:00</div>
+                    <h3 className="text-lg font-bold text-white mb-2 leading-tight group-hover:text-blue-300 transition-colors">
+                      【緊急開催】改正BCPガイドライン徹底解説セミナー
+                    </h3>
+                    <p className="text-sm text-slate-400 line-clamp-2">
+                      経産省の最新ガイドライン改定ポイントを、専門家が実務視点で分かりやすく解説します。
+                    </p>
+                  </div>
+                  <div className="mt-4 flex items-center justify-between">
+                    <span className="text-xs text-slate-500">定員: 500名 (残席わずか)</span>
+                    <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white">
+                      申し込む
+                    </Button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Event 2 */}
+              <div className="bg-white/5 border border-white/10 rounded-xl p-6 flex flex-col md:flex-row gap-6 hover:bg-white/10 transition-colors group">
+                <div className="w-full md:w-48 h-32 rounded-lg overflow-hidden shrink-0 relative">
+                  <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1000&auto=format&fit=crop" alt="Event 2" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute top-2 left-2 bg-emerald-600 text-white text-xs font-bold px-2 py-1 rounded">
+                    オフライン (東京)
+                  </div>
+                </div>
+                <div className="flex-1 flex flex-col justify-between">
+                  <div>
+                    <div className="text-sm text-[#d4a574] font-bold mb-1">2026.03.22 (水) 18:00 - 20:00</div>
+                    <h3 className="text-lg font-bold text-white mb-2 leading-tight group-hover:text-emerald-300 transition-colors">
+                      防災テック交流会 Vol.5 @渋谷
+                    </h3>
+                    <p className="text-sm text-slate-400 line-clamp-2">
+                      スタートアップから自治体担当者まで、防災に関わるプレイヤーが集うネットワーキングイベント。
+                    </p>
+                  </div>
+                  <div className="mt-4 flex items-center justify-between">
+                    <span className="text-xs text-slate-500">定員: 50名 (抽選)</span>
+                    <Button size="sm" className="bg-emerald-600 hover:bg-emerald-700 text-white">
+                      申し込む
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
       </main>
     </div>

@@ -3,3 +3,5 @@
 - [ ] Update `App.tsx` to route `/` to `NewHomePage` and `/news` to `Home` (renamed to `LatestNewsPage`).
 - [ ] Remove "Featured Banners" and "Finalists/Award Winners" sections from `Home.tsx` (now `LatestNewsPage`).
 - [ ] Verify navigation and layout.
+- [ ] Add Seminar/Event Announcement section to `NewHomePage.tsx` below the Finalists/Award Winners section.
+- [ ] Verify layout and responsiveness of the new section.
