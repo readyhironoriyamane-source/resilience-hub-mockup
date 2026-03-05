@@ -11,3 +11,5 @@
 - [ ] Verify layout and responsiveness of the redesigned section.
 - [ ] Fix layout issue in `NewHomePage.tsx` where the Event Report section is cut off on smaller screens.
 - [ ] Verify layout and responsiveness of the fixed section.
+- [ ] Fix layout issue in `NewHomePage.tsx` where the Event Report section is still cut off.
+- [ ] Verify layout and responsiveness of the fixed section.
