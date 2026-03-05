@@ -202,8 +202,111 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Content */}
+          {/* Content */}
         <div className="container mx-auto px-4 py-8 pb-24">
+          
+          {/* Finalists/Award Winners Section */}
+          <section className="mb-12">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                <span className="w-1 h-6 bg-[#d4a574] rounded-full"></span>
+                ファイナリスト・受賞者情報
+              </h2>
+              <Button variant="ghost" className="text-sm text-muted-foreground hover:text-white">
+                すべて見る
+              </Button>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Winner 1 */}
+              <div className="bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:bg-white/10 transition-colors group">
+                <div className="aspect-video bg-slate-800 relative overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1000&auto=format&fit=crop" alt="Winner 1" className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute top-2 right-2 bg-[#d4a574] text-[#0B1026] text-xs font-bold px-2 py-1 rounded shadow-lg">
+                    最優秀賞
+                  </div>
+                </div>
+                <div className="p-4">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-full bg-slate-700 overflow-hidden border border-white/20">
+                      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" alt="Avatar" className="w-full h-full object-cover" />
+                    </div>
+                    <div>
+                      <div className="font-bold text-white text-sm">田中 健一</div>
+                      <div className="text-xs text-muted-foreground">株式会社レジリエンス・テック</div>
+                    </div>
+                  </div>
+                  <div className="mb-2">
+                    <span className="text-xs text-blue-300 bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/20">
+                      先進技術部門
+                    </span>
+                  </div>
+                  <p className="text-sm text-white/80 line-clamp-2 italic">
+                    「AIを活用したリアルタイム避難誘導システムが評価されました。今後も技術で命を守る取り組みを加速させます。」
+                  </p>
+                </div>
+              </div>
+
+              {/* Winner 2 */}
+              <div className="bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:bg-white/10 transition-colors group">
+                <div className="aspect-video bg-slate-800 relative overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=1000&auto=format&fit=crop" alt="Winner 2" className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute top-2 right-2 bg-slate-200 text-slate-800 text-xs font-bold px-2 py-1 rounded shadow-lg">
+                    優秀賞
+                  </div>
+                </div>
+                <div className="p-4">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-full bg-slate-700 overflow-hidden border border-white/20">
+                      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop" alt="Avatar" className="w-full h-full object-cover" />
+                    </div>
+                    <div>
+                      <div className="font-bold text-white text-sm">佐藤 美咲</div>
+                      <div className="text-xs text-muted-foreground">NPO法人 地域防災ネットワーク</div>
+                    </div>
+                  </div>
+                  <div className="mb-2">
+                    <span className="text-xs text-emerald-300 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                      地域活動部門
+                    </span>
+                  </div>
+                  <p className="text-sm text-white/80 line-clamp-2 italic">
+                    「住民参加型の防災マップ作りが実を結びました。地域の絆こそが最強の防災インフラです。」
+                  </p>
+                </div>
+              </div>
+
+              {/* Winner 3 */}
+              <div className="bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:bg-white/10 transition-colors group">
+                <div className="aspect-video bg-slate-800 relative overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1000&auto=format&fit=crop" alt="Winner 3" className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute top-2 right-2 bg-amber-700 text-amber-100 text-xs font-bold px-2 py-1 rounded shadow-lg border border-amber-500/30">
+                    特別賞
+                  </div>
+                </div>
+                <div className="p-4">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-full bg-slate-700 overflow-hidden border border-white/20">
+                      <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&auto=format&fit=crop" alt="Avatar" className="w-full h-full object-cover" />
+                    </div>
+                    <div>
+                      <div className="font-bold text-white text-sm">鈴木 一郎</div>
+                      <div className="text-xs text-muted-foreground">未来都市建設株式会社</div>
+                    </div>
+                  </div>
+                  <div className="mb-2">
+                    <span className="text-xs text-purple-300 bg-purple-500/10 px-2 py-0.5 rounded border border-purple-500/20">
+                      企業レジリエンス部門
+                    </span>
+                  </div>
+                  <p className="text-sm text-white/80 line-clamp-2 italic">
+                    「BCP策定から訓練までの一貫した支援体制が高く評価されました。企業の存続を支え続けます。」
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* Timeline View */}
           <section>
             <div className="flex items-center justify-between mb-6 border-b border-white/10">

@@ -1,2 +1,2 @@
-- [ ] Add featured banners carousel to `Home.tsx` between "Latest News" and "Interest Selection".
-- [ ] Verify layout and responsiveness of the carousel.
+- [ ] Add Finalists/Award Winners section to `Home.tsx` below the carousel or interest selection.
+- [ ] Verify layout and responsiveness of the new section.
