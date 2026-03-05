@@ -1,2 +1,2 @@
-- [ ] Add "Follow" button to `TopicDetailPage.tsx` next to "Helpful" and "Comment" buttons.
-- [ ] Verify Follow button functionality and styling.
+- [ ] Add featured banners carousel to `Home.tsx` between "Latest News" and "Interest Selection".
+- [ ] Verify layout and responsiveness of the carousel.

@@ -131,6 +131,56 @@ export default function Home() {
                 <p className="font-bold text-white">国内の最新の取り組みがわかります。</p>
               </div>
 
+              {/* Featured Banners Carousel */}
+              <div className="mt-6 mb-6 w-full overflow-x-auto pb-4 scrollbar-hide">
+                <div className="flex gap-4 min-w-max px-1">
+                  {/* Banner 1: Award */}
+                  <div className="w-72 h-40 rounded-xl overflow-hidden relative group cursor-pointer border border-white/10 shadow-lg hover:shadow-blue-500/20 transition-all hover:-translate-y-1">
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 to-slate-900/90 z-10" />
+                    <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=1000&auto=format&fit=crop" alt="Award" className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-500" />
+                    <div className="absolute inset-0 z-20 p-4 flex flex-col justify-between">
+                      <div className="bg-blue-500/20 backdrop-blur-sm text-blue-200 text-xs font-bold px-2 py-1 rounded w-fit border border-blue-400/30">
+                        アワード
+                      </div>
+                      <div>
+                        <h3 className="text-white font-bold text-lg leading-tight mb-1">ジャパン・レジリエンス・アワード2026</h3>
+                        <p className="text-blue-100/80 text-xs">エントリー受付中</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Banner 2: Metaverse */}
+                  <div className="w-72 h-40 rounded-xl overflow-hidden relative group cursor-pointer border border-white/10 shadow-lg hover:shadow-purple-500/20 transition-all hover:-translate-y-1">
+                    <div className="absolute inset-0 bg-gradient-to-br from-purple-900/80 to-slate-900/90 z-10" />
+                    <img src="https://images.unsplash.com/photo-1626379953822-baec19c3accd?q=80&w=1000&auto=format&fit=crop" alt="Metaverse" className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-500" />
+                    <div className="absolute inset-0 z-20 p-4 flex flex-col justify-between">
+                      <div className="bg-purple-500/20 backdrop-blur-sm text-purple-200 text-xs font-bold px-2 py-1 rounded w-fit border border-purple-400/30">
+                        防災メタバース
+                      </div>
+                      <div>
+                        <h3 className="text-white font-bold text-lg leading-tight mb-1">バーチャル避難訓練</h3>
+                        <p className="text-purple-100/80 text-xs">スマホで体験可能</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Banner 3: Bosai X */}
+                  <div className="w-72 h-40 rounded-xl overflow-hidden relative group cursor-pointer border border-white/10 shadow-lg hover:shadow-emerald-500/20 transition-all hover:-translate-y-1">
+                    <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/80 to-slate-900/90 z-10" />
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000&auto=format&fit=crop" alt="Bosai X" className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-500" />
+                    <div className="absolute inset-0 z-20 p-4 flex flex-col justify-between">
+                      <div className="bg-emerald-500/20 backdrop-blur-sm text-emerald-200 text-xs font-bold px-2 py-1 rounded w-fit border border-emerald-400/30">
+                        防災X
+                      </div>
+                      <div>
+                        <h3 className="text-white font-bold text-lg leading-tight mb-1">次世代防災技術展</h3>
+                        <p className="text-emerald-100/80 text-xs">最新テックが集結</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               {/* Solution Intelligence Settings Area */}
               <div className="mt-3 p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md max-w-2xl mx-auto md:mx-0">
                 <div className="flex items-center justify-between mb-2">
