@@ -9,3 +9,5 @@
 - [ ] Verify layout and responsiveness of the new section.
 - [ ] Redesign Event Report section in `NewHomePage.tsx` to a simpler list/ticker style to distinguish it from the carousel banner.
 - [ ] Verify layout and responsiveness of the redesigned section.
+- [ ] Fix layout issue in `NewHomePage.tsx` where the Event Report section is cut off on smaller screens.
+- [ ] Verify layout and responsiveness of the fixed section.
