@@ -181,22 +181,7 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Solution Intelligence Settings Area */}
-              <div className="mt-3 p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md max-w-2xl mx-auto md:mx-0">
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center gap-2 text-[#d4a574]">
-                    <Sparkles className="w-4 h-4" />
-                    <span className="font-bold text-base">あなたの関心を選んでください</span>
-                  </div>
-                </div>
-                <div className="flex flex-wrap gap-2 justify-center md:justify-start">
-                  {["避難所・物資の管理", "住民への情報伝達", "ハザードマップ・地図", "補助金・国の動向", "他自治体の成功事例"].map((tag) => (
-                    <span key={tag} className="px-2 py-1.5 rounded-md bg-white/10 text-sm text-white/90 border border-white/5 hover:bg-white/20 cursor-pointer transition-colors">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
+
 
             </div>
           </div>
@@ -206,7 +191,7 @@ export default function Home() {
         <div className="container mx-auto px-4 py-8 pb-24">
           
           {/* Finalists/Award Winners Section */}
-          <section className="mb-12">
+          <section className="mb-8">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-xl font-bold text-white flex items-center gap-2">
                 <span className="w-1 h-6 bg-[#d4a574] rounded-full"></span>
@@ -303,6 +288,25 @@ export default function Home() {
                     「BCP策定から訓練までの一貫した支援体制が高く評価されました。企業の存続を支え続けます。」
                   </p>
                 </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Solution Intelligence Settings Area (Moved here) */}
+          <section className="mb-12">
+            <div className="p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center gap-2 text-[#d4a574]">
+                  <Sparkles className="w-5 h-5" />
+                  <span className="font-bold text-lg">あなたの関心を選んでください</span>
+                </div>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {["避難所・物資の管理", "住民への情報伝達", "ハザードマップ・地図", "補助金・国の動向", "他自治体の成功事例"].map((tag) => (
+                  <span key={tag} className="px-3 py-2 rounded-md bg-white/10 text-sm text-white/90 border border-white/5 hover:bg-white/20 cursor-pointer transition-colors">
+                    {tag}
+                  </span>
+                ))}
               </div>
             </div>
           </section>

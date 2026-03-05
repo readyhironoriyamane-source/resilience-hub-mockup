@@ -1,2 +1,2 @@
-- [ ] Add Finalists/Award Winners section to `Home.tsx` below the carousel or interest selection.
-- [ ] Verify layout and responsiveness of the new section.
+- [ ] Move "Interest Selection" section from `Home.tsx` (hero area) to below the "Finalists/Award Winners" section.
+- [ ] Verify layout and responsiveness after moving the section.
