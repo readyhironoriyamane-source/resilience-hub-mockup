@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Sidebar } from "@/components/Sidebar";
 import { MobileHeader } from "@/components/MobileHeader";
-import { Bell, Search, Sparkles } from "lucide-react";
+import { Bell, Search, ArrowRight, Globe, Radio, Users, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLocation } from "wouter";
 
@@ -27,13 +27,7 @@ export default function NewHomePage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0B1026] text-white font-sans selection:bg-primary/30 flex flex-col md:flex-row">
-      {/* Background Elements */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[url('https://files.manuscdn.com/user_upload_by_module/session_file/92549119/APwdhsHRGLOnpVQd.png')] bg-cover bg-center opacity-60" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0B1026]/80 via-transparent to-[#0B1026]" />
-      </div>
-
+    <div className="min-h-screen bg-white text-slate-900 font-sans flex flex-col md:flex-row">
       {/* Mobile Sidebar Overlay */}
       {isSidebarOpen && (
         <div 
@@ -47,20 +41,16 @@ export default function NewHomePage() {
         <Sidebar />
       </div>
 
-      <main className="flex-1 relative z-10 min-h-screen flex flex-col min-w-0">
+      <main className="flex-1 relative z-10 min-h-screen flex flex-col min-w-0 bg-white">
         <MobileHeader onMenuClick={() => setIsSidebarOpen(true)} />
 
-        {/* Header (Desktop only) */}
+        {/* Header (Desktop only) - Dark to match Sidebar */}
         <header 
           className={`hidden md:block sticky top-0 z-30 bg-[#0B1026]/95 backdrop-blur-md border-b border-white/10 transition-transform duration-300 ${
             isHeaderVisible ? "translate-y-0" : "-translate-y-full"
           }`}
         >
-          <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-            <div className="md:hidden flex items-center gap-3">
-            </div>
-            <div className="hidden md:block">
-            </div>
+          <div className="container mx-auto px-6 h-16 flex items-center justify-between">
             <div className="flex items-center gap-4">
               <div className="relative hidden md:block">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
@@ -70,8 +60,9 @@ export default function NewHomePage() {
                   className="bg-white/5 border border-white/10 rounded-full pl-9 pr-4 py-1.5 text-base text-white placeholder:text-muted-foreground focus:outline-none focus:bg-white/10 focus:border-white/20 w-64 transition-all"
                 />
               </div>
-              <Search className="md:hidden w-5 h-5 text-muted-foreground hover:text-white cursor-pointer transition-colors" />
-              
+            </div>
+            
+            <div className="flex items-center gap-4">
               <div className="relative cursor-pointer group">
                 <Bell className="w-5 h-5 text-muted-foreground group-hover:text-white transition-colors" />
                 <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-[#0B1026]" />
@@ -80,274 +71,285 @@ export default function NewHomePage() {
           </div>
         </header>
 
-        {/* Hero Section (Visible on all devices) */}
-        <div className="bg-[#151e32] border-b border-white/5 relative z-20">
-          <div className="container mx-auto px-4 py-4 flex flex-col md:flex-row gap-4 items-center">
-            <div className="w-24 h-24 rounded-xl overflow-hidden shrink-0 border border-white/10 shadow-2xl hidden md:block">
-              <img src="https://files.manuscdn.com/user_upload_by_module/session_file/92549119/APwdhsHRGLOnpVQd.png" alt="Logo" className="w-full h-full object-cover" />
+        {/* Hero Section (Light) */}
+        <section className="relative py-16 md:py-24 overflow-hidden bg-slate-50 border-b border-slate-100">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-100/50 via-transparent to-transparent pointer-events-none" />
+          <div className="container mx-auto px-6 relative z-10">
+            <div className="max-w-4xl">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-sm font-medium mb-6 border border-blue-100">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                </span>
+                現在 1,240名 が登録中
+              </div>
+              <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 mb-6 leading-tight">
+                防災の診断・情報・つながりが<br className="hidden md:block" />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">一か所に集まる場所</span>
+              </h1>
+              <p className="text-lg text-slate-600 mb-8 max-w-2xl leading-relaxed">
+                The Global Resilience Hubへようこそ。<br />
+                最新の防災トレンド、専門家とのネットワーク、実践的なツールを活用して、<br className="hidden md:block" />
+                組織と地域のレジリエンスを高めましょう。
+              </p>
+              <div className="flex flex-col sm:flex-row items-center gap-4">
+                <Button size="lg" className="w-full sm:w-auto bg-[#D4B84A] hover:bg-[#C4A83A] text-[#0A0F1E] font-bold text-lg px-8 h-12 rounded-full shadow-lg shadow-yellow-500/20">
+                  ダッシュボードを見る
+                </Button>
+                <Button variant="outline" size="lg" className="w-full sm:w-auto h-12 px-8 rounded-full border-slate-200 text-slate-600 hover:bg-white hover:text-slate-900">
+                  プロフィールを編集
+                </Button>
+              </div>
             </div>
-            <div className="flex-1 text-center md:text-left w-full">
-              <div className="md:hidden w-20 h-20 rounded-xl overflow-hidden border border-white/10 shadow-2xl mx-auto mb-4">
-                <img src="https://files.manuscdn.com/user_upload_by_module/session_file/92549119/APwdhsHRGLOnpVQd.png" alt="Logo" className="w-full h-full object-cover" />
-              </div>
-              <h1 className="font-sans text-2xl md:text-3xl font-bold mb-2">The Global Resilience Hub</h1>
-              <div className="text-base md:text-lg text-muted-foreground mb-2 px-2 md:px-0 leading-relaxed">
-                <p className="font-bold text-white">世界中の防災・レジリエンスに関する知見が集まる場所。</p>
-              </div>
+          </div>
+        </section>
 
-              {/* Event Report Section (Ticker Style) */}
-              <div className="mt-6 mb-2 w-full max-w-full overflow-hidden pr-4 md:pr-0">
-                <div className="bg-white/5 border border-white/10 rounded-lg px-4 py-3 flex flex-col md:flex-row md:items-center gap-2 md:gap-4 hover:bg-white/10 transition-colors group cursor-pointer w-full">
-                  <div className="flex items-center gap-3 shrink-0">
-                    <span className="text-xs font-bold text-blue-300 bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/20 whitespace-nowrap">
-                      イベント報告
-                    </span>
-                    <span className="text-xs text-slate-400 whitespace-nowrap">2026.03.01</span>
+        {/* Upcoming Events */}
+        <section className="py-16 bg-white border-b border-slate-100">
+          <div className="container mx-auto px-6">
+            <div className="flex items-center justify-between mb-10">
+              <h2 className="text-2xl font-bold text-slate-900">近日開催のイベント</h2>
+              <a href="#" className="text-blue-600 font-medium hover:underline flex items-center gap-1">
+                すべて見る <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Event Card 1 */}
+              <div className="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col">
+                <div className="aspect-[16/9] bg-slate-100 relative overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=800&auto=format&fit=crop" alt="Event" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-blue-600 shadow-sm">
+                    オンライン
                   </div>
-                  <div className="flex-1 min-w-0 flex flex-col md:flex-row md:items-center gap-1 md:gap-2 overflow-hidden">
-                    <span className="text-sm font-medium text-white truncate group-hover:text-blue-300 transition-colors shrink-0 max-w-full">
-                      3/1 Global Resilience Summit 開催報告
-                    </span>
-                    <span className="text-xs text-slate-400 truncate block md:inline min-w-0 flex-1">
-                      <span className="hidden md:inline">— </span>
-                      世界30ヶ国から専門家が集結し、次世代の防災インフラについて熱い議論が交わされました。
-                    </span>
-                  </div>
-                  <div className="shrink-0 self-end md:self-auto">
-                    <span className="text-xs text-blue-400 group-hover:translate-x-1 transition-transform inline-flex items-center whitespace-nowrap">
-                      詳細 <span className="ml-1">→</span>
-                    </span>
+                </div>
+                <div className="p-5 flex-1 flex flex-col">
+                  <div className="text-sm font-bold text-[#D4B84A] mb-2">2026.03.15 (水) 14:00</div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">
+                    【緊急開催】改正BCPガイドライン徹底解説セミナー
+                  </h3>
+                  <div className="mt-auto pt-4">
+                    <Button className="w-full bg-slate-900 text-white hover:bg-slate-800 rounded-lg">
+                      申し込む
+                    </Button>
                   </div>
                 </div>
               </div>
 
-              {/* Featured Banners Carousel */}
-              <div className="mt-6 mb-6 w-full overflow-x-auto pb-4 scrollbar-hide">
-                <div className="flex gap-4 min-w-max px-1">
-                  {/* Banner 1: Award */}
-                  <div className="w-72 h-40 rounded-xl overflow-hidden relative group cursor-pointer border border-white/10 shadow-lg hover:shadow-blue-500/20 transition-all hover:-translate-y-1">
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 to-slate-900/90 z-10" />
-                    <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=1000&auto=format&fit=crop" alt="Award" className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-500" />
-                    <div className="absolute inset-0 z-20 p-4 flex flex-col justify-between">
-                      <div className="bg-blue-500/20 backdrop-blur-sm text-blue-200 text-xs font-bold px-2 py-1 rounded w-fit border border-blue-400/30">
-                        アワード
-                      </div>
-                      <div>
-                        <h3 className="text-white font-bold text-lg leading-tight mb-1">ジャパン・レジリエンス・アワード2026</h3>
-                        <p className="text-blue-100/80 text-xs">エントリー受付中</p>
-                      </div>
-                    </div>
+              {/* Event Card 2 */}
+              <div className="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col">
+                <div className="aspect-[16/9] bg-slate-100 relative overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=800&auto=format&fit=crop" alt="Event" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-emerald-600 shadow-sm">
+                    オフライン (東京)
                   </div>
-
-                  {/* Banner 2: Metaverse */}
-                  <div className="w-72 h-40 rounded-xl overflow-hidden relative group cursor-pointer border border-white/10 shadow-lg hover:shadow-purple-500/20 transition-all hover:-translate-y-1">
-                    <div className="absolute inset-0 bg-gradient-to-br from-purple-900/80 to-slate-900/90 z-10" />
-                    <img src="https://images.unsplash.com/photo-1626379953822-baec19c3accd?q=80&w=1000&auto=format&fit=crop" alt="Metaverse" className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-500" />
-                    <div className="absolute inset-0 z-20 p-4 flex flex-col justify-between">
-                      <div className="bg-purple-500/20 backdrop-blur-sm text-purple-200 text-xs font-bold px-2 py-1 rounded w-fit border border-purple-400/30">
-                        防災メタバース
-                      </div>
-                      <div>
-                        <h3 className="text-white font-bold text-lg leading-tight mb-1">バーチャル避難訓練</h3>
-                        <p className="text-purple-100/80 text-xs">スマホで体験可能</p>
-                      </div>
-                    </div>
+                </div>
+                <div className="p-5 flex-1 flex flex-col">
+                  <div className="text-sm font-bold text-[#D4B84A] mb-2">2026.03.22 (水) 18:00</div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">
+                    防災テック交流会 Vol.5 @渋谷
+                  </h3>
+                  <div className="mt-auto pt-4">
+                    <Button className="w-full bg-slate-900 text-white hover:bg-slate-800 rounded-lg">
+                      申し込む
+                    </Button>
                   </div>
+                </div>
+              </div>
 
-                  {/* Banner 3: Bosai X */}
-                  <div className="w-72 h-40 rounded-xl overflow-hidden relative group cursor-pointer border border-white/10 shadow-lg hover:shadow-emerald-500/20 transition-all hover:-translate-y-1">
-                    <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/80 to-slate-900/90 z-10" />
-                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000&auto=format&fit=crop" alt="Bosai X" className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-500" />
-                    <div className="absolute inset-0 z-20 p-4 flex flex-col justify-between">
-                      <div className="bg-emerald-500/20 backdrop-blur-sm text-emerald-200 text-xs font-bold px-2 py-1 rounded w-fit border border-emerald-400/30">
-                        防災X
-                      </div>
-                      <div>
-                        <h3 className="text-white font-bold text-lg leading-tight mb-1">次世代防災技術展</h3>
-                        <p className="text-emerald-100/80 text-xs">最新テックが集結</p>
-                      </div>
-                    </div>
+              {/* Event Card 3 */}
+              <div className="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col">
+                <div className="aspect-[16/9] bg-slate-100 relative overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=800&auto=format&fit=crop" alt="Event" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-blue-600 shadow-sm">
+                    オンライン
+                  </div>
+                </div>
+                <div className="p-5 flex-1 flex flex-col">
+                  <div className="text-sm font-bold text-[#D4B84A] mb-2">2026.04.05 (土) 10:00</div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">
+                    家庭でできる！実践的防災グッズ選定ワークショップ
+                  </h3>
+                  <div className="mt-auto pt-4">
+                    <Button className="w-full bg-slate-900 text-white hover:bg-slate-800 rounded-lg">
+                      申し込む
+                    </Button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Content */}
-        <div className="container mx-auto px-4 py-8 pb-24">
-          
-          {/* Finalists/Award Winners Section */}
-          <section className="mb-12">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-bold text-white flex items-center gap-2">
-                <span className="w-1 h-6 bg-[#d4a574] rounded-full"></span>
-                ファイナリスト・受賞者情報
-              </h2>
-              <Button variant="ghost" className="text-sm text-muted-foreground hover:text-white">
-                すべて見る
-              </Button>
+        {/* Event Reports */}
+        <section className="py-16 bg-slate-50 border-b border-slate-100">
+          <div className="container mx-auto px-6">
+            <div className="flex items-center justify-between mb-10">
+              <h2 className="text-2xl font-bold text-slate-900">イベントレポート</h2>
+              <a href="#" className="text-blue-600 font-medium hover:underline flex items-center gap-1">
+                すべて見る <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Report 1 */}
+              <div className="group cursor-pointer">
+                <div className="aspect-[3/2] rounded-xl overflow-hidden mb-4 relative">
+                  <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=800&auto=format&fit=crop" alt="Report" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
+                    <span className="text-white text-xs font-bold bg-blue-600 px-2 py-1 rounded">Summit</span>
+                  </div>
+                </div>
+                <div className="text-xs text-slate-500 mb-2">2026.03.01</div>
+                <h3 className="text-lg font-bold text-slate-900 leading-snug group-hover:text-blue-600 transition-colors">
+                  Global Resilience Summit 2026 開催レポート：世界30ヶ国の知見が集結
+                </h3>
+              </div>
+
+              {/* Report 2 */}
+              <div className="group cursor-pointer">
+                <div className="aspect-[3/2] rounded-xl overflow-hidden mb-4 relative">
+                  <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=800&auto=format&fit=crop" alt="Report" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
+                    <span className="text-white text-xs font-bold bg-emerald-600 px-2 py-1 rounded">Workshop</span>
+                  </div>
+                </div>
+                <div className="text-xs text-slate-500 mb-2">2026.02.20</div>
+                <h3 className="text-lg font-bold text-slate-900 leading-snug group-hover:text-blue-600 transition-colors">
+                  自治体×スタートアップ連携による地域防災の新しい形
+                </h3>
+              </div>
+
+              {/* Report 3 */}
+              <div className="group cursor-pointer">
+                <div className="aspect-[3/2] rounded-xl overflow-hidden mb-4 relative">
+                  <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=800&auto=format&fit=crop" alt="Report" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
+                    <span className="text-white text-xs font-bold bg-purple-600 px-2 py-1 rounded">Award</span>
+                  </div>
+                </div>
+                <div className="text-xs text-slate-500 mb-2">2026.02.15</div>
+                <h3 className="text-lg font-bold text-slate-900 leading-snug group-hover:text-blue-600 transition-colors">
+                  ジャパン・レジリエンス・アワード2025 受賞者インタビュー
+                </h3>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* News List */}
+        <section className="py-16 bg-white border-b border-slate-100">
+          <div className="container mx-auto px-6 max-w-4xl">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl font-bold text-slate-900 mb-4">お知らせ</h2>
+              <p className="text-slate-500">プラットフォームからの最新情報をお届けします</p>
+            </div>
+
+            <div className="space-y-4">
+              {[
+                { date: "2026.03.10", cat: "メンテナンス", title: "システムメンテナンスのお知らせ（3/20 2:00-4:00）" },
+                { date: "2026.03.08", cat: "新機能", title: "「防災ダッシュボード」に新機能が追加されました" },
+                { date: "2026.03.05", cat: "プレスリリース", title: "会員数1,000名突破記念キャンペーンを開始します" },
+                { date: "2026.03.01", cat: "重要", title: "利用規約改定のお知らせ" },
+              ].map((item, i) => (
+                <div key={i} className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 p-4 rounded-lg hover:bg-slate-50 transition-colors cursor-pointer border-b border-slate-100 last:border-0">
+                  <div className="flex items-center gap-3 shrink-0">
+                    <span className="text-sm text-slate-400 font-mono">{item.date}</span>
+                    <span className="text-xs font-bold px-2 py-1 rounded bg-slate-100 text-slate-600 min-w-[80px] text-center">
+                      {item.cat}
+                    </span>
+                  </div>
+                  <div className="text-slate-900 font-medium hover:text-blue-600 transition-colors">
+                    {item.title}
+                  </div>
+                </div>
+              ))}
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* Winner 1 */}
-              <div className="bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:bg-white/10 transition-colors group">
-                <div className="aspect-video bg-slate-800 relative overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1000&auto=format&fit=crop" alt="Winner 1" className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute top-2 right-2 bg-[#d4a574] text-[#0B1026] text-xs font-bold px-2 py-1 rounded shadow-lg">
-                    最優秀賞
-                  </div>
-                </div>
-                <div className="p-4">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 rounded-full bg-slate-700 overflow-hidden border border-white/20">
-                      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" alt="Avatar" className="w-full h-full object-cover" />
-                    </div>
-                    <div>
-                      <div className="font-bold text-white text-sm">田中 健一</div>
-                      <div className="text-xs text-muted-foreground">株式会社レジリエンス・テック</div>
-                    </div>
-                  </div>
-                  <div className="mb-2">
-                    <span className="text-xs text-blue-300 bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/20">
-                      先進技術部門
-                    </span>
-                  </div>
-                  <p className="text-sm text-white/80 line-clamp-2 italic">
-                    「AIを活用したリアルタイム避難誘導システムが評価されました。今後も技術で命を守る取り組みを加速させます。」
-                  </p>
-                </div>
-              </div>
-
-              {/* Winner 2 */}
-              <div className="bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:bg-white/10 transition-colors group">
-                <div className="aspect-video bg-slate-800 relative overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=1000&auto=format&fit=crop" alt="Winner 2" className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute top-2 right-2 bg-slate-200 text-slate-800 text-xs font-bold px-2 py-1 rounded shadow-lg">
-                    優秀賞
-                  </div>
-                </div>
-                <div className="p-4">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 rounded-full bg-slate-700 overflow-hidden border border-white/20">
-                      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop" alt="Avatar" className="w-full h-full object-cover" />
-                    </div>
-                    <div>
-                      <div className="font-bold text-white text-sm">佐藤 美咲</div>
-                      <div className="text-xs text-muted-foreground">NPO法人 地域防災ネットワーク</div>
-                    </div>
-                  </div>
-                  <div className="mb-2">
-                    <span className="text-xs text-emerald-300 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
-                      地域活動部門
-                    </span>
-                  </div>
-                  <p className="text-sm text-white/80 line-clamp-2 italic">
-                    「住民参加型の防災マップ作りが実を結びました。地域の絆こそが最強の防災インフラです。」
-                  </p>
-                </div>
-              </div>
-
-              {/* Winner 3 */}
-              <div className="bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:bg-white/10 transition-colors group">
-                <div className="aspect-video bg-slate-800 relative overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1000&auto=format&fit=crop" alt="Winner 3" className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute top-2 right-2 bg-amber-700 text-amber-100 text-xs font-bold px-2 py-1 rounded shadow-lg border border-amber-500/30">
-                    特別賞
-                  </div>
-                </div>
-                <div className="p-4">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 rounded-full bg-slate-700 overflow-hidden border border-white/20">
-                      <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&auto=format&fit=crop" alt="Avatar" className="w-full h-full object-cover" />
-                    </div>
-                    <div>
-                      <div className="font-bold text-white text-sm">鈴木 一郎</div>
-                      <div className="text-xs text-muted-foreground">未来都市建設株式会社</div>
-                    </div>
-                  </div>
-                  <div className="mb-2">
-                    <span className="text-xs text-purple-300 bg-purple-500/10 px-2 py-0.5 rounded border border-purple-500/20">
-                      企業レジリエンス部門
-                    </span>
-                  </div>
-                  <p className="text-sm text-white/80 line-clamp-2 italic">
-                    「BCP策定から訓練までの一貫した支援体制が高く評価されました。企業の存続を支え続けます。」
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Seminar/Event Announcement Section */}
-          <section className="mb-12">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-bold text-white flex items-center gap-2">
-                <span className="w-1 h-6 bg-[#d4a574] rounded-full"></span>
-                セミナー・イベント告知
-              </h2>
-              <Button variant="ghost" className="text-sm text-muted-foreground hover:text-white">
-                すべて見る
+            <div className="text-center mt-8">
+              <Button variant="outline" className="rounded-full px-8 border-slate-200 text-slate-600 hover:bg-slate-50">
+                一覧を見る
               </Button>
             </div>
+          </div>
+        </section>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Event 1 */}
-              <div className="bg-white/5 border border-white/10 rounded-xl p-6 flex flex-col md:flex-row gap-6 hover:bg-white/10 transition-colors group">
-                <div className="w-full md:w-48 h-32 rounded-lg overflow-hidden shrink-0 relative">
-                  <img src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=1000&auto=format&fit=crop" alt="Event 1" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute top-2 left-2 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">
-                    オンライン
-                  </div>
+        {/* Related Services */}
+        <section className="py-16 bg-slate-50 border-b border-slate-100">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-16">
+              <h2 className="text-2xl font-bold text-slate-900 mb-4">関連サービス</h2>
+              <p className="text-slate-500">レジリエンスを高めるための多様なソリューション</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Service 1 */}
+              <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all text-center group">
+                <div className="w-16 h-16 mx-auto bg-purple-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Globe className="w-8 h-8 text-purple-600" />
                 </div>
-                <div className="flex-1 flex flex-col justify-between">
-                  <div>
-                    <div className="text-sm text-[#d4a574] font-bold mb-1">2026.03.15 (水) 14:00 - 16:00</div>
-                    <h3 className="text-lg font-bold text-white mb-2 leading-tight group-hover:text-blue-300 transition-colors">
-                      【緊急開催】改正BCPガイドライン徹底解説セミナー
-                    </h3>
-                    <p className="text-sm text-slate-400 line-clamp-2">
-                      経産省の最新ガイドライン改定ポイントを、専門家が実務視点で分かりやすく解説します。
-                    </p>
-                  </div>
-                  <div className="mt-4 flex items-center justify-between">
-                    <span className="text-xs text-slate-500">定員: 500名 (残席わずか)</span>
-                    <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white">
-                      申し込む
-                    </Button>
-                  </div>
-                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">防災メタバース</h3>
+                <p className="text-slate-500 mb-6 leading-relaxed">
+                  バーチャル空間でリアルな災害シミュレーションを体験。場所を選ばず避難訓練が可能に。
+                </p>
+                <Button variant="ghost" className="text-purple-600 hover:text-purple-700 hover:bg-purple-50">
+                  詳細を見る <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
               </div>
 
-              {/* Event 2 */}
-              <div className="bg-white/5 border border-white/10 rounded-xl p-6 flex flex-col md:flex-row gap-6 hover:bg-white/10 transition-colors group">
-                <div className="w-full md:w-48 h-32 rounded-lg overflow-hidden shrink-0 relative">
-                  <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1000&auto=format&fit=crop" alt="Event 2" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute top-2 left-2 bg-emerald-600 text-white text-xs font-bold px-2 py-1 rounded">
-                    オフライン (東京)
-                  </div>
+              {/* Service 2 */}
+              <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all text-center group">
+                <div className="w-16 h-16 mx-auto bg-blue-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Radio className="w-8 h-8 text-blue-600" />
                 </div>
-                <div className="flex-1 flex flex-col justify-between">
-                  <div>
-                    <div className="text-sm text-[#d4a574] font-bold mb-1">2026.03.22 (水) 18:00 - 20:00</div>
-                    <h3 className="text-lg font-bold text-white mb-2 leading-tight group-hover:text-emerald-300 transition-colors">
-                      防災テック交流会 Vol.5 @渋谷
-                    </h3>
-                    <p className="text-sm text-slate-400 line-clamp-2">
-                      スタートアップから自治体担当者まで、防災に関わるプレイヤーが集うネットワーキングイベント。
-                    </p>
-                  </div>
-                  <div className="mt-4 flex items-center justify-between">
-                    <span className="text-xs text-slate-500">定員: 50名 (抽選)</span>
-                    <Button size="sm" className="bg-emerald-600 hover:bg-emerald-700 text-white">
-                      申し込む
-                    </Button>
-                  </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">東大MR防災訓練</h3>
+                <p className="text-slate-500 mb-6 leading-relaxed">
+                  複合現実技術を活用した次世代型訓練プログラム。より実践的な判断力を養います。
+                </p>
+                <Button variant="ghost" className="text-blue-600 hover:text-blue-700 hover:bg-blue-50">
+                  詳細を見る <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </div>
+
+              {/* Service 3 */}
+              <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all text-center group">
+                <div className="w-16 h-16 mx-auto bg-emerald-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Users className="w-8 h-8 text-emerald-600" />
                 </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">AIリスキリング</h3>
+                <p className="text-slate-500 mb-6 leading-relaxed">
+                  防災業務におけるAI活用スキルを習得。データ分析から意思決定支援まで幅広くカバー。
+                </p>
+                <Button variant="ghost" className="text-emerald-600 hover:text-emerald-700 hover:bg-emerald-50">
+                  詳細を見る <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
               </div>
             </div>
-          </section>
-        </div>
+          </div>
+        </section>
+
+        {/* Footer (Dark) */}
+        <footer className="bg-[#0A0F1E] text-slate-400 py-12 border-t border-white/10">
+          <div className="container mx-auto px-6">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-8">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded bg-gradient-to-br from-blue-600 to-indigo-900 flex items-center justify-center">
+                  <Shield className="w-5 h-5 text-white" />
+                </div>
+                <span className="font-bold text-lg text-white tracking-tight">The Global Resilience Hub</span>
+              </div>
+              <div className="flex flex-wrap justify-center gap-8 text-sm">
+                <a href="#" className="hover:text-white transition-colors">利用規約</a>
+                <a href="#" className="hover:text-white transition-colors">プライバシーポリシー</a>
+                <a href="#" className="hover:text-white transition-colors">特定商取引法に基づく表記</a>
+                <a href="#" className="hover:text-white transition-colors">お問い合わせ</a>
+              </div>
+            </div>
+            <div className="text-center text-xs text-slate-600 border-t border-white/5 pt-8">
+              &copy; 2026 Global Resilience Hub. All rights reserved.
+            </div>
+          </div>
+        </footer>
       </main>
     </div>
   );
