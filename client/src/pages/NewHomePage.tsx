@@ -279,45 +279,69 @@ export default function NewHomePage() {
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Service 1 */}
-              <div className="bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-blue-500/50 transition-all duration-300 group hover:bg-white/10">
-                <div className="w-12 h-12 rounded-xl bg-blue-900/50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <Globe className="w-6 h-6 text-blue-400" />
+              <div className="group bg-white/5 rounded-2xl border border-white/10 hover:border-blue-500/50 transition-all duration-300 overflow-hidden flex flex-col">
+                <div className="aspect-[16/9] bg-slate-800 relative overflow-hidden">
+                  <img src="https://d2xsxph8kpxj0f.cloudfront.net/92549119/2ougMYJUE3LHKcm4xk3UjD/metaverse_thumbnail-3TcSCDKJSKp8WpUzcn2Cx6.webp" alt="Metaverse" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E] to-transparent opacity-60" />
+                  <div className="absolute bottom-3 left-4 right-4">
+                    <div className="w-10 h-10 rounded-lg bg-blue-600/20 backdrop-blur-md flex items-center justify-center mb-2 border border-blue-500/30">
+                      <Globe className="w-5 h-5 text-blue-400" />
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">防災メタバース</h3>
-                <p className="text-slate-400 text-sm mb-4 leading-relaxed">
-                  バーチャル空間で災害シミュレーションを体験。リアルな避難訓練をどこでも実施可能に。
-                </p>
-                <Button variant="link" className="p-0 h-auto text-blue-400 hover:text-blue-300 font-bold flex items-center gap-1">
-                  詳細を見る <ArrowRight className="w-4 h-4" />
-                </Button>
+                <div className="p-5 flex-1 flex flex-col">
+                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">防災メタバース</h3>
+                  <p className="text-slate-400 text-sm mb-4 leading-relaxed flex-1">
+                    バーチャル空間で災害シミュレーションを体験。リアルな避難訓練をどこでも実施可能に。
+                  </p>
+                  <Button variant="link" className="p-0 h-auto text-blue-400 hover:text-blue-300 font-bold flex items-center gap-1 w-fit">
+                    詳細を見る <ArrowRight className="w-4 h-4" />
+                  </Button>
+                </div>
               </div>
 
               {/* Service 2 */}
-              <div className="bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-emerald-500/50 transition-all duration-300 group hover:bg-white/10">
-                <div className="w-12 h-12 rounded-xl bg-emerald-900/50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <Users className="w-6 h-6 text-emerald-400" />
+              <div className="group bg-white/5 rounded-2xl border border-white/10 hover:border-emerald-500/50 transition-all duration-300 overflow-hidden flex flex-col">
+                <div className="aspect-[16/9] bg-slate-800 relative overflow-hidden">
+                  <img src="https://d2xsxph8kpxj0f.cloudfront.net/92549119/2ougMYJUE3LHKcm4xk3UjD/mr_training_thumbnail-B89jAZbo9hstbu9Hto9BnU.webp" alt="MR Training" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E] to-transparent opacity-60" />
+                  <div className="absolute bottom-3 left-4 right-4">
+                    <div className="w-10 h-10 rounded-lg bg-emerald-600/20 backdrop-blur-md flex items-center justify-center mb-2 border border-emerald-500/30">
+                      <Users className="w-5 h-5 text-emerald-400" />
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">東大MR防災訓練</h3>
-                <p className="text-slate-400 text-sm mb-4 leading-relaxed">
-                  最新のMR技術を活用した次世代の防災訓練プログラム。産学連携による科学的アプローチ。
-                </p>
-                <Button variant="link" className="p-0 h-auto text-emerald-400 hover:text-emerald-300 font-bold flex items-center gap-1">
-                  詳細を見る <ArrowRight className="w-4 h-4" />
-                </Button>
+                <div className="p-5 flex-1 flex flex-col">
+                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">東大MR防災訓練</h3>
+                  <p className="text-slate-400 text-sm mb-4 leading-relaxed flex-1">
+                    最新のMR技術を活用した次世代の防災訓練プログラム。産学連携による科学的アプローチ。
+                  </p>
+                  <Button variant="link" className="p-0 h-auto text-emerald-400 hover:text-emerald-300 font-bold flex items-center gap-1 w-fit">
+                    詳細を見る <ArrowRight className="w-4 h-4" />
+                  </Button>
+                </div>
               </div>
 
               {/* Service 3 */}
-              <div className="bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-purple-500/50 transition-all duration-300 group hover:bg-white/10">
-                <div className="w-12 h-12 rounded-xl bg-purple-900/50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <Shield className="w-6 h-6 text-purple-400" />
+              <div className="group bg-white/5 rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all duration-300 overflow-hidden flex flex-col">
+                <div className="aspect-[16/9] bg-slate-800 relative overflow-hidden">
+                  <img src="https://d2xsxph8kpxj0f.cloudfront.net/92549119/2ougMYJUE3LHKcm4xk3UjD/ai_reskilling_thumbnail-7Md9Y4utBPrNhJJddubSuY.webp" alt="AI Reskilling" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E] to-transparent opacity-60" />
+                  <div className="absolute bottom-3 left-4 right-4">
+                    <div className="w-10 h-10 rounded-lg bg-purple-600/20 backdrop-blur-md flex items-center justify-center mb-2 border border-purple-500/30">
+                      <Shield className="w-5 h-5 text-purple-400" />
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">AIリスキリング</h3>
-                <p className="text-slate-400 text-sm mb-4 leading-relaxed">
-                  防災業務のDXを推進するためのAI活用スキル習得講座。実践的なプロンプトエンジニアリングも。
-                </p>
-                <Button variant="link" className="p-0 h-auto text-purple-400 hover:text-purple-300 font-bold flex items-center gap-1">
-                  詳細を見る <ArrowRight className="w-4 h-4" />
-                </Button>
+                <div className="p-5 flex-1 flex flex-col">
+                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">AIリスキリング</h3>
+                  <p className="text-slate-400 text-sm mb-4 leading-relaxed flex-1">
+                    防災業務のDXを推進するためのAI活用スキル習得講座。実践的なプロンプトエンジニアリングも。
+                  </p>
+                  <Button variant="link" className="p-0 h-auto text-purple-400 hover:text-purple-300 font-bold flex items-center gap-1 w-fit">
+                    詳細を見る <ArrowRight className="w-4 h-4" />
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
