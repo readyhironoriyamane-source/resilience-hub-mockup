@@ -7,6 +7,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "@/pages/Home";
 import NewHomePage from "@/pages/NewHomePage";
+import LandingPage from "@/pages/LandingPage";
 import SettingsPage from "@/pages/SettingsPage";
 import MyThreadsPage from "@/pages/MyThreadsPage";
 import About from "./pages/About";
@@ -26,7 +27,8 @@ import AuthPage from "./pages/AuthPage";
 function Router() {
   return (
     <Switch>
-      <Route path={"/"} component={NewHomePage} />
+      <Route path={"/"} component={LandingPage} />
+      <Route path={"/dashboard-home"} component={NewHomePage} />
       <Route path={"/news"} component={Home} />
       <Route path={"/auth"} component={AuthPage} />
       <Route path={"/about"} component={About} />
