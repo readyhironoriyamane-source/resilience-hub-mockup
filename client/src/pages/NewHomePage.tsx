@@ -93,12 +93,11 @@ export default function NewHomePage() {
                 組織と地域のレジリエンスを高めましょう。
               </p>
               <div className="flex flex-col sm:flex-row items-center gap-4">
-                <Button size="lg" className="w-full sm:w-auto bg-[#D4B84A] hover:bg-[#C4A83A] text-[#0A0F1E] font-bold text-lg px-8 h-12 rounded-full shadow-lg shadow-yellow-500/20">
-                  ダッシュボードを見る
-                </Button>
-                <Button variant="outline" size="lg" className="w-full sm:w-auto h-12 px-8 rounded-full border-slate-200 text-slate-600 hover:bg-white hover:text-slate-900">
-                  プロフィールを編集
-                </Button>
+                <a href="/news">
+                  <Button size="lg" className="w-full sm:w-auto bg-[#D4B84A] hover:bg-[#C4A83A] text-[#0A0F1E] font-bold text-lg px-8 h-12 rounded-full shadow-lg shadow-yellow-500/20">
+                    最新の防災ニュースを見る
+                  </Button>
+                </a>
               </div>
             </div>
           </div>
