@@ -23,12 +23,12 @@ export default function LandingPage() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <Link href="/auth">
+            <Link href="/dashboard-home">
               <Button variant="ghost" className="text-slate-300 hover:text-white hover:bg-white/10">
                 ログイン
               </Button>
             </Link>
-            <Link href="/auth">
+            <Link href="/dashboard-home">
               <Button className="bg-[#D4B84A] hover:bg-[#C4A83A] text-[#0A0F1E] font-bold border-none">
                 無料登録
               </Button>
@@ -58,12 +58,12 @@ export default function LandingPage() {
               次世代型防災プラットフォームです。
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/auth">
+              <Link href="/dashboard-home">
                 <Button size="lg" className="w-full sm:w-auto bg-[#D4B84A] hover:bg-[#C4A83A] text-[#0A0F1E] font-bold text-lg px-8 h-14 rounded-full shadow-lg shadow-yellow-500/20">
                   無料で始める
                 </Button>
               </Link>
-              <Link href="/auth">
+              <Link href="/dashboard-home">
                 <Button variant="outline" size="lg" className="w-full sm:w-auto h-14 px-8 rounded-full border-slate-200 text-slate-600 hover:bg-white hover:text-slate-900">
                   ログインはこちら
                 </Button>
