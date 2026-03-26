@@ -269,7 +269,7 @@ export function ResilienceDashboard() {
             </div>
 
             {/* Export Report Button */}
-            <div className="mb-6">
+            <div className="mb-6 space-y-3">
               <Button 
                 variant="outline" 
                 className="w-full border-primary/50 text-primary hover:bg-primary/10 hover:text-primary font-bold h-10 flex items-center justify-center gap-2"
@@ -277,6 +277,17 @@ export function ResilienceDashboard() {
               >
                 <FileText className="w-4 h-4" />
                 PDFでレポートを出す
+              </Button>
+              <Button 
+                variant="default" 
+                className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold h-10 flex items-center justify-center gap-2"
+                onClick={() => {
+                  const shareText = encodeURIComponent(`【防災ダッシュボード診断結果】\n現在の防災レベル：${evaluation.rank} (${score}点)\n\n#防災ダッシュボード #ResilienceHub`);
+                  window.location.href = `/community?post=${shareText}`;
+                }}
+              >
+                <Users className="w-4 h-4" />
+                この結果をコミュニティで共有する
               </Button>
             </div>
             

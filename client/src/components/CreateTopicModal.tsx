@@ -9,12 +9,15 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Check, ChevronRight, ChevronLeft, HelpCircle, Image as ImageIcon, MapPin } from "lucide-react";
 import { toast } from "sonner";
 
+import { useEffect } from "react";
+
 interface CreateTopicModalProps {
   isOpen: boolean;
   onClose: () => void;
+  initialContent?: string;
 }
 
-export function CreateTopicModal({ isOpen, onClose }: CreateTopicModalProps) {
+export function CreateTopicModal({ isOpen, onClose, initialContent }: CreateTopicModalProps) {
   const [step, setStep] = useState(1);
   const totalSteps = 4;
 
@@ -24,6 +27,22 @@ export function CreateTopicModal({ isOpen, onClose }: CreateTopicModalProps) {
     content: "",
     region: "",
   });
+
+  useEffect(() => {
+    if (isOpen && initialContent) {
+      setFormData(prev => ({
+        ...prev,
+        category: "consultation", // Default category for shared results
+        title: "防災ダッシュボードの診断結果を共有します",
+        content: initialContent
+      }));
+      setStep(3); // Skip to content step
+    } else if (!isOpen) {
+      // Reset when closed
+      setStep(1);
+      setFormData({ category: "", title: "", content: "", region: "" });
+    }
+  }, [isOpen, initialContent]);
 
   const handleNext = () => {
     if (step < totalSteps) {

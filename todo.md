@@ -13,3 +13,7 @@
 - [ ] Verify layout and responsiveness of the fixed section.
 - [ ] Fix layout issue in `NewHomePage.tsx` where the Event Report section is still cut off.
 - [ ] Verify layout and responsiveness of the fixed section.
+
+- [ ] Add 'Share to Community' button to Dashboard completion screen
+- [ ] Implement navigation to Community page with pre-filled diagnostic results
+- [ ] Update Community page to handle pre-filled data

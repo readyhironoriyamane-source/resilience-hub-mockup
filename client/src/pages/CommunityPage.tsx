@@ -57,6 +57,19 @@ export default function CommunityPage() {
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [activeFilter, setActiveFilter] = useState<FilterType>('all');
   const [filterTitle, setFilterTitle] = useState("");
+  const [initialPostData, setInitialPostData] = useState<string | undefined>(undefined);
+
+  // Check for pre-filled post data in URL
+  React.useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const postText = params.get('post');
+    if (postText) {
+      setInitialPostData(postText);
+      setIsCreateModalOpen(true);
+      // Clean up URL without reloading
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+  }, []);
 
   // User Profile Mock
   const userProfile = {
@@ -336,7 +349,14 @@ export default function CommunityPage() {
           </Button>
         </div>
 
-        <CreateTopicModal isOpen={isCreateModalOpen} onClose={() => setIsCreateModalOpen(false)} />
+        <CreateTopicModal 
+          isOpen={isCreateModalOpen} 
+          onClose={() => {
+            setIsCreateModalOpen(false);
+            setInitialPostData(undefined);
+          }} 
+          initialContent={initialPostData}
+        />
       </main>
     </div>
   );
