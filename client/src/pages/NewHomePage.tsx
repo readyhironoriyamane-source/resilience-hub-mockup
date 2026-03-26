@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Sidebar } from "@/components/Sidebar";
 import { MobileHeader } from "@/components/MobileHeader";
-import { Bell, Search, ArrowRight, Globe, Radio, Users, Shield } from "lucide-react";
+import { Bell, Search, ArrowRight, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLocation } from "wouter";
 
@@ -103,77 +103,77 @@ export default function NewHomePage() {
           </div>
         </section>
 
-        {/* Upcoming Events */}
+        {/* Press Release */}
         <section className="py-16 bg-[#0A0F1E] border-b border-white/5">
           <div className="container mx-auto px-6">
             <div className="flex items-center justify-between mb-10">
-              <h2 className="text-2xl font-bold text-white">近日開催のイベント</h2>
+              <h2 className="text-2xl font-bold text-white">プレスリリース</h2>
               <a href="#" className="text-blue-400 font-medium hover:text-blue-300 flex items-center gap-1 transition-colors">
                 すべて見る <ArrowRight className="w-4 h-4" />
               </a>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* Event Card 1 */}
+              {/* Press Release 1 */}
               <div className="group bg-white/5 rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 overflow-hidden flex flex-col">
                 <div className="aspect-[16/9] bg-slate-800 relative overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=800&auto=format&fit=crop" alt="Event" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" />
-                  <div className="absolute top-3 left-3 bg-black/70 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-blue-400 border border-white/10">
-                    オンライン
-                  </div>
+                  <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800&auto=format&fit=crop" alt="Press Release" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" />
                 </div>
                 <div className="p-5 flex-1 flex flex-col">
-                  <div className="text-sm font-bold text-[#D4B84A] mb-2">2026.03.15 (水) 14:00</div>
+                  <div className="text-sm font-bold text-[#D4B84A] mb-2">2026.03.12</div>
                   <h3 className="text-lg font-bold text-white mb-2 line-clamp-2 group-hover:text-blue-400 transition-colors">
-                    【緊急開催】改正BCPガイドライン徹底解説セミナー
+                    次世代防災プラットフォーム「Resilience Hub」正式リリース
                   </h3>
+                  <p className="text-slate-400 text-sm mb-4 line-clamp-2 flex-1">
+                    企業や自治体の防災担当者向けに、最新の防災情報とコミュニティ機能を提供する新サービスを開始しました。
+                  </p>
                   <div className="mt-auto pt-4">
-                    <Button className="w-full bg-white/10 text-white hover:bg-white/20 border border-white/10 rounded-lg">
-                      申し込む
-                    </Button>
+                    <a href="https://example.com/pr1" target="_blank" rel="noopener noreferrer">
+                      <Button className="w-full bg-white/10 text-white hover:bg-white/20 border border-white/10 rounded-lg flex items-center justify-center gap-2">
+                        詳細を見る <ExternalLink className="w-4 h-4" />
+                      </Button>
+                    </a>
                   </div>
                 </div>
               </div>
 
-              {/* Event Card 2 */}
+              {/* Press Release 2 */}
               <div className="group bg-white/5 rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 overflow-hidden flex flex-col">
                 <div className="aspect-[16/9] bg-slate-800 relative overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=800&auto=format&fit=crop" alt="Event" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" />
-                  <div className="absolute top-3 left-3 bg-black/70 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-emerald-400 border border-white/10">
-                    オフライン (東京)
-                  </div>
+                  <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop" alt="Press Release" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" />
                 </div>
                 <div className="p-5 flex-1 flex flex-col">
-                  <div className="text-sm font-bold text-[#D4B84A] mb-2">2026.03.22 (水) 18:00</div>
+                  <div className="text-sm font-bold text-[#D4B84A] mb-2">2026.02.28</div>
                   <h3 className="text-lg font-bold text-white mb-2 line-clamp-2 group-hover:text-blue-400 transition-colors">
-                    防災テック交流会 Vol.5 @渋谷
+                    AIを活用したリアルタイム被害予測システムの実証実験を開始
                   </h3>
+                  <p className="text-slate-400 text-sm mb-4 line-clamp-2 flex-1">
+                    気象データとSNS情報を統合し、AIがリアルタイムで被害状況を予測・可視化する新システムの実証実験を東京都内で開始しました。
+                  </p>
                   <div className="mt-auto pt-4">
-                    <Button className="w-full bg-white/10 text-white hover:bg-white/20 border border-white/10 rounded-lg">
-                      申し込む
-                    </Button>
+                    <a href="https://example.com/pr2" target="_blank" rel="noopener noreferrer">
+                      <Button className="w-full bg-white/10 text-white hover:bg-white/20 border border-white/10 rounded-lg flex items-center justify-center gap-2">
+                        詳細を見る <ExternalLink className="w-4 h-4" />
+                      </Button>
+                    </a>
                   </div>
                 </div>
               </div>
 
-              {/* Event Card 3 */}
+              {/* Press Release 3 */}
               <div className="group bg-white/5 rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 overflow-hidden flex flex-col">
                 <div className="aspect-[16/9] bg-slate-800 relative overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=800&auto=format&fit=crop" alt="Event" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" />
-                  <div className="absolute top-3 left-3 bg-black/70 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-blue-400 border border-white/10">
-                    オンライン
-                  </div>
+                  <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=800&auto=format&fit=crop" alt="Press Release" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" />
                 </div>
                 <div className="p-5 flex-1 flex flex-col">
-                  <div className="text-sm font-bold text-[#D4B84A] mb-2">2026.04.05 (土) 10:00</div>
+                  <div className="text-sm font-bold text-[#D4B84A] mb-2">2026.01.15</div>
                   <h3 className="text-lg font-bold text-white mb-2 line-clamp-2 group-hover:text-blue-400 transition-colors">
-                    家庭でできる！実践的防災グッズ選定ワークショップ
+                    大手企業50社が参画する「防災DXコンソーシアム」設立
                   </h3>
-                  <div className="mt-auto pt-4">
-                    <Button className="w-full bg-white/10 text-white hover:bg-white/20 border border-white/10 rounded-lg">
-                      申し込む
-                    </Button>
-                  </div>
+                  <p className="text-slate-400 text-sm mb-4 line-clamp-2 flex-1">
+                    業界の垣根を越えて防災分野のデジタルトランスフォーメーションを推進するコンソーシアムを設立しました。
+                  </p>
+                  {/* No source_url for this one, so no button */}
                 </div>
               </div>
             </div>
@@ -192,45 +192,51 @@ export default function NewHomePage() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Report 1 */}
-              <div className="group cursor-pointer">
-                <div className="aspect-[3/2] rounded-xl overflow-hidden mb-4 relative border border-white/5">
+              <div className="group cursor-pointer bg-white/5 rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 overflow-hidden flex flex-col" onClick={() => setLocation('/report/1')}>
+                <div className="aspect-[16/9] relative overflow-hidden">
                   <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=800&auto=format&fit=crop" alt="Report" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent">
-                    <span className="text-white text-xs font-bold bg-blue-600 px-2 py-1 rounded">Summit</span>
-                  </div>
                 </div>
-                <div className="text-xs text-slate-400 mb-2">2026.03.01</div>
-                <h3 className="text-lg font-bold text-white leading-snug group-hover:text-blue-400 transition-colors">
-                  Global Resilience Summit 2026 開催レポート：世界30ヶ国の知見が集結
-                </h3>
+                <div className="p-5 flex-1 flex flex-col">
+                  <div className="text-xs text-slate-400 mb-2">2026.03.01</div>
+                  <h3 className="text-lg font-bold text-white mb-2 leading-snug group-hover:text-blue-400 transition-colors">
+                    Global Resilience Summit 2026 開催レポート：世界30ヶ国の知見が集結
+                  </h3>
+                  <p className="text-slate-400 text-sm line-clamp-2">
+                    気候変動による激甚化する災害に対し、グローバルな視点でレジリエンスをどう高めるか。3日間にわたるサミットのハイライトをお届けします。
+                  </p>
+                </div>
               </div>
 
               {/* Report 2 */}
-              <div className="group cursor-pointer">
-                <div className="aspect-[3/2] rounded-xl overflow-hidden mb-4 relative border border-white/5">
-                  <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=800&auto=format&fit=crop" alt="Report" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent">
-                    <span className="text-white text-xs font-bold bg-emerald-600 px-2 py-1 rounded">Workshop</span>
-                  </div>
+              <div className="group cursor-pointer bg-white/5 rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 overflow-hidden flex flex-col" onClick={() => setLocation('/report/2')}>
+                <div className="aspect-[16/9] relative overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=800&auto=format&fit=crop" alt="Report" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" />
                 </div>
-                <div className="text-xs text-slate-400 mb-2">2026.02.20</div>
-                <h3 className="text-lg font-bold text-white leading-snug group-hover:text-blue-400 transition-colors">
-                  【参加者アンケート公開】BCP策定ワークショップの満足度98%の理由
-                </h3>
+                <div className="p-5 flex-1 flex flex-col">
+                  <div className="text-xs text-slate-400 mb-2">2026.02.20</div>
+                  <h3 className="text-lg font-bold text-white mb-2 leading-snug group-hover:text-blue-400 transition-colors">
+                    【参加者アンケート公開】BCP策定ワークショップの満足度98%の理由
+                  </h3>
+                  <p className="text-slate-400 text-sm line-clamp-2">
+                    実践的なシナリオを用いたBCP策定ワークショップ。参加者の声から見えてきた、本当に役立つBCPのあり方とは。
+                  </p>
+                </div>
               </div>
 
               {/* Report 3 */}
-              <div className="group cursor-pointer">
-                <div className="aspect-[3/2] rounded-xl overflow-hidden mb-4 relative border border-white/5">
+              <div className="group cursor-pointer bg-white/5 rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 overflow-hidden flex flex-col" onClick={() => setLocation('/report/3')}>
+                <div className="aspect-[16/9] relative overflow-hidden">
                   <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop" alt="Report" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent">
-                    <span className="text-white text-xs font-bold bg-purple-600 px-2 py-1 rounded">Interview</span>
-                  </div>
                 </div>
-                <div className="text-xs text-slate-400 mb-2">2026.02.15</div>
-                <h3 className="text-lg font-bold text-white leading-snug group-hover:text-blue-400 transition-colors">
-                  「想定外」をなくすために。防災専門家が語る2026年のリスク予測
-                </h3>
+                <div className="p-5 flex-1 flex flex-col">
+                  <div className="text-xs text-slate-400 mb-2">2026.02.15</div>
+                  <h3 className="text-lg font-bold text-white mb-2 leading-snug group-hover:text-blue-400 transition-colors">
+                    「想定外」をなくすために。防災専門家が語る2026年のリスク予測
+                  </h3>
+                  <p className="text-slate-400 text-sm line-clamp-2">
+                    第一線で活躍する防災専門家3名によるパネルディスカッション。今年注視すべき新たなリスクとその対策について語られました。
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -246,24 +252,32 @@ export default function NewHomePage() {
               </a>
             </div>
 
-            <div className="space-y-4">
-              <div className="flex flex-col md:flex-row md:items-center gap-4 p-4 rounded-xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/5 cursor-pointer group">
+            <div className="space-y-2">
+              <div 
+                className="flex flex-col md:flex-row md:items-center gap-4 p-4 rounded-xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/5 cursor-pointer group"
+                onClick={() => setLocation('/news/1')}
+              >
                 <div className="text-sm text-slate-400 w-32 shrink-0">2026.03.10</div>
-                <div className="px-2 py-0.5 rounded text-xs font-bold bg-blue-900/50 text-blue-300 border border-blue-800/50 w-fit">ニュース</div>
                 <div className="text-base font-medium text-white group-hover:text-blue-400 transition-colors">
                   会員数が1,000名を突破しました
                 </div>
               </div>
-              <div className="flex flex-col md:flex-row md:items-center gap-4 p-4 rounded-xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/5 cursor-pointer group">
+              <div className="h-px bg-white/5 w-full" />
+              <div 
+                className="flex flex-col md:flex-row md:items-center gap-4 p-4 rounded-xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/5 cursor-pointer group"
+                onClick={() => setLocation('/news/2')}
+              >
                 <div className="text-sm text-slate-400 w-32 shrink-0">2026.03.08</div>
-                <div className="px-2 py-0.5 rounded text-xs font-bold bg-emerald-900/50 text-emerald-300 border border-emerald-800/50 w-fit">アップデート</div>
                 <div className="text-base font-medium text-white group-hover:text-blue-400 transition-colors">
                   ダッシュボードに「地域別リスクマップ」機能を追加しました
                 </div>
               </div>
-              <div className="flex flex-col md:flex-row md:items-center gap-4 p-4 rounded-xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/5 cursor-pointer group">
+              <div className="h-px bg-white/5 w-full" />
+              <div 
+                className="flex flex-col md:flex-row md:items-center gap-4 p-4 rounded-xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/5 cursor-pointer group"
+                onClick={() => setLocation('/news/3')}
+              >
                 <div className="text-sm text-slate-400 w-32 shrink-0">2026.03.01</div>
-                <div className="px-2 py-0.5 rounded text-xs font-bold bg-purple-900/50 text-purple-300 border border-purple-800/50 w-fit">イベント</div>
                 <div className="text-base font-medium text-white group-hover:text-blue-400 transition-colors">
                   4月開催のワークショップの先行予約を開始しました
                 </div>
@@ -277,72 +291,42 @@ export default function NewHomePage() {
           <div className="container mx-auto px-6">
             <h2 className="text-2xl font-bold text-white mb-10">関連サービス</h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {/* Service 1 */}
-              <div className="group bg-white/5 rounded-2xl border border-white/10 hover:border-blue-500/50 transition-all duration-300 overflow-hidden flex flex-col">
-                <div className="aspect-[16/9] bg-slate-800 relative overflow-hidden">
-                  <img src="https://d2xsxph8kpxj0f.cloudfront.net/92549119/2ougMYJUE3LHKcm4xk3UjD/metaverse_thumbnail-3TcSCDKJSKp8WpUzcn2Cx6.webp" alt="Metaverse" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E] to-transparent opacity-60" />
-                  <div className="absolute bottom-3 left-4 right-4">
-                    <div className="w-10 h-10 rounded-lg bg-blue-600/20 backdrop-blur-md flex items-center justify-center mb-2 border border-blue-500/30">
-                      <Globe className="w-5 h-5 text-blue-400" />
-                    </div>
-                  </div>
+              <a href="https://example.com/metaverse" target="_blank" rel="noopener noreferrer" className="group relative aspect-[4/3] md:aspect-square rounded-2xl overflow-hidden border border-white/10 hover:border-blue-500/50 transition-all duration-300 block">
+                <img src="https://d2xsxph8kpxj0f.cloudfront.net/92549119/2ougMYJUE3LHKcm4xk3UjD/metaverse_thumbnail-3TcSCDKJSKp8WpUzcn2Cx6.webp" alt="防災メタバース" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-70 group-hover:opacity-90" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E]/90 via-[#0A0F1E]/40 to-transparent" />
+                <div className="absolute inset-0 flex items-center justify-center p-4 text-center">
+                  <h3 className="text-lg md:text-xl font-bold text-white group-hover:text-blue-400 transition-colors drop-shadow-lg">防災メタバース</h3>
                 </div>
-                <div className="p-5 flex-1 flex flex-col">
-                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">防災メタバース</h3>
-                  <p className="text-slate-400 text-sm mb-4 leading-relaxed flex-1">
-                    バーチャル空間で災害シミュレーションを体験。リアルな避難訓練をどこでも実施可能に。
-                  </p>
-                  <Button variant="link" className="p-0 h-auto text-blue-400 hover:text-blue-300 font-bold flex items-center gap-1 w-fit">
-                    詳細を見る <ArrowRight className="w-4 h-4" />
-                  </Button>
-                </div>
-              </div>
+              </a>
 
               {/* Service 2 */}
-              <div className="group bg-white/5 rounded-2xl border border-white/10 hover:border-emerald-500/50 transition-all duration-300 overflow-hidden flex flex-col">
-                <div className="aspect-[16/9] bg-slate-800 relative overflow-hidden">
-                  <img src="https://d2xsxph8kpxj0f.cloudfront.net/92549119/2ougMYJUE3LHKcm4xk3UjD/mr_training_thumbnail-B89jAZbo9hstbu9Hto9BnU.webp" alt="MR Training" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E] to-transparent opacity-60" />
-                  <div className="absolute bottom-3 left-4 right-4">
-                    <div className="w-10 h-10 rounded-lg bg-emerald-600/20 backdrop-blur-md flex items-center justify-center mb-2 border border-emerald-500/30">
-                      <Users className="w-5 h-5 text-emerald-400" />
-                    </div>
-                  </div>
+              <a href="https://example.com/mr-training" target="_blank" rel="noopener noreferrer" className="group relative aspect-[4/3] md:aspect-square rounded-2xl overflow-hidden border border-white/10 hover:border-emerald-500/50 transition-all duration-300 block">
+                <img src="https://d2xsxph8kpxj0f.cloudfront.net/92549119/2ougMYJUE3LHKcm4xk3UjD/mr_training_thumbnail-B89jAZbo9hstbu9Hto9BnU.webp" alt="東大MR防災訓練" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-70 group-hover:opacity-90" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E]/90 via-[#0A0F1E]/40 to-transparent" />
+                <div className="absolute inset-0 flex items-center justify-center p-4 text-center">
+                  <h3 className="text-lg md:text-xl font-bold text-white group-hover:text-emerald-400 transition-colors drop-shadow-lg">東大MR防災訓練</h3>
                 </div>
-                <div className="p-5 flex-1 flex flex-col">
-                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">東大MR防災訓練</h3>
-                  <p className="text-slate-400 text-sm mb-4 leading-relaxed flex-1">
-                    最新のMR技術を活用した次世代の防災訓練プログラム。産学連携による科学的アプローチ。
-                  </p>
-                  <Button variant="link" className="p-0 h-auto text-emerald-400 hover:text-emerald-300 font-bold flex items-center gap-1 w-fit">
-                    詳細を見る <ArrowRight className="w-4 h-4" />
-                  </Button>
-                </div>
-              </div>
+              </a>
 
               {/* Service 3 */}
-              <div className="group bg-white/5 rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all duration-300 overflow-hidden flex flex-col">
-                <div className="aspect-[16/9] bg-slate-800 relative overflow-hidden">
-                  <img src="https://d2xsxph8kpxj0f.cloudfront.net/92549119/2ougMYJUE3LHKcm4xk3UjD/ai_reskilling_thumbnail-7Md9Y4utBPrNhJJddubSuY.webp" alt="AI Reskilling" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E] to-transparent opacity-60" />
-                  <div className="absolute bottom-3 left-4 right-4">
-                    <div className="w-10 h-10 rounded-lg bg-purple-600/20 backdrop-blur-md flex items-center justify-center mb-2 border border-purple-500/30">
-                      <Shield className="w-5 h-5 text-purple-400" />
-                    </div>
-                  </div>
+              <a href="https://example.com/ai-reskilling" target="_blank" rel="noopener noreferrer" className="group relative aspect-[4/3] md:aspect-square rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-all duration-300 block">
+                <img src="https://d2xsxph8kpxj0f.cloudfront.net/92549119/2ougMYJUE3LHKcm4xk3UjD/ai_reskilling_thumbnail-7Md9Y4utBPrNhJJddubSuY.webp" alt="AIリスキリング" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-70 group-hover:opacity-90" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E]/90 via-[#0A0F1E]/40 to-transparent" />
+                <div className="absolute inset-0 flex items-center justify-center p-4 text-center">
+                  <h3 className="text-lg md:text-xl font-bold text-white group-hover:text-purple-400 transition-colors drop-shadow-lg">AIリスキリング</h3>
                 </div>
-                <div className="p-5 flex-1 flex flex-col">
-                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">AIリスキリング</h3>
-                  <p className="text-slate-400 text-sm mb-4 leading-relaxed flex-1">
-                    防災業務のDXを推進するためのAI活用スキル習得講座。実践的なプロンプトエンジニアリングも。
-                  </p>
-                  <Button variant="link" className="p-0 h-auto text-purple-400 hover:text-purple-300 font-bold flex items-center gap-1 w-fit">
-                    詳細を見る <ArrowRight className="w-4 h-4" />
-                  </Button>
+              </a>
+
+              {/* Service 4 */}
+              <a href="https://example.com/consulting" target="_blank" rel="noopener noreferrer" className="group relative aspect-[4/3] md:aspect-square rounded-2xl overflow-hidden border border-white/10 hover:border-amber-500/50 transition-all duration-300 block">
+                <img src="https://d2xsxph8kpxj0f.cloudfront.net/92549119/2ougMYJUE3LHKcm4xk3UjD/disaster_consulting_thumbnail-6GzoaR2rgmas5mzh4CDj2X.webp" alt="防災コンサルティング" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-70 group-hover:opacity-90" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E]/90 via-[#0A0F1E]/40 to-transparent" />
+                <div className="absolute inset-0 flex items-center justify-center p-4 text-center">
+                  <h3 className="text-lg md:text-xl font-bold text-white group-hover:text-amber-400 transition-colors drop-shadow-lg">防災コンサルティング</h3>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
         </section>
