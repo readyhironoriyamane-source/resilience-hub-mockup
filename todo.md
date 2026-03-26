@@ -21,3 +21,5 @@
 - [ ] Update 'Share to Community' flow to start at the title step (step 2)
 - [ ] Pre-fill title with dynamic prefix (e.g., 【診断スコア: 〇〇点】) instead of fixed title
 - [ ] Pass score from ResilienceDashboard to CommunityPage via URL params
+
+- [ ] Update 'Share to Community' title prefix to include industry and company size context

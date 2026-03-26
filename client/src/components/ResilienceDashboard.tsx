@@ -282,7 +282,10 @@ export function ResilienceDashboard() {
                 variant="default" 
                 className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold h-10 flex items-center justify-center gap-2"
                 onClick={() => {
-                  window.location.href = `/community?score=${score}&rank=${evaluation.rank}`;
+                  // Mock user profile data for context
+                  const mockIndustry = "IT・通信";
+                  const mockSize = "100-500名";
+                  window.location.href = `/community?score=${score}&rank=${evaluation.rank}&industry=${encodeURIComponent(mockIndustry)}&size=${encodeURIComponent(mockSize)}`;
                 }}
               >
                 <Users className="w-4 h-4" />

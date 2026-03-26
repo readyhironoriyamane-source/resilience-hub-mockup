@@ -64,9 +64,11 @@ export default function CommunityPage() {
     const params = new URLSearchParams(window.location.search);
     const score = params.get('score');
     const rank = params.get('rank');
+    const industry = params.get('industry');
+    const size = params.get('size');
     
     if (score && rank) {
-      const postData = JSON.stringify({ score, rank });
+      const postData = JSON.stringify({ score, rank, industry, size });
       setInitialPostData(postData);
       setIsCreateModalOpen(true);
       // Clean up URL without reloading

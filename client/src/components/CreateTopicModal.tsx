@@ -33,10 +33,11 @@ export function CreateTopicModal({ isOpen, onClose, initialContent }: CreateTopi
       try {
         const data = JSON.parse(initialContent);
         if (data.score && data.rank) {
+          const contextStr = (data.industry && data.size) ? ` / ${data.industry}（${data.size}）` : '';
           setFormData(prev => ({
             ...prev,
             category: "consultation", // Default category for shared results
-            title: `【診断スコア: ${data.score}点】 `,
+            title: `【診断スコア: ${data.score}点${contextStr}】 `,
             content: `【防災ダッシュボード診断結果】\n現在の防災レベル：${data.rank} (${data.score}点)\n\n#防災ダッシュボード #ResilienceHub\n\n---\n\n（ここに相談内容や感想をご記入ください）\n`
           }));
           setStep(2); // Start at title step
