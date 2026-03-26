@@ -282,8 +282,7 @@ export function ResilienceDashboard() {
                 variant="default" 
                 className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold h-10 flex items-center justify-center gap-2"
                 onClick={() => {
-                  const shareText = encodeURIComponent(`【防災ダッシュボード診断結果】\n現在の防災レベル：${evaluation.rank} (${score}点)\n\n#防災ダッシュボード #ResilienceHub`);
-                  window.location.href = `/community?post=${shareText}`;
+                  window.location.href = `/community?score=${score}&rank=${evaluation.rank}`;
                 }}
               >
                 <Users className="w-4 h-4" />

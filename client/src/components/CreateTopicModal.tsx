@@ -30,13 +30,27 @@ export function CreateTopicModal({ isOpen, onClose, initialContent }: CreateTopi
 
   useEffect(() => {
     if (isOpen && initialContent) {
-      setFormData(prev => ({
-        ...prev,
-        category: "consultation", // Default category for shared results
-        title: "防災ダッシュボードの診断結果を共有します",
-        content: initialContent
-      }));
-      setStep(3); // Skip to content step
+      try {
+        const data = JSON.parse(initialContent);
+        if (data.score && data.rank) {
+          setFormData(prev => ({
+            ...prev,
+            category: "consultation", // Default category for shared results
+            title: `【診断スコア: ${data.score}点】 `,
+            content: `【防災ダッシュボード診断結果】\n現在の防災レベル：${data.rank} (${data.score}点)\n\n#防災ダッシュボード #ResilienceHub\n\n---\n\n（ここに相談内容や感想をご記入ください）\n`
+          }));
+          setStep(2); // Start at title step
+        }
+      } catch (e) {
+        // Fallback for plain text
+        setFormData(prev => ({
+          ...prev,
+          category: "consultation",
+          title: "",
+          content: initialContent
+        }));
+        setStep(2);
+      }
     } else if (!isOpen) {
       // Reset when closed
       setStep(1);

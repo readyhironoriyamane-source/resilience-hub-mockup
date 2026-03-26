@@ -62,9 +62,12 @@ export default function CommunityPage() {
   // Check for pre-filled post data in URL
   React.useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const postText = params.get('post');
-    if (postText) {
-      setInitialPostData(postText);
+    const score = params.get('score');
+    const rank = params.get('rank');
+    
+    if (score && rank) {
+      const postData = JSON.stringify({ score, rank });
+      setInitialPostData(postData);
       setIsCreateModalOpen(true);
       // Clean up URL without reloading
       window.history.replaceState({}, document.title, window.location.pathname);

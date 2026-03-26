@@ -17,3 +17,7 @@
 - [ ] Add 'Share to Community' button to Dashboard completion screen
 - [ ] Implement navigation to Community page with pre-filled diagnostic results
 - [ ] Update Community page to handle pre-filled data
+
+- [ ] Update 'Share to Community' flow to start at the title step (step 2)
+- [ ] Pre-fill title with dynamic prefix (e.g., 【診断スコア: 〇〇点】) instead of fixed title
+- [ ] Pass score from ResilienceDashboard to CommunityPage via URL params
